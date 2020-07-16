@@ -1,0 +1,18 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.8262,36.1702]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.8249,36.1732]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-81.8236,36.1708]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.1243,35.976]},"properties":{"educationprogramcode":"US19102900","setting_14":12}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.3157,35.6093]},"properties":{"educationprogramcode":"US19102900","setting_14":11}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.2596,35.8872]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.2609,35.8871]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.2585,35.8889]},"properties":{"educationprogramcode":"US19102900","setting_14":-9}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.2628,35.8864]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.2727,35.9923]},"properties":{"educationprogramcode":"US19102900","setting_14":7}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.5398,35.8767]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.5409,35.876]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.0703,35.9173]},"properties":{"educationprogramcode":"US19102900","setting_14":9}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.5221,35.5455]},"properties":{"educationprogramcode":"US19102900","setting_14":6}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.5171,35.5489]},"properties":{"educationprogramcode":"US19102900","setting_14":7}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.4972,35.5926]},"properties":{"educationprogramcode":"US19102900","setting_14":7}}
+]}

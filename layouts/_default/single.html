@@ -1,0 +1,20 @@
+{{define "main"}}
+<section class="hero is-info is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title is-spaced has-text-weight-light has-text-grey-dark">
+                {{.Title}}
+            </h1>
+            <p class="subtitle">
+                {{.Params.subtitle}}
+            </p>
+        </div>
+    </div>
+</section>
+<section class="content container">
+    {{.Content}}
+</section>
+{{with .Params.app}}
+<div id="app"></div>
+{{end}}
+{{end}}

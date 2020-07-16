@@ -1,0 +1,4 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-80.583,35.4]},"properties":{"educationprogramcode":"US19109400","setting_14":9}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-80.9633,35.2701]},"properties":{"educationprogramcode":"US19109400","setting_14":-9}}
+]}

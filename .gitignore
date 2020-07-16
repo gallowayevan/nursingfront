@@ -1,0 +1,5 @@
+node_modules
+content/diffusion/build/layers
+content/diffusion/build/exact
+content/diffusion/build/ellipses
+package-lock.json

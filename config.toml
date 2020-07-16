@@ -1,0 +1,4 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Nursing Project"
+ignoreFiles = ["node_modules"]

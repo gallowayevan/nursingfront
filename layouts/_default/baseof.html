@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NC Nursing Supply & Demand</title>
+
+    <link rel="stylesheet" href="/css/bulma.css">
+    <link rel="stylesheet" href="/css/main.css">
+    {{ if isset .Page.Params "css" }}
+    {{range .Page.Params.css}}
+    <link rel="stylesheet" href="{{ . }}" type="text/css">
+    {{ end }}
+    {{end}}
+
+    {{ if isset .Page.Params "javascript" }}
+    {{range .Page.Params.javascript}}
+    <script defer src="{{ . }}"></script>
+    {{ end }}
+    {{end}}
+
+
+
+</head>
+
+<body>
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <!--
+ * Font Awesome Free 5.12.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+			-->
+            <symbol id="chart-line" viewBox="0 0 512 512">
+                <title>Line Chart</title>
+                <path
+                    d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z" />
+            </symbol>
+            <symbol id="file-alt" viewBox="0 0 384 512">
+                <title>File Alt</title>
+                <path
+                    d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z" />
+            </symbol>
+            <symbol id="graduation-cap" viewBox="0 0 640 512">
+                <title>Graduation Cap</title>
+                <path
+                    d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z" />
+            </symbol>
+        </defs>
+    </svg>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+
+        <div class="navbar-menu is-active">
+            <div class="navbar-start">
+                <a class="navbar-item has-text-weight-light is-size-5" href="/">
+                    Home
+                </a>
+
+                <a class="navbar-item has-text-weight-light is-size-5" href="/documentation">
+                    Documentation
+                </a>
+                <a class="navbar-item has-text-weight-light is-size-5" href="/model">
+                    Supply
+                </a>
+                <a class="navbar-item has-text-weight-light is-size-5" href="/diffusion">
+                    Diffusion
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    {{block "main" .}}
+
+    {{end}}
+
+
+    <section class="section has-background-white-er is-bold">
+        <h1 class="title center is-spaced has-text-weight-light"> Explore</h1>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <article class="media notification is-link">
+                        <figure class="media-left">
+                            <span class="icon is-medium">
+                                <svg>
+                                    <use xlink:href="#chart-line" />
+                                </svg>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h1 class="title has-text-weight-light is-size-4"> Supply & Demand </h1>
+                                <p class="is-size-5">
+                                    Want to learn about the future supply and demand of our state's licensed practical
+                                    nurses and registered nurses across specialty and geographic region?
+
+                                </p>
+                                <a class="button is-warning is-outlined is-center is-rounded" href="/model">
+                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="column">
+                    <article class="media notification is-link">
+                        <figure class="media-left">
+                            <span class="icon is-medium">
+                                <svg>
+                                    <use xlink:href="#file-alt" />
+                                </svg>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h1 class="title has-text-weight-light is-size-4"> Documentation </h1>
+                                <p class="is-size-5">
+                                    Are you a data-oriented individual? Want to look under the hood and learn more about
+                                    our model and methodology, basic nursing statistics, and the science behind our
+                                    work?
+
+                                </p>
+
+                                <a class="button is-warning is-outlined is-center is-rounded" href="/documentation">
+                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+                <div class="column">
+                    <article class="media notification is-link">
+                        <figure class="media-left">
+                            <span class="icon is-medium">
+                                <svg>
+                                    <use xlink:href="#graduation-cap" />
+                                </svg>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h1 class="title has-text-weight-light is-size-4"> Program Diffusion</h1>
+                                <p class="is-size-5">
+                                    Want to see how different North Carolina BSN and LPN programs impact the
+                                    distribution of health professionals in their area and across the state?
+                                </p>
+
+                                <a class="button is-warning is-outlined is-center is-rounded" href="/diffusion">
+                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                </a>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section has-background-light is-bold">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <h1 class="title center is-spaced has-text-weight-light">
+                        Who are we?
+                    </h1>
+                    <h2 class="subtitle">
+                        This project is brought to you by The Cecil G. Sheps Center For Health Services Research at the
+                        University of North Carolina in partnership with the North Carolina Board of Nursing.
+
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer has-background-warning">
+
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <div class="columns">
+                        <div class="column is-one-third">
+                            <div class="column">
+
+                                <figure class="image">
+                                    <img src="/images/NCBNlogo.svg">
+
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <figure class="image">
+                                    <img src="/images/workforce.svg">
+
+                                </figure>
+                            </div>
+
+
+
+                        </div>
+                        <div class="column has-text-right">
+                            <p> <strong> Contact us </strong>
+                                <br>UNC Program on Health Workforce & Research
+                                <br> Email: nchealthworkforce@unc.edu
+                                <br> Phone: 919-966-5011
+
+                            </p>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    {{with .Page.Params.es6}}
+    <script>
+        //Basic test for es6 support
+        var teststr = 'var test = (d)=>d';
+
+        try {
+            eval(teststr);
+        } catch (e) {
+            var vizDiv = document.getElementById('visualization');
+
+            vizDiv.innerHTML = "<article class='message is-danger'><div class='message-body'>This webpage does not work with your browser. Please update your browser or use a newer browser like <a href='https://www.mozilla.org/en-US/firefox/new/'>Firefox</a>.</p></div></article>"
+            //vizDiv.innerHTML = "<p>This webpage does not work with your browser. Please update your browser or use a newer browser like <a href='https://www.mozilla.org/en-US/firefox/new/'>Firefox</a>.</p>";
+        }
+    </script>
+    {{end}}
+</body>
+
+</html>

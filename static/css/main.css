@@ -1,0 +1,110 @@
+.has-fill-primary {
+fill: #465D80;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.icon > svg {
+  fill: #ffffff;
+  height: 32px;
+}
+
+.button-icon-svg {
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+}
+
+/* Range / Slider http://danielstern.ca/range.css/ */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 4.35px 0;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6.3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #b5b5b5;
+    border-radius: 1px;
+    border: 1px solid rgba(1, 1, 1, 0);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #7a7a7a, 0px 0px 0px #878787;
+    border: 1px solid #7a7a7a;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.35px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #c2c2c2;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 6.3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    background: #b5b5b5;
+    border-radius: 1px;
+    border: 1px solid rgba(1, 1, 1, 0);
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #7a7a7a, 0px 0px 0px #878787;
+    border: 1px solid #7a7a7a;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 6.3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #a8a8a8;
+    border: 1px solid rgba(1, 1, 1, 0);
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #b5b5b5;
+    border: 1px solid rgba(1, 1, 1, 0);
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  }
+  input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 0px #7a7a7a, 0px 0px 0px #878787;
+    border: 1px solid #7a7a7a;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    height: 6.3px;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #b5b5b5;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #c2c2c2;
+  }
+  
