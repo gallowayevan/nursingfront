@@ -3,6 +3,14 @@
   export let name = "Name";
   export let info = "Information";
   let active = false;
+
+  function windowClicked(e) {
+    const classList = Array.from(e.target.classList);
+    if (!classList.includes("close-on-window-click") & active) {
+      console.log("cond");
+      active = false;
+    }
+  }
 </script>
 
 <style>
@@ -23,20 +31,25 @@
   }
 </style>
 
+<svelte:window on:click|stopPropagation={windowClicked} />
 <div class="info-icon-wrapper ">
-  <svg class="icon-svg has-fill-primary" on:click={() => (active = true)}>
+  <svg
+    class="icon-svg has-fill-primary"
+    on:click|stopPropagation={() => (active = true)}>
     <use xlink:href="#fa-info-circle" />
   </svg>
   {#if active}
-    <article class="message is-small is-primary" transition:fade>
-      <div class="message-header">
+    <article
+      class="message is-small is-primary close-on-window-click"
+      transition:fade>
+      <div class="message-header close-on-window-click">
         <p>{name}</p>
         <button
           class="delete"
           aria-label="delete"
-          on:click|preventDefault={() => (active = false)} />
+          on:click|preventDefault|stopPropagation={() => (active = false)} />
       </div>
-      <div class="message-body">{info}</div>
+      <div class="message-body close-on-window-click">{info}</div>
     </article>
   {/if}
 </div>
