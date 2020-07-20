@@ -7,11 +7,15 @@
   import selectOptions from "./data/selectOptions.js";
   import { fontColor } from "./utilities.js";
   import { interpolateHcl, quantize } from "d3-interpolate";
+
   // import { interpolatePurples as colorSchemeInterpolator } from "d3-scale-chromatic";
 
   export let data;
   export let geoJSON;
   export let projectionStartYear;
+
+  let currentYear = 2018;
+  const baseYear = projectionStartYear - 1;
 
   let hovered = undefined;
   const hoveredColor = "#898989";
@@ -30,28 +34,33 @@
 
   $: yearExtent = extent(data || [{ year: 2015 }, { year: 2032 }], d => d.year);
 
-  $: sortedMapYearData = data
-    .filter(d => d.year == currentYear)
-    .sort((a, b) => a.value - b.value);
+  $: baseYearOrder = data
+    .filter(d => d.year == baseYear)
+    .sort((a, b) => a.value - b.value)
+    .map(d => d.location);
 
-  $: mapYearData = new Map(
-    sortedMapYearData.map(d => [
-      d.location,
-      {
-        fill: color(d.location),
-        fontFill: fontColor(color(d.value)),
-        value: d.value,
-        display: d.display,
-        name: locationNamesMap.get(d.location)
-      }
-    ])
+  $: currentYearData = new Map(
+    data
+      .filter(d => d.year == currentYear)
+      .map(d => [
+        d.location,
+        {
+          fill: color(d.location),
+          fontFill: fontColor(color(d.value)),
+          value: d.value,
+          display: d.display,
+          name: locationNamesMap.get(d.location)
+        }
+      ])
   );
+
+  $: mapYearData = new Map(baseYearOrder.map(d => [d, currentYearData.get(d)]));
 
   $: valueExtentAllTime = [0, max(data || [], d => d.value)];
 
   $: colorScheme = quantize(
     interpolateHcl("#e0f3db", "#084081"),
-    sortedMapYearData.length
+    baseYearOrder.length
   );
 
   const metroNonmetroColorScale = scaleOrdinal()
@@ -62,10 +71,8 @@
     params["locationType"] == "Metro/Nonmetro"
       ? metroNonmetroColorScale
       : scaleOrdinal()
-          .domain(Array.from(sortedMapYearData, d => d.location))
+          .domain(baseYearOrder)
           .range(colorScheme);
-
-  let currentYear = 2018;
 
   const width = 320;
   const height = 160;

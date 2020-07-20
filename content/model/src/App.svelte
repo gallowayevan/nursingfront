@@ -13,7 +13,7 @@
 
   let data = [];
   let geoJSON;
-  let chartType = "line";
+  let chartType = "map";
   let dataID = 0;
   let showModal = false;
   let projectionStartYear = 2019;

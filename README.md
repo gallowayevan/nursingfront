@@ -13,9 +13,10 @@
     - revise front page language on Nurse Diffusion
     
    
-    Fixed completed as result of snitt test
+    Fixes completed as result of snitt test
     - click out to close info boxes
     - reorder navbar headings to match boxes order
+    - added x axis lable to row chart
 
     - Internal version
         - has regression line
