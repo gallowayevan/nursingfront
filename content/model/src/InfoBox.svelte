@@ -7,7 +7,6 @@
   function windowClicked(e) {
     const classList = Array.from(e.target.classList);
     if (!classList.includes("close-on-window-click") & active) {
-      console.log("cond");
       active = false;
     }
   }

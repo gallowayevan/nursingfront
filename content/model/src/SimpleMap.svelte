@@ -109,6 +109,7 @@
           {mapYearData}
           {valueExtentAllTime}
           locationType={params['locationType']}
+          rateOrTotal={params['rateOrTotal']}
           on:locationHover={e => handleLocationHover(e.detail)}
           on:locationLeave={handleLocationLeave}
           {hovered}

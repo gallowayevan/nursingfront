@@ -7262,38 +7262,38 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[14] = list[i];
+    	child_ctx[15] = list[i];
     	return child_ctx;
     }
 
     function get_each_context_1$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[17] = list[i];
+    	child_ctx[18] = list[i];
     	return child_ctx;
     }
 
-    // (56:4) {#each Array.from(mapYearData) as bar}
+    // (66:4) {#each Array.from(mapYearData) as bar}
     function create_each_block_1$2(ctx) {
     	let g;
     	let rect;
     	let title;
-    	let t0_value = /*bar*/ ctx[17][1].name + "";
+    	let t0_value = /*bar*/ ctx[18][1].name + "";
     	let t0;
     	let t1;
-    	let t2_value = /*bar*/ ctx[17][1].display + "";
+    	let t2_value = /*bar*/ ctx[18][1].display + "";
     	let t2;
     	let rect_width_value;
     	let rect_height_value;
     	let rect_fill_value;
     	let rect_stroke_width_value;
     	let text_1;
-    	let t3_value = /*bar*/ ctx[17][1].name + "";
+    	let t3_value = /*bar*/ ctx[18][1].name + "";
     	let t3;
     	let g_transform_value;
     	let dispose;
 
     	function mouseenter_handler(...args) {
-    		return /*mouseenter_handler*/ ctx[13](/*bar*/ ctx[17], ...args);
+    		return /*mouseenter_handler*/ ctx[14](/*bar*/ ctx[18], ...args);
     	}
 
     	const block = {
@@ -7306,26 +7306,26 @@ var app = (function () {
     			t2 = text(t2_value);
     			text_1 = svg_element("text");
     			t3 = text(t3_value);
-    			add_location(title, file$5, 64, 10, 1690);
-    			attr_dev(rect, "width", rect_width_value = /*x*/ ctx[5](/*bar*/ ctx[17][1].value) - /*x*/ ctx[5](0));
-    			attr_dev(rect, "height", rect_height_value = /*y*/ ctx[6].bandwidth());
+    			add_location(title, file$5, 74, 10, 1899);
+    			attr_dev(rect, "width", rect_width_value = /*x*/ ctx[6](/*bar*/ ctx[18][1].value) - /*x*/ ctx[6](0));
+    			attr_dev(rect, "height", rect_height_value = /*y*/ ctx[7].bandwidth());
 
-    			attr_dev(rect, "fill", rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[17][0]
+    			attr_dev(rect, "fill", rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[18][0]
     			? /*hoveredColor*/ ctx[2]
-    			: /*bar*/ ctx[17][1].fill);
+    			: /*bar*/ ctx[18][1].fill);
 
-    			attr_dev(rect, "stroke-width", rect_stroke_width_value = /*hovered*/ ctx[1] == /*bar*/ ctx[17][0] ? 3 : 0);
-    			add_location(rect, file$5, 57, 8, 1371);
-    			attr_dev(text_1, "class", "yAxis svelte-13c6c0x");
+    			attr_dev(rect, "stroke-width", rect_stroke_width_value = /*hovered*/ ctx[1] == /*bar*/ ctx[18][0] ? 3 : 0);
+    			add_location(rect, file$5, 67, 8, 1580);
+    			attr_dev(text_1, "class", "yAxis svelte-12q3wj9");
     			attr_dev(text_1, "dy", "1em");
     			attr_dev(text_1, "dx", "-3");
-    			add_location(text_1, file$5, 66, 8, 1763);
-    			attr_dev(g, "transform", g_transform_value = "translate(" + /*margin*/ ctx[3].left + " " + /*y*/ ctx[6](/*bar*/ ctx[17][0]) + ")");
-    			add_location(g, file$5, 56, 6, 1309);
+    			add_location(text_1, file$5, 76, 8, 1972);
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*margin*/ ctx[4].left + " " + /*y*/ ctx[7](/*bar*/ ctx[18][0]) + ")");
+    			add_location(g, file$5, 66, 6, 1518);
 
     			dispose = [
     				listen_dev(rect, "mouseenter", mouseenter_handler, false, false, false),
-    				listen_dev(rect, "mouseleave", /*handleLocationLeave*/ ctx[9], false, false, false)
+    				listen_dev(rect, "mouseleave", /*handleLocationLeave*/ ctx[10], false, false, false)
     			];
     		},
     		m: function mount(target, anchor) {
@@ -7340,30 +7340,30 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*mapYearData*/ 1 && t0_value !== (t0_value = /*bar*/ ctx[17][1].name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*mapYearData*/ 1 && t2_value !== (t2_value = /*bar*/ ctx[17][1].display + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*mapYearData*/ 1 && t0_value !== (t0_value = /*bar*/ ctx[18][1].name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*mapYearData*/ 1 && t2_value !== (t2_value = /*bar*/ ctx[18][1].display + "")) set_data_dev(t2, t2_value);
 
-    			if (dirty & /*x, mapYearData*/ 33 && rect_width_value !== (rect_width_value = /*x*/ ctx[5](/*bar*/ ctx[17][1].value) - /*x*/ ctx[5](0))) {
+    			if (dirty & /*x, mapYearData*/ 65 && rect_width_value !== (rect_width_value = /*x*/ ctx[6](/*bar*/ ctx[18][1].value) - /*x*/ ctx[6](0))) {
     				attr_dev(rect, "width", rect_width_value);
     			}
 
-    			if (dirty & /*y*/ 64 && rect_height_value !== (rect_height_value = /*y*/ ctx[6].bandwidth())) {
+    			if (dirty & /*y*/ 128 && rect_height_value !== (rect_height_value = /*y*/ ctx[7].bandwidth())) {
     				attr_dev(rect, "height", rect_height_value);
     			}
 
-    			if (dirty & /*hovered, mapYearData, hoveredColor*/ 7 && rect_fill_value !== (rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[17][0]
+    			if (dirty & /*hovered, mapYearData, hoveredColor*/ 7 && rect_fill_value !== (rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[18][0]
     			? /*hoveredColor*/ ctx[2]
-    			: /*bar*/ ctx[17][1].fill)) {
+    			: /*bar*/ ctx[18][1].fill)) {
     				attr_dev(rect, "fill", rect_fill_value);
     			}
 
-    			if (dirty & /*hovered, mapYearData*/ 3 && rect_stroke_width_value !== (rect_stroke_width_value = /*hovered*/ ctx[1] == /*bar*/ ctx[17][0] ? 3 : 0)) {
+    			if (dirty & /*hovered, mapYearData*/ 3 && rect_stroke_width_value !== (rect_stroke_width_value = /*hovered*/ ctx[1] == /*bar*/ ctx[18][0] ? 3 : 0)) {
     				attr_dev(rect, "stroke-width", rect_stroke_width_value);
     			}
 
-    			if (dirty & /*mapYearData*/ 1 && t3_value !== (t3_value = /*bar*/ ctx[17][1].name + "")) set_data_dev(t3, t3_value);
+    			if (dirty & /*mapYearData*/ 1 && t3_value !== (t3_value = /*bar*/ ctx[18][1].name + "")) set_data_dev(t3, t3_value);
 
-    			if (dirty & /*margin, y, mapYearData*/ 73 && g_transform_value !== (g_transform_value = "translate(" + /*margin*/ ctx[3].left + " " + /*y*/ ctx[6](/*bar*/ ctx[17][0]) + ")")) {
+    			if (dirty & /*margin, y, mapYearData*/ 145 && g_transform_value !== (g_transform_value = "translate(" + /*margin*/ ctx[4].left + " " + /*y*/ ctx[7](/*bar*/ ctx[18][0]) + ")")) {
     				attr_dev(g, "transform", g_transform_value);
     			}
     		},
@@ -7377,19 +7377,19 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(56:4) {#each Array.from(mapYearData) as bar}",
+    		source: "(66:4) {#each Array.from(mapYearData) as bar}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (71:6) {#each x.ticks(5) as tick}
+    // (81:6) {#each x.ticks(5) as tick}
     function create_each_block$2(ctx) {
     	let g;
     	let line;
     	let text_1;
-    	let t_value = /*tickFormat*/ ctx[7](/*tick*/ ctx[14]) + "";
+    	let t_value = /*tickFormat*/ ctx[8](/*tick*/ ctx[15]) + "";
     	let t;
     	let g_transform_value;
 
@@ -7400,15 +7400,14 @@ var app = (function () {
     			text_1 = svg_element("text");
     			t = text(t_value);
     			attr_dev(line, "y1", "0");
-    			attr_dev(line, "y2", /*height*/ ctx[4]);
+    			attr_dev(line, "y2", /*height*/ ctx[5]);
     			attr_dev(line, "stroke", "#fff");
-    			add_location(line, file$5, 72, 10, 2000);
+    			add_location(line, file$5, 82, 10, 2195);
+    			attr_dev(text_1, "class", "anchor-middle svelte-12q3wj9");
     			attr_dev(text_1, "dy", "-5");
-    			attr_dev(text_1, "class", "svelte-13c6c0x");
-    			add_location(text_1, file$5, 73, 10, 2053);
-    			attr_dev(g, "class", "xAxis svelte-13c6c0x");
-    			attr_dev(g, "transform", g_transform_value = "translate(" + /*x*/ ctx[5](/*tick*/ ctx[14]) + " 0)");
-    			add_location(g, file$5, 71, 8, 1936);
+    			add_location(text_1, file$5, 83, 10, 2248);
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*x*/ ctx[6](/*tick*/ ctx[15]) + " 0)");
+    			add_location(g, file$5, 81, 8, 2145);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -7417,13 +7416,13 @@ var app = (function () {
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*height*/ 16) {
-    				attr_dev(line, "y2", /*height*/ ctx[4]);
+    			if (dirty & /*height*/ 32) {
+    				attr_dev(line, "y2", /*height*/ ctx[5]);
     			}
 
-    			if (dirty & /*x*/ 32 && t_value !== (t_value = /*tickFormat*/ ctx[7](/*tick*/ ctx[14]) + "")) set_data_dev(t, t_value);
+    			if (dirty & /*x*/ 64 && t_value !== (t_value = /*tickFormat*/ ctx[8](/*tick*/ ctx[15]) + "")) set_data_dev(t, t_value);
 
-    			if (dirty & /*x*/ 32 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[5](/*tick*/ ctx[14]) + " 0)")) {
+    			if (dirty & /*x*/ 64 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[6](/*tick*/ ctx[15]) + " 0)")) {
     				attr_dev(g, "transform", g_transform_value);
     			}
     		},
@@ -7436,7 +7435,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(71:6) {#each x.ticks(5) as tick}",
+    		source: "(81:6) {#each x.ticks(5) as tick}",
     		ctx
     	});
 
@@ -7445,6 +7444,9 @@ var app = (function () {
 
     function create_fragment$5(ctx) {
     	let svg;
+    	let text_1;
+    	let t;
+    	let text_1_transform_value;
     	let g1;
     	let g0;
     	let g0_transform_value;
@@ -7456,7 +7458,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1$2(get_each_context_1$2(ctx, each_value_1, i));
     	}
 
-    	let each_value = /*x*/ ctx[5].ticks(5);
+    	let each_value = /*x*/ ctx[6].ticks(5);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -7466,6 +7468,8 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			svg = svg_element("svg");
+    			text_1 = svg_element("text");
+    			t = text(/*rateOrTotal*/ ctx[3]);
     			g1 = svg_element("g");
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -7478,18 +7482,24 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(g0, "transform", g0_transform_value = "translate(0 " + /*margin*/ ctx[3].top + ")");
-    			add_location(g0, file$5, 69, 4, 1851);
-    			add_location(g1, file$5, 54, 2, 1254);
+    			attr_dev(text_1, "class", "anchor-middle svelte-12q3wj9");
+    			attr_dev(text_1, "transform", text_1_transform_value = "translate(" + (/*margin*/ ctx[4].left + (width$1 - /*margin*/ ctx[4].left - /*margin*/ ctx[4].right) / 2) + "\r\n    10)");
+    			add_location(text_1, file$5, 58, 2, 1303);
+    			attr_dev(g0, "transform", g0_transform_value = "translate(0 " + /*margin*/ ctx[4].top + ")");
+    			add_location(g0, file$5, 79, 4, 2060);
+    			add_location(g1, file$5, 64, 2, 1463);
     			attr_dev(svg, "id", "row-chart-svg");
-    			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[4]);
-    			add_location(svg, file$5, 53, 0, 1195);
+    			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[5]);
+    			attr_dev(svg, "class", "svelte-12q3wj9");
+    			add_location(svg, file$5, 57, 0, 1244);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, svg, anchor);
+    			append_dev(svg, text_1);
+    			append_dev(text_1, t);
     			append_dev(svg, g1);
 
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -7503,7 +7513,13 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*margin, y, Array, mapYearData, x, hovered, hoveredColor, handleLocationHover, handleLocationLeave*/ 879) {
+    			if (dirty & /*rateOrTotal*/ 8) set_data_dev(t, /*rateOrTotal*/ ctx[3]);
+
+    			if (dirty & /*margin*/ 16 && text_1_transform_value !== (text_1_transform_value = "translate(" + (/*margin*/ ctx[4].left + (width$1 - /*margin*/ ctx[4].left - /*margin*/ ctx[4].right) / 2) + "\r\n    10)")) {
+    				attr_dev(text_1, "transform", text_1_transform_value);
+    			}
+
+    			if (dirty & /*margin, y, Array, mapYearData, x, hovered, hoveredColor, handleLocationHover, handleLocationLeave*/ 1751) {
     				each_value_1 = Array.from(/*mapYearData*/ ctx[0]);
     				let i;
 
@@ -7526,8 +7542,8 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (dirty & /*x, tickFormat, height*/ 176) {
-    				each_value = /*x*/ ctx[5].ticks(5);
+    			if (dirty & /*x, tickFormat, height*/ 352) {
+    				each_value = /*x*/ ctx[6].ticks(5);
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
@@ -7549,11 +7565,11 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*margin*/ 8 && g0_transform_value !== (g0_transform_value = "translate(0 " + /*margin*/ ctx[3].top + ")")) {
+    			if (dirty & /*margin*/ 16 && g0_transform_value !== (g0_transform_value = "translate(0 " + /*margin*/ ctx[4].top + ")")) {
     				attr_dev(g0, "transform", g0_transform_value);
     			}
 
-    			if (dirty & /*height*/ 16 && svg_viewBox_value !== (svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[4])) {
+    			if (dirty & /*height*/ 32 && svg_viewBox_value !== (svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[5])) {
     				attr_dev(svg, "viewBox", svg_viewBox_value);
     			}
     		},
@@ -7586,6 +7602,7 @@ var app = (function () {
     	let { locationType } = $$props;
     	let { hovered } = $$props;
     	let { hoveredColor } = $$props;
+    	let { rateOrTotal } = $$props;
     	const tickFormat = t => t.toLocaleString();
 
     	function handleLocationHover(id) {
@@ -7596,7 +7613,14 @@ var app = (function () {
     		dispatch("locationLeave");
     	}
 
-    	const writable_props = ["mapYearData", "valueExtentAllTime", "locationType", "hovered", "hoveredColor"];
+    	const writable_props = [
+    		"mapYearData",
+    		"valueExtentAllTime",
+    		"locationType",
+    		"hovered",
+    		"hoveredColor",
+    		"rateOrTotal"
+    	];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<RowChart> was created with unknown prop '${key}'`);
@@ -7606,10 +7630,11 @@ var app = (function () {
 
     	$$self.$set = $$props => {
     		if ("mapYearData" in $$props) $$invalidate(0, mapYearData = $$props.mapYearData);
-    		if ("valueExtentAllTime" in $$props) $$invalidate(10, valueExtentAllTime = $$props.valueExtentAllTime);
-    		if ("locationType" in $$props) $$invalidate(11, locationType = $$props.locationType);
+    		if ("valueExtentAllTime" in $$props) $$invalidate(11, valueExtentAllTime = $$props.valueExtentAllTime);
+    		if ("locationType" in $$props) $$invalidate(12, locationType = $$props.locationType);
     		if ("hovered" in $$props) $$invalidate(1, hovered = $$props.hovered);
     		if ("hoveredColor" in $$props) $$invalidate(2, hoveredColor = $$props.hoveredColor);
+    		if ("rateOrTotal" in $$props) $$invalidate(3, rateOrTotal = $$props.rateOrTotal);
     	};
 
     	$$self.$capture_state = () => {
@@ -7619,6 +7644,7 @@ var app = (function () {
     			locationType,
     			hovered,
     			hoveredColor,
+    			rateOrTotal,
     			margin,
     			height,
     			x,
@@ -7628,14 +7654,15 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("mapYearData" in $$props) $$invalidate(0, mapYearData = $$props.mapYearData);
-    		if ("valueExtentAllTime" in $$props) $$invalidate(10, valueExtentAllTime = $$props.valueExtentAllTime);
-    		if ("locationType" in $$props) $$invalidate(11, locationType = $$props.locationType);
+    		if ("valueExtentAllTime" in $$props) $$invalidate(11, valueExtentAllTime = $$props.valueExtentAllTime);
+    		if ("locationType" in $$props) $$invalidate(12, locationType = $$props.locationType);
     		if ("hovered" in $$props) $$invalidate(1, hovered = $$props.hovered);
     		if ("hoveredColor" in $$props) $$invalidate(2, hoveredColor = $$props.hoveredColor);
-    		if ("margin" in $$props) $$invalidate(3, margin = $$props.margin);
-    		if ("height" in $$props) $$invalidate(4, height = $$props.height);
-    		if ("x" in $$props) $$invalidate(5, x = $$props.x);
-    		if ("y" in $$props) $$invalidate(6, y = $$props.y);
+    		if ("rateOrTotal" in $$props) $$invalidate(3, rateOrTotal = $$props.rateOrTotal);
+    		if ("margin" in $$props) $$invalidate(4, margin = $$props.margin);
+    		if ("height" in $$props) $$invalidate(5, height = $$props.height);
+    		if ("x" in $$props) $$invalidate(6, x = $$props.x);
+    		if ("y" in $$props) $$invalidate(7, y = $$props.y);
     	};
 
     	let margin;
@@ -7644,25 +7671,25 @@ var app = (function () {
     	let y;
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*locationType*/ 2048) {
-    			 $$invalidate(3, margin = {
-    				top: 20,
+    		if ($$self.$$.dirty & /*locationType*/ 4096) {
+    			 $$invalidate(4, margin = {
+    				top: 30,
     				right: 10,
     				bottom: 10,
     				left: locationType == "Medicaid Region" ? 155 : 110
     			});
     		}
 
-    		if ($$self.$$.dirty & /*mapYearData, margin*/ 9) {
-    			 $$invalidate(4, height = mapYearData.size * 20 + margin.top + margin.bottom);
+    		if ($$self.$$.dirty & /*mapYearData, margin*/ 17) {
+    			 $$invalidate(5, height = mapYearData.size * 20 + margin.top + margin.bottom);
     		}
 
-    		if ($$self.$$.dirty & /*valueExtentAllTime, margin*/ 1032) {
-    			 $$invalidate(5, x = linear$1().domain(valueExtentAllTime).range([margin.left, width$1 - margin.right]));
+    		if ($$self.$$.dirty & /*valueExtentAllTime, margin*/ 2064) {
+    			 $$invalidate(6, x = linear$1().domain(valueExtentAllTime).range([margin.left, width$1 - margin.right]));
     		}
 
-    		if ($$self.$$.dirty & /*mapYearData, height, margin*/ 25) {
-    			 $$invalidate(6, y = band().domain(Array.from(mapYearData).map(d => d[0])).range([height - margin.bottom, margin.top]).paddingInner(0.1));
+    		if ($$self.$$.dirty & /*mapYearData, height, margin*/ 49) {
+    			 $$invalidate(7, y = band().domain(Array.from(mapYearData).map(d => d[0])).range([height - margin.bottom, margin.top]).paddingInner(0.1));
     		}
     	};
 
@@ -7670,6 +7697,7 @@ var app = (function () {
     		mapYearData,
     		hovered,
     		hoveredColor,
+    		rateOrTotal,
     		margin,
     		height,
     		x,
@@ -7690,10 +7718,11 @@ var app = (function () {
 
     		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
     			mapYearData: 0,
-    			valueExtentAllTime: 10,
-    			locationType: 11,
+    			valueExtentAllTime: 11,
+    			locationType: 12,
     			hovered: 1,
-    			hoveredColor: 2
+    			hoveredColor: 2,
+    			rateOrTotal: 3
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -7710,11 +7739,11 @@ var app = (function () {
     			console.warn("<RowChart> was created without expected prop 'mapYearData'");
     		}
 
-    		if (/*valueExtentAllTime*/ ctx[10] === undefined && !("valueExtentAllTime" in props)) {
+    		if (/*valueExtentAllTime*/ ctx[11] === undefined && !("valueExtentAllTime" in props)) {
     			console.warn("<RowChart> was created without expected prop 'valueExtentAllTime'");
     		}
 
-    		if (/*locationType*/ ctx[11] === undefined && !("locationType" in props)) {
+    		if (/*locationType*/ ctx[12] === undefined && !("locationType" in props)) {
     			console.warn("<RowChart> was created without expected prop 'locationType'");
     		}
 
@@ -7724,6 +7753,10 @@ var app = (function () {
 
     		if (/*hoveredColor*/ ctx[2] === undefined && !("hoveredColor" in props)) {
     			console.warn("<RowChart> was created without expected prop 'hoveredColor'");
+    		}
+
+    		if (/*rateOrTotal*/ ctx[3] === undefined && !("rateOrTotal" in props)) {
+    			console.warn("<RowChart> was created without expected prop 'rateOrTotal'");
     		}
     	}
 
@@ -7764,6 +7797,14 @@ var app = (function () {
     	}
 
     	set hoveredColor(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get rateOrTotal() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set rateOrTotal(value) {
     		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -8007,7 +8048,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (165:2) {:else}
+    // (166:2) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
@@ -8016,7 +8057,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Choose a combination of selections and click \"Show\" to see a map of the\r\n      model's projections.";
     			attr_dev(div, "class", "notification");
-    			add_location(div, file$6, 165, 4, 5179);
+    			add_location(div, file$6, 166, 4, 5226);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8033,7 +8074,7 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(165:2) {:else}",
+    		source: "(166:2) {:else}",
     		ctx
     	});
 
@@ -8092,6 +8133,7 @@ var app = (function () {
     				mapYearData: /*mapYearData*/ ctx[8],
     				valueExtentAllTime: /*valueExtentAllTime*/ ctx[9],
     				locationType: /*params*/ ctx[6]["locationType"],
+    				rateOrTotal: /*params*/ ctx[6]["rateOrTotal"],
     				hovered: /*hovered*/ ctx[3],
     				hoveredColor
     			},
@@ -8139,28 +8181,28 @@ var app = (function () {
     			attr_dev(div0, "class", "column is-three-fifths");
     			set_style(div0, "padding", "0px 0px 0px 5px");
     			add_location(div0, file$6, 106, 6, 2842);
-    			add_location(g, file$6, 118, 10, 3363);
+    			add_location(g, file$6, 119, 10, 3410);
     			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$2 + " " + height$1);
     			attr_dev(svg, "id", "map-svg");
-    			add_location(svg, file$6, 117, 8, 3302);
+    			add_location(svg, file$6, 118, 8, 3349);
     			attr_dev(div1, "class", "column is-two-fifths");
     			set_style(div1, "padding", "0px 5px 0px 0px");
-    			add_location(div1, file$6, 116, 6, 3224);
+    			add_location(div1, file$6, 117, 6, 3271);
     			attr_dev(div2, "class", "columns");
     			add_location(div2, file$6, 105, 4, 2813);
     			attr_dev(span, "class", "range-output");
-    			add_location(span, file$6, 151, 8, 4814);
+    			add_location(span, file$6, 152, 8, 4861);
     			attr_dev(div3, "class", "range-title");
-    			add_location(div3, file$6, 149, 6, 4734);
+    			add_location(div3, file$6, 150, 6, 4781);
     			attr_dev(input, "class", "slider");
     			attr_dev(input, "name", "input");
     			attr_dev(input, "type", "range");
     			attr_dev(input, "min", input_min_value = /*yearExtent*/ ctx[7][0]);
     			attr_dev(input, "max", input_max_value = /*yearExtent*/ ctx[7][1]);
     			attr_dev(input, "step", "1");
-    			add_location(input, file$6, 155, 6, 4963);
+    			add_location(input, file$6, 156, 6, 5010);
     			attr_dev(div4, "class", "range");
-    			add_location(div4, file$6, 148, 4, 4707);
+    			add_location(div4, file$6, 149, 4, 4754);
 
     			dispose = [
     				listen_dev(input, "change", /*input_change_input_handler*/ ctx[20]),
@@ -8213,6 +8255,7 @@ var app = (function () {
     			if (dirty & /*mapYearData*/ 256) rowchart_changes.mapYearData = /*mapYearData*/ ctx[8];
     			if (dirty & /*valueExtentAllTime*/ 512) rowchart_changes.valueExtentAllTime = /*valueExtentAllTime*/ ctx[9];
     			if (dirty & /*params*/ 64) rowchart_changes.locationType = /*params*/ ctx[6]["locationType"];
+    			if (dirty & /*params*/ 64) rowchart_changes.rateOrTotal = /*params*/ ctx[6]["rateOrTotal"];
     			if (dirty & /*hovered*/ 8) rowchart_changes.hovered = /*hovered*/ ctx[3];
     			rowchart.$set(rowchart_changes);
 
@@ -8281,7 +8324,7 @@ var app = (function () {
     	return block;
     }
 
-    // (120:12) {#if geoJSON && path}
+    // (121:12) {#if geoJSON && path}
     function create_if_block_1$1(ctx) {
     	let each_1_anchor;
     	let each_value = /*geoJSON*/ ctx[1];
@@ -8340,14 +8383,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(120:12) {#if geoJSON && path}",
+    		source: "(121:12) {#if geoJSON && path}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (134:22) {#if mapYearData.has(+feature.properties.id)}
+    // (135:22) {#if mapYearData.has(+feature.properties.id)}
     function create_if_block_2$1(ctx) {
     	let title;
     	let t0_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[24].properties.id).name + "";
@@ -8362,7 +8405,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text(": ");
     			t2 = text(t2_value);
-    			add_location(title, file$6, 134, 24, 4326);
+    			add_location(title, file$6, 135, 24, 4373);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, title, anchor);
@@ -8383,14 +8426,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$1.name,
     		type: "if",
-    		source: "(134:22) {#if mapYearData.has(+feature.properties.id)}",
+    		source: "(135:22) {#if mapYearData.has(+feature.properties.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:18) {#each layer.geo.features as feature}
+    // (124:18) {#each layer.geo.features as feature}
     function create_each_block_1$3(ctx) {
     	let path_1;
     	let show_if = /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[24].properties.id);
@@ -8429,7 +8472,7 @@ var app = (function () {
     			: "none");
 
     			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[5](/*feature*/ ctx[24]));
-    			add_location(path_1, file$6, 123, 20, 3560);
+    			add_location(path_1, file$6, 124, 20, 3607);
 
     			dispose = [
     				listen_dev(path_1, "mouseenter", mouseenter_handler, false, false, false),
@@ -8494,14 +8537,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$3.name,
     		type: "each",
-    		source: "(123:18) {#each layer.geo.features as feature}",
+    		source: "(124:18) {#each layer.geo.features as feature}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (121:14) {#each geoJSON as layer}
+    // (122:14) {#each geoJSON as layer}
     function create_each_block$3(ctx) {
     	let g;
     	let g_class_value;
@@ -8521,7 +8564,7 @@ var app = (function () {
     			}
 
     			attr_dev(g, "class", g_class_value = /*layer*/ ctx[21].name);
-    			add_location(g, file$6, 121, 16, 3459);
+    			add_location(g, file$6, 122, 16, 3506);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -8568,7 +8611,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(121:14) {#each geoJSON as layer}",
+    		source: "(122:14) {#each geoJSON as layer}",
     		ctx
     	});
 
@@ -10557,11 +10600,9 @@ var app = (function () {
     }
 
     /* src\InfoBox.svelte generated by Svelte v3.16.0 */
-
-    const { console: console_1 } = globals;
     const file$a = "src\\InfoBox.svelte";
 
-    // (41:2) {#if active}
+    // (40:2) {#if active}
     function create_if_block$4(ctx) {
     	let article;
     	let div0;
@@ -10587,16 +10628,16 @@ var app = (function () {
     			t2 = space();
     			div1 = element("div");
     			t3 = text(/*info*/ ctx[1]);
-    			add_location(p, file$a, 45, 8, 1041);
+    			add_location(p, file$a, 44, 8, 1013);
     			attr_dev(button, "class", "delete");
     			attr_dev(button, "aria-label", "delete");
-    			add_location(button, file$a, 46, 8, 1064);
+    			add_location(button, file$a, 45, 8, 1036);
     			attr_dev(div0, "class", "message-header close-on-window-click");
-    			add_location(div0, file$a, 44, 6, 981);
+    			add_location(div0, file$a, 43, 6, 953);
     			attr_dev(div1, "class", "message-body close-on-window-click");
-    			add_location(div1, file$a, 51, 6, 1229);
+    			add_location(div1, file$a, 50, 6, 1201);
     			attr_dev(article, "class", "message is-small is-primary close-on-window-click svelte-18qov0y");
-    			add_location(article, file$a, 41, 4, 876);
+    			add_location(article, file$a, 40, 4, 848);
     			dispose = listen_dev(button, "click", stop_propagation(prevent_default(/*click_handler_1*/ ctx[5])), false, true, true);
     		},
     		m: function mount(target, anchor) {
@@ -10641,7 +10682,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(41:2) {#if active}",
+    		source: "(40:2) {#if active}",
     		ctx
     	});
 
@@ -10665,11 +10706,11 @@ var app = (function () {
     			t = space();
     			if (if_block) if_block.c();
     			xlink_attr(use, "xlink:href", "#fa-info-circle");
-    			add_location(use, file$a, 38, 4, 808);
+    			add_location(use, file$a, 37, 4, 780);
     			attr_dev(svg, "class", "icon-svg has-fill-primary svelte-18qov0y");
-    			add_location(svg, file$a, 35, 2, 704);
+    			add_location(svg, file$a, 34, 2, 676);
     			attr_dev(div, "class", "info-icon-wrapper  svelte-18qov0y");
-    			add_location(div, file$a, 34, 0, 668);
+    			add_location(div, file$a, 33, 0, 640);
 
     			dispose = [
     				listen_dev(window, "click", stop_propagation(/*windowClicked*/ ctx[3]), false, false, true),
@@ -10744,7 +10785,6 @@ var app = (function () {
     		const classList = Array.from(e.target.classList);
 
     		if (!classList.includes("close-on-window-click") & active) {
-    			console.log("cond");
     			$$invalidate(2, active = false);
     		}
     	}
@@ -10752,7 +10792,7 @@ var app = (function () {
     	const writable_props = ["name", "info"];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<InfoBox> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<InfoBox> was created with unknown prop '${key}'`);
     	});
 
     	const click_handler = () => $$invalidate(2, active = true);

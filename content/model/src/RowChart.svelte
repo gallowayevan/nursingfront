@@ -10,9 +10,10 @@
   export let locationType;
   export let hovered;
   export let hoveredColor;
+  export let rateOrTotal;
 
   $: margin = {
-    top: 20,
+    top: 30,
     right: 10,
     bottom: 10,
     left: locationType == "Medicaid Region" ? 155 : 110
@@ -40,18 +41,27 @@
 </script>
 
 <style>
-  .xAxis text {
-    text-anchor: middle;
-    font-size: 12px;
-  }
-
   .yAxis {
     text-anchor: end;
+  }
+
+  .anchor-middle {
+    text-anchor: middle;
+  }
+
+  svg text {
     font-size: 12px;
+    fill: #363636;
   }
 </style>
 
 <svg id="row-chart-svg" viewBox="0 0 {width} {height}">
+  <text
+    class="anchor-middle"
+    transform="translate({margin.left + (width - margin.left - margin.right) / 2}
+    10)">
+    {rateOrTotal}
+  </text>
   <g>
     {#each Array.from(mapYearData) as bar}
       <g transform="translate({margin.left} {y(bar[0])})">
@@ -69,9 +79,9 @@
     {/each}
     <g transform="translate(0 {margin.top})">
       {#each x.ticks(5) as tick}
-        <g class="xAxis" transform="translate({x(tick)} 0)">
+        <g transform="translate({x(tick)} 0)">
           <line y1="0" y2={height} stroke="#fff" />
-          <text dy="-5">{tickFormat(tick)}</text>
+          <text class="anchor-middle" dy="-5">{tickFormat(tick)}</text>
         </g>
       {/each}
     </g>
