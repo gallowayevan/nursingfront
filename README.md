@@ -9,14 +9,16 @@
     - make location type clearer (rename or change description)
     - describe metro/nonmetro definition (which counties are included)
     - lock order in row chart at baseline
-    - make monotype bold
-    - revise front page language on Nurse Diffusion
+  
     
-   
     Fixes completed as result of snitt test
     - click out to close info boxes
     - reorder navbar headings to match boxes order
     - added x axis lable to row chart
+    - made order in row chart static, pegged to last non-projected year (2018)
+    - revise front page language on Nurse Diffusion
+    - make monotype buttons in tutorial more clear
+    - updated tutorial images to be more consistent and clear
 
     - Internal version
         - has regression line

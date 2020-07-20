@@ -3,20 +3,20 @@
   export let showModal;
 
   const images = [
-    "01_select_chart.png",
-    "02_use_radios.png",
-    "03_line_chart.png",
-    "04_clear.png",
-    "05_map.png",
-    "06_table.png"
+    "Selectcharttype 500px.png",
+    "Modify chart 500px.png",
+    "Linechart guide 500px.png",
+    "clearviz 500px.png",
+    "MapGuide 500px.png",
+    "Table PNG plain.png"
   ];
 </script>
 
 <style>
-  /* svg {
-    fill: #465d80;
-    opacity: 0.5;
-  } */
+  .is-family-code {
+    font-weight: bolder;
+    background-color: #ececec;
+  }
 </style>
 
 <div class="modal" class:is-active={showModal}>
