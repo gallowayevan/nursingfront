@@ -47,7 +47,7 @@
             you would like to view.
           </span>
           Select the
-          <span class="is-family-code">Info</span>
+          <span class="is-family-code">i</span>
           icon to learn more about each option. Then, select
           <span class="is-family-code">Show</span>
           to display the line chart, map or table.
