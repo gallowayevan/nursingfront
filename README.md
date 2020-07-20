@@ -2,7 +2,6 @@
     - work on y axis transitions - make closer to D3 transitions - investigate D3 transitions - code and in developer window
     - Add small map under Location?
     - Mini diagram of projection and line (explanatory legend)
-    - Close info box on click on outside?
     - replace y axis tick labels with "K" where appropriate, e.g., total RNs
     - more intro to model (FAQ?)
     - make note about discrepancy between different counts (BON and HPDS (NPs excluded))
@@ -12,10 +11,11 @@
     - lock order in row chart at baseline
     - make monotype bold
     - revise front page language on Nurse Diffusion
-    - reorder navbar headings to match boxes order
-    - convert to sapper to make layout easier to manage?
+    
    
-    KEEP TRACK OF CHANGES AS RESULT OF SNIFF TEST
+    Fixed completed as result of snitt test
+    - click out to close info boxes
+    - reorder navbar headings to match boxes order
 
     - Internal version
         - has regression line
