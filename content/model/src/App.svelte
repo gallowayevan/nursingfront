@@ -13,11 +13,12 @@
 
   let data = [];
   let geoJSON;
-  let chartType = "map";
+  let chartType = "line";
   let dataID = 0;
   let showModal = false;
   let projectionStartYear = 2019;
   let fetchError = false;
+  let supplyOrDemand = "supply";
 
   $: console.log(data);
 
@@ -49,8 +50,8 @@
       });
   });
 
-  async function getData(type, params) {
-    const queryURL = `${ROOT}${type}/?${params
+  async function getData(type, params, supplyOrDemand) {
+    const queryURL = `${ROOT}${supplyOrDemand}?${params
       .map(d => `${d.name}=${+d.value}`)
       .join("&")}`;
 
@@ -71,7 +72,7 @@
           );
 
           let newData = json.map(d =>
-            Object.assign({ display: newFormatter(d.value) }, d)
+            Object.assign({ display: newFormatter(d.mean) }, d)
           );
           newData.params = params;
 
@@ -93,7 +94,7 @@
   }
 
   function handleShowProjection(e) {
-    getData(chartType, e.detail);
+    getData(chartType, e.detail, supplyOrDemand);
   }
 
   function handleDeleteProjection(e) {

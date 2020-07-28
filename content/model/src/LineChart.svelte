@@ -55,14 +55,14 @@
   //Shape generators
   $: line = d3line()
     .curve(curveMonotoneX)
-    .defined(d => !isNaN(d.value))
+    .defined(d => !isNaN(d.mean))
     .x(d => x(d.year))
-    .y(d => y(d.value));
+    .y(d => y(d.mean));
 
   $: area = d3area()
     .x(d => x(d.year))
-    .y0(d => y(d.UCI))
-    .y1(d => y(d.LCI))
+    .y0(d => y(d.uci))
+    .y1(d => y(d.lci))
     .curve(curveMonotoneX);
 
   //Scale
@@ -71,7 +71,7 @@
   $: xExtent =
     flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
   $: xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]);
-  $: yMax = flatData.length > 0 ? max(flatData, d => d.value) : 50;
+  $: yMax = flatData.length > 0 ? max(flatData, d => d.mean) : 50;
   $: x = scaleLinear()
     .domain(xExtent)
     .range([margin.left, width - margin.right]);
@@ -204,7 +204,7 @@
             stroke="#333"
             stroke-width="2" />
           {#each hoverData.values as row}
-            <g transform="translate({x(hoverData.year)} {y(row.value)})">
+            <g transform="translate({x(hoverData.year)} {y(row.mean)})">
               <circle cx="0" cy="0" r="5" stroke="#333" fill="none" />
             </g>
           {/each}

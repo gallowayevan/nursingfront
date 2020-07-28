@@ -28,7 +28,7 @@ export default {
 		}),
 		replace({
 			include: 'src/**',
-			root: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/" : "http://localhost:8080/"
+			root: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" : "http://localhost:8080/data/"
 		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
