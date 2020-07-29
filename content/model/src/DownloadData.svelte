@@ -17,8 +17,8 @@
 
   function makeYearByGeography() {
     const grouped = groups(data, d => d.location).map(function(d) {
-      const sorted = d[1].sort((a, b) => ascending(a.year, b.year));
-      return [locationNamesMap.get(d[0]), ...d[1].map(d => d.value)];
+      // const sorted = d[1].sort((a, b) => ascending(a.year, b.year));
+      return [locationNamesMap.get(d[0]), ...d[1].map(d => d.mean)];
     });
 
     const yearExtent = extent(data, d => d.year);
@@ -57,7 +57,7 @@
     const rows = data
       .map(function(d) {
         const params = d.params.map(e => [e.name, e.display]);
-        const values = d.map(e => [e.year, e.value]);
+        const values = d.map(e => [e.year, e.mean]);
         return new Map([...params, ...values]);
       })
       .map(function(d) {

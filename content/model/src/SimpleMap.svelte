@@ -36,7 +36,7 @@
 
   $: baseYearOrder = data
     .filter(d => d.year == baseYear)
-    .sort((a, b) => a.value - b.value)
+    .sort((a, b) => a.mean - b.mean)
     .map(d => d.location);
 
   $: currentYearData = new Map(
@@ -46,8 +46,8 @@
         d.location,
         {
           fill: color(d.location),
-          fontFill: fontColor(color(d.value)),
-          value: d.value,
+          fontFill: fontColor(color(d.mean)),
+          value: d.mean,
           display: d.display,
           name: locationNamesMap.get(d.location)
         }
@@ -56,7 +56,7 @@
 
   $: mapYearData = new Map(baseYearOrder.map(d => [d, currentYearData.get(d)]));
 
-  $: valueExtentAllTime = [0, max(data || [], d => d.value)];
+  $: valueExtentAllTime = [0, max(data || [], d => d.mean)];
 
   $: colorScheme = quantize(
     interpolateHcl("#e0f3db", "#084081"),

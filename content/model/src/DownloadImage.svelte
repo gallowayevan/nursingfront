@@ -142,7 +142,7 @@
       .firstChild.cloneNode(true);
 
     chartGroup.setAttributeNS(null, "transform", `translate(0, 100) scale(2)`);
-
+    chartGroup.setAttributeNS(null, "font-size", "10px");
     svg.appendChild(chartGroup);
 
     //Title

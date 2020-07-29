@@ -45,7 +45,7 @@
     .map(function(d) {
       const base = least(d[1], e => e.year);
       const valueArray = d[1].map(function(e) {
-        const change = e.value / base.value || 0;
+        const change = e.mean / base.mean || 0;
         return Object.assign({ change: change }, e);
       });
       return [
