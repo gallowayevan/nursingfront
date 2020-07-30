@@ -221,7 +221,7 @@
     {#if hoverData}
       {#each hoverData.values as row}
         <div
-          style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * (y(row.value) - 8)}px;
+          style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * (y(row.mean) - 8)}px;
           left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
           background: rgba(255, 255, 255, 0.7); border-radius:5px;border: 1px
           solid #333333;padding:0px 1px;">

@@ -106,7 +106,8 @@
         'setting',
         'education',
         'fteOrHeadcount',
-        'rateOrTotal'
+        'rateOrTotal',
+        'calculation'
       ]).join(', ')}
     </h2>
 

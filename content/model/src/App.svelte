@@ -18,7 +18,6 @@
   let showModal = false;
   let projectionStartYear = 2019;
   let fetchError = false;
-  let supplyOrDemand = "supply";
 
   $: console.log(data);
 
@@ -50,8 +49,12 @@
       });
   });
 
-  async function getData(type, params, supplyOrDemand) {
-    const queryURL = `${ROOT}${supplyOrDemand}?${params
+  async function getData(type, allParams) {
+    //Separate calculation from other parameters, since calculation is not a column in data
+    const table = allParams.find(d => d.name == "calculation").value;
+    const params = allParams.filter(d => d.name != "calculation");
+
+    const queryURL = `${ROOT}${table}?${params
       .map(d => `${d.name}=${+d.value}`)
       .join("&")}`;
 
@@ -74,7 +77,7 @@
           let newData = json.map(d =>
             Object.assign({ display: newFormatter(d.mean) }, d)
           );
-          newData.params = params;
+          newData.params = allParams;
 
           if (type == "line") {
             newData.id = dataID++;
@@ -94,7 +97,7 @@
   }
 
   function handleShowProjection(e) {
-    getData(chartType, e.detail, supplyOrDemand);
+    getData(chartType, e.detail);
   }
 
   function handleDeleteProjection(e) {

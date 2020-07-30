@@ -39,7 +39,8 @@
                 'setting',
                 'education',
                 'fteOrHeadcount',
-                'rateOrTotal'
+                'rateOrTotal',
+                'calculation'
               ]
             ) as item}
               <li>{item}</li>

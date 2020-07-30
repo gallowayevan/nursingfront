@@ -6,5 +6,6 @@ export default new Map([
     ["locationType", "Select a geographic category or type. This selection changes the available options for location."],
     ["location", "Select a geography or location. These options change based on the selection of Location Type."],
     ["setting", "See the nurse workforce by practice setting, e.g., hospital or ambulatory care. You cannot select both an education subgroup and a setting subgroup for the same projection (e.g., BS & MS for Education and Hospital for Setting)."],
-    ["scenario", "Select a scenario to see how it changes the projections."]
+    ["scenario", "Select a scenario to see how it changes the projections."],
+    ["calculation", `Select 'Supply' or 'Demand' to see those projections alone. Selecting 'Supply / Demand' will show both projections as a ratio. Selecting 'Supply - Demand' will show both the absolute difference between the two projections.`]
 ])

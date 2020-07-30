@@ -10,26 +10,32 @@
 
   export let chartType;
 
+  //Set default form values
   let nurseType = "2";
   let currentLocationType = 0;
   let educationType = "0";
   let settingType = "0";
+  let calculation = "supply";
 
+  //Filter out 'state' as an option when chart type is map
+  //since state map is not informative (i.e., all one color)
   $: locationTypeOptions = {
     name: "locationType",
     label: "Location Type",
     options: selectOptions
       .get("locationType")
-      .options.filter(
-        e => !(chartType == "map" && (+e.value == 0 || +e.value == 1))
-      )
+      .options.filter(e => !(chartType == "map" && +e.value == 0))
   };
 
+  //Create map with location type as the key and an
+  //array of locations (actually location objects) as the value
+  //e.g., ahec -> [Wake AHEC, Area L, ...].
   const locationOptions = new Map(
     Array.from(
       group(
         selectOptions.get("location").options.map(d => ({
-          key: d.value > 0 && d.value < 200 ? 1 : Math.floor(+d.value / 100),
+          //Get first digit of location to use as location type key, e.g., 800 -> 8
+          key: +d.value.toString().slice(0, 1),
           value: d.value,
           label: d.label
         })),
@@ -45,22 +51,17 @@
     ])
   );
 
+  //Get current locations based on the location type selection
   $: currentLocationOptions = locationOptions.get(currentLocationType);
 
   function handleShowProjection(event) {
     let params = [];
 
+    //Loop through form elements and get values for data query
+    //Only get values from elements that have a name and are either select elements
+    //or checked (as for radio elements).
     for (let el of event.target) {
       if (el.name && (el.type == "select-one" || el.checked == true)) {
-        //Add education for LPN since this radio does not appear in UI.
-        // if (el.name == "type" && el.value == "1") {
-        //   params.push({
-        //     name: "education",
-        //     value: 0,
-        //     display: "All Education"
-        //   });
-        // }
-
         params.push({
           name: el.name,
           value: el.value,
@@ -79,7 +80,6 @@
   }
 
   function handleLocationTypeChange(e) {
-    // handleClearData();
     currentLocationType = +e.target.value;
   }
 
@@ -87,34 +87,49 @@
     settingType = e.target.value;
   }
 
+  function handleCalculationChange(e) {
+    calculation = e.target.value;
+  }
+
   function handleLaunchTutorial() {
     dispatch("launchTutorial");
   }
 </script>
 
+<!-- This form ends up being somewhat complex because there are a number
+of patterns to what sort of data can actually be selected. -->
 <form on:submit|preventDefault={handleShowProjection}>
   <div class="field">
     <div class="control">
-      <label class="radio">
-        <input
-          bind:group={nurseType}
-          type="radio"
-          name="type"
-          value="2"
-          checked />
-        RN
-      </label>
-      <label class="radio">
-        <input bind:group={nurseType} type="radio" name="type" value="1" />
-        LPN
-      </label>
+      {#if calculation == 'supply'}
+        <label class="radio">
+          <input
+            bind:group={nurseType}
+            type="radio"
+            name="type"
+            value="2"
+            checked />
+          RN
+        </label>
+        <label class="radio">
+          <input bind:group={nurseType} type="radio" name="type" value="1" />
+          LPN
+        </label>
+      {:else}
+        <label class="radio" disabled>
+          <input type="radio" name="type" value="0" checked disabled />
+          LPNs & RNs
+        </label>
+      {/if}
       <InfoBox name={'Type of Nurse'} info={formInfo.get('type')} />
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      {#if nurseType == '1' || (nurseType == '2') & (settingType != '0')}
+      <!-- If nurse type is LPN or if nurse type is RN and Setting is Hospital, 
+    then disallow any education selection except All Education. -->
+      {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply'}
         <label class="radio" disabled>
           <input type="radio" name="education" value="0" checked disabled />
           All Education
@@ -190,6 +205,12 @@
     </div>
   </div>
   <SimpleSelect
+    {...selectOptions.get('calculation')}
+    disabled={educationType != '0'}
+    on:change={handleCalculationChange}>
+    <InfoBox name={'Calculation'} info={formInfo.get('calculation')} />
+  </SimpleSelect>
+  <SimpleSelect
     on:change={handleLocationTypeChange}
     value={currentLocationType}
     {...locationTypeOptions}>
@@ -204,6 +225,7 @@
     on:change={handleSettingChange}>
     <InfoBox name={'Setting'} info={formInfo.get('setting')} />
   </SimpleSelect>
+
   <SimpleSelect {...selectOptions.get('scenario')}>
     <InfoBox name={'Scenario'} info={formInfo.get('scenario')} />
   </SimpleSelect>
