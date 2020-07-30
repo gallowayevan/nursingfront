@@ -39,6 +39,11 @@
     .sort((a, b) => a.mean - b.mean)
     .map(d => d.location);
 
+  $: currentYearOrder = data
+    .filter(d => d.year == currentYear)
+    .sort((a, b) => a.mean - b.mean)
+    .map(d => d.location);
+
   $: currentYearData = new Map(
     data
       .filter(d => d.year == currentYear)
@@ -71,7 +76,7 @@
     params["locationType"] == "Metro/Nonmetro"
       ? metroNonmetroColorScale
       : scaleOrdinal()
-          .domain(baseYearOrder)
+          .domain(currentYearOrder)
           .range(colorScheme);
 
   const width = 320;

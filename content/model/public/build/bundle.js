@@ -8052,17 +8052,17 @@ var app = (function () {
 
     function get_each_context_1$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[26] = list[i];
+    	child_ctx[27] = list[i];
     	return child_ctx;
     }
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[23] = list[i];
+    	child_ctx[24] = list[i];
     	return child_ctx;
     }
 
-    // (174:2) {:else}
+    // (179:2) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
@@ -8071,7 +8071,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Choose a combination of selections and click \"Show\" to see a map of the\r\n      model's projections.";
     			attr_dev(div, "class", "notification");
-    			add_location(div, file$6, 174, 4, 5419);
+    			add_location(div, file$6, 179, 4, 5561);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8088,14 +8088,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(174:2) {:else}",
+    		source: "(179:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:2) {#if data.length > 0}
+    // (104:2) {#if data.length > 0}
     function create_if_block$1(ctx) {
     	let h1;
     	let t0_value = /*params*/ ctx[6]["type"] + "";
@@ -8163,7 +8163,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	rowchart.$on("locationHover", /*locationHover_handler*/ ctx[20]);
+    	rowchart.$on("locationHover", /*locationHover_handler*/ ctx[21]);
     	rowchart.$on("locationLeave", /*handleLocationLeave*/ ctx[11]);
     	let if_block = /*geoJSON*/ ctx[1] && /*path*/ ctx[5] && create_if_block_1$1(ctx);
 
@@ -8198,38 +8198,38 @@ var app = (function () {
     			t14 = space();
     			input = element("input");
     			attr_dev(h1, "class", "title is-4");
-    			add_location(h1, file$6, 99, 4, 2594);
+    			add_location(h1, file$6, 104, 4, 2736);
     			attr_dev(h2, "class", "subtitle is-6");
-    			add_location(h2, file$6, 102, 4, 2776);
+    			add_location(h2, file$6, 107, 4, 2918);
     			attr_dev(div0, "class", "column is-three-fifths");
     			set_style(div0, "padding", "0px 0px 0px 5px");
-    			add_location(div0, file$6, 114, 6, 3035);
-    			add_location(g, file$6, 127, 10, 3603);
+    			add_location(div0, file$6, 119, 6, 3177);
+    			add_location(g, file$6, 132, 10, 3745);
     			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$2 + " " + height$1);
     			attr_dev(svg, "id", "map-svg");
-    			add_location(svg, file$6, 126, 8, 3542);
+    			add_location(svg, file$6, 131, 8, 3684);
     			attr_dev(div1, "class", "column is-two-fifths");
     			set_style(div1, "padding", "0px 5px 0px 0px");
-    			add_location(div1, file$6, 125, 6, 3464);
+    			add_location(div1, file$6, 130, 6, 3606);
     			attr_dev(div2, "class", "columns");
-    			add_location(div2, file$6, 113, 4, 3006);
+    			add_location(div2, file$6, 118, 4, 3148);
     			attr_dev(span, "class", "range-output");
-    			add_location(span, file$6, 160, 8, 5054);
+    			add_location(span, file$6, 165, 8, 5196);
     			attr_dev(div3, "class", "range-title");
-    			add_location(div3, file$6, 158, 6, 4974);
+    			add_location(div3, file$6, 163, 6, 5116);
     			attr_dev(input, "class", "slider");
     			attr_dev(input, "name", "input");
     			attr_dev(input, "type", "range");
     			attr_dev(input, "min", input_min_value = /*yearExtent*/ ctx[7][0]);
     			attr_dev(input, "max", input_max_value = /*yearExtent*/ ctx[7][1]);
     			attr_dev(input, "step", "1");
-    			add_location(input, file$6, 164, 6, 5203);
+    			add_location(input, file$6, 169, 6, 5345);
     			attr_dev(div4, "class", "range");
-    			add_location(div4, file$6, 157, 4, 4947);
+    			add_location(div4, file$6, 162, 4, 5089);
 
     			dispose = [
-    				listen_dev(input, "change", /*input_change_input_handler*/ ctx[22]),
-    				listen_dev(input, "input", /*input_change_input_handler*/ ctx[22])
+    				listen_dev(input, "change", /*input_change_input_handler*/ ctx[23]),
+    				listen_dev(input, "input", /*input_change_input_handler*/ ctx[23])
     			];
     		},
     		m: function mount(target, anchor) {
@@ -8348,14 +8348,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(99:2) {#if data.length > 0}",
+    		source: "(104:2) {#if data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:12) {#if geoJSON && path}
+    // (134:12) {#if geoJSON && path}
     function create_if_block_1$1(ctx) {
     	let each_1_anchor;
     	let each_value = /*geoJSON*/ ctx[1];
@@ -8414,20 +8414,20 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(129:12) {#if geoJSON && path}",
+    		source: "(134:12) {#if geoJSON && path}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (143:22) {#if mapYearData.has(+feature.properties.id)}
+    // (148:22) {#if mapYearData.has(+feature.properties.id)}
     function create_if_block_2$1(ctx) {
     	let title;
-    	let t0_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).name + "";
+    	let t0_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).name + "";
     	let t0;
     	let t1;
-    	let t2_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).display + "";
+    	let t2_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).display + "";
     	let t2;
 
     	const block = {
@@ -8436,7 +8436,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text(": ");
     			t2 = text(t2_value);
-    			add_location(title, file$6, 143, 24, 4566);
+    			add_location(title, file$6, 148, 24, 4708);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, title, anchor);
@@ -8445,8 +8445,8 @@ var app = (function () {
     			append_dev(title, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*mapYearData, geoJSON*/ 258 && t0_value !== (t0_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*mapYearData, geoJSON*/ 258 && t2_value !== (t2_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).display + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*mapYearData, geoJSON*/ 258 && t0_value !== (t0_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*mapYearData, geoJSON*/ 258 && t2_value !== (t2_value = /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).display + "")) set_data_dev(t2, t2_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(title);
@@ -8457,17 +8457,17 @@ var app = (function () {
     		block,
     		id: create_if_block_2$1.name,
     		type: "if",
-    		source: "(143:22) {#if mapYearData.has(+feature.properties.id)}",
+    		source: "(148:22) {#if mapYearData.has(+feature.properties.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (132:18) {#each layer.geo.features as feature}
+    // (137:18) {#each layer.geo.features as feature}
     function create_each_block_1$3(ctx) {
     	let path_1;
-    	let show_if = /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id);
+    	let show_if = /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id);
     	let path_1_fill_value;
     	let path_1_stroke_width_value;
     	let path_1_d_value;
@@ -8475,7 +8475,7 @@ var app = (function () {
     	let if_block = show_if && create_if_block_2$1(ctx);
 
     	function mouseenter_handler(...args) {
-    		return /*mouseenter_handler*/ ctx[21](/*feature*/ ctx[26], ...args);
+    		return /*mouseenter_handler*/ ctx[22](/*feature*/ ctx[27], ...args);
     	}
 
     	const block = {
@@ -8484,26 +8484,26 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(path_1, "class", "feature");
 
-    			attr_dev(path_1, "fill", path_1_fill_value = /*hovered*/ ctx[4] == +/*feature*/ ctx[26].properties.id
+    			attr_dev(path_1, "fill", path_1_fill_value = /*hovered*/ ctx[4] == +/*feature*/ ctx[27].properties.id
     			? hoveredColor
-    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
-    				? /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).fill
+    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
+    				? /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).fill
     				: "none");
 
-    			attr_dev(path_1, "stroke-width", path_1_stroke_width_value = /*layer*/ ctx[23].name == "county"
+    			attr_dev(path_1, "stroke-width", path_1_stroke_width_value = /*layer*/ ctx[24].name == "county"
     			? 1
-    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
+    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
     				? 2
     				: 0);
 
     			attr_dev(path_1, "stroke", "#333");
 
-    			set_style(path_1, "pointer-events", /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
+    			set_style(path_1, "pointer-events", /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
     			? "all"
     			: "none");
 
-    			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[5](/*feature*/ ctx[26]));
-    			add_location(path_1, file$6, 132, 20, 3800);
+    			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[5](/*feature*/ ctx[27]));
+    			add_location(path_1, file$6, 137, 20, 3942);
 
     			dispose = [
     				listen_dev(path_1, "mouseenter", mouseenter_handler, false, false, false),
@@ -8516,7 +8516,7 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*mapYearData, geoJSON*/ 258) show_if = /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id);
+    			if (dirty & /*mapYearData, geoJSON*/ 258) show_if = /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id);
 
     			if (show_if) {
     				if (if_block) {
@@ -8531,29 +8531,29 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty & /*hovered, geoJSON, mapYearData*/ 274 && path_1_fill_value !== (path_1_fill_value = /*hovered*/ ctx[4] == +/*feature*/ ctx[26].properties.id
+    			if (dirty & /*hovered, geoJSON, mapYearData*/ 274 && path_1_fill_value !== (path_1_fill_value = /*hovered*/ ctx[4] == +/*feature*/ ctx[27].properties.id
     			? hoveredColor
-    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
-    				? /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[26].properties.id).fill
+    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
+    				? /*mapYearData*/ ctx[8].get(+/*feature*/ ctx[27].properties.id).fill
     				: "none")) {
     				attr_dev(path_1, "fill", path_1_fill_value);
     			}
 
-    			if (dirty & /*geoJSON, mapYearData*/ 258 && path_1_stroke_width_value !== (path_1_stroke_width_value = /*layer*/ ctx[23].name == "county"
+    			if (dirty & /*geoJSON, mapYearData*/ 258 && path_1_stroke_width_value !== (path_1_stroke_width_value = /*layer*/ ctx[24].name == "county"
     			? 1
-    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
+    			: /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
     				? 2
     				: 0)) {
     				attr_dev(path_1, "stroke-width", path_1_stroke_width_value);
     			}
 
     			if (dirty & /*mapYearData, geoJSON*/ 258) {
-    				set_style(path_1, "pointer-events", /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[26].properties.id)
+    				set_style(path_1, "pointer-events", /*mapYearData*/ ctx[8].has(+/*feature*/ ctx[27].properties.id)
     				? "all"
     				: "none");
     			}
 
-    			if (dirty & /*path, geoJSON*/ 34 && path_1_d_value !== (path_1_d_value = /*path*/ ctx[5](/*feature*/ ctx[26]))) {
+    			if (dirty & /*path, geoJSON*/ 34 && path_1_d_value !== (path_1_d_value = /*path*/ ctx[5](/*feature*/ ctx[27]))) {
     				attr_dev(path_1, "d", path_1_d_value);
     			}
     		},
@@ -8568,18 +8568,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1$3.name,
     		type: "each",
-    		source: "(132:18) {#each layer.geo.features as feature}",
+    		source: "(137:18) {#each layer.geo.features as feature}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:14) {#each geoJSON as layer}
+    // (135:14) {#each geoJSON as layer}
     function create_each_block$3(ctx) {
     	let g;
     	let g_class_value;
-    	let each_value_1 = /*layer*/ ctx[23].geo.features;
+    	let each_value_1 = /*layer*/ ctx[24].geo.features;
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
@@ -8594,8 +8594,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(g, "class", g_class_value = /*layer*/ ctx[23].name);
-    			add_location(g, file$6, 130, 16, 3699);
+    			attr_dev(g, "class", g_class_value = /*layer*/ ctx[24].name);
+    			add_location(g, file$6, 135, 16, 3841);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -8606,7 +8606,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*hovered, geoJSON, hoveredColor, mapYearData, path, handleLocationHover, handleLocationLeave*/ 3378) {
-    				each_value_1 = /*layer*/ ctx[23].geo.features;
+    				each_value_1 = /*layer*/ ctx[24].geo.features;
     				let i;
 
     				for (i = 0; i < each_value_1.length; i += 1) {
@@ -8628,7 +8628,7 @@ var app = (function () {
     				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty & /*geoJSON*/ 2 && g_class_value !== (g_class_value = /*layer*/ ctx[23].name)) {
+    			if (dirty & /*geoJSON*/ 2 && g_class_value !== (g_class_value = /*layer*/ ctx[24].name)) {
     				attr_dev(g, "class", g_class_value);
     			}
     		},
@@ -8642,7 +8642,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(130:14) {#each geoJSON as layer}",
+    		source: "(135:14) {#each geoJSON as layer}",
     		ctx
     	});
 
@@ -8670,7 +8670,7 @@ var app = (function () {
     			div = element("div");
     			if_block.c();
     			attr_dev(div, "id", "simple-map-container");
-    			add_location(div, file$6, 97, 0, 2532);
+    			add_location(div, file$6, 102, 0, 2674);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8787,6 +8787,7 @@ var app = (function () {
     			params,
     			yearExtent,
     			baseYearOrder,
+    			currentYearOrder,
     			currentYearData,
     			color,
     			mapYearData,
@@ -8806,16 +8807,18 @@ var app = (function () {
     		if ("params" in $$props) $$invalidate(6, params = $$props.params);
     		if ("yearExtent" in $$props) $$invalidate(7, yearExtent = $$props.yearExtent);
     		if ("baseYearOrder" in $$props) $$invalidate(13, baseYearOrder = $$props.baseYearOrder);
-    		if ("currentYearData" in $$props) $$invalidate(14, currentYearData = $$props.currentYearData);
-    		if ("color" in $$props) $$invalidate(15, color = $$props.color);
+    		if ("currentYearOrder" in $$props) $$invalidate(14, currentYearOrder = $$props.currentYearOrder);
+    		if ("currentYearData" in $$props) $$invalidate(15, currentYearData = $$props.currentYearData);
+    		if ("color" in $$props) $$invalidate(16, color = $$props.color);
     		if ("mapYearData" in $$props) $$invalidate(8, mapYearData = $$props.mapYearData);
     		if ("valueExtentAllTime" in $$props) $$invalidate(9, valueExtentAllTime = $$props.valueExtentAllTime);
-    		if ("colorScheme" in $$props) $$invalidate(16, colorScheme = $$props.colorScheme);
+    		if ("colorScheme" in $$props) $$invalidate(17, colorScheme = $$props.colorScheme);
     	};
 
     	let params;
     	let yearExtent;
     	let baseYearOrder;
+    	let currentYearOrder;
     	let currentYearData;
     	let mapYearData;
     	let valueExtentAllTime;
@@ -8843,18 +8846,22 @@ var app = (function () {
     			 $$invalidate(13, baseYearOrder = data.filter(d => d.year == baseYear).sort((a, b) => a.mean - b.mean).map(d => d.location));
     		}
 
+    		if ($$self.$$.dirty & /*data, currentYear*/ 9) {
+    			 $$invalidate(14, currentYearOrder = data.filter(d => d.year == currentYear).sort((a, b) => a.mean - b.mean).map(d => d.location));
+    		}
+
     		if ($$self.$$.dirty & /*baseYearOrder*/ 8192) {
-    			 $$invalidate(16, colorScheme = quantize(interpolateHcl("#e0f3db", "#084081"), baseYearOrder.length));
+    			 $$invalidate(17, colorScheme = quantize(interpolateHcl("#e0f3db", "#084081"), baseYearOrder.length));
     		}
 
-    		if ($$self.$$.dirty & /*params, baseYearOrder, colorScheme*/ 73792) {
-    			 $$invalidate(15, color = params["locationType"] == "Metro/Nonmetro"
+    		if ($$self.$$.dirty & /*params, currentYearOrder, colorScheme*/ 147520) {
+    			 $$invalidate(16, color = params["locationType"] == "Metro/Nonmetro"
     			? metroNonmetroColorScale
-    			: ordinal().domain(baseYearOrder).range(colorScheme));
+    			: ordinal().domain(currentYearOrder).range(colorScheme));
     		}
 
-    		if ($$self.$$.dirty & /*data, currentYear, color*/ 32777) {
-    			 $$invalidate(14, currentYearData = new Map(data.filter(d => d.year == currentYear).map(d => [
+    		if ($$self.$$.dirty & /*data, currentYear, color*/ 65545) {
+    			 $$invalidate(15, currentYearData = new Map(data.filter(d => d.year == currentYear).map(d => [
     					d.location,
     					{
     						fill: color(d.location),
@@ -8866,7 +8873,7 @@ var app = (function () {
     				])));
     		}
 
-    		if ($$self.$$.dirty & /*baseYearOrder, currentYearData*/ 24576) {
+    		if ($$self.$$.dirty & /*baseYearOrder, currentYearData*/ 40960) {
     			 $$invalidate(8, mapYearData = new Map(baseYearOrder.map(d => [d, currentYearData.get(d)])));
     		}
 
@@ -8897,6 +8904,7 @@ var app = (function () {
     		handleLocationLeave,
     		projection,
     		baseYearOrder,
+    		currentYearOrder,
     		currentYearData,
     		color,
     		colorScheme,
