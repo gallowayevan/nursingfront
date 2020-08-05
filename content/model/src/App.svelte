@@ -52,6 +52,15 @@
   async function getData(type, allParams) {
     //Separate calculation from other parameters, since calculation is not a column in data
     const table = allParams.find(d => d.name == "calculation").value;
+    const scenarios = new Map(
+      allParams
+        .filter(d => d.name.indexOf("Scenario") >= 0)
+        .map(d => [d.name, d.value])
+    );
+
+    if (scenarios.size == 2) {
+    }
+    console.log(scenarios);
     const params = allParams.filter(d => d.name != "calculation");
 
     const queryURL = `${ROOT}${table}?${params

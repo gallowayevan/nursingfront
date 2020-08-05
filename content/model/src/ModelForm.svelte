@@ -226,9 +226,16 @@ of patterns to what sort of data can actually be selected. -->
     <InfoBox name={'Setting'} info={formInfo.get('setting')} />
   </SimpleSelect>
 
-  <SimpleSelect {...selectOptions.get('scenario')}>
-    <InfoBox name={'Scenario'} info={formInfo.get('scenario')} />
-  </SimpleSelect>
+  {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
+    <SimpleSelect {...selectOptions.get('demandScenario')}>
+      <InfoBox name={'Demand Scenario'} info={formInfo.get('scenario')} />
+    </SimpleSelect>
+  {/if}
+  {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}
+    <SimpleSelect {...selectOptions.get('supplyScenario')}>
+      <InfoBox name={'Supply Scenario'} info={formInfo.get('scenario')} />
+    </SimpleSelect>
+  {/if}
 
   <div class="field is-grouped">
     <div class="control">

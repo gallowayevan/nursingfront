@@ -7959,8 +7959,18 @@ var app = (function () {
                     "label": "Baseline"
                 }
             ],
-            "label": "Scenario",
-            "name": "scenario"
+            "label": "Supply Scenario",
+            "name": "supplyScenario"
+        },
+        {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "Baseline"
+                }
+            ],
+            "label": "Demand Scenario",
+            "name": "demandScenario"
         }
     ].map(d => [d.name, d]));
 
@@ -10972,7 +10982,7 @@ var app = (function () {
     }
 
     // (104:6) {#if calculation == 'supply'}
-    function create_if_block_2$2(ctx) {
+    function create_if_block_4(ctx) {
     	let label0;
     	let input0;
     	let t0;
@@ -11046,7 +11056,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$2.name,
+    		id: create_if_block_4.name,
     		type: "if",
     		source: "(104:6) {#if calculation == 'supply'}",
     		ctx
@@ -11169,7 +11179,7 @@ var app = (function () {
     }
 
     // (132:6) {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply'}
-    function create_if_block_1$3(ctx) {
+    function create_if_block_3(ctx) {
     	let label;
     	let input;
     	let t;
@@ -11202,7 +11212,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_3.name,
     		type: "if",
     		source: "(132:6) {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply'}",
     		ctx
@@ -11272,7 +11282,7 @@ var app = (function () {
     }
 
     // (172:6) {#if chartType == 'map'}
-    function create_if_block$5(ctx) {
+    function create_if_block_2$2(ctx) {
     	let label;
     	let input;
     	let t;
@@ -11304,7 +11314,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block_2$2.name,
     		type: "if",
     		source: "(172:6) {#if chartType == 'map'}",
     		ctx
@@ -11314,7 +11324,7 @@ var app = (function () {
     }
 
     // (207:2) <SimpleSelect      {...selectOptions.get('calculation')}      disabled={educationType != '0'}      on:change={handleCalculationChange}>
-    function create_default_slot_4(ctx) {
+    function create_default_slot_5(ctx) {
     	let current;
 
     	const infobox = new InfoBox({
@@ -11350,7 +11360,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4.name,
+    		id: create_default_slot_5.name,
     		type: "slot",
     		source: "(207:2) <SimpleSelect      {...selectOptions.get('calculation')}      disabled={educationType != '0'}      on:change={handleCalculationChange}>",
     		ctx
@@ -11360,7 +11370,7 @@ var app = (function () {
     }
 
     // (213:2) <SimpleSelect      on:change={handleLocationTypeChange}      value={currentLocationType}      {...locationTypeOptions}>
-    function create_default_slot_3(ctx) {
+    function create_default_slot_4(ctx) {
     	let current;
 
     	const infobox = new InfoBox({
@@ -11396,7 +11406,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3.name,
+    		id: create_default_slot_4.name,
     		type: "slot",
     		source: "(213:2) <SimpleSelect      on:change={handleLocationTypeChange}      value={currentLocationType}      {...locationTypeOptions}>",
     		ctx
@@ -11406,7 +11416,7 @@ var app = (function () {
     }
 
     // (219:2) <SimpleSelect display={chartType == 'line'} {...currentLocationOptions}>
-    function create_default_slot_2(ctx) {
+    function create_default_slot_3(ctx) {
     	let current;
 
     	const infobox = new InfoBox({
@@ -11442,7 +11452,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_2.name,
+    		id: create_default_slot_3.name,
     		type: "slot",
     		source: "(219:2) <SimpleSelect display={chartType == 'line'} {...currentLocationOptions}>",
     		ctx
@@ -11452,7 +11462,7 @@ var app = (function () {
     }
 
     // (222:2) <SimpleSelect      {...selectOptions.get('setting')}      disabled={educationType != '0'}      on:change={handleSettingChange}>
-    function create_default_slot_1(ctx) {
+    function create_default_slot_2(ctx) {
     	let current;
 
     	const infobox = new InfoBox({
@@ -11488,7 +11498,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1.name,
+    		id: create_default_slot_2.name,
     		type: "slot",
     		source: "(222:2) <SimpleSelect      {...selectOptions.get('setting')}      disabled={educationType != '0'}      on:change={handleSettingChange}>",
     		ctx
@@ -11497,13 +11507,185 @@ var app = (function () {
     	return block;
     }
 
-    // (229:2) <SimpleSelect {...selectOptions.get('scenario')}>
+    // (229:2) {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
+    function create_if_block_1$3(ctx) {
+    	let current;
+    	const simpleselect_spread_levels = [selectOptions.get("demandScenario")];
+
+    	let simpleselect_props = {
+    		$$slots: { default: [create_default_slot_1] },
+    		$$scope: { ctx }
+    	};
+
+    	for (let i = 0; i < simpleselect_spread_levels.length; i += 1) {
+    		simpleselect_props = assign(simpleselect_props, simpleselect_spread_levels[i]);
+    	}
+
+    	const simpleselect = new SimpleSelect({
+    			props: simpleselect_props,
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(simpleselect.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(simpleselect, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const simpleselect_changes = dirty & /*selectOptions*/ 0
+    			? get_spread_update(simpleselect_spread_levels, [get_spread_object(selectOptions.get("demandScenario"))])
+    			: {};
+
+    			if (dirty & /*$$scope*/ 4194304) {
+    				simpleselect_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect.$set(simpleselect_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(simpleselect.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(simpleselect.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(simpleselect, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$3.name,
+    		type: "if",
+    		source: "(229:2) {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (230:4) <SimpleSelect {...selectOptions.get('demandScenario')}>
+    function create_default_slot_1(ctx) {
+    	let current;
+
+    	const infobox = new InfoBox({
+    			props: {
+    				name: "Demand Scenario",
+    				info: formInfo.get("scenario")
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(infobox.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(infobox, target, anchor);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(infobox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(230:4) <SimpleSelect {...selectOptions.get('demandScenario')}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (234:2) {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}
+    function create_if_block$5(ctx) {
+    	let current;
+    	const simpleselect_spread_levels = [selectOptions.get("supplyScenario")];
+
+    	let simpleselect_props = {
+    		$$slots: { default: [create_default_slot] },
+    		$$scope: { ctx }
+    	};
+
+    	for (let i = 0; i < simpleselect_spread_levels.length; i += 1) {
+    		simpleselect_props = assign(simpleselect_props, simpleselect_spread_levels[i]);
+    	}
+
+    	const simpleselect = new SimpleSelect({
+    			props: simpleselect_props,
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(simpleselect.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(simpleselect, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const simpleselect_changes = dirty & /*selectOptions*/ 0
+    			? get_spread_update(simpleselect_spread_levels, [get_spread_object(selectOptions.get("supplyScenario"))])
+    			: {};
+
+    			if (dirty & /*$$scope*/ 4194304) {
+    				simpleselect_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect.$set(simpleselect_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(simpleselect.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(simpleselect.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(simpleselect, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$5.name,
+    		type: "if",
+    		source: "(234:2) {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (235:4) <SimpleSelect {...selectOptions.get('supplyScenario')}>
     function create_default_slot(ctx) {
     	let current;
 
     	const infobox = new InfoBox({
     			props: {
-    				name: "Scenario",
+    				name: "Supply Scenario",
     				info: formInfo.get("scenario")
     			},
     			$$inline: true
@@ -11536,7 +11718,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(229:2) <SimpleSelect {...selectOptions.get('scenario')}>",
+    		source: "(235:4) <SimpleSelect {...selectOptions.get('supplyScenario')}>",
     		ctx
     	});
 
@@ -11573,21 +11755,22 @@ var app = (function () {
     	let t13;
     	let t14;
     	let t15;
+    	let t16;
     	let div10;
     	let div8;
     	let button0;
-    	let t17;
+    	let t18;
     	let div9;
     	let button1;
-    	let t19;
-    	let hr;
     	let t20;
+    	let hr;
+    	let t21;
     	let button2;
     	let current;
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*calculation*/ ctx[5] == "supply") return create_if_block_2$2;
+    		if (/*calculation*/ ctx[5] == "supply") return create_if_block_4;
     		return create_else_block_2;
     	}
 
@@ -11603,7 +11786,7 @@ var app = (function () {
     		});
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*nurseType*/ ctx[1] == "1" || /*nurseType*/ ctx[1] == "2" & /*settingType*/ ctx[4] != "0" || /*calculation*/ ctx[5] != "supply") return create_if_block_1$3;
+    		if (/*nurseType*/ ctx[1] == "1" || /*nurseType*/ ctx[1] == "2" & /*settingType*/ ctx[4] != "0" || /*calculation*/ ctx[5] != "supply") return create_if_block_3;
     		return create_else_block_1;
     	}
 
@@ -11619,7 +11802,7 @@ var app = (function () {
     		});
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*chartType*/ ctx[0] == "map") return create_if_block$5;
+    		if (/*chartType*/ ctx[0] == "map") return create_if_block_2$2;
     		return create_else_block$3;
     	}
 
@@ -11650,7 +11833,7 @@ var app = (function () {
     	];
 
     	let simpleselect0_props = {
-    		$$slots: { default: [create_default_slot_4] },
+    		$$slots: { default: [create_default_slot_5] },
     		$$scope: { ctx }
     	};
 
@@ -11667,7 +11850,7 @@ var app = (function () {
     	const simpleselect1_spread_levels = [{ value: /*currentLocationType*/ ctx[2] }, /*locationTypeOptions*/ ctx[6]];
 
     	let simpleselect1_props = {
-    		$$slots: { default: [create_default_slot_3] },
+    		$$slots: { default: [create_default_slot_4] },
     		$$scope: { ctx }
     	};
 
@@ -11684,7 +11867,7 @@ var app = (function () {
     	const simpleselect2_spread_levels = [{ display: /*chartType*/ ctx[0] == "line" }, /*currentLocationOptions*/ ctx[7]];
 
     	let simpleselect2_props = {
-    		$$slots: { default: [create_default_slot_2] },
+    		$$slots: { default: [create_default_slot_3] },
     		$$scope: { ctx }
     	};
 
@@ -11705,7 +11888,7 @@ var app = (function () {
     	];
 
     	let simpleselect3_props = {
-    		$$slots: { default: [create_default_slot_1] },
+    		$$slots: { default: [create_default_slot_2] },
     		$$scope: { ctx }
     	};
 
@@ -11719,21 +11902,8 @@ var app = (function () {
     		});
 
     	simpleselect3.$on("change", /*handleSettingChange*/ ctx[11]);
-    	const simpleselect4_spread_levels = [selectOptions.get("scenario")];
-
-    	let simpleselect4_props = {
-    		$$slots: { default: [create_default_slot] },
-    		$$scope: { ctx }
-    	};
-
-    	for (let i = 0; i < simpleselect4_spread_levels.length; i += 1) {
-    		simpleselect4_props = assign(simpleselect4_props, simpleselect4_spread_levels[i]);
-    	}
-
-    	const simpleselect4 = new SimpleSelect({
-    			props: simpleselect4_props,
-    			$$inline: true
-    		});
+    	let if_block3 = (/*calculation*/ ctx[5] == "demand" || /*calculation*/ ctx[5] == "difference" || /*calculation*/ ctx[5] == "ratio") && create_if_block_1$3(ctx);
+    	let if_block4 = (/*calculation*/ ctx[5] == "supply" || /*calculation*/ ctx[5] == "difference" || /*calculation*/ ctx[5] == "ratio") && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -11776,19 +11946,21 @@ var app = (function () {
     			t13 = space();
     			create_component(simpleselect3.$$.fragment);
     			t14 = space();
-    			create_component(simpleselect4.$$.fragment);
+    			if (if_block3) if_block3.c();
     			t15 = space();
+    			if (if_block4) if_block4.c();
+    			t16 = space();
     			div10 = element("div");
     			div8 = element("div");
     			button0 = element("button");
     			button0.textContent = "Show";
-    			t17 = space();
+    			t18 = space();
     			div9 = element("div");
     			button1 = element("button");
     			button1.textContent = "Clear";
-    			t19 = space();
-    			hr = element("hr");
     			t20 = space();
+    			hr = element("hr");
+    			t21 = space();
     			button2 = element("button");
     			button2.textContent = "Launch User Guide";
     			attr_dev(div0, "class", "control");
@@ -11822,20 +11994,20 @@ var app = (function () {
     			add_location(div7, file$b, 191, 2, 5780);
     			attr_dev(button0, "class", "button is-primary");
     			attr_dev(button0, "type", "submit");
-    			add_location(button0, file$b, 234, 6, 7269);
+    			add_location(button0, file$b, 241, 6, 7644);
     			attr_dev(div8, "class", "control");
-    			add_location(div8, file$b, 233, 4, 7240);
+    			add_location(div8, file$b, 240, 4, 7615);
     			attr_dev(button1, "class", "button");
     			attr_dev(button1, "type", "button");
-    			add_location(button1, file$b, 237, 6, 7377);
+    			add_location(button1, file$b, 244, 6, 7752);
     			attr_dev(div9, "class", "control");
-    			add_location(div9, file$b, 236, 4, 7348);
+    			add_location(div9, file$b, 243, 4, 7723);
     			attr_dev(div10, "class", "field is-grouped");
-    			add_location(div10, file$b, 232, 2, 7204);
-    			add_location(hr, file$b, 242, 2, 7499);
+    			add_location(div10, file$b, 239, 2, 7579);
+    			add_location(hr, file$b, 249, 2, 7874);
     			attr_dev(button2, "class", "button is-primary is-outlined is-center is-rounded");
     			attr_dev(button2, "id", "btn");
-    			add_location(button2, file$b, 243, 2, 7509);
+    			add_location(button2, file$b, 250, 2, 7884);
     			add_location(form, file$b, 100, 0, 3007);
 
     			dispose = [
@@ -11887,17 +12059,19 @@ var app = (function () {
     			append_dev(form, t13);
     			mount_component(simpleselect3, form, null);
     			append_dev(form, t14);
-    			mount_component(simpleselect4, form, null);
+    			if (if_block3) if_block3.m(form, null);
     			append_dev(form, t15);
+    			if (if_block4) if_block4.m(form, null);
+    			append_dev(form, t16);
     			append_dev(form, div10);
     			append_dev(div10, div8);
     			append_dev(div8, button0);
-    			append_dev(div10, t17);
+    			append_dev(div10, t18);
     			append_dev(div10, div9);
     			append_dev(div9, button1);
-    			append_dev(form, t19);
-    			append_dev(form, hr);
     			append_dev(form, t20);
+    			append_dev(form, hr);
+    			append_dev(form, t21);
     			append_dev(form, button2);
     			current = true;
     		},
@@ -11992,15 +12166,45 @@ var app = (function () {
 
     			simpleselect3.$set(simpleselect3_changes);
 
-    			const simpleselect4_changes = dirty & /*selectOptions*/ 0
-    			? get_spread_update(simpleselect4_spread_levels, [get_spread_object(selectOptions.get("scenario"))])
-    			: {};
+    			if (/*calculation*/ ctx[5] == "demand" || /*calculation*/ ctx[5] == "difference" || /*calculation*/ ctx[5] == "ratio") {
+    				if (if_block3) {
+    					if_block3.p(ctx, dirty);
+    					transition_in(if_block3, 1);
+    				} else {
+    					if_block3 = create_if_block_1$3(ctx);
+    					if_block3.c();
+    					transition_in(if_block3, 1);
+    					if_block3.m(form, t15);
+    				}
+    			} else if (if_block3) {
+    				group_outros();
 
-    			if (dirty & /*$$scope*/ 4194304) {
-    				simpleselect4_changes.$$scope = { dirty, ctx };
+    				transition_out(if_block3, 1, 1, () => {
+    					if_block3 = null;
+    				});
+
+    				check_outros();
     			}
 
-    			simpleselect4.$set(simpleselect4_changes);
+    			if (/*calculation*/ ctx[5] == "supply" || /*calculation*/ ctx[5] == "difference" || /*calculation*/ ctx[5] == "ratio") {
+    				if (if_block4) {
+    					if_block4.p(ctx, dirty);
+    					transition_in(if_block4, 1);
+    				} else {
+    					if_block4 = create_if_block$5(ctx);
+    					if_block4.c();
+    					transition_in(if_block4, 1);
+    					if_block4.m(form, t16);
+    				}
+    			} else if (if_block4) {
+    				group_outros();
+
+    				transition_out(if_block4, 1, 1, () => {
+    					if_block4 = null;
+    				});
+
+    				check_outros();
+    			}
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -12012,7 +12216,8 @@ var app = (function () {
     			transition_in(simpleselect1.$$.fragment, local);
     			transition_in(simpleselect2.$$.fragment, local);
     			transition_in(simpleselect3.$$.fragment, local);
-    			transition_in(simpleselect4.$$.fragment, local);
+    			transition_in(if_block3);
+    			transition_in(if_block4);
     			current = true;
     		},
     		o: function outro(local) {
@@ -12024,7 +12229,8 @@ var app = (function () {
     			transition_out(simpleselect1.$$.fragment, local);
     			transition_out(simpleselect2.$$.fragment, local);
     			transition_out(simpleselect3.$$.fragment, local);
-    			transition_out(simpleselect4.$$.fragment, local);
+    			transition_out(if_block3);
+    			transition_out(if_block4);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -12040,7 +12246,8 @@ var app = (function () {
     			destroy_component(simpleselect1);
     			destroy_component(simpleselect2);
     			destroy_component(simpleselect3);
-    			destroy_component(simpleselect4);
+    			if (if_block3) if_block3.d();
+    			if (if_block4) if_block4.d();
     			run_all(dispose);
     		}
     	};
@@ -13841,7 +14048,7 @@ var app = (function () {
     const file$g = "src\\TutorialModal.svelte";
 
     // (35:6) <TutorialImage imageFileName={images[0]}>
-    function create_default_slot_5(ctx) {
+    function create_default_slot_5$1(ctx) {
     	let p;
     	let span;
 
@@ -13865,7 +14072,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_5.name,
+    		id: create_default_slot_5$1.name,
     		type: "slot",
     		source: "(35:6) <TutorialImage imageFileName={images[0]}>",
     		ctx
@@ -14203,7 +14410,7 @@ var app = (function () {
     	const tutorialimage0 = new TutorialImage({
     			props: {
     				imageFileName: /*images*/ ctx[1][0],
-    				$$slots: { default: [create_default_slot_5] },
+    				$$slots: { default: [create_default_slot_5$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -14500,7 +14707,7 @@ var app = (function () {
     const { Error: Error_1 } = globals;
     const file$h = "src\\App.svelte";
 
-    // (166:8) {:else}
+    // (175:8) {:else}
     function create_else_block$5(ctx) {
     	let t;
     	let current_block_type_index;
@@ -14601,14 +14808,14 @@ var app = (function () {
     		block,
     		id: create_else_block$5.name,
     		type: "else",
-    		source: "(166:8) {:else}",
+    		source: "(175:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (161:8) {#if fetchError}
+    // (170:8) {#if fetchError}
     function create_if_block$7(ctx) {
     	let div;
 
@@ -14617,7 +14824,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "An error has occurred. Please try selecting different projection\n            parameters or reload the page.";
     			attr_dev(div, "class", "notification is-danger");
-    			add_location(div, file$h, 161, 10, 4564);
+    			add_location(div, file$h, 170, 10, 4775);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14634,14 +14841,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(161:8) {#if fetchError}",
+    		source: "(170:8) {#if fetchError}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (167:10) {#if data.length > 0}
+    // (176:10) {#if data.length > 0}
     function create_if_block_5(ctx) {
     	let div2;
     	let div0;
@@ -14670,11 +14877,11 @@ var app = (function () {
     			t1 = space();
     			create_component(downloaddata.$$.fragment);
     			attr_dev(div0, "class", "column is-hidden-mobile is-paddingless");
-    			add_location(div0, file$h, 168, 14, 4848);
+    			add_location(div0, file$h, 177, 14, 5059);
     			attr_dev(div1, "class", "column is-narrow is-paddingless");
-    			add_location(div1, file$h, 169, 14, 4917);
+    			add_location(div1, file$h, 178, 14, 5128);
     			attr_dev(div2, "class", "columns is-marginless");
-    			add_location(div2, file$h, 167, 12, 4798);
+    			add_location(div2, file$h, 176, 12, 5009);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -14734,14 +14941,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(167:10) {#if data.length > 0}",
+    		source: "(176:10) {#if data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (171:16) {#if chartType == 'line' || chartType == 'map'}
+    // (180:16) {#if chartType == 'line' || chartType == 'map'}
     function create_if_block_6(ctx) {
     	let current;
 
@@ -14781,14 +14988,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(171:16) {#if chartType == 'line' || chartType == 'map'}",
+    		source: "(180:16) {#if chartType == 'line' || chartType == 'map'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (191:10) {:else}
+    // (200:10) {:else}
     function create_else_block_2$1(ctx) {
     	let current;
 
@@ -14830,20 +15037,20 @@ var app = (function () {
     		block,
     		id: create_else_block_2$1.name,
     		type: "else",
-    		source: "(191:10) {:else}",
+    		source: "(200:10) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (178:10) {#if data.length > 0}
+    // (187:10) {#if data.length > 0}
     function create_if_block_1$5(ctx) {
     	let current_block_type_index;
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_2$4, create_if_block_3, create_if_block_4, create_else_block_1$1];
+    	const if_block_creators = [create_if_block_2$4, create_if_block_3$1, create_if_block_4$1, create_else_block_1$1];
     	const if_blocks = [];
 
     	function select_block_type_2(ctx, dirty) {
@@ -14910,14 +15117,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$5.name,
     		type: "if",
-    		source: "(178:10) {#if data.length > 0}",
+    		source: "(187:10) {#if data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (188:12) {:else}
+    // (197:12) {:else}
     function create_else_block_1$1(ctx) {
     	let div;
 
@@ -14926,7 +15133,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "An error has occurred.";
     			attr_dev(div, "class", "notification");
-    			add_location(div, file$h, 188, 14, 5687);
+    			add_location(div, file$h, 197, 14, 5898);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14943,15 +15150,15 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(188:12) {:else}",
+    		source: "(197:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (186:43) 
-    function create_if_block_4(ctx) {
+    // (195:43) 
+    function create_if_block_4$1(ctx) {
     	let current;
 
     	const table = new Table({
@@ -14991,17 +15198,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_4.name,
+    		id: create_if_block_4$1.name,
     		type: "if",
-    		source: "(186:43) ",
+    		source: "(195:43) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (184:41) 
-    function create_if_block_3(ctx) {
+    // (193:41) 
+    function create_if_block_3$1(ctx) {
     	let current;
 
     	const simplemap = new SimpleMap({
@@ -15043,16 +15250,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3.name,
+    		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(184:41) ",
+    		source: "(193:41) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (179:12) {#if chartType == 'line'}
+    // (188:12) {#if chartType == 'line'}
     function create_if_block_2$4(ctx) {
     	let current;
 
@@ -15097,7 +15304,7 @@ var app = (function () {
     		block,
     		id: create_if_block_2$4.name,
     		type: "if",
-    		source: "(179:12) {#if chartType == 'line'}",
+    		source: "(188:12) {#if chartType == 'line'}",
     		ctx
     	});
 
@@ -15184,32 +15391,32 @@ var app = (function () {
     			div2 = element("div");
     			if_block.c();
     			attr_dev(a0, "id", "line");
-    			add_location(a0, file$h, 143, 14, 3914);
+    			add_location(a0, file$h, 152, 14, 4125);
     			attr_dev(li0, "class", li0_class_value = /*chartType*/ ctx[2] == "line" ? "is-active" : "");
-    			add_location(li0, file$h, 142, 12, 3848);
+    			add_location(li0, file$h, 151, 12, 4059);
     			attr_dev(a1, "id", "map");
-    			add_location(a1, file$h, 146, 14, 4059);
+    			add_location(a1, file$h, 155, 14, 4270);
     			attr_dev(li1, "class", li1_class_value = /*chartType*/ ctx[2] == "map" ? "is-active" : "");
-    			add_location(li1, file$h, 145, 12, 3994);
+    			add_location(li1, file$h, 154, 12, 4205);
     			attr_dev(a2, "id", "table");
-    			add_location(a2, file$h, 149, 14, 4198);
+    			add_location(a2, file$h, 158, 14, 4409);
     			attr_dev(li2, "class", li2_class_value = /*chartType*/ ctx[2] == "table" ? "is-active" : "");
-    			add_location(li2, file$h, 148, 12, 4131);
-    			add_location(ul, file$h, 141, 10, 3831);
+    			add_location(li2, file$h, 157, 12, 4342);
+    			add_location(ul, file$h, 150, 10, 4042);
     			attr_dev(div0, "class", "tabs is-toggle");
-    			add_location(div0, file$h, 139, 8, 3736);
+    			add_location(div0, file$h, 148, 8, 3947);
     			attr_dev(div1, "class", "column is-4");
-    			add_location(div1, file$h, 138, 6, 3702);
+    			add_location(div1, file$h, 147, 6, 3913);
     			attr_dev(div2, "class", "column is-8 box");
-    			add_location(div2, file$h, 159, 6, 4499);
+    			add_location(div2, file$h, 168, 6, 4710);
     			attr_dev(div3, "class", "columns");
-    			add_location(div3, file$h, 137, 4, 3674);
+    			add_location(div3, file$h, 146, 4, 3885);
     			attr_dev(div4, "class", "container");
     			attr_dev(div4, "id", "main-container");
-    			add_location(div4, file$h, 135, 2, 3625);
+    			add_location(div4, file$h, 144, 2, 3836);
     			attr_dev(section, "class", "section");
     			toggle_class(section, "is-clipped", /*showModal*/ ctx[3]);
-    			add_location(section, file$h, 133, 0, 3499);
+    			add_location(section, file$h, 142, 0, 3710);
 
     			dispose = [
     				listen_dev(a0, "click", /*tabClicked*/ ctx[9], false, false, false),
@@ -15371,6 +15578,9 @@ var app = (function () {
 
     	async function getData(type, allParams) {
     		const table = allParams.find(d => d.name == "calculation").value;
+    		const scenarios = new Map(allParams.filter(d => d.name.indexOf("Scenario") >= 0).map(d => [d.name, d.value]));
+
+    		console.log(scenarios);
     		const params = allParams.filter(d => d.name != "calculation");
     		const queryURL = `${ROOT}${table}?${params.map(d => `${d.name}=${+d.value}`).join("&")}`;
     		$$invalidate(4, fetchError = false);

@@ -142,7 +142,17 @@ export default new Map([
                 "label": "Baseline"
             }
         ],
-        "label": "Scenario",
-        "name": "scenario"
+        "label": "Supply Scenario",
+        "name": "supplyScenario"
+    },
+    {
+        "options": [
+            {
+                "value": 0,
+                "label": "Baseline"
+            }
+        ],
+        "label": "Demand Scenario",
+        "name": "demandScenario"
     }
 ].map(d => [d.name, d]))
