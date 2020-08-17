@@ -37,7 +37,7 @@
       if (type == "line") {
         data = [...data, newData];
       } else {
-        data = newData;
+        data = [newData];
       }
     });
   }
@@ -114,17 +114,15 @@
               <DownloadData {data} {chartType} {projectionStartYear} />
             </div>
           </div>
-        {/if}
-        {#if data.length > 0}
           {#if chartType == 'line'}
             <LineChart
               {data}
               on:deleteProjection={handleDeleteProjection}
               {projectionStartYear} />
           {:else if chartType == 'map'}
-            <SimpleMap {data} {geoJSON} {projectionStartYear} />
+            <SimpleMap data={data[0]} {geoJSON} {projectionStartYear} />
           {:else if chartType == 'table'}
-            <Table {data} {projectionStartYear} />
+            <Table data={data[0]} {projectionStartYear} />
           {:else}
             <div class="notification">An error has occurred.</div>
           {/if}

@@ -73,7 +73,7 @@
             stroke-width={hovered == bar[0] ? 3 : 0}
             on:mouseenter={() => handleLocationHover(bar[0])}
             on:mouseleave={handleLocationLeave}>
-            <title>{bar[1].name}: {bar[1].display}</title>
+            <title>{bar[1].name}: {bar[1].value}</title>
           </rect>
           <text class="yAxis" dy="1em" dx="-3">{bar[1].name}</text>
         </g>

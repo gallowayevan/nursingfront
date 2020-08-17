@@ -55,9 +55,9 @@
   //Shape generators
   $: line = d3line()
     .curve(curveMonotoneX)
-    .defined(d => !isNaN(d.mean))
+    .defined(d => !isNaN(d.value))
     .x(d => x(d.year))
-    .y(d => y(d.mean));
+    .y(d => y(d.value));
 
   $: area = d3area()
     .x(d => x(d.year))
@@ -71,7 +71,7 @@
   $: xExtent =
     flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
   $: xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]);
-  $: yMax = flatData.length > 0 ? max(flatData, d => d.mean) : 50;
+  $: yMax = flatData.length > 0 ? max(flatData, d => d.value) : 50;
   $: x = scaleLinear()
     .domain(xExtent)
     .range([margin.left, width - margin.right]);
@@ -204,7 +204,7 @@
             stroke="#333"
             stroke-width="2" />
           {#each hoverData.values as row}
-            <g transform="translate({x(hoverData.year)} {y(row.mean)})">
+            <g transform="translate({x(hoverData.year)} {y(row.value)})">
               <circle cx="0" cy="0" r="5" stroke="#333" fill="none" />
             </g>
           {/each}
@@ -221,11 +221,11 @@
     {#if hoverData}
       {#each hoverData.values as row}
         <div
-          style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * (y(row.mean) - 8)}px;
+          style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * (y(row.value) - 8)}px;
           left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
           background: rgba(255, 255, 255, 0.7); border-radius:5px;border: 1px
           solid #333333;padding:0px 1px;">
-          {row.mean.toLocaleString()}
+          {row.value.toLocaleString()}
         </div>
       {/each}
     {/if}

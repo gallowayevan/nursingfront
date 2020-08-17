@@ -19,41 +19,44 @@
 
   let hovered = undefined;
   const hoveredColor = "#898989";
-
+  $: console.log(data);
   const locationNamesMap = new Map(
     options.get("location").options.map(d => [d.value, d.label])
   );
 
-  $: params =
-    data.length > 0
-      ? data.params.reduce((acc, curr) => {
-          acc[curr.name] = curr.display.trim();
-          return acc;
-        }, {})
-      : {};
+  $: params = data.params
+    ? data.params.reduce((acc, curr) => {
+        acc[curr[0]] = options
+          .get(curr[0])
+          .options.find(d => d.value == curr[1]).label;
+        return acc;
+      }, {})
+    : {};
 
-  $: yearExtent = extent(data || [{ year: 2015 }, { year: 2032 }], d => d.year);
+  $: yearExtent = extent(
+    data.values || [{ year: 2015 }, { year: 2032 }],
+    d => d.year
+  );
 
-  $: baseYearOrder = data
+  $: baseYearOrder = data.values
     .filter(d => d.year == baseYear)
-    .sort((a, b) => a.mean - b.mean)
+    .sort((a, b) => a.value - b.value)
     .map(d => d.location);
 
-  $: currentYearOrder = data
+  $: currentYearOrder = data.values
     .filter(d => d.year == currentYear)
-    .sort((a, b) => a.mean - b.mean)
+    .sort((a, b) => a.value - b.value)
     .map(d => d.location);
 
   $: currentYearData = new Map(
-    data
+    data.values
       .filter(d => d.year == currentYear)
       .map(d => [
         d.location,
         {
           fill: color(d.location),
-          fontFill: fontColor(color(d.mean)),
-          value: d.mean,
-          display: d.display,
+          fontFill: fontColor(color(d.value)),
+          value: d.value,
           name: locationNamesMap.get(d.location)
         }
       ])
@@ -61,8 +64,10 @@
 
   $: mapYearData = new Map(baseYearOrder.map(d => [d, currentYearData.get(d)]));
 
-  $: valueExtentAllTime = [0, max(data || [], d => d.mean)];
-
+  $: valueExtentAllTime = extent(data.values || [], d => d.value).map(
+    (d, i) => (i == 0 && d > 0 ? 0 : d) //Always make baseline at least 0
+  );
+  $: console.log(valueExtentAllTime);
   $: colorScheme = quantize(
     interpolateHcl("#e0f3db", "#084081"),
     baseYearOrder.length
@@ -101,13 +106,13 @@
 </script>
 
 <div id="simple-map-container">
-  {#if data.length > 0}
+  {#if data.values}
     <h1 class="title is-4">
       {params['type']}s by {params['locationType']}, North Carolina, {currentYear}{currentYear >= projectionStartYear ? ' (Projected)' : ''}
     </h1>
     <h2 class="subtitle is-6">
       {permute(params, [
-        'scenario',
+        ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0]),
         'setting',
         'education',
         'fteOrHeadcount',
@@ -147,7 +152,7 @@
 
                       {#if mapYearData.has(+feature.properties.id)}
                         <title>
-                          {mapYearData.get(+feature.properties.id).name}: {mapYearData.get(+feature.properties.id).display}
+                          {mapYearData.get(+feature.properties.id).name}: {mapYearData.get(+feature.properties.id).value}
                         </title>
                       {/if}
                     </path>

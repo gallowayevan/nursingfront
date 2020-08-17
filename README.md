@@ -1,4 +1,6 @@
 -  Model
+    - figure out color scale for table values
+    - figure out how to handle negative values in map rowchart
     - build codebook.js with name (db column name), value codings, readable labels (variables and individual codes), description (e.g., for info boxes)
     - round Totals before load into database? Maybe round everything before loading?
     - why doesn't download image options work?

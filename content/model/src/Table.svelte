@@ -1,6 +1,15 @@
 <script>
-  import { group, extent, ascending, least, max, min, permute } from "d3-array";
-  import { scaleLog } from "d3-scale";
+  import {
+    group,
+    extent,
+    ascending,
+    least,
+    max,
+    min,
+    permute,
+    mean
+  } from "d3-array";
+  import { scaleLinear } from "d3-scale";
   import { interpolateBlues, interpolateReds } from "d3-scale-chromatic";
   import options from "./data/options.js";
   import { fontColor, throttle } from "./utilities.js";
@@ -27,25 +36,26 @@
   }
 
   //Why do Chrome and Edge appear to add a space after the locationType?
-  $: params =
-    data.length > 0
-      ? data.params.reduce((acc, curr) => {
-          acc[curr.name] = curr.display.trim();
-          return acc;
-        }, {})
-      : {};
+  $: params = data.params
+    ? data.params.reduce((acc, curr) => {
+        acc[curr[0]] = options
+          .get(curr[0])
+          .options.find(d => d.value == curr[1]).label;
+        return acc;
+      }, {})
+    : {};
 
   $: paramsMap = data.params
     ? new Map(data.params.map(d => [d.name, d]))
     : undefined;
 
-  $: baseYear = min(data, e => e.year);
+  $: baseYear = min(data.values, e => e.year);
 
-  $: grouped = Array.from(group(data, d => d.location))
+  $: grouped = Array.from(group(data.values, d => d.location))
     .map(function(d) {
       const base = least(d[1], e => e.year);
       const valueArray = d[1].map(function(e) {
-        const change = e.mean / base.mean || 0;
+        const change = e.value / base.value || 0;
         return Object.assign({ change: change }, e);
       });
       return [
@@ -56,13 +66,16 @@
     .sort((a, b) => ascending(a[0], b[0]));
 
   $: flatChangeValues = grouped.flatMap(d => d[1]).map(d => d.change);
-  $: maxChange = Math.max(
-    max(flatChangeValues, d => 1 / d),
-    max(flatChangeValues, d => d / 1)
-  );
+  // $: maxChange = Math.max(
+  //   max(flatChangeValues, d => 1 / d),
+  //   max(flatChangeValues, d => d / 1)
+  // );
 
-  $: colorScale = scaleLog()
-    .domain([1 / maxChange, 1, maxChange])
+  $: maxChange = max(flatChangeValues, d => Math.abs(d));
+  $: meanChange = mean(flatChangeValues);
+
+  $: colorScale = scaleLinear()
+    .domain([-maxChange, 1, maxChange])
     .range([-1, 0, 1])
     .interpolate((a, b) =>
       a < 0 ? t => interpolateReds(1 - t) : t => interpolateBlues(t)
@@ -129,14 +142,14 @@
   }
 </style>
 
-{#if data.length > 0}
+{#if data.values}
   <div id="top-level-table-div">
     <h1 class="title is-4">
       {params['type']}s by {params['locationType'].trim()}, North Carolina
     </h1>
     <h2 class="subtitle is-6">
       {permute(params, [
-        'scenario',
+        ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0]),
         'setting',
         'education',
         'fteOrHeadcount',
@@ -167,7 +180,7 @@
             <th
               class="frozen"
               style="left:{leftCoord}px;padding-bottom:5px;width:{frozenWidth};">
-              {paramsMap.get('locationType').display}
+              {params['locationType']}
             </th>
             {#each grouped[0][1] as year}
               <th class:projection={year.year >= projectionStartYear}>
@@ -191,7 +204,7 @@
                   class="number-cell"
                   style="background-color:{index == 0 ? '#ffffff' : colorScale(cell.change)};
                   color:{fontColor(colorScale(cell.change))};">
-                  {cell.display}
+                  {cell.value.toLocaleString()}
                 </td>
               {/each}
             </tr>
