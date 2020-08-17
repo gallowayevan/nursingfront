@@ -1,4 +1,6 @@
 -  Model
+    - build codebook.js with name (db column name), value codings, readable labels (variables and individual codes), description (e.g., for info boxes)
+    - round Totals before load into database? Maybe round everything before loading?
     - why doesn't download image options work?
     - work on y axis transitions - make closer to D3 transitions - investigate D3 transitions - code and in developer window
     - Add small map under Location?

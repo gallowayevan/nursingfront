@@ -4,7 +4,7 @@
   import { scaleOrdinal } from "d3-scale";
   import { max, extent } from "d3-array";
   import RowChart from "./RowChart.svelte";
-  import selectOptions from "./data/selectOptions.js";
+  import options from "./data/options.js";
   import { fontColor } from "./utilities.js";
   import { interpolateHcl, quantize } from "d3-interpolate";
 
@@ -21,7 +21,7 @@
   const hoveredColor = "#898989";
 
   const locationNamesMap = new Map(
-    selectOptions.get("location").options.map(d => [d.value, d.label])
+    options.get("location").options.map(d => [d.value, d.label])
   );
 
   $: params =

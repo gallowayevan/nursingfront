@@ -12,6 +12,37 @@ export function titleCase(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+export function makeQueryURL(params) {
+    const baseURL = "__root__";
+    return `${baseURL}?${params
+        .map(d => `${d.name}=${d.value}`)
+        .join("&")}`;
+}
+
+
+export async function dataFetch(queryURL) {
+    const data = await fetch(queryURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(json => {
+            if (json.length == 0) {
+                throw new Error("No data.");
+            } else {
+                return json;
+            }
+        })
+        .catch(error => {
+            console.error(
+                "There has been a problem with your fetch operation:",
+                error
+            );
+        });
+    return data;
+}
 
 // Underscore.js 1.9.2
 // https://underscorejs.org

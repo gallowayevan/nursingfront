@@ -1,7 +1,7 @@
 <script>
   import SimpleSelect from "./SimpleSelect.svelte";
   import InfoBox from "./InfoBox.svelte";
-  import selectOptions from "./data/selectOptions.js";
+  import options from "./data/options.js";
   import formInfo from "./data/formInfo.js";
   import { group } from "d3-array";
   import { createEventDispatcher } from "svelte";
@@ -22,7 +22,7 @@
   $: locationTypeOptions = {
     name: "locationType",
     label: "Location Type",
-    options: selectOptions
+    options: options
       .get("locationType")
       .options.filter(e => !(chartType == "map" && +e.value == 0))
   };
@@ -33,7 +33,7 @@
   const locationOptions = new Map(
     Array.from(
       group(
-        selectOptions.get("location").options.map(d => ({
+        options.get("location").options.map(d => ({
           //Get first digit of location to use as location type key, e.g., 800 -> 8
           key: +d.value.toString().slice(0, 1),
           value: d.value,
@@ -44,8 +44,8 @@
     ).map(d => [
       d[0],
       {
-        name: selectOptions.get("location").name,
-        label: selectOptions.get("location").label,
+        name: options.get("location").name,
+        label: options.get("location").label,
         options: d[1].map(e => ({ label: e.label, value: e.value }))
       }
     ])
@@ -76,7 +76,7 @@
   }
 
   function handleClearData() {
-    dispatch("clearData");
+    dispatch("clearProjections");
   }
 
   function handleLocationTypeChange(e) {
@@ -205,7 +205,7 @@ of patterns to what sort of data can actually be selected. -->
     </div>
   </div>
   <SimpleSelect
-    {...selectOptions.get('calculation')}
+    {...options.get('calculation')}
     disabled={educationType != '0'}
     on:change={handleCalculationChange}>
     <InfoBox name={'Calculation'} info={formInfo.get('calculation')} />
@@ -220,19 +220,19 @@ of patterns to what sort of data can actually be selected. -->
     <InfoBox name={'Location'} info={formInfo.get('location')} />
   </SimpleSelect>
   <SimpleSelect
-    {...selectOptions.get('setting')}
+    {...options.get('setting')}
     disabled={educationType != '0'}
     on:change={handleSettingChange}>
     <InfoBox name={'Setting'} info={formInfo.get('setting')} />
   </SimpleSelect>
 
   {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
-    <SimpleSelect {...selectOptions.get('demandScenario')}>
+    <SimpleSelect {...options.get('demandScenario')}>
       <InfoBox name={'Demand Scenario'} info={formInfo.get('scenario')} />
     </SimpleSelect>
   {/if}
   {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}
-    <SimpleSelect {...selectOptions.get('supplyScenario')}>
+    <SimpleSelect {...options.get('supplyScenario')}>
       <InfoBox name={'Supply Scenario'} info={formInfo.get('scenario')} />
     </SimpleSelect>
   {/if}

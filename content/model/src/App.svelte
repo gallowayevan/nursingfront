@@ -8,16 +8,15 @@
   import IntroBlock from "./IntroBlock.svelte";
   import TutorialModal from "./TutorialModal.svelte";
   import { onMount } from "svelte";
+  import { dataFetch, makeQueryURL } from "./utilities.js";
 
   const ROOT = "root"; //Allows for rollup to switch data root.
 
   let data = [];
   let geoJSON;
   let chartType = "line";
-  let dataID = 0;
   let showModal = false;
   let projectionStartYear = 2019;
-  let fetchError = false;
 
   $: console.log(data);
 
@@ -28,81 +27,19 @@
       localStorage.setItem("nurse-model-tutorial", "seen");
     }
 
-    fetchError = false;
-    fetch(`/model/public/maps/ncLayers.json`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(json => {
-        //Make sure county is the last layer
-        geoJSON = json;
-      })
-      .catch(error => {
-        fetchError = true;
-        console.error(
-          "There has been a problem with your fetch operation:",
-          error
-        );
-      });
+    dataFetch(`/model/public/maps/ncLayers.json`).then(json => {
+      geoJSON = json;
+    });
   });
 
   async function getData(type, allParams) {
-    //Separate calculation from other parameters, since calculation is not a column in data
-    const table = allParams.find(d => d.name == "calculation").value;
-    const scenarios = new Map(
-      allParams
-        .filter(d => d.name.indexOf("Scenario") >= 0)
-        .map(d => [d.name, d.value])
-    );
-
-    if (scenarios.size == 2) {
-    }
-    console.log(scenarios);
-    const params = allParams.filter(d => d.name != "calculation");
-
-    const queryURL = `${ROOT}${table}?${params
-      .map(d => `${d.name}=${+d.value}`)
-      .join("&")}`;
-
-    fetchError = false;
-    await fetch(queryURL)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(json => {
-        if (json.length == 0) {
-          throw new Error("No data.");
-        } else {
-          const newFormatter = numberFormat(
-            +params.find(d => d.name == "rateOrTotal").value
-          );
-
-          let newData = json.map(d =>
-            Object.assign({ display: newFormatter(d.mean) }, d)
-          );
-          newData.params = allParams;
-
-          if (type == "line") {
-            newData.id = dataID++;
-            data = [...data, newData];
-          } else {
-            data = newData;
-          }
-        }
-      })
-      .catch(error => {
-        fetchError = true;
-        console.error(
-          "There has been a problem with your fetch operation:",
-          error
-        );
-      });
+    dataFetch(makeQueryURL(allParams)).then(function(newData) {
+      if (type == "line") {
+        data = [...data, newData];
+      } else {
+        data = newData;
+      }
+    });
   }
 
   function handleShowProjection(e) {
@@ -162,44 +99,37 @@
         </div>
         <ModelForm
           on:showProjection={handleShowProjection}
-          on:clearData={handleClearData}
+          on:clearProjections={handleClearData}
           on:launchTutorial={handleLaunchTutorial}
           {chartType} />
       </div>
       <div class="column is-8 box">
-        {#if fetchError}
-          <div class="notification is-danger">
-            An error has occurred. Please try selecting different projection
-            parameters or reload the page.
-          </div>
-        {:else}
-          {#if data.length > 0}
-            <div class="columns is-marginless">
-              <div class="column is-hidden-mobile is-paddingless" />
-              <div class="column is-narrow is-paddingless">
-                {#if chartType == 'line' || chartType == 'map'}
-                  <DownloadImage {chartType} />
-                {/if}
-                <DownloadData {data} {chartType} {projectionStartYear} />
-              </div>
+        {#if data.length > 0}
+          <div class="columns is-marginless">
+            <div class="column is-hidden-mobile is-paddingless" />
+            <div class="column is-narrow is-paddingless">
+              {#if chartType == 'line' || chartType == 'map'}
+                <DownloadImage {chartType} />
+              {/if}
+              <DownloadData {data} {chartType} {projectionStartYear} />
             </div>
-          {/if}
-          {#if data.length > 0}
-            {#if chartType == 'line'}
-              <LineChart
-                {data}
-                on:deleteProjection={handleDeleteProjection}
-                {projectionStartYear} />
-            {:else if chartType == 'map'}
-              <SimpleMap {data} {geoJSON} {projectionStartYear} />
-            {:else if chartType == 'table'}
-              <Table {data} {projectionStartYear} />
-            {:else}
-              <div class="notification">An error has occurred.</div>
-            {/if}
+          </div>
+        {/if}
+        {#if data.length > 0}
+          {#if chartType == 'line'}
+            <LineChart
+              {data}
+              on:deleteProjection={handleDeleteProjection}
+              {projectionStartYear} />
+          {:else if chartType == 'map'}
+            <SimpleMap {data} {geoJSON} {projectionStartYear} />
+          {:else if chartType == 'table'}
+            <Table {data} {projectionStartYear} />
           {:else}
-            <IntroBlock on:launchTutorial={handleLaunchTutorial} {chartType} />
+            <div class="notification">An error has occurred.</div>
           {/if}
+        {:else}
+          <IntroBlock on:launchTutorial={handleLaunchTutorial} {chartType} />
         {/if}
       </div>
     </div>

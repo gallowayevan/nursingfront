@@ -66,7 +66,7 @@
     .curve(curveMonotoneX);
 
   //Scale
-  $: flatData = data.flat();
+  $: flatData = data.map(d => d.values).flat();
   $: byYearData = group(flatData, d => d.year);
   $: xExtent =
     flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
@@ -179,8 +179,8 @@
         </g>
         {#each data as lineElement (lineElement.id)}
           <Line
-            areaPath={area(lineElement)}
-            linePath={line(lineElement)}
+            areaPath={area(lineElement.values)}
+            linePath={line(lineElement.values)}
             color={colorMap.get(lineElement.id)}
             duration={transitionDuration} />
         {/each}
@@ -225,7 +225,7 @@
           left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
           background: rgba(255, 255, 255, 0.7); border-radius:5px;border: 1px
           solid #333333;padding:0px 1px;">
-          {row.display}
+          {row.mean.toLocaleString()}
         </div>
       {/each}
     {/if}
@@ -234,7 +234,7 @@
   {/if}
   <LineChartLegend
     on:deleteProjection
-    params={data.map((d, i) => ({
+    legendData={data.map((d, i) => ({
       params: d.params,
       color: colorMap.get(d.id),
       id: d.id

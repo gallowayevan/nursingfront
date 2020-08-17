@@ -1,7 +1,7 @@
 <script>
   import { groups, ascending, extent, range } from "d3-array";
   import { csvFormatRows } from "d3-dsv";
-  import selectOptions from "./data/selectOptions.js";
+  import options from "./data/options.js";
 
   export let data;
   export let chartType;
@@ -12,7 +12,7 @@
     1} and earlier are based on licensure data.\n`;
 
   const locationNamesMap = new Map(
-    selectOptions.get("location").options.map(d => [d.value, d.label])
+    options.get("location").options.map(d => [d.value, d.label])
   );
 
   function makeYearByGeography() {

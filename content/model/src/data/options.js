@@ -154,5 +154,63 @@ export default new Map([
         ],
         "label": "Demand Scenario",
         "name": "demandScenario"
+    },
+    {
+        "options": [
+            {
+                "value": 0,
+                "label": "LPN & RN"
+            },
+            {
+                "value": 1,
+                "label": "LPN"
+            },
+            {
+                "value": 2,
+                "label": "RN"
+            },
+        ],
+        "name": "type"
+    }, {
+        "options": [
+            {
+                "value": 0,
+                "label": "All Education"
+            },
+            {
+                "value": 4,
+                "label": "BS & MS"
+            },
+            {
+                "value": 5,
+                "label": "ADN & Diploma"
+            },
+        ],
+        "name": "education"
+    }, {
+        "options": [
+            {
+                "value": 0,
+                "label": "Rate per 10K population"
+            },
+            {
+                "value": 1,
+                "label": "Total"
+            }
+        ],
+        "name": "rateOrTotal"
+    },
+    {
+        "options": [
+            {
+                "value": 0,
+                "label": "Headcount"
+            },
+            {
+                "value": 1,
+                "label": "FTE"
+            }
+        ],
+        "name": "fteOrHeadcount"
     }
 ].map(d => [d.name, d]))

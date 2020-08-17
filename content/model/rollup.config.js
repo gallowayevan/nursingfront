@@ -1,10 +1,10 @@
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import svelte from 'rollup-plugin-svelte';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import livereload from 'rollup-plugin-livereload';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+// import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import analyze from 'rollup-plugin-analyzer';
+// import analyze from 'rollup-plugin-analyzer';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -28,7 +28,7 @@ export default {
 		}),
 		replace({
 			include: 'src/**',
-			root: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" : "http://localhost:8080/data/"
+			__root__: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" : "http://localhost:8080/data/"
 		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
@@ -51,8 +51,8 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser(),
-		production && analyze({ summaryOnly: true })
+		production && terser()
+		//production && analyze({ summaryOnly: true })
 	],
 	watch: {
 		clearScreen: false

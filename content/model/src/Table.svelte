@@ -2,14 +2,14 @@
   import { group, extent, ascending, least, max, min, permute } from "d3-array";
   import { scaleLog } from "d3-scale";
   import { interpolateBlues, interpolateReds } from "d3-scale-chromatic";
-  import selectOptions from "./data/selectOptions.js";
+  import options from "./data/options.js";
   import { fontColor, throttle } from "./utilities.js";
   import "array-flat-polyfill";
   import { onMount, onDestroy } from "svelte";
   import TableLegend from "./TableLegend.svelte";
 
   const locationNamesMap = new Map(
-    selectOptions.get("location").options.map(d => [d.value, d.label])
+    options.get("location").options.map(d => [d.value, d.label])
   );
   const numberPerPage = 10;
 
