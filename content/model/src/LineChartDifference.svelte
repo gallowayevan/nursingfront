@@ -228,16 +228,16 @@
       {#each data as clip (clip.id)}
         <clipPath id={'above' + clip.id}>
           <path
-            d={aboveClip(clip.values.map(({ year, supplyMean }) => ({
+            d={aboveClip(clip.values.map(({ year, demandMean }) => ({
                 year,
-                value: supplyMean
+                value: demandMean
               })))} />
         </clipPath>
         <clipPath id={'below' + clip.id}>
           <path
-            d={belowClip(clip.values.map(({ year, supplyMean }) => ({
+            d={belowClip(clip.values.map(({ year, demandMean }) => ({
                 year,
-                value: supplyMean
+                value: demandMean
               })))} />
         </clipPath>
       {/each}
@@ -293,9 +293,9 @@
             clip-path={`url(#above${lineElement.id})`}
             fill={`url(#gradientBelow${lineElement.id})`}
             d={aboveArea(addExtentToValues(lineElement.values).map(
-                ({ year, demandMean, min, max }) => ({
+                ({ year, supplyMean, min, max }) => ({
                   year,
-                  value: demandMean,
+                  value: supplyMean,
                   min,
                   max
                 })
@@ -304,9 +304,9 @@
             clip-path={`url(#below${lineElement.id})`}
             fill={`url(#gradientAbove${lineElement.id})`}
             d={belowArea(addExtentToValues(lineElement.values).map(
-                ({ year, demandMean, min, max }) => ({
+                ({ year, supplyMean, min, max }) => ({
                   year,
-                  value: demandMean,
+                  value: supplyMean,
                   min,
                   max
                 })
