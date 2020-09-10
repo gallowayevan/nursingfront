@@ -9,13 +9,13 @@
   const dispatch = createEventDispatcher();
 
   export let chartType;
+  export let calculation;
 
   //Set default form values
   let nurseType = "2";
   let currentLocationType = 0;
   let educationType = "0";
   let settingType = "0";
-  let calculation = "supply";
 
   //Filter out 'state' as an option when chart type is map
   //since state map is not informative (i.e., all one color)
@@ -204,12 +204,12 @@ of patterns to what sort of data can actually be selected. -->
         info={formInfo.get('fteOrHeadcount')} />
     </div>
   </div>
-  <SimpleSelect
+  <!-- <SimpleSelect
     {...options.get('calculation')}
     disabled={educationType != '0'}
     on:change={handleCalculationChange}>
     <InfoBox name={'Calculation'} info={formInfo.get('calculation')} />
-  </SimpleSelect>
+  </SimpleSelect> -->
   <SimpleSelect
     on:change={handleLocationTypeChange}
     value={currentLocationType}

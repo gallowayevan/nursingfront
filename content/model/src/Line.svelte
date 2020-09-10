@@ -8,6 +8,7 @@
   export let linePath;
   export let areaPath;
   export let duration;
+  export let dashArray = "";
 
   const options = {
     duration: duration,
@@ -28,6 +29,7 @@
     fill="none"
     stroke={color}
     stroke-width="2"
+    stroke-dasharray={dashArray}
     d={$lineStore} />
 
   <path class="areas" fill={color} opacity="0.7" d={$areaStore} />
