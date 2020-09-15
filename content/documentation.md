@@ -46,7 +46,7 @@ The nursing workforce projection model includes four key elements
 The supply model projects the future headcount and FTE of RNs and LPNs from 2018-2030. The basic principle of supply modeling is to take the current workforce, subtract leavers and add joiners for each year to generate a forecast for the next year. A detailed structure of the approach is summarized below:
 
 **Figure 1: Supply Model for Estimating North Carolina RN and LPN workforce, 2018-2030**
-{{< img alt="Evan pointing at poster and presenting." src="/images/supplymodel.png">}}
+{{< img alt="Supply model flow chart." src="/images/supplymodel.png">}}
 
 An agent-based microsimulation approach was used to develop the supply model. This approach involves applying many repeated computer simulations of trajectories of _individual_ nurses based on their age, nurse type (RN and LPN), degree (ADN, BSN, LPN), gender, and employment setting (hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities).
 
@@ -57,7 +57,7 @@ Demand was modeled at the county-level for each setting. Different approaches fo
 The model forecasts demand at the Area Health Education Center (AHEC) region and Medicaid region levels. A crosswalk of counties to these larger units of geography is available.
 
 The following table summarizes the model predictors of demand for these settings.
-{{< img alt="A photo of a table of the model predictors of demand for settings." src="/images/table1.JPG">}}
+{{< img alt="A photo of a table of the model predictors of demand for settings." src="/images/Table1.JPG">}}
  Forecasts of future demand were then generated using the population forecasts from the NC Office of Budget and Management to model the effect of changes in Age, Gender, Race population numbers. Non-population forecast data such as % insured remained unchanged for all years.
 
 Demand for future demand of visits depending on setting were converted to FTE by using the ratio of visits to FTE in 2018 in all future years. For example, a 10% increase in demand for Ambulatory cases is modelled as a 10% increase in FTE demand for Ambulatory setting Nurses from the baseline of 2018.s
@@ -78,7 +78,7 @@ The supply model draws on historical NC licensure data from 2008-2018, which con
 
 The demand model draws on different data sources to model aspects of demand that are relevant to a given setting as setout below:
 
-{{< img alt="A photo of a table of the different data sources to model aspects of demand." src="/images/table2.jpg">}}
+{{< img alt="A photo of a table of the different data sources to model aspects of demand." src="/images/Table2.JPG">}}
 
 ### How were the settings for supply and demand modeling selected?
 
