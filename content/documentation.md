@@ -1,25 +1,24 @@
 ---
+type: static
 title: Documentation
 subtitle: Here is where documentation will go.
 ---
 
-
-# Definitions
-
+{{< takeaway >}}
 Below are common terms used in this study that may be unfamiliar:
 
-- _Area Health Education Center (AHEC) Regions_: North Carolina&#39;s Area Health Education Center Program is a statewide program to develop the state&#39;s healthcare workforce, and is administered through nine regions made up of adjacent counties. Each region has its own AHEC center that is run relatively independently, to meet the unique workforce needs of the region.
-- _Current workforce_. This is the headcount of the RN and LPN workforce currently in active practice in North Carolina in 2018.
-- _Diffusion:_ We modeled the geographic migration of new entrants from their place of education to their first job and the movement of actively practicing nurses by concatenating multiple years of licensure data. The model also accounted for changes in employment settings of the nurse workforce.
-- _In-state Training pipeline:_ We modeled the pipeline of North Carolina-educated students who enter licensure after completing their initial nursing education. The nursing workforce pipeline took into account, although did not explicitly model, graduates who do not enter the nursing workforce in North Carolina because they don&#39;t pass the NCLEX, don&#39;t practice nursing or because they leave North Carolina. Licensure data was also used to model the employment settings and geographic locations of new nurse entrants to the workforce.
-- _Medicaid Region:_ North Carolina is in the process of transitioning to a managed care model for its Medicaid program. To administer the program, the NC Department of Health and Human Services has divided the state in five regions, with targeted roll-out of Managed Care happening in stages by region. Forecasting demand at this level is useful in particular when looking at the demand of the Medicaid beneficiary population.
-- _Microsimulation:_ This approach allows for the modeling of individual behaviors that affect supply including, for example, the uncertainty of age of retirement. A microsimulation approach relies on multiple iterations of probabilities that, when repeatedly run, produce not only an &quot;average&quot; estimate of future supply but also a range of &quot;certainty&quot; of the forecast around the average.
-- _Out-of-State Supply and Re-entry:_ This is the number of LPNs and RNs that 1. annually enter the North Carolina workforce after completing their education outside of North Carolina; 2. move from inactive to active practice; 3. enter practice in NC after practicing in another state.
-- _Projected future workforce:_ This is the forecast of the next year&#39;s RN and LPN workforce derived from the previous year&#39;s workforce after removing leavers and adding joiners. This process was repeated annually to generate forecasts from 2018 until 2030.
-- _Full Time Equivalent (FTE) versus Headcount:_ FTE and Headcount are both ways of &quot;counting&quot; nurses. In headcount, each employee is counted as one regardless of whether they are full or part time. When using FTE, nurses&#39; hours are counted as a percentage of a predetermined &quot;full time.&quot; Our model defined full time as forty hours. For example a Nurse to reflect their specific needs, may only work as a nurse for 4 hours a day Monday to Thursday, a total of 16 hours and an FTE of 0.4.
-- _Ratio of headcount (HC)/FTE:_ The number of hours nurses work is an important component of supply. We modeled FTE in the probabilistic model based on the mean and standard deviation of hours work as a function of age, gender, specialty and employment setting using NC BON licensure files which contain average hours worked per week in nursing.
-- _Retirements and Attrition:_ One of the biggest drivers of changes in the supply of nurses is exit from practice. The model included attrition from the workforce due to retirement, death, moving to inactive status and leaving practice in NC. The probability of exiting the workforce was modeled using a logistic regression that examined the effect of the nurse&#39;s gender, age, employment setting and highest degree.
-- _RN versus LPN_: To be a Registered Nurse, or RN, a two-year postsecondary degree (typically an Associate&#39;s Degree in Nursing, or ADN) is minimally required. Registered Nurses can also be trained in four year postsecondary programs (Bachelor of Science in Nursing, or BSN). RN scope of practice does not ot require supervision – their practice in independent and comprehensive. However RNs are most often administratively supervised in work settings by other RNs, by Advanced Practice Registered Nurses (RNs holding a master&#39;s degree in their specialty) or possibly by physicians. Licensed Practical Nurses, or LPNs, only require one year of postsecondary education and clinical training, and must be supervised in their scope of practice by RNs, APRNS, or physicians. LPN scope of practice is dependent and focused.
+- **Area Health Education Center (AHEC) Regions**: North Carolina&#39;s Area Health Education Center Program is a statewide program to develop the state&#39;s healthcare workforce, and is administered through nine regions made up of adjacent counties. Each region has its own AHEC center that is run relatively independently, to meet the unique workforce needs of the region.
+- **Current workforce**: This is the headcount of the RN and LPN workforce currently in active practice in North Carolina in 2018.
+- **Diffusion:** We modeled the geographic migration of new entrants from their place of education to their first job and the movement of actively practicing nurses by concatenating multiple years of licensure data. The model also accounted for changes in employment settings of the nurse workforce.
+- **In-state Training pipeline:** We modeled the pipeline of North Carolina-educated students who enter licensure after completing their initial nursing education. The nursing workforce pipeline took into account, although did not explicitly model, graduates who do not enter the nursing workforce in North Carolina because they don&#39;t pass the NCLEX, don&#39;t practice nursing or because they leave North Carolina. Licensure data was also used to model the employment settings and geographic locations of new nurse entrants to the workforce.
+- **Medicaid Region:** North Carolina is in the process of transitioning to a managed care model for its Medicaid program. To administer the program, the NC Department of Health and Human Services has divided the state in five regions, with targeted roll-out of Managed Care happening in stages by region. Forecasting demand at this level is useful in particular when looking at the demand of the Medicaid beneficiary population.
+- **Microsimulation:** This approach allows for the modeling of individual behaviors that affect supply including, for example, the uncertainty of age of retirement. A microsimulation approach relies on multiple iterations of probabilities that, when repeatedly run, produce not only an &quot;average&quot; estimate of future supply but also a range of &quot;certainty&quot; of the forecast around the average.
+- **Out-of-State Supply and Re-entry:** This is the number of LPNs and RNs that 1. annually enter the North Carolina workforce after completing their education outside of North Carolina; 2. move from inactive to active practice; 3. enter practice in NC after practicing in another state.
+- **Projected future workforce:** This is the forecast of the next year&#39;s RN and LPN workforce derived from the previous year&#39;s workforce after removing leavers and adding joiners. This process was repeated annually to generate forecasts from 2018 until 2030.
+- **Full Time Equivalent (FTE) versus Headcount:** FTE and Headcount are both ways of &quot;counting&quot; nurses. In headcount, each employee is counted as one regardless of whether they are full or part time. When using FTE, nurses&#39; hours are counted as a percentage of a predetermined &quot;full time.&quot; Our model defined full time as forty hours. For example a Nurse to reflect their specific needs, may only work as a nurse for 4 hours a day Monday to Thursday, a total of 16 hours and an FTE of 0.4.
+- **Ratio of headcount (HC)/FTE:** The number of hours nurses work is an important component of supply. We modeled FTE in the probabilistic model based on the mean and standard deviation of hours work as a function of age, gender, specialty and employment setting using NC BON licensure files which contain average hours worked per week in nursing.
+- **Retirements and Attrition:** One of the biggest drivers of changes in the supply of nurses is exit from practice. The model included attrition from the workforce due to retirement, death, moving to inactive status and leaving practice in NC. The probability of exiting the workforce was modeled using a logistic regression that examined the effect of the nurse&#39;s gender, age, employment setting and highest degree.
+- **RN versus LPN:** To be a Registered Nurse, or RN, a two-year postsecondary degree (typically an Associate&#39;s Degree in Nursing, or ADN) is minimally required. Registered Nurses can also be trained in four year postsecondary programs (Bachelor of Science in Nursing, or BSN). RN scope of practice does not to require supervision – their practice in independent and comprehensive. However RNs are most often administratively supervised in work settings by other RNs, by Advanced Practice Registered Nurses (RNs holding a master&#39;s degree in their specialty) or possibly by physicians. Licensed Practical Nurses, or LPNs, only require one year of postsecondary education and clinical training, and must be supervised in their scope of practice by RNs, APRNS, or physicians. LPN scope of practice is dependent and focused. {{< /takeaway >}}
 
 # About the Project
 
@@ -48,11 +47,9 @@ The supply model projects the future headcount and FTE of RNs and LPNs from 2018
 
 **Figure 1: Supply Model for Estimating North Carolina RN and LPN workforce, 2018-2030**
 
-![](RackMultipart20200914-4-1bqbfaq_html_339148e7eecb7a9c.png)
-
 An agent-based microsimulation approach was used to develop the supply model. This approach involves applying many repeated computer simulations of trajectories of _individual_ nurses based on their age, nurse type (RN and LPN), degree (ADN, BSN, LPN), gender, and employment setting (hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities).
 
-_ **The Demand Model** _
+**The Demand Model**
 
 Demand was modeled at the county-level for each setting. Different approaches for calculating forecast demand were used as a result of the variation in data measuring existing demand. The demand forecast for public and community health, nursing education, and correctional facilities was solely dependent on population change (which means a 10% growth in population would generate a 10% growth in demand). For the remaining setting separate regression models were developed to predict demand based on model predictors (e.g. gender, age, race) specific to that setting.
 
@@ -61,22 +58,23 @@ The model forecasts demand at the Area Health Education Center (AHEC) region and
 The following table summarizes the model predictors of demand for these settings.
 
 [INSERT CHART 1]
+ Forecasts of future demand were then generated using the population forecasts from the NC Office of Budget and Management to model the effect of changes in Age, Gender, Race population numbers. Non-population forecast data such as % insured remained unchanged for all years.
 
-      - Forecasts of future demand were then generated using the population forecasts from the NC Office of Budget and Management to model the effect of changes in Age, Gender, Race population numbers. Non-population forecast data such as % insured remained unchanged for all years.
-      - Demand for future demand of visits depending on setting were converted to FTE by using the ratio of visits to FTE in 2018 in all future years. For example, a 10% increase in demand for Ambulatory cases is modelled as a 10% increase in FTE demand for Ambulatory setting Nurses from the baseline of 2018.
-      - Demand forecasts by Headcount were estimated by taking the average Headcount to FTE ratio for a given setting. Due to local variation in FTE as result of age and gender, demand Headcount forecasts should be considered a &quot;guide.&quot;
+Demand for future demand of visits depending on setting were converted to FTE by using the ratio of visits to FTE in 2018 in all future years. For example, a 10% increase in demand for Ambulatory cases is modelled as a 10% increase in FTE demand for Ambulatory setting Nurses from the baseline of 2018.s
 
-_ **Estimating Shortage/Surplus** _
+ Demand forecasts by Headcount were estimated by taking the average Headcount to FTE ratio for a given setting. Due to local variation in FTE as result of age and gender, demand Headcount forecasts should be considered a &quot;guide.&quot;
+
+**Estimating Shortage/Surplus**
 
 For all demand settings, there are be multiple displays which compare supply to demand to estimate if there will be a shortage or surplus in this setting. In addition to a forecast at the all state level, there are forecasts at the AHEC, Medicaid, and Metro vs Non-Metro levels.
 
-_ **Modeling Alternative Future Scenarios** _
+**Modeling Alternative Future Scenarios**
 
 The baseline model assumes that the factors affecting the supply and demand for nursing services will continue as they have in 2018. Yet we know that nursing workforce participation patterns, models of care and other factors are likely to change. To account for these deviations from the _status quo_, we modeled approximately six alternative future scenarios known to affect supply and demand:
 
 ## What data are used in the model?
 
-The supply model draws on historical NC licensure data from 2008-2018, which contains annual licensure data for all RNs obtained from the NC Board of Nursing.These data are collected as a part of the biannual license renewal process and represent a complete census of NC nurses. These NC BON data are housed in the NC Health Professions Data System (HPDS) at the Sheps Center. HPDS data go back to 1979 and include demographic, education, practice and location variables needed in the supply model described below.
+The supply model draws on historical NC licensure data from 2008-2018, which contains annual licensure data for all RNs obtained from the NC Board of Nursing. These data are collected as a part of the biannual license renewal process and represent a complete census of NC nurses. These NC BON data are housed in the NC Health Professions Data System (HPDS) at the Sheps Center. HPDS data go back to 1979 and include demographic, education, practice and location variables needed in the supply model described below.
 
 The demand model draws on different data sources to model aspects of demand that are relevant to a given setting as setout below:
 
@@ -113,11 +111,9 @@ There are a number of innovations used in this model:
 
 The project team has tried to be as transparent as possible by describing the model&#39;s methods and assumptions and by providing detailed resources in the form of frequently asked questions below, and a set of additional resources on the model website. Although the code for generating supply, healthcare services use and relative capacity estimates is not available without permission, model users can download supply, use, and capacity estimates. Furthermore, users can view the code used to generate the model visualizations.
 
-# What if I want to know more? (More advanced questions.)
-
 ## How does the web-based interface work?
 
-The web-based interface is built using a variety of open source software, most notably the D3 data visualization library, the javascript framework Svelte and the javascript bundler Rollup. The nurse diffusion map also makes heavy use of the Mapbox GL JS javascript library. Most of the website style (i.e., CSS) is defined using Bulma, a CSS framework. Together, these compose the user interface.
+The web-based interface is built using a variety of open source software, most notably the D3 data visualization library, the JavaScript framework Svelte and the JavaScript bundler Rollup. The nurse diffusion map also makes heavy use of the Mapbox GL JS JavaScript library. Most of the website style (i.e., CSS) is defined using Bulma, a CSS framework. Together, these compose the user interface.
 
 The data is housed on a server provided by Carolina CloudApps within a container running Node.js. The main job of this server is to pass data from an SQLite database to the user interface. The database is loaded with precalculated projection data for all the parameter combinations in the visualizations.
 
