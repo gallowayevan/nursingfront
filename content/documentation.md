@@ -1,7 +1,7 @@
 ---
 type: static
 title: Documentation
-subtitle: Here is where documentation will go.
+subtitle: Definitions and a list of frequently asked questions.
 ---
 
 {{< takeaway >}}
@@ -20,9 +20,9 @@ Below are common terms used in this study that may be unfamiliar:
 - **Retirements and Attrition:** One of the biggest drivers of changes in the supply of nurses is exit from practice. The model included attrition from the workforce due to retirement, death, moving to inactive status and leaving practice in NC. The probability of exiting the workforce was modeled using a logistic regression that examined the effect of the nurse&#39;s gender, age, employment setting and highest degree.
 - **RN versus LPN:** To be a Registered Nurse, or RN, a two-year postsecondary degree (typically an Associate&#39;s Degree in Nursing, or ADN) is minimally required. Registered Nurses can also be trained in four year postsecondary programs (Bachelor of Science in Nursing, or BSN). RN scope of practice does not to require supervision – their practice in independent and comprehensive. However RNs are most often administratively supervised in work settings by other RNs, by Advanced Practice Registered Nurses (RNs holding a master&#39;s degree in their specialty) or possibly by physicians. Licensed Practical Nurses, or LPNs, only require one year of postsecondary education and clinical training, and must be supervised in their scope of practice by RNs, APRNS, or physicians. LPN scope of practice is dependent and focused. {{< /takeaway >}}
 
-# About the Project
+## About the Project
 
-## Who is this model for, and how will or can it be used?
+### Who is this model for, and how will or can it be used?
 
 The NC Nursing Forecast Tool is intended for use by a wide variety of stakeholders interested in health care workforce policy and planning. Examples of the types of individuals and groups for whom the tool will be useful and examples of the ways estimates from the models can be used include:
 
@@ -32,7 +32,7 @@ The NC Nursing Forecast Tool is intended for use by a wide variety of stakeholde
 - **Federal health planners or policy makers** : The model will be useful to national stakeholders who need better and more timely information about nurse workforce supply, healthcare services use, and the capacity of nurse supply to meet demand for healthcare services. Estimates from this model can help guide investments in nursing education as well as healthcare payment policy, health care workforce shortage area designation criteria, and other national policy issues.
 - **Nursing Education Leaders:** Schools of nursing can use this model to understand where their graduates are gaining employment and what settings have high demand for graduate nurses, as well as make decisions about clinical placement sites and investments in various types of nursing programs
 
-## What are the different parts of this model?
+### What are the different parts of this model?
 
 The nursing workforce projection model includes four key elements
 
@@ -41,11 +41,12 @@ The nursing workforce projection model includes four key elements
 3. Estimations of future nursing workforce shortages/surpluses in North Carolina
 4. A range of estimates of future shortages/surpluses under different assumptions about factors affecting the demand and supply of nurses in the state.
 
-_ **The Supply Model** _
+ **The Supply Model**
 
 The supply model projects the future headcount and FTE of RNs and LPNs from 2018-2030. The basic principle of supply modeling is to take the current workforce, subtract leavers and add joiners for each year to generate a forecast for the next year. A detailed structure of the approach is summarized below:
 
 **Figure 1: Supply Model for Estimating North Carolina RN and LPN workforce, 2018-2030**
+{{< img alt="Evan pointing at poster and presenting." src="/images/supplymodel.png">}}
 
 An agent-based microsimulation approach was used to develop the supply model. This approach involves applying many repeated computer simulations of trajectories of _individual_ nurses based on their age, nurse type (RN and LPN), degree (ADN, BSN, LPN), gender, and employment setting (hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities).
 
@@ -56,8 +57,7 @@ Demand was modeled at the county-level for each setting. Different approaches fo
 The model forecasts demand at the Area Health Education Center (AHEC) region and Medicaid region levels. A crosswalk of counties to these larger units of geography is available.
 
 The following table summarizes the model predictors of demand for these settings.
-
-[INSERT CHART 1]
+{{< img alt="A photo of a table of the model predictors of demand for settings." src="/images/table1.JPG">}}
  Forecasts of future demand were then generated using the population forecasts from the NC Office of Budget and Management to model the effect of changes in Age, Gender, Race population numbers. Non-population forecast data such as % insured remained unchanged for all years.
 
 Demand for future demand of visits depending on setting were converted to FTE by using the ratio of visits to FTE in 2018 in all future years. For example, a 10% increase in demand for Ambulatory cases is modelled as a 10% increase in FTE demand for Ambulatory setting Nurses from the baseline of 2018.s
@@ -72,33 +72,33 @@ For all demand settings, there are be multiple displays which compare supply to 
 
 The baseline model assumes that the factors affecting the supply and demand for nursing services will continue as they have in 2018. Yet we know that nursing workforce participation patterns, models of care and other factors are likely to change. To account for these deviations from the _status quo_, we modeled approximately six alternative future scenarios known to affect supply and demand:
 
-## What data are used in the model?
+### What data are used in the model?
 
 The supply model draws on historical NC licensure data from 2008-2018, which contains annual licensure data for all RNs obtained from the NC Board of Nursing. These data are collected as a part of the biannual license renewal process and represent a complete census of NC nurses. These NC BON data are housed in the NC Health Professions Data System (HPDS) at the Sheps Center. HPDS data go back to 1979 and include demographic, education, practice and location variables needed in the supply model described below.
 
 The demand model draws on different data sources to model aspects of demand that are relevant to a given setting as setout below:
 
-[INSERT CHART 2]
+{{< img alt="A photo of a table of the different data sources to model aspects of demand." src="/images/table2.jpg">}}
 
-## How were the settings for supply and demand modeling selected?
+### How were the settings for supply and demand modeling selected?
 
 The final model included the following settings: hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities.
 
 We originally proposed to include other settings, like inpatient versus outpatient hospital,emergency department, and mental health, based on NC population health needs and the shift of care from inpatient to outpatient settings. However, these settings were not collected after 2013 due to a change in the Nursys data system. We ultimately modeled settings based on Nursys setting definitions after 2014. Additionally, given that we could no longer identify mental health nurses from their employment setting, nurses working in a mental health setting were identified based on their specialty and/or employer.
 
-## Are APRNs included in the model?
+### Are APRNs included in the model?
 
 Advanced Practice Nurses— nurse practitioners (NPs), certified nurse midwives (CNMs), certified registered nurse anesthetist (CRNAs), or clinical nurse specialist (CNSs)—are not included in the workforce projection model because they are different workforce in terms of demand and supply. However, because APRNs are licensed as RNs in NC, we needed to develop a method to remove them from the analysis.
 
 NPs and CNMs with an active practice agreement in North Carolina were identified as APRNs. CRNAs and CNSs self-report flag their roles in the licensure data. NPs, CNMs, and CRNAs in active practice in North Carolina were removed from the RN workforce data. However, CNSs remain in the RN workforce data because of the significant overlap between RN and CNS roles. NPs reporting an active RN practice location but not an active NP practice location remain in the RN workforce data. APRNs who are not currently practicing as an APRN also remained in the RN workforce population.
 
-## What are confidence intervals? Why do you use them?
+### What are confidence intervals? Why do you use them?
 
 Confidence intervals are used to convey the uncertainty in the forecast and to provide an estimated range around a predicted value. As a comparison, it is generally accepted that the forecasting of the trajectory of a hurricane has a degree of uncertainty in that the longer range the forecast the less certain of the path of the hurricane. Workforce modelling has a similar degree of uncertainty generated by often by minor changes within a year that over time have a cumulative effect, for example if all nurses, in the coming years, were to retire 5 years earlier than was typical. The workforce supply over each forecast year dramatically diverge from the typical forecast. This is unlikely but the calculation of confidence intervals takes into consideration the cumulative effect of individual variation of not only retirements but in all aspect of the supply forecast.
 
-![](RackMultipart20200914-4-1bqbfaq_html_34a0e6f5190f3042.png)
+{{< img alt="Hurricane model." src="/images/hurricane.png">}}
 
-## How is this model different from other models?
+### How is this model different from other models?
 
 There are a number of innovations used in this model:
 
@@ -107,17 +107,17 @@ There are a number of innovations used in this model:
 - **Diffusion** : The model includes the real-life behavior of nurses moving either geographically or between settings as their career develops.
 - **Visualization:** Need something on this, especially on analysis are various sub-state options
 
-## What makes this model transparent?
+### What makes this model transparent?
 
 The project team has tried to be as transparent as possible by describing the model&#39;s methods and assumptions and by providing detailed resources in the form of frequently asked questions below, and a set of additional resources on the model website. Although the code for generating supply, healthcare services use and relative capacity estimates is not available without permission, model users can download supply, use, and capacity estimates. Furthermore, users can view the code used to generate the model visualizations.
 
-## How does the web-based interface work?
+### How does the web-based interface work?
 
 The web-based interface is built using a variety of open source software, most notably the D3 data visualization library, the JavaScript framework Svelte and the JavaScript bundler Rollup. The nurse diffusion map also makes heavy use of the Mapbox GL JS JavaScript library. Most of the website style (i.e., CSS) is defined using Bulma, a CSS framework. Together, these compose the user interface.
 
 The data is housed on a server provided by Carolina CloudApps within a container running Node.js. The main job of this server is to pass data from an SQLite database to the user interface. The database is loaded with precalculated projection data for all the parameter combinations in the visualizations.
 
-## How do we model nursing supply?
+### How do we model nursing supply?
 
 The model estimates nurse supply by setting, county and year. Due to some counties having a very small population and therefore forecasts of limited value, results are then aggregated to the state, AHEC, Metropolitan and medicad regions. Users can view Nurse supply estimates in terms of numbers of Nurses (&quot;headcount&quot;) or patient care full-time equivalents (FTEs).
 
@@ -135,7 +135,7 @@ The model assumes certain limits to the supply based on agent characteristics. F
 
 The model accounts not only for how much a nurse works but also where a nurse works. In each year in which a nurse is considered actively practicing in the model, the model calculates the probability that that individual nurse will move.
 
-## How did we model demand of healthcare services?
+### How did we model demand of healthcare services?
 
 Each setting has a different demand measure:
 
@@ -148,11 +148,11 @@ To enable a meaningful comparison across setting the model converts these differ
 
 Forecast demand for each setting is calculated using separate models as set out above.
 
-## How does the model diffuse nurses to different geographies and settings?
+### How does the model diffuse nurses to different geographies and settings?
 
 Using licensure data between 2015 and 2018, a probability of nursing moving settings and geographic location was constructed. Using these probabilities, the model then &quot;tests&quot; each nurse for each year of the model forecast for a change in geography and setting.
 
-## What are the display options for demand and what do they mean?
+### What are the display options for demand and what do they mean?
 
 - **FTE** : Demand FTE Forecast
 - **Headcount** : Demand Forecast headcount. Calculated by FTE demand forecast \* (Total All State Headcount/Total All State FTE)
@@ -165,10 +165,10 @@ Using licensure data between 2015 and 2018, a probability of nursing moving sett
 - **Supply-Demand by Headcount:** The absolute difference between supply and demand forecast. When this is negative, it means demand is greater than supply. Calculated by Supply Headcount – Demand Headcount.
 - **Supply/Demand by Headcount** : The ratio between supply and demand forecast. When this is \&lt;1, it means demand is greater than supply. Calculated by Supply Headcount/Demand Headcount.
 
-## What is relative capacity, and how is it included in the model?
+### What is relative capacity, and how is it included in the model?
 
 The model generates a forecast of surplus/shortage in terms of absolute and relative capacity. The absolute is the difference between forecast demand and supply. The relative capacity is the ratio between demand and supply. The relative capacity enables are more useful comparison between geographies or settings. For example, two geographies of different sizes may be both forecast to have a shortage of 10 and 100 FTE nurses respectively. The natural view would be that the second geography has a bigger shortage than the first. However, if the two geographies have a forecast of supply 10 and 1000 FTE respectively. Then the geographies have a relative capacity of 50% and 90% respectively, which means the first geographies has only half of the workforce it requires showing that it in relative terms has a greater workforce issue.
 
-## Why does the model include scenarios?
+### Why does the model include scenarios?
 
 The model projects nurse supply, health care service use, and relative capacity under multiple scenarios. The scenarios were chosen based on potential and likely changes that might occur to factors influencing the supply of nurses and the demand for health care services. Providing users with a variety of scenarios—as well as options for adjusting the scenarios—allows users to customize the model&#39;s output to suit their beliefs about what the future might look like and to develop interventions to address potential shortages and imbalances. For information on how to implement model scenarios in the web-based tool, please see the [Help](https://www2.shepscenter.unc.edu/workforce/help.php) page.
