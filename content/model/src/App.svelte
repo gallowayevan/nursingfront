@@ -72,17 +72,6 @@
     handleClearData();
   }
 
-  function numberFormat(total = 1) {
-    // const total = +data.params.find(d => d.name == "rateOrTotal").value;
-    return v =>
-      total
-        ? Math.round(v).toLocaleString()
-        : v.toLocaleString(undefined, {
-            minimumSignificantDigits: 3,
-            maximumSignificantDigits: 3
-          });
-  }
-
   function handleLaunchTutorial() {
     showModal = true;
   }

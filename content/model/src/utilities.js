@@ -12,6 +12,17 @@ export function titleCase(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+
+export function numberFormat(total = 1) {
+    return v =>
+        total
+            ? Math.round(v).toLocaleString()
+            : v.toLocaleString(undefined, {
+                minimumSignificantDigits: 3,
+                maximumSignificantDigits: 3
+            });
+}
+
 export function makeQueryURL(params) {
     const baseURL = "__root__";
     return `${baseURL}?${params

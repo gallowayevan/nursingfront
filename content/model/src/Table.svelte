@@ -9,10 +9,10 @@
     permute,
     mean
   } from "d3-array";
-  import { scaleLinear } from "d3-scale";
+  import { scaleSymlog } from "d3-scale";
   import { interpolateBlues, interpolateReds } from "d3-scale-chromatic";
   import options from "./data/options.js";
-  import { fontColor, throttle } from "./utilities.js";
+  import { fontColor, throttle, numberFormat } from "./utilities.js";
   import "array-flat-polyfill";
   import { onMount, onDestroy } from "svelte";
   import TableLegend from "./TableLegend.svelte";
@@ -49,6 +49,10 @@
     ? new Map(data.params.map(d => [d.name, d]))
     : undefined;
 
+  $: currentNumberFormat = numberFormat(
+    +data.params.find(d => (d.name = "rateOrTotal")).value
+  );
+
   $: baseYear = min(data.values, e => e.year);
 
   $: grouped = Array.from(group(data.values, d => d.location))
@@ -66,16 +70,16 @@
     .sort((a, b) => ascending(a[0], b[0]));
 
   $: flatChangeValues = grouped.flatMap(d => d[1]).map(d => d.change);
-  // $: maxChange = Math.max(
-  //   max(flatChangeValues, d => 1 / d),
-  //   max(flatChangeValues, d => d / 1)
-  // );
+  $: maxChange = Math.max(
+    max(flatChangeValues, d => 1 / d),
+    max(flatChangeValues, d => d / 1)
+  );
 
-  $: maxChange = max(flatChangeValues, d => Math.abs(d));
-  $: meanChange = mean(flatChangeValues);
+  // $: maxChange = max(flatChangeValues, d => Math.abs(d));
+  // $: meanChange = mean(flatChangeValues);
 
-  $: colorScale = scaleLinear()
-    .domain([-maxChange, 1, maxChange])
+  $: colorScale = scaleSymlog()
+    .domain([1 / maxChange, 1, maxChange])
     .range([-1, 0, 1])
     .interpolate((a, b) =>
       a < 0 ? t => interpolateReds(1 - t) : t => interpolateBlues(t)
@@ -204,7 +208,7 @@
                   class="number-cell"
                   style="background-color:{index == 0 ? '#ffffff' : colorScale(cell.change)};
                   color:{fontColor(colorScale(cell.change))};">
-                  {cell.value.toLocaleString()}
+                  {currentNumberFormat(cell.value)}
                 </td>
               {/each}
             </tr>
