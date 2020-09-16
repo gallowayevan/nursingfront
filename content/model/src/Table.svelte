@@ -53,7 +53,7 @@
     +data.params.find(d => d[0] == "rateOrTotal")[1]
   );
 
-  $: console.log(data.params.find(d => d[0] == "rateOrTotal"));
+  //change to also take into account calculation
 
   $: baseYear = min(data.values, e => e.year);
 

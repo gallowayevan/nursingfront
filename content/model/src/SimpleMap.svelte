@@ -19,7 +19,7 @@
 
   let hovered = undefined;
   const hoveredColor = "#898989";
-  $: console.log(data);
+
   const locationNamesMap = new Map(
     options.get("location").options.map(d => [d.value, d.label])
   );
@@ -67,7 +67,7 @@
   $: valueExtentAllTime = extent(data.values || [], d => d.value).map(
     (d, i) => (i == 0 && d > 0 ? 0 : d) //Always make baseline at least 0
   );
-  $: console.log(valueExtentAllTime);
+
   $: colorScheme = quantize(
     interpolateHcl("#e0f3db", "#084081"),
     baseYearOrder.length

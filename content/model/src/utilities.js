@@ -14,7 +14,6 @@ export function titleCase(str) {
 
 
 export function numberFormat(total = 1) {
-    console.log(total)
     return v =>
         total
             ? Math.round(v).toLocaleString()

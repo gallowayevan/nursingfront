@@ -65,9 +65,10 @@
     </text>
     <g>
       {#each Array.from(mapYearData) as bar}
-        <g transform="translate({margin.left} {y(bar[0])})">
+        <g transform="translate(0 {y(bar[0])})">
           <rect
-            width={x(bar[1].value) - x(0)}
+            width={Math.abs(x(bar[1].value) - x(0))}
+            x={x(Math.min(bar[1].value, 0))}
             height={y.bandwidth()}
             fill={hovered == bar[0] ? hoveredColor : bar[1].fill}
             stroke-width={hovered == bar[0] ? 3 : 0}
@@ -75,7 +76,13 @@
             on:mouseleave={handleLocationLeave}>
             <title>{bar[1].name}: {bar[1].value}</title>
           </rect>
-          <text class="yAxis" dy="1em" dx="-3">{bar[1].name}</text>
+          <text
+            class="yAxis"
+            transform="translate({margin.left})"
+            dy="1em"
+            dx="-3">
+            {bar[1].name}
+          </text>
         </g>
       {/each}
       <g transform="translate(0 {margin.top})">
