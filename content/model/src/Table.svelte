@@ -50,8 +50,10 @@
     : undefined;
 
   $: currentNumberFormat = numberFormat(
-    +data.params.find(d => (d.name = "rateOrTotal")).value
+    +data.params.find(d => d[0] == "rateOrTotal")[1]
   );
+
+  $: console.log(data.params.find(d => d[0] == "rateOrTotal"));
 
   $: baseYear = min(data.values, e => e.year);
 

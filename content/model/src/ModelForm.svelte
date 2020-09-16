@@ -169,7 +169,7 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field">
     <div class="control">
-      {#if chartType == 'map'}
+      {#if chartType == 'map' || calculation == 'ratio'}
         <label class="radio" disabled>
           <input type="radio" name="rateOrTotal" value="0" checked disabled />
           Rate per 10K population
@@ -189,6 +189,7 @@ of patterns to what sort of data can actually be selected. -->
         info={formInfo.get('rateOrTotal')} />
     </div>
   </div>
+
   <div class="field">
     <div class="control">
       <label class="radio">
