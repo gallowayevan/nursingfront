@@ -5,7 +5,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let mapYearData;
+  export let mapYearDataArray;
   export let valueExtentAllTime;
   export let locationType;
   export let hovered;
@@ -19,15 +19,15 @@
     left: locationType == "Medicaid Region" ? 155 : 110
   };
   const width = 320;
-  $: height = mapYearData.size * 20 + margin.top + margin.bottom;
+  $: height = mapYearDataArray.length * 20 + margin.top + margin.bottom;
 
   $: x = scaleLinear()
     .domain(valueExtentAllTime)
     .range([margin.left, width - margin.right]);
 
   $: y = scaleBand()
-    .domain(Array.from(mapYearData).map(d => d[0]))
-    .range([height - margin.bottom, margin.top])
+    .domain(mapYearDataArray.map(d => d[0]))
+    .range([margin.top, height - margin.bottom])
     .paddingInner(0.1);
 
   const tickFormat = t => t.toLocaleString();
@@ -64,7 +64,7 @@
       {rateOrTotal}
     </text>
     <g>
-      {#each Array.from(mapYearData) as bar}
+      {#each mapYearDataArray as bar}
         <g transform="translate(0 {y(bar[0])})">
           <rect
             width={Math.abs(x(bar[1].value) - x(0))}

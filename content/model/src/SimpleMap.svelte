@@ -4,7 +4,7 @@
   import { scaleOrdinal } from "d3-scale";
   import { max, extent } from "d3-array";
   import RowChart from "./RowChart.svelte";
-  import Table from "./Table.svelte";
+  import MapTable from "./MapTable.svelte";
   import options from "./data/options.js";
   import { fontColor } from "./utilities.js";
   import { interpolateHcl, quantize } from "d3-interpolate";
@@ -15,8 +15,8 @@
   export let geoJSON;
   export let projectionStartYear;
 
-  let currentYear = 2018;
-  const baseYear = projectionStartYear - 1;
+  let currentYear = 2015;
+  const baseYear = 2015;
 
   let hovered = undefined;
   const hoveredColor = "#898989";
@@ -41,7 +41,7 @@
 
   $: baseYearOrder = data.values
     .filter(d => d.year == baseYear)
-    .sort((a, b) => a.value - b.value)
+    .sort((a, b) => b.value - a.value)
     .map(d => d.location);
 
   $: currentYearOrder = data.values
@@ -63,7 +63,8 @@
       ])
   );
 
-  $: mapYearData = new Map(baseYearOrder.map(d => [d, currentYearData.get(d)]));
+  $: mapYearDataArray = baseYearOrder.map(d => [d, currentYearData.get(d)]);
+  $: mapYearData = new Map(mapYearDataArray);
 
   $: valueExtentAllTime = extent(data.values || [], d => d.value).map(
     (d, i) => (i == 0 && d > 0 ? 0 : d) //Always make baseline at least 0
@@ -125,7 +126,7 @@
     <div class="columns">
       <div class="column is-three-fifths" style="padding: 0px 0px 0px 5px;">
         <RowChart
-          {mapYearData}
+          {mapYearDataArray}
           {valueExtentAllTime}
           locationType={params['locationType']}
           rateOrTotal={params['rateOrTotal']}
@@ -181,7 +182,17 @@
         max={yearExtent[1]}
         step="1"
         bind:value={currentYear} />
-      <Table {data} {projectionStartYear} showTitle={false} />
+      <MapTable
+        {data}
+        {projectionStartYear}
+        showTitle={false}
+        colorScale={color}
+        {currentYear}
+        {baseYearOrder}
+        on:locationHover={e => handleLocationHover(e.detail)}
+        on:locationLeave={handleLocationLeave}
+        {hovered}
+        {hoveredColor} />
     </div>
   {:else}
     <div class="notification">

@@ -129,7 +129,7 @@ of patterns to what sort of data can actually be selected. -->
     <div class="control">
       <!-- If nurse type is LPN or if nurse type is RN and Setting is Hospital, 
     then disallow any education selection except All Education. -->
-      {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply'}
+      {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply' || chartType == 'table'}
         <label class="radio" disabled>
           <input type="radio" name="education" value="0" checked disabled />
           All Education
@@ -217,16 +217,19 @@ of patterns to what sort of data can actually be selected. -->
     {...locationTypeOptions}>
     <InfoBox name={'Location Type'} info={formInfo.get('locationType')} />
   </SimpleSelect>
-  <SimpleSelect display={chartType == 'line'} {...currentLocationOptions}>
+  <SimpleSelect
+    display={chartType == 'line' || chartType == 'table'}
+    {...currentLocationOptions}>
     <InfoBox name={'Location'} info={formInfo.get('location')} />
   </SimpleSelect>
-  <SimpleSelect
-    {...options.get('setting')}
-    disabled={educationType != '0'}
-    on:change={handleSettingChange}>
-    <InfoBox name={'Setting'} info={formInfo.get('setting')} />
-  </SimpleSelect>
-
+  {#if chartType != 'table'}
+    <SimpleSelect
+      {...options.get('setting')}
+      disabled={educationType != '0'}
+      on:change={handleSettingChange}>
+      <InfoBox name={'Setting'} info={formInfo.get('setting')} />
+    </SimpleSelect>
+  {/if}
   {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
     <SimpleSelect {...options.get('demandScenario')}>
       <InfoBox name={'Demand Scenario'} info={formInfo.get('scenario')} />
