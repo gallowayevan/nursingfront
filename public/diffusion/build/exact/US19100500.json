@@ -1,0 +1,7 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.04393,36.10166]},"properties":{"educationprogramcode":"US19100500"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.420095,36.39328]},"properties":{"educationprogramcode":"US19100500"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.097324,36.437143]},"properties":{"educationprogramcode":"US19100500"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-76.984827,36.288186]},"properties":{"educationprogramcode":"US19100500"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-76.642747,36.115773]},"properties":{"educationprogramcode":"US19100500"}}
+]}

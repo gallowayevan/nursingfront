@@ -1,0 +1,22 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-80.583807,35.400953]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.341234,35.474495]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.341234,35.474495]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.341234,35.474495]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.38146,35.20146]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.38146,35.20146]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.38146,35.20146]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.205699,35.055868]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.205699,35.055868]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.381664,35.180743]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.874306,35.346072]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.21216,35.377705]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.21216,35.377705]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.21216,35.377705]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.21216,35.377705]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-83.21216,35.377705]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.5471,35.718689]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.494453,35.350441]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.558381,35.63743]},"properties":{"educationprogramcode":"US19100600"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-82.501708,35.594556]},"properties":{"educationprogramcode":"US19100600"}}
+]}

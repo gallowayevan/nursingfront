@@ -4,6 +4,7 @@
   import { scaleOrdinal } from "d3-scale";
   import { max, extent } from "d3-array";
   import RowChart from "./RowChart.svelte";
+  import Table from "./Table.svelte";
   import options from "./data/options.js";
   import { fontColor } from "./utilities.js";
   import { interpolateHcl, quantize } from "d3-interpolate";
@@ -180,6 +181,7 @@
         max={yearExtent[1]}
         step="1"
         bind:value={currentYear} />
+      <Table {data} {projectionStartYear} showTitle={false} />
     </div>
   {:else}
     <div class="notification">

@@ -1,0 +1,11 @@
+-each 'this.properties.fips = this.properties.fips.toString().slice(2)'
+-join cbsa_Aug2017_nc.csv keys=fips,fips string-fields=fips fields=metro
+-each 'metro = metro ? 1 : 0'
+-each 'metro_code = metro ? "700" : "701"' 
+-join medicaid_xwalk.csv keys=medicaid,medicaid
+-each 'centroid = [centroid[0].toFixed(4), centroid[1].toFixed(4)]'
+-each 'centroid = [+centroid[0], +centroid[1]]'
+-each 'ahec = ahec == "Charlotte" ? "Charlotte AHEC" : ahec'
+-join ahec_xwalk.csv keys=ahec,ahec
+
+-each 'inner=[+this.innerX.toFixed(3),+this.innerY.toFixed(3)]'

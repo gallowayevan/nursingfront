@@ -24,6 +24,7 @@
 
   export let data;
   export let projectionStartYear;
+  export let showTitle = true;
   let leftCoord = 0;
 
   $: frozenWidth =
@@ -150,20 +151,21 @@
 
 {#if data.values}
   <div id="top-level-table-div">
-    <h1 class="title is-4">
-      {params['type']}s by {params['locationType'].trim()}, North Carolina
-    </h1>
-    <h2 class="subtitle is-6">
-      {permute(params, [
-        ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0]),
-        'setting',
-        'education',
-        'fteOrHeadcount',
-        'rateOrTotal',
-        'calculation'
-      ]).join(', ')}
-    </h2>
-
+    {#if showTitle}
+      <h1 class="title is-4">
+        {params['type']}s by {params['locationType'].trim()}, North Carolina
+      </h1>
+      <h2 class="subtitle is-6">
+        {permute(params, [
+          ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0]),
+          'setting',
+          'education',
+          'fteOrHeadcount',
+          'rateOrTotal',
+          'calculation'
+        ]).join(', ')}
+      </h2>
+    {/if}
     <TableLegend {baseYear} />
 
     <div

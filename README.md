@@ -22,7 +22,8 @@
     - clean up code!
     - convert nursing viz (at least line chart) to layercake? 
     - add link or tooltipped definitions within text
-    
+    - add ToC with links to documentation page
+
     Fixes completed as result of sniff test
     - click out to close info boxes
     - reorder navbar headings to match boxes order

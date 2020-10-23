@@ -137,13 +137,13 @@
           <!-- svelte-ignore a11y-missing-attribute -->
           <ul>
             <li class={chartType == 'line' ? 'is-active' : ''}>
-              <a id="line" on:click={tabClicked}>Line Chart</a>
+              <a id="line" on:click={tabClicked}>Compare Projections</a>
             </li>
             <li class={chartType == 'map' ? 'is-active' : ''}>
-              <a id="map" on:click={tabClicked}>Map</a>
+              <a id="map" on:click={tabClicked}>Compare Places</a>
             </li>
             <li class={chartType == 'table' ? 'is-active' : ''}>
-              <a id="table" on:click={tabClicked}>Table</a>
+              <a id="table" on:click={tabClicked}>Compare Settings</a>
             </li>
           </ul>
         </div>

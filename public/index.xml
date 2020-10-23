@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>North Carolina Nursing Supply &amp; Demand on Nursing Project</title>
+    <link>/</link>
+    <description>Recent content in North Carolina Nursing Supply &amp; Demand on Nursing Project</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Documentation</title>
+      <link>/documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/documentation/</guid>
+      <description>Definitions
+Below are common terms used in this study that may be unfamiliar:
+ Area Health Education Center (AHEC) Regions: North Carolina&#39;s Area Health Education Center Program is a statewide program to develop the state&#39;s healthcare workforce, and is administered through nine regions made up of adjacent counties. Each region has its own AHEC center that is run relatively independently, to meet the unique workforce needs of the region. Current workforce: This is the headcount of the RN and LPN workforce currently in active practice in North Carolina in 2018.</description>
+    </item>
+    
+    <item>
+      <title>NC Diffusion Visualization</title>
+      <link>/diffusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/diffusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NC Nursing Supply &amp; Demand Projections</title>
+      <link>/model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/publications/</guid>
+      <description>Briefs &amp;amp; blogs
+ Patel E. &amp;quot;Comparing Hospital Nurse Settings from the 2018 NSSRN vs. 2008-2013 North Carolina Licensure Data&amp;quot;. Policy Brief. June 25,2020. Fraher E, Tran A, Spero J, Wilson H. North Carolina&#39;s Supply of Critical Care Nurses are Crucial to the State&#39;s COVID-19 Response&amp;quot;. Blog. April 1, 2020.  Presentations
+ Fraher E. The Power of Data to Illuminate the Challenges and Opportunities Facing the Nursing Workforce. Keynote presentation delivered at the National Forum of State Nursing Workforce Centers.</description>
+    </item>
+    
+  </channel>
+</rss>
