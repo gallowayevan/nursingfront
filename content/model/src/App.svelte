@@ -2,7 +2,7 @@
   import LineChart from "./LineChart.svelte";
   import LineChartDifference from "./LineChartDifference.svelte";
   import SimpleMap from "./SimpleMap.svelte";
-  import Table from "./Table.svelte";
+  import SettingTable from "./SettingTable.svelte";
   import ModelForm from "./ModelForm.svelte";
   import DownloadData from "./DownloadData.svelte";
   import DownloadImage from "./DownloadImage.svelte";
@@ -172,7 +172,7 @@
           {:else if chartType == 'map'}
             <SimpleMap data={data[0]} {geoJSON} {projectionStartYear} />
           {:else if chartType == 'table'}
-            <Table data={data[0]} {projectionStartYear} />
+            <SettingTable data={data[0]} {projectionStartYear} />
           {:else}
             <div class="notification">An error has occurred.</div>
           {/if}

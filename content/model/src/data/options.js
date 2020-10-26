@@ -139,7 +139,7 @@ export default new Map([
         "options": [
             {
                 "value": 0,
-                "label": "Baseline"
+                "label": "Baseline Supply"
             }
         ],
         "label": "Supply Scenario",
@@ -149,7 +149,7 @@ export default new Map([
         "options": [
             {
                 "value": 0,
-                "label": "Baseline"
+                "label": "Baseline Demand"
             }
         ],
         "label": "Demand Scenario",
