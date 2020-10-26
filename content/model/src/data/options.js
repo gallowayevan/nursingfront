@@ -138,9 +138,17 @@ export default new Map([
     {
         "options": [
             {
-                "value": 0,
+                "value": 32,
                 "label": "Baseline Supply"
-            }
+            },
+            {
+                "value": 33,
+                "label": "Early Leavers"
+            },
+            {
+                "value": 35,
+                "label": "Delayed Leavers"
+            },
         ],
         "label": "Supply Scenario",
         "name": "supplyScenario"

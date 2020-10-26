@@ -29,7 +29,7 @@
   export let showTitle = true;
   let leftCoord = 0;
 
-  $: frozenWidth = params["setting"] == "Medicaid Region" ? "13.5em" : "14em";
+  const frozenWidth = "14em";
 
   let currentPage = 0;
   //Reset counter when data changes
