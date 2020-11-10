@@ -46,9 +46,7 @@
       }, {})
     : {};
 
-  $: paramsMap = data.params
-    ? new Map(data.params.map(d => [d.name, d]))
-    : undefined;
+  $: calculation = data.params.find(d => d[0] == "calculation")[1];
 
   $: currentNumberFormat = numberFormat(
     +data.params.find(d => d[0] == "rateOrTotal")[1]
@@ -56,13 +54,17 @@
 
   //change to also take into account calculation
 
-  $: baseYear = 2015; //min(data.values, e => e.year);
+  $: baseYear = 2018; //min(data.values, e => e.year);
 
   $: grouped = Array.from(group(data.values, d => d.setting))
     .map(function(d) {
-      const base = d[1].find(e => e.year == baseYear);
+      const baseValue = d[1].find(e => e.year == baseYear).value;
+      const calculationDifferenceRatio =
+        (calculation == "difference") | (calculation == "ratio");
       const valueArray = d[1].map(function(e) {
-        const change = e.value / base.value || 0;
+        const change = calculationDifferenceRatio
+          ? e.value
+          : e.value / baseValue;
         return Object.assign({ change: change }, e);
       });
       return [
@@ -73,21 +75,29 @@
     .sort((a, b) => ascending(a[0], b[0]));
   $: console.log(grouped);
   $: flatChangeValues = grouped.flatMap(d => d[1]).map(d => d.change);
-  $: maxChange = Math.max(
-    max(flatChangeValues, d => (d == 0 ? 0 : 1 / d)),
-    max(flatChangeValues, d => d / 1)
-  );
+  $: maxChange =
+    (calculation == "difference") | (calculation == "ratio")
+      ? max(flatChangeValues, d => Math.abs(d))
+      : Math.max(
+          max(flatChangeValues, d => (d == 0 ? 0 : 1 / d)),
+          max(flatChangeValues, d => d / 1)
+        );
   $: console.log(maxChange);
 
   // $: maxChange = max(flatChangeValues, d => Math.abs(d));
   // $: meanChange = mean(flatChangeValues);
-
+  $: domain =
+    calculation == "difference"
+      ? [-maxChange, 0, maxChange]
+      : [1 / maxChange, 1, maxChange];
   $: colorScale = scaleSymlog()
-    .domain([1 / maxChange, 1, maxChange])
+    .domain(domain)
     .range([-1, 0, 1])
     .interpolate((a, b) =>
       a < 0 ? t => interpolateReds(1 - t) : t => interpolateBlues(t)
     );
+
+  // $: colorScale = scaleLinear().domain(-maxChange);
 
   $: numOfPages = Math.ceil(grouped.length / numberPerPage);
   $: paged = group(grouped, (d, i) => Math.floor(i / numberPerPage));
