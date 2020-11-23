@@ -101,26 +101,19 @@ of patterns to what sort of data can actually be selected. -->
 <form on:submit|preventDefault={handleShowProjection}>
   <div class="field">
     <div class="control">
-      {#if calculation == 'supply'}
-        <label class="radio">
-          <input
-            bind:group={nurseType}
-            type="radio"
-            name="type"
-            value="2"
-            checked />
-          RN
-        </label>
-        <label class="radio">
-          <input bind:group={nurseType} type="radio" name="type" value="1" />
-          LPN
-        </label>
-      {:else}
-        <label class="radio" disabled>
-          <input type="radio" name="type" value="0" checked disabled />
-          LPNs & RNs
-        </label>
-      {/if}
+      <label class="radio">
+        <input
+          bind:group={nurseType}
+          type="radio"
+          name="type"
+          value="2"
+          checked />
+        RN
+      </label>
+      <label class="radio">
+        <input bind:group={nurseType} type="radio" name="type" value="1" />
+        LPN
+      </label>
       <InfoBox name={'Type of Nurse'} info={formInfo.get('type')} />
     </div>
   </div>

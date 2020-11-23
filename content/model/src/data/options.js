@@ -156,7 +156,7 @@ export default new Map([
     {
         "options": [
             {
-                "value": 0,
+                "value": 1,
                 "label": "Baseline Demand"
             }
         ],
