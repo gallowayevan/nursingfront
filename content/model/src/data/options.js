@@ -149,6 +149,14 @@ export default new Map([
                 "value": 35,
                 "label": "Delayed Leavers"
             },
+            {
+                "value": 40,
+                "label": "Reduction in Out-of-State Supply by 2.5%"
+            },
+            {
+                "value": 41,
+                "label": "2% Increase in Graduate Supply"
+            },
         ],
         "label": "Supply Scenario",
         "name": "supplyScenario"
