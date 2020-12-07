@@ -186,7 +186,8 @@ export default new Map([
                 "label": "RN"
             },
         ],
-        "name": "type"
+        "name": "type",
+        "label": "Nurse Type"
     }, {
         "options": [
             {
@@ -202,7 +203,8 @@ export default new Map([
                 "label": "ADN & Diploma"
             },
         ],
-        "name": "education"
+        "name": "education",
+        "label": "Education"
     }, {
         "options": [
             {
@@ -214,7 +216,8 @@ export default new Map([
                 "label": "Total"
             }
         ],
-        "name": "rateOrTotal"
+        "name": "rateOrTotal",
+        "label": "Rate Or Total"
     },
     {
         "options": [
@@ -227,6 +230,7 @@ export default new Map([
                 "label": "FTE"
             }
         ],
-        "name": "fteOrHeadcount"
+        "name": "fteOrHeadcount",
+        "label": "FTE or Headcount"
     }
 ].map(d => [d.name, d]))

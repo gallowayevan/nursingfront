@@ -2,62 +2,77 @@
   import { groups, ascending, extent, range } from "d3-array";
   import { csvFormatRows } from "d3-dsv";
   import options from "./data/options.js";
+  import "array-flat-polyfill";
 
   export let data;
   export let chartType;
   export let projectionStartYear;
 
+  const optionNameToValueLabel = new Map(
+    Array.from(options).map(d => [
+      d[0],
+      new Map(d[1].options.map(e => [e.value, e.label]))
+    ])
+  );
+
   const projectionWarning = `NOTE: Values after ${projectionStartYear -
     1} are projected based on model parameters. Values from ${projectionStartYear -
     1} and earlier are based on licensure data.\n`;
 
-  const locationNamesMap = new Map(
-    options.get("location").options.map(d => [d.value, d.label])
-  );
+  function makeYearByGroup(callingChart) {
+    const groupingVariable = callingChart == "map" ? "location" : "setting";
+    const valuesToLabels = new Map(
+      options.get(groupingVariable).options.map(d => [d.value, d.label])
+    );
+    const grouped = groups(
+      data.flatMap(e => e.values),
+      d => d[groupingVariable]
+    )
+      .map(function(d) {
+        return [valuesToLabels.get(d[0]), ...d[1].map(d => d.value)];
+      })
+      .filter(d => d[0] != undefined);
 
-  function makeYearByGeography() {
-    const grouped = groups(data, d => d.location).map(function(d) {
-      // const sorted = d[1].sort((a, b) => ascending(a.year, b.year));
-      return [locationNamesMap.get(d[0]), ...d[1].map(d => d.value)];
-    });
-
-    const yearExtent = extent(data, d => d.year);
+    const yearExtent = extent(data[0].values, d => d.year);
     const yearRange = range(yearExtent[0], yearExtent[1] + 1);
     const header =
-      data.params
+      data[0].params
         .map(
           e =>
-            `${e.name.charAt(0).toUpperCase() + e.name.slice(1)}: ${e.display}`
+            `${options.get(e[0]).label}: ${optionNameToValueLabel
+              .get(e[0])
+              .get(e[1])}`
         )
         .join("  |  ") + "\n";
+
+    const firstColumnTitle = options.get(groupingVariable).label;
 
     return (
       projectionWarning +
       header +
-      csvFormatRows(
-        [
-          [
-            data.params.filter(d => d.name == "locationType")[0].display,
-            ...yearRange
-          ]
-        ].concat(grouped)
-      )
+      csvFormatRows([[firstColumnTitle, ...yearRange]].concat(grouped))
     );
   }
 
   function makeYearByProjection() {
     let download = [];
-    const maxYearExtent = extent(data.flatMap(d => extent(d, d => d.year)));
+    const maxYearExtent = extent(
+      data.flatMap(d => extent(d.values, e => e.year))
+    );
 
     const columns = [
-      ...data[0].params.map(d => d.name),
+      ...data[0].params.map(d => options.get(d[0]).label),
       ...range(maxYearExtent[0], maxYearExtent[1] + 1)
     ];
 
     const rows = data
       .map(function(d) {
-        const params = d.params.map(e => [e.name, e.display]);
-        const values = d.map(e => [e.year, e.value]);
+        const values = d.values.map(e => [e.year, e.value]);
+        const params = d.params.map(e => [
+          options.get(e[0]).label,
+          optionNameToValueLabel.get(e[0]).get(e[1])
+        ]);
+
         return new Map([...params, ...values]);
       })
       .map(function(d) {
@@ -70,7 +85,7 @@
   function handleDownloadData() {
     let download = [];
     if (chartType == "map" || chartType == "table") {
-      download = makeYearByGeography();
+      download = makeYearByGroup(chartType);
     } else {
       download = makeYearByProjection();
     }
