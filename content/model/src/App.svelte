@@ -72,6 +72,7 @@
 
   function handleClearData() {
     data.get(calculation).set(chartType, []);
+    data = data;
   }
 
   function tabClicked(e) {
