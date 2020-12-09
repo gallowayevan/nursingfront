@@ -14,7 +14,13 @@
 
   const ROOT = "root"; //Allows for rollup to switch data root.
 
-  let data = [];
+  //Create basic data structure for storing data
+  let data = new Map(
+    ["supply", "demand", "ratio", "difference"].map(d => [
+      d,
+      new Map(["line", "map", "table"].map(e => [e, []]))
+    ])
+  );
   let geoJSON;
   let chartType = "line";
   let showModal = false;
@@ -35,41 +41,46 @@
     });
   });
 
-  async function getData(type, allParams) {
+  async function getData(type, calc, allParams) {
     dataFetch(makeQueryURL(allParams)).then(function(newData) {
       if (type == "line") {
-        data = [...data, newData];
+        const currentData = data.get(calc).get(type);
+        data.get(calc).set(type, [...currentData, newData]);
       } else {
-        data = [newData];
+        data.get(calc).set(type, [newData]);
       }
+      //Trigger change
+      data = data;
     });
   }
 
   function handleShowProjection({ detail }) {
-    getData(chartType, [
+    getData(chartType, calculation, [
       { name: "calculation", value: calculation },
       ...detail
     ]);
-    console.log(detail);
+    // console.log(detail);
   }
 
   function handleDeleteProjection(e) {
-    data = data.filter(d => d.id != +e.detail);
+    const currentProjections = data.get(calculation).get(chartType);
+    data
+      .get(calculation)
+      .set(chartType, currentProjections.filter(d => d.id != +e.detail));
+    data = data;
   }
 
   function handleClearData() {
-    data = [];
+    data.get(calculation).set(chartType, []);
   }
 
   function tabClicked(e) {
     if (chartType != e.target.id) {
       chartType = e.target.id;
-      handleClearData();
     }
   }
   function handleCalculationClick({ detail }) {
     calculation = detail;
-    handleClearData();
   }
 
   function handleLaunchTutorial() {
@@ -147,32 +158,40 @@
             </li>
           </ul>
         </div>
-        {#if data.length > 0}
+        {#if data.get(calculation).get(chartType).length > 0}
           <div class="columns is-marginless">
             <div class="column is-hidden-mobile is-paddingless" />
             <div class="column is-narrow is-paddingless">
               {#if chartType == 'line' || chartType == 'map'}
                 <DownloadImage {chartType} />
               {/if}
-              <DownloadData {data} {chartType} {projectionStartYear} />
+              <DownloadData
+                data={data.get(calculation).get(chartType)}
+                {chartType}
+                {projectionStartYear} />
             </div>
           </div>
           {#if chartType == 'line'}
             {#if calculation == 'difference'}
               <LineChartDifference
-                {data}
+                data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
                 {projectionStartYear} />
             {:else}
               <LineChart
-                {data}
+                data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
                 {projectionStartYear} />
             {/if}
           {:else if chartType == 'map'}
-            <SimpleMap data={data[0]} {geoJSON} {projectionStartYear} />
+            <SimpleMap
+              data={data.get(calculation).get(chartType)[0]}
+              {geoJSON}
+              {projectionStartYear} />
           {:else if chartType == 'table'}
-            <SettingTable data={data[0]} {projectionStartYear} />
+            <SettingTable
+              data={data.get(calculation).get(chartType)[0]}
+              {projectionStartYear} />
           {:else}
             <div class="notification">An error has occurred.</div>
           {/if}
