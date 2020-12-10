@@ -1,5 +1,6 @@
 import { color } from "d3-color";
 
+
 export function fontColor(bgColor) {
     //https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
     const rgb = color(bgColor).rgb();
@@ -157,3 +158,62 @@ export function debounce(func, wait, immediate) {
 
     return debounced;
 };
+
+// A function to break text into tspans. Adapted from [this Stack Overflow answer](https://stackoverflow.com/questions/475804/svg-word-wrap-show-stopper)
+//   and [Wrapping Long Labels](https://bl.ocks.org/mbostock/7555321) 
+//   and the function format of [Inputs](https://beta.observablehq.com/@jashkenas/inputs).`
+
+export function createSVGtext(config = {}) {
+
+    let { text, x = 0, y = 0,
+        fontSize = 14, fill = '#333',
+        textAnchor = "left",
+        maxCharsPerLine = 65,
+        lineHeight = 1.3 } = config;
+
+    if (typeof config == "string") text = config;
+
+    let svgText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    svgText.setAttributeNS(null, 'x', x);
+    svgText.setAttributeNS(null, 'y', y);
+    svgText.setAttributeNS(null, 'font-size', fontSize);
+    svgText.setAttributeNS(null, 'fill', fill);
+    svgText.setAttributeNS(null, 'text-anchor', textAnchor);
+
+    let words = text.trim().split(/\s+/).reverse(),
+        word,
+        dy = 0,
+        lineNumber = 0,
+        line = [];
+
+    while (word = words.pop()) {
+
+        line.push(word);
+        let testLineLength = line.join(" ").length;
+
+        if (testLineLength > maxCharsPerLine) {
+            line.pop();
+
+            let svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+            svgTSpan.setAttributeNS(null, 'x', x);
+            svgTSpan.setAttributeNS(null, 'dy', dy + "em");
+
+            let tSpanTextNode = document.createTextNode(line.join(" "));
+            svgTSpan.appendChild(tSpanTextNode);
+            svgText.appendChild(svgTSpan);
+
+            line = [word];
+            dy = lineHeight;
+        }
+    }
+
+    let svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan')
+    svgTSpan.setAttributeNS(null, 'x', x);
+    svgTSpan.setAttributeNS(null, 'dy', dy + "em");
+
+    let tSpanTextNode = document.createTextNode(line.join(" "));
+    svgTSpan.appendChild(tSpanTextNode);
+    svgText.appendChild(svgTSpan);
+
+    return svgText;
+}

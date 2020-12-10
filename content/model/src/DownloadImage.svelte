@@ -1,5 +1,6 @@
 <script>
   import saveSvgAsPng from "save-svg-as-png";
+  import { createSVGtext } from "./utilities.js";
   export let chartType;
 
   function generateLineChartImage() {
@@ -38,7 +39,7 @@
       let legendSubLinesIndex = 0;
       let currentLineLength = 0;
       for (let i = 0; i < legendText.length; i++) {
-        if (currentLineLength < maxLineLength) {
+        if (currentLineLength + legendText[i].length < maxLineLength) {
           legendSubLines[legendSubLinesIndex] =
             legendSubLines[legendSubLinesIndex] == undefined
               ? legendText[i] + "   "
@@ -80,7 +81,7 @@
     titleText.setAttributeNS(null, "transform", `translate(40,50)`);
     titleText.innerHTML = title;
 
-    //Subtitle
+    // Subtitle
     const subtitleText = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "text"
@@ -88,6 +89,19 @@
     subtitleText.setAttributeNS(null, "font-size", "20px");
     subtitleText.setAttributeNS(null, "transform", `translate(40,80)`);
     subtitleText.innerHTML = subtitle;
+
+    //Source
+    const sourceText = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "text"
+    );
+    sourceText.setAttributeNS(null, "font-size", "12px");
+    sourceText.setAttributeNS(
+      null,
+      "transform",
+      `translate(40,${height - 20})`
+    );
+    sourceText.innerHTML = "See more at " + window.location.href;
 
     //Legend
     legendLine.forEach(function(d, i) {
@@ -141,6 +155,7 @@
     //Append elements
     svg.appendChild(titleText);
     svg.appendChild(subtitleText);
+    svg.appendChild(sourceText);
 
     // console.log(svg);
     saveSvgAsPng.saveSvgAsPng(svg, "nurse_line_chart.png", {
@@ -155,12 +170,21 @@
     const title = div.querySelector(".title").innerText;
     const subtitle = div.querySelector(".subtitle").innerText;
 
-    const width = 1080;
-    const height = 510;
-
     //Clone svgs and combine
+
+    //Get map
     const svg = document.getElementById("map-svg").cloneNode(true);
-    // svg.setAttribute("width", width);
+
+    //Get row chart elements
+    const chartGroup = document
+      .getElementById("row-chart-svg")
+      .firstChild.cloneNode(true);
+
+    //Get number of row chart rect elements to calculate height
+    const rowChartElementCount = chartGroup.querySelectorAll("rect").length;
+
+    const width = 1100;
+    const height = Math.max(450, 200 + rowChartElementCount * 50);
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     svg.style.fontFamily = "Helvetica, Arial, sans-serif";
     svg.firstChild.setAttributeNS(
@@ -168,11 +192,8 @@
       "transform",
       `translate(630,200) scale(1.4)`
     );
-    const chartGroup = document
-      .getElementById("row-chart-svg")
-      .firstChild.cloneNode(true);
 
-    chartGroup.setAttributeNS(null, "transform", `translate(0, 100) scale(2)`);
+    chartGroup.setAttributeNS(null, "transform", `translate(0, 140) scale(2)`);
     chartGroup.setAttributeNS(null, "font-size", "10px");
     svg.appendChild(chartGroup);
 
@@ -182,21 +203,35 @@
       "text"
     );
     titleText.setAttributeNS(null, "font-size", "42px");
-    titleText.setAttributeNS(null, "transform", `translate(5,40)`);
+    titleText.setAttributeNS(null, "transform", `translate(20,60)`);
     titleText.innerHTML = title;
 
     //Subtitle
-    const subtitleText = document.createElementNS(
+    const subtitleText = createSVGtext({
+      text: subtitle,
+      x: 20,
+      y: 90,
+      fontSize: 20,
+      maxCharsPerLine: 100
+    });
+
+    //Source
+    const sourceText = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "text"
     );
-    subtitleText.setAttributeNS(null, "font-size", "21px");
-    subtitleText.setAttributeNS(null, "transform", `translate(5,70)`);
-    subtitleText.innerHTML = subtitle;
+    sourceText.setAttributeNS(null, "font-size", "12px");
+    sourceText.setAttributeNS(
+      null,
+      "transform",
+      `translate(40,${height - 20})`
+    );
+    sourceText.innerHTML = "See more at " + window.location.href;
 
     //Append elements
     svg.appendChild(titleText);
     svg.appendChild(subtitleText);
+    svg.appendChild(sourceText);
 
     saveSvgAsPng.saveSvgAsPng(svg, "nurse_projection_map.png", {
       backgroundColor: "#fff"

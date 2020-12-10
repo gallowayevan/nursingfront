@@ -114,12 +114,12 @@
     </h1>
     <h2 class="subtitle is-6">
       {permute(params, [
-        ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0]),
+        'calculation',
         'setting',
         'education',
         'fteOrHeadcount',
         'rateOrTotal',
-        'calculation'
+        ...data.params.filter(d => d[0].includes('Scenario')).map(d => d[0])
       ]).join(', ')}
     </h2>
 
