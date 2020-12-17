@@ -17,6 +17,9 @@
   let educationType = "0";
   let settingType = "0";
 
+  //Track if form is changed
+  let formHasChanged = true;
+
   //Filter out 'state' as an option when chart type is map
   //since state map is not informative (i.e., all one color)
   $: locationTypeOptions = {
@@ -72,6 +75,9 @@
         });
       }
     }
+    //Reset formHasChanged
+    formHasChanged = false;
+
     dispatch("showProjection", params);
   }
 
@@ -98,7 +104,9 @@
 
 <!-- This form ends up being somewhat complex because there are a number
 of patterns to what sort of data can actually be selected. -->
-<form on:submit|preventDefault={handleShowProjection}>
+<form
+  on:submit|preventDefault={handleShowProjection}
+  on:change={() => (formHasChanged = true)}>
   <div class="field">
     <div class="control">
       <label class="radio">
@@ -242,7 +250,9 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field is-grouped">
     <div class="control">
-      <button class="button is-primary" type="submit">Show</button>
+      <button class="button" class:is-warning={formHasChanged} type="submit">
+        Show
+      </button>
     </div>
     <div class="control">
       <button class="button" type="button" on:click={handleClearData}>
