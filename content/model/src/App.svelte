@@ -56,7 +56,9 @@
         //Trigger change
         data = data;
       })
-      .then(() => (isLoading = false));
+      .then(() => {
+        isLoading = false;
+      });
   }
 
   function handleShowProjection({ detail }) {

@@ -251,19 +251,18 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field is-grouped">
     <div class="control">
-      <button
-        class="button"
-        class:is-warning={formHasChanged}
-        class:is-loading={isLoading}
-        type="submit">
+
+      <button class="button" class:is-warning={formHasChanged} type="submit">
         Show
       </button>
+
     </div>
     <div class="control">
       <button class="button" type="button" on:click={handleClearData}>
         Clear
       </button>
     </div>
+    <div>{isLoading ? 'Loading . . .' : ''}</div>
   </div>
   <hr />
   <button
