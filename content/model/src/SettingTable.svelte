@@ -73,7 +73,7 @@
       ];
     })
     .sort((a, b) => ascending(a[0], b[0]));
-  $: console.log(grouped);
+
   $: flatChangeValues = grouped.flatMap(d => d[1]).map(d => d.change);
   $: maxChange =
     (calculation == "difference") | (calculation == "ratio")
@@ -82,7 +82,6 @@
           max(flatChangeValues, d => (d == 0 ? 0 : 1 / d)),
           max(flatChangeValues, d => d / 1)
         );
-  $: console.log(maxChange);
 
   // $: maxChange = max(flatChangeValues, d => Math.abs(d));
   // $: meanChange = mean(flatChangeValues);

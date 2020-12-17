@@ -216,8 +216,14 @@ of patterns to what sort of data can actually be selected. -->
     <InfoBox name={'Location'} info={formInfo.get('location')} />
   </SimpleSelect>
   {#if chartType != 'table'}
+    <!-- Filter out nurse education setting for LPNs. This setting was
+    deemed potentially confusing.-->
     <SimpleSelect
-      {...options.get('setting')}
+      options={options
+        .get('setting')
+        .options.filter(d => nurseType == 2 || d.value != 6)}
+      name={options.get('setting').name}
+      label={options.get('setting').label}
       disabled={educationType != '0'}
       on:change={handleSettingChange}>
       <InfoBox name={'Setting'} info={formInfo.get('setting')} />

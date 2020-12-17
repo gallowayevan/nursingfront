@@ -24,8 +24,7 @@ export function numberFormat(total = 1) {
             });
 }
 
-export function makeQueryURL(params) {
-    const baseURL = "__root__";
+export function makeQueryURL(params, baseURL = "__root__") {
     return `${baseURL}?${params
         .map(d => `${d.name}=${d.value}`)
         .join("&")}`;
