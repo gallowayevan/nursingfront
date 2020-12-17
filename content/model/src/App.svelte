@@ -27,6 +27,9 @@
   let projectionStartYear = 2019;
   let calculation = "difference";
 
+  //Whether or not data is loading
+  let isLoading = false;
+
   $: console.log(data);
 
   onMount(() => {
@@ -42,19 +45,22 @@
   });
 
   async function getData(type, calc, allParams) {
-    dataFetch(makeQueryURL(allParams)).then(function(newData) {
-      if (type == "line") {
-        const currentData = data.get(calc).get(type);
-        data.get(calc).set(type, [...currentData, newData]);
-      } else {
-        data.get(calc).set(type, [newData]);
-      }
-      //Trigger change
-      data = data;
-    });
+    dataFetch(makeQueryURL(allParams))
+      .then(function(newData) {
+        if (type == "line") {
+          const currentData = data.get(calc).get(type);
+          data.get(calc).set(type, [...currentData, newData]);
+        } else {
+          data.get(calc).set(type, [newData]);
+        }
+        //Trigger change
+        data = data;
+      })
+      .then(() => (isLoading = false));
   }
 
   function handleShowProjection({ detail }) {
+    isLoading = true;
     getData(chartType, calculation, [
       { name: "calculation", value: calculation },
       ...detail
@@ -141,6 +147,7 @@
           on:showProjection={handleShowProjection}
           on:clearProjections={handleClearData}
           on:launchTutorial={handleLaunchTutorial}
+          {isLoading}
           {calculation}
           {chartType} />
       </div>
