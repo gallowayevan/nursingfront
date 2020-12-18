@@ -114,7 +114,7 @@
     hoverData = {
       year: hoverYear,
       values: byYearData.get(hoverYear).sort(function(a, b) {
-        return descending(a, b);
+        return descending(a.value, b.value);
       })
     };
   }
