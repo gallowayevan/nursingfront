@@ -2,12 +2,13 @@
   import Line from "./Line.svelte";
   import LineChartLegend from "./LineChartLegend.svelte";
   import { scaleLinear } from "d3-scale";
-  import { extent, max, group, descending } from "d3-array";
+  import { extent, max, group, descending, mean } from "d3-array";
   import { line as d3line, area as d3area, curveMonotoneX } from "d3-shape";
   import XTick from "./XTick.svelte";
   import YTick from "./YTick.svelte";
   import { fade } from "svelte/transition";
   import "array-flat-polyfill";
+  import { numberFormat } from "./utilities.js";
 
   export let data;
   export let projectionStartYear;
@@ -89,7 +90,19 @@
   //Then use clip component to create clipPaths and
   //https://observablehq.com/@d3/difference-chart
 
-  $: flatData = data.map(d => d.values).flat();
+  $: flatData = data
+    .map(d =>
+      d.values.map(e =>
+        Object.assign(
+          {
+            id: d.id,
+            rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1]
+          },
+          e
+        )
+      )
+    )
+    .flat();
   $: byYearData = group(flatData, d => d.year);
   $: xExtent =
     flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
@@ -124,29 +137,38 @@
     } else if (hoverYear > xExtent[1]) {
       hoverYear = xExtent[1];
     }
-    hoverData = { year: hoverYear, values: byYearData.get(hoverYear) };
+    hoverData = {
+      year: hoverYear,
+      values: byYearData.get(hoverYear).sort(function(a, b) {
+        return descending(
+          mean([a.supplyMean, a.demandMean]),
+          mean([b.supplyMean, b.demandMean])
+        );
+      })
+    };
   }
 
   function handleMouseLeave() {
     hoverData = undefined;
   }
 
-  function getTooltipText({ supplyMean, demandMean }) {
+  function getTooltipText({ supplyMean, demandMean, rateOrTotal }) {
+    const currentNumberFormat = numberFormat(rateOrTotal);
     return [
       {
         type: "supply",
         value: supplyMean,
-        text: `Supply: ${supplyMean.toLocaleString()}`
+        text: `Supply: ${currentNumberFormat(supplyMean)}`
       },
       {
         type: "demand",
         value: demandMean,
-        text: `Demand: ${demandMean.toLocaleString()}`
+        text: `Demand: ${currentNumberFormat(demandMean)}`
       }
     ]
       .sort((a, b) => descending(a.value, b.value))
       .map(d => d.text)
-      .join(`<br>`);
+      .join("<br>");
   }
 
   function addExtentToValues(values) {
@@ -363,15 +385,19 @@
 
     </svg>
     {#if hoverData}
-      {#each hoverData.values as row}
-        <div
-          style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * (y((row.supplyMean + row.demandMean) / 2) - 20)}px;
-          left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
-          background: rgba(255, 255, 255, 0.7); border-radius:5px;border: 1px
-          solid #333333;padding:0px 1px;">
-          {@html getTooltipText(row)}
-        </div>
-      {/each}
+      <div
+        style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * y(mean(hoverData.values
+                  .map(d => [d.supplyMean, d.demandMean])
+                  .reduce((acc, val) => acc.concat(val), [])))}px; left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
+        background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
+        solid #333333;padding:3px 3px;z-index:200;font-weight:600;">
+
+        {#each hoverData.values as row}
+          <div style="color:{colorMap.get(row.id)}">
+            {@html getTooltipText(row)}
+          </div>
+        {/each}
+      </div>
     {/if}
   {:else}
     <div class="notification">Select model options and click "Show".</div>
