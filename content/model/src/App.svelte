@@ -191,7 +191,8 @@
               <LineChart
                 data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
-                {projectionStartYear} />
+                {projectionStartYear}
+                {calculation} />
             {/if}
           {:else if chartType == 'map'}
             <SimpleMap

@@ -12,6 +12,7 @@
 
   export let data;
   export let projectionStartYear;
+  export let calculation;
 
   const width = 800;
   const height = 475;
@@ -161,7 +162,9 @@
 
 <div id="line-chart-div">
   {#if data.length > 0}
-    <h1 class="title">Projection of Nurse Workforce</h1>
+    <h1 class="title">
+      Projection of Nurse Workforce, {calculation == 'ratio' ? 'Supply / Demand' : calculation.slice(0, 1).toUpperCase() + calculation.slice(1)}
+    </h1>
     <h2 class="subtitle">North Carolina, {xExtent[0]} - {xExtent[1]}</h2>
     <svg id="line-chart-svg" viewBox="0 0 {width} {height}">
       <g class="chart-container">

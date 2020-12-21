@@ -153,25 +153,6 @@
     hoverData = undefined;
   }
 
-  // function getTooltipText({ supplyMean, demandMean, rateOrTotal }) {
-  //   const currentNumberFormat = numberFormat(rateOrTotal);
-  //   return [
-  //     {
-  //       type: "supply",
-  //       value: supplyMean,
-  //       text: `Supply: ${currentNumberFormat(supplyMean)}`
-  //     },
-  //     {
-  //       type: "demand",
-  //       value: demandMean,
-  //       text: `Demand: ${currentNumberFormat(demandMean)}`
-  //     }
-  //   ]
-  //     .sort((a, b) => descending(a.value, b.value))
-  //     .map(d => d.text)
-  //     .join("<br>");
-  // }
-
   function addExtentToValues(values) {
     const [min, max] = extent(
       values.flatMap(d => [d.supplyMean, d.demandMean])
@@ -217,7 +198,7 @@
 
 <div id="line-chart-div">
   {#if data.length > 0}
-    <h1 class="title">Projection of Nurse Workforce</h1>
+    <h1 class="title">Projection of Nurse Workforce, Supply - Demand</h1>
     <h2 class="subtitle">North Carolina, {xExtent[0]} - {xExtent[1]}</h2>
     <svg id="line-chart-svg" viewBox="0 0 {width} {height}">
       <defs>
