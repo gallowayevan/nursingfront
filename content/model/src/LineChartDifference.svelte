@@ -8,7 +8,7 @@
   import YTick from "./YTick.svelte";
   import { fade } from "svelte/transition";
   import "array-flat-polyfill";
-  import { numberFormat } from "./utilities.js";
+  import DifferenceToolTipTable from "./DifferenceToolTipTable.svelte";
 
   export let data;
   export let projectionStartYear;
@@ -96,7 +96,8 @@
         Object.assign(
           {
             id: d.id,
-            rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1]
+            rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1],
+            color: colorMap.get(d.id)
           },
           e
         )
@@ -152,24 +153,24 @@
     hoverData = undefined;
   }
 
-  function getTooltipText({ supplyMean, demandMean, rateOrTotal }) {
-    const currentNumberFormat = numberFormat(rateOrTotal);
-    return [
-      {
-        type: "supply",
-        value: supplyMean,
-        text: `Supply: ${currentNumberFormat(supplyMean)}`
-      },
-      {
-        type: "demand",
-        value: demandMean,
-        text: `Demand: ${currentNumberFormat(demandMean)}`
-      }
-    ]
-      .sort((a, b) => descending(a.value, b.value))
-      .map(d => d.text)
-      .join("<br>");
-  }
+  // function getTooltipText({ supplyMean, demandMean, rateOrTotal }) {
+  //   const currentNumberFormat = numberFormat(rateOrTotal);
+  //   return [
+  //     {
+  //       type: "supply",
+  //       value: supplyMean,
+  //       text: `Supply: ${currentNumberFormat(supplyMean)}`
+  //     },
+  //     {
+  //       type: "demand",
+  //       value: demandMean,
+  //       text: `Demand: ${currentNumberFormat(demandMean)}`
+  //     }
+  //   ]
+  //     .sort((a, b) => descending(a.value, b.value))
+  //     .map(d => d.text)
+  //     .join("<br>");
+  // }
 
   function addExtentToValues(values) {
     const [min, max] = extent(
@@ -391,12 +392,7 @@
                   .reduce((acc, val) => acc.concat(val), [])))}px; left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
         solid #333333;padding:3px 3px;z-index:200;font-weight:600;">
-
-        {#each hoverData.values as row}
-          <div style="color:{colorMap.get(row.id)}">
-            {@html getTooltipText(row)}
-          </div>
-        {/each}
+        <DifferenceToolTipTable rows={hoverData.values} />
       </div>
     {/if}
   {:else}
