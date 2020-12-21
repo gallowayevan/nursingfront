@@ -9,13 +9,14 @@
   import { fade } from "svelte/transition";
   import "array-flat-polyfill";
   import DifferenceToolTipTable from "./DifferenceToolTipTable.svelte";
+  import LineLegend from "./LineLegend.svelte";
 
   export let data;
   export let projectionStartYear;
 
   const width = 800;
   const height = 475;
-  const margin = { top: 20, right: 60, bottom: 65, left: 90 };
+  const margin = { top: 30, right: 60, bottom: 65, left: 90 };
   const colors = [
     "#1f77b4",
     "#ff7f0e",
@@ -51,8 +52,10 @@
     });
   }
 
+  //Setting for actual line elements
   const transitionDuration = 400;
-
+  const dashArray = "4";
+  const strokeWidth = 2;
   const curve = curveMonotoneX;
 
   //Shape generators
@@ -254,9 +257,13 @@
           fill="#ececec" />
         <text
           class="is-size-5"
-          transform="translate({x(projectionStartYear - 1)},{margin.top - 5})">
+          transform="translate({x(projectionStartYear - 1)},{margin.top - 10})">
           Projected
         </text>
+        <LineLegend
+          {dashArray}
+          {strokeWidth}
+          transform="translate({width - 285},{margin.top - 10})" />
         <g
           class="xAxis is-size-6"
           transform="translate(0,{height - margin.bottom})">
@@ -283,15 +290,17 @@
                 value: supplyMean
               })))}
             color={colorMap.get(lineElement.id)}
-            duration={transitionDuration} />
+            duration={transitionDuration}
+            {strokeWidth} />
           <Line
             linePath={line(lineElement.values.map(({ year, demandMean }) => ({
                 year,
                 value: demandMean
               })))}
-            dashArray="4"
+            {dashArray}
             color={colorMap.get(lineElement.id)}
-            duration={transitionDuration} />
+            duration={transitionDuration}
+            {strokeWidth} />
 
           <path
             clip-path={`url(#above${lineElement.id})`}
@@ -339,6 +348,7 @@
           transform="translate({(width - margin.left - margin.right) / 2 + margin.left},{height - 10})">
           Year
         </text>
+
         {#if hoverData && data.length > 0}
           <line
             x1={x(hoverData.year)}

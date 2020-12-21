@@ -9,6 +9,7 @@
   export let areaPath;
   export let duration;
   export let dashArray = "";
+  export let strokeWidth = 2;
 
   const options = {
     duration: duration,
@@ -28,7 +29,7 @@
     class="lines"
     fill="none"
     stroke={color}
-    stroke-width="2"
+    stroke-width={strokeWidth}
     stroke-dasharray={dashArray}
     d={$lineStore} />
 
