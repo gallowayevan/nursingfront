@@ -110,7 +110,7 @@
   $: byYearData = group(flatData, d => d.year);
   $: xExtent =
     flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
-  $: xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]);
+  $: xHalfway = Math.round((xExtent[1] + xExtent[0]) / 2);
   $: yMax =
     flatData.length > 0
       ? max(flatData.flatMap(d => [d.supplyMean, d.demandMean]))
@@ -125,15 +125,16 @@
     .range([height - margin.bottom, margin.top]);
   $: yTicks = y.ticks();
 
-  let hoverData;
   let lineChartPosition = [];
+  let hoverData;
   function handleHover(e) {
     let hoverYear = Math.round(x.invert(getContainerCoords(this, e)[0]));
     const boundingRect = e.target.getBoundingClientRect();
     const scaling = boundingRect.width / width;
     lineChartPosition = {
-      x: boundingRect.left,
-      y: boundingRect.top,
+      left: boundingRect.left,
+      right: boundingRect.right,
+      top: boundingRect.top,
       scaling: scaling
     };
     if (hoverYear < xExtent[0]) {
@@ -378,11 +379,12 @@
     </svg>
     {#if hoverData}
       <div
-        style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * y(mean(hoverData.values
+        class="tooltip"
+        style="position:fixed; top:{lineChartPosition.top + lineChartPosition.scaling * y(mean(hoverData.values
                   .map(d => [d.supplyMean, d.demandMean])
-                  .reduce((acc, val) => acc.concat(val), [])))}px; left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
+                  .reduce((acc, val) => acc.concat(val), [])))}px; left:{hoverData.year < xHalfway ? lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) + 8 : lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) - 268}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
-        solid #333333;padding:3px 3px;z-index:200;font-weight:600;">
+        solid #333333;padding:3px 3px;z-index:200;font-weight:600;width:260px;">
         <DifferenceToolTipTable rows={hoverData.values} />
       </div>
     {/if}
