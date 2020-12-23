@@ -13,6 +13,12 @@ export function titleCase(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+export function flat() {
+    return this.reduce(function (acc, curr) {
+        return acc.concat(curr);
+    }, []);
+}
+
 
 export function numberFormat(total = 1) {
     return v =>

@@ -1,12 +1,24 @@
 <script>
-  import { permute } from "d3-array";
+  import { permute, rollup, group } from "d3-array";
   import { createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
   import options from "./data/options.js";
+  import { flat } from "./utilities.js";
 
   const dispatch = createEventDispatcher();
 
   export let legendData;
+
+  //Determine which parameters differ between projections
+  //Allows highlighting of parameters that differ.
+  //1. Get flat list of parameters to group
+  //2. Use a Set to deduplicates values, so if size of Set is > 1
+  //then there are different values for that parameter
+  $: parametersDifferent = rollup(
+    legendData.map(d => d.params).flat(),
+    v => new Set(v.map(e => e[1])).size > 1, //
+    d => d[0]
+  );
 
   function handleDeleteProjection(e) {
     dispatch("deleteProjection", e.target.id);
@@ -54,7 +66,10 @@
                   .map(d => d[0])
               ]
             ) as item}
-              <li>{item}</li>
+              {@debug item}
+              <li class:has-text-weight-bold={parametersDifferent.get(item)}>
+                {item}
+              </li>
             {/each}
           </ul>
         </div>
