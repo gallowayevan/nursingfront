@@ -128,6 +128,7 @@
   let lineChartPosition = [];
   let hoverData;
   function handleHover(e) {
+    const { clientY } = e;
     let hoverYear = Math.round(x.invert(getContainerCoords(this, e)[0]));
     const boundingRect = e.target.getBoundingClientRect();
     const scaling = boundingRect.width / width;
@@ -135,7 +136,8 @@
       left: boundingRect.left,
       right: boundingRect.right,
       top: boundingRect.top,
-      scaling: scaling
+      scaling: scaling,
+      clientY
     };
     if (hoverYear < xExtent[0]) {
       hoverYear = xExtent[0];
@@ -380,11 +382,10 @@
     {#if hoverData}
       <div
         class="tooltip"
-        style="position:fixed; top:{lineChartPosition.top + lineChartPosition.scaling * y(mean(hoverData.values
-                  .map(d => [d.supplyMean, d.demandMean])
-                  .reduce((acc, val) => acc.concat(val), [])))}px; left:{hoverData.year < xHalfway ? lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) + 8 : lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) - 268}px;
+        style="position:fixed; top:{lineChartPosition.clientY}px; left:{hoverData.year < xHalfway ? lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) + 8 : lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) - 268}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
-        solid #333333;padding:3px 3px;z-index:200;font-weight:600;width:260px;">
+        solid #333333;padding:3px
+        3px;z-index:200;font-weight:600;width:260px;pointer-events:none;">
         <DifferenceToolTipTable rows={hoverData.values} />
       </div>
     {/if}

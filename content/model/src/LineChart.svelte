@@ -99,13 +99,15 @@
   let hoverData;
   let lineChartPosition = [];
   function handleHover(e) {
+    const { clientY } = e;
     let hoverYear = Math.round(x.invert(getContainerCoords(this, e)[0]));
     const boundingRect = e.target.getBoundingClientRect();
     const scaling = boundingRect.width / width;
     lineChartPosition = {
       x: boundingRect.left,
       y: boundingRect.top,
-      scaling: scaling
+      scaling: scaling,
+      clientY
     };
     if (hoverYear < xExtent[0]) {
       hoverYear = xExtent[0];
@@ -241,15 +243,28 @@
     </svg>
     {#if hoverData}
       <div
-        style="position:fixed; top:{lineChartPosition.y + lineChartPosition.scaling * y(mean(hoverData.values, d => d.value))}px;
-        left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
+        style="position:fixed; top:{lineChartPosition.clientY}px; left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
-        solid #333333;padding:3px 3px;z-index:200;font-weight:600;">
-        {#each hoverData.values as row}
-          <div style="color:{colorMap.get(row.id)}">
-            {numberFormat(row.rateOrTotal)(row.value)}
-          </div>
-        {/each}
+        solid #333333;padding:3px
+        3px;z-index:200;font-weight:600;pointer-events:none;">
+        <div class="table-container">
+          <table class="table is-narrow">
+            <thead>
+              <tr>
+                <th>{hoverData.year}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each hoverData.values as row}
+                <tr>
+                  <td style="color:{colorMap.get(row.id)}; text-align:right;">
+                    {numberFormat(row.rateOrTotal)(row.value)}
+                  </td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        </div>
       </div>
     {/if}
   {:else}

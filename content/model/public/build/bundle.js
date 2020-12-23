@@ -4551,7 +4551,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (255:2) {:else}
+    // (270:2) {:else}
     function create_else_block(ctx) {
     	let div;
 
@@ -4560,7 +4560,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Select model options and click \"Show\".";
     			attr_dev(div, "class", "notification");
-    			add_location(div, file$4, 255, 4, 7632);
+    			add_location(div, file$4, 270, 4, 8018);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4577,14 +4577,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(255:2) {:else}",
+    		source: "(270:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (164:2) {#if data.length > 0}
+    // (166:2) {#if data.length > 0}
     function create_if_block(ctx) {
     	let h1;
     	let t0;
@@ -4708,41 +4708,41 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$4, 164, 4, 4203);
+    			add_location(h1, file$4, 166, 4, 4247);
     			attr_dev(h2, "class", "subtitle");
-    			add_location(h2, file$4, 167, 4, 4384);
+    			add_location(h2, file$4, 169, 4, 4428);
     			attr_dev(rect0, "width", rect0_width_value = width - /*margin*/ ctx[12].right - /*x*/ ctx[6](/*projectionStartYear*/ ctx[1] - 1));
     			attr_dev(rect0, "x", rect0_x_value = /*x*/ ctx[6](/*projectionStartYear*/ ctx[1] - 1));
     			attr_dev(rect0, "y", rect0_y_value = /*margin*/ ctx[12].top);
     			attr_dev(rect0, "height", rect0_height_value = height - /*margin*/ ctx[12].bottom - /*margin*/ ctx[12].top);
     			attr_dev(rect0, "fill", "#ececec");
-    			add_location(rect0, file$4, 170, 8, 4560);
+    			add_location(rect0, file$4, 172, 8, 4604);
     			attr_dev(text0, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text0, "transform", text0_transform_value = "translate(" + /*x*/ ctx[6](/*projectionStartYear*/ ctx[1] - 1) + "," + (/*margin*/ ctx[12].top - 5) + ")");
-    			add_location(text0, file$4, 176, 8, 4797);
+    			add_location(text0, file$4, 178, 8, 4841);
     			attr_dev(g0, "class", "xAxis is-size-6 svelte-2pltqo");
     			attr_dev(g0, "transform", g0_transform_value = "translate(0," + (height - /*margin*/ ctx[12].bottom) + ")");
-    			add_location(g0, file$4, 181, 8, 4960);
+    			add_location(g0, file$4, 183, 8, 5004);
     			attr_dev(g1, "class", "yAxis is-size-6 svelte-2pltqo");
     			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*margin*/ ctx[12].left + ",0)");
-    			add_location(g1, file$4, 191, 8, 5278);
+    			add_location(g1, file$4, 193, 8, 5322);
     			attr_dev(text1, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text1, "transform", text1_transform_value = "translate(" + (/*margin*/ ctx[12].left - 70) + "," + height / 1.5 + ") rotate(270)");
-    			add_location(text1, file$4, 207, 8, 5888);
+    			add_location(text1, file$4, 209, 8, 5932);
     			attr_dev(text2, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text2, "text-anchor", "middle");
     			attr_dev(text2, "transform", text2_transform_value = "translate(" + ((width - /*margin*/ ctx[12].left - /*margin*/ ctx[12].right) / 2 + /*margin*/ ctx[12].left) + "," + (height - 10) + ")");
-    			add_location(text2, file$4, 212, 8, 6065);
+    			add_location(text2, file$4, 214, 8, 6109);
     			attr_dev(rect1, "width", width);
     			attr_dev(rect1, "height", height);
     			attr_dev(rect1, "fill", "none");
     			set_style(rect1, "pointer-events", "all");
-    			add_location(rect1, file$4, 232, 8, 6785);
+    			add_location(rect1, file$4, 234, 8, 6829);
     			attr_dev(g2, "class", "chart-container");
-    			add_location(g2, file$4, 169, 6, 4523);
+    			add_location(g2, file$4, 171, 6, 4567);
     			attr_dev(svg, "id", "line-chart-svg");
     			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width + " " + height);
-    			add_location(svg, file$4, 168, 4, 4459);
+    			add_location(svg, file$4, 170, 4, 4503);
 
     			dispose = [
     				listen_dev(rect1, "mousemove", /*handleHover*/ ctx[14], false, false, false),
@@ -4914,14 +4914,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(164:2) {#if data.length > 0}",
+    		source: "(166:2) {#if data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (185:10) {#each xTicks as tick (tick)}
+    // (187:10) {#each xTicks as tick (tick)}
     function create_each_block_4(key_1, ctx) {
     	let first;
     	let current;
@@ -4973,14 +4973,14 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(185:10) {#each xTicks as tick (tick)}",
+    		source: "(187:10) {#each xTicks as tick (tick)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (193:10) {#each yTicks as tick (tick)}
+    // (195:10) {#each yTicks as tick (tick)}
     function create_each_block_3(key_1, ctx) {
     	let first;
     	let current;
@@ -5033,14 +5033,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(193:10) {#each yTicks as tick (tick)}",
+    		source: "(195:10) {#each yTicks as tick (tick)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (201:8) {#each data as lineElement (lineElement.id)}
+    // (203:8) {#each data as lineElement (lineElement.id)}
     function create_each_block_2$1(key_1, ctx) {
     	let first;
     	let current;
@@ -5094,14 +5094,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2$1.name,
     		type: "each",
-    		source: "(201:8) {#each data as lineElement (lineElement.id)}",
+    		source: "(203:8) {#each data as lineElement (lineElement.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (219:8) {#if hoverData && data.length > 0}
+    // (221:8) {#if hoverData && data.length > 0}
     function create_if_block_2(ctx) {
     	let line_1;
     	let line_1_x__value;
@@ -5131,7 +5131,7 @@ var app = (function () {
     			attr_dev(line_1, "y2", line_1_y__value_1 = height - /*margin*/ ctx[12].bottom);
     			attr_dev(line_1, "stroke", "#333");
     			attr_dev(line_1, "stroke-width", "2");
-    			add_location(line_1, file$4, 219, 10, 6326);
+    			add_location(line_1, file$4, 221, 10, 6370);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, line_1, anchor);
@@ -5185,14 +5185,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(219:8) {#if hoverData && data.length > 0}",
+    		source: "(221:8) {#if hoverData && data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (227:10) {#each hoverData.values as row}
+    // (229:10) {#each hoverData.values as row}
     function create_each_block_1$1(ctx) {
     	let g;
     	let circle;
@@ -5207,9 +5207,9 @@ var app = (function () {
     			attr_dev(circle, "r", "5");
     			attr_dev(circle, "stroke", "#333");
     			attr_dev(circle, "fill", "none");
-    			add_location(circle, file$4, 228, 14, 6667);
+    			add_location(circle, file$4, 230, 14, 6711);
     			attr_dev(g, "transform", g_transform_value = "translate(" + /*x*/ ctx[6](/*hoverData*/ ctx[3].year) + " " + /*y*/ ctx[7](/*row*/ ctx[23].value) + ")");
-    			add_location(g, file$4, 227, 12, 6590);
+    			add_location(g, file$4, 229, 12, 6634);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -5229,16 +5229,25 @@ var app = (function () {
     		block,
     		id: create_each_block_1$1.name,
     		type: "each",
-    		source: "(227:10) {#each hoverData.values as row}",
+    		source: "(229:10) {#each hoverData.values as row}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (242:4) {#if hoverData}
+    // (244:4) {#if hoverData}
     function create_if_block_1(ctx) {
-    	let div;
+    	let div1;
+    	let div0;
+    	let table;
+    	let thead;
+    	let tr;
+    	let th;
+    	let t0_value = /*hoverData*/ ctx[3].year + "";
+    	let t0;
+    	let t1;
+    	let tbody;
     	let each_value = /*hoverData*/ ctx[3].values;
     	let each_blocks = [];
 
@@ -5248,31 +5257,58 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr = element("tr");
+    			th = element("th");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			tbody = element("tbody");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			set_style(div, "position", "fixed");
-    			set_style(div, "top", /*lineChartPosition*/ ctx[4].y + /*lineChartPosition*/ ctx[4].scaling * /*y*/ ctx[7](mean(/*hoverData*/ ctx[3].values, func)) + "px");
-    			set_style(div, "left", /*lineChartPosition*/ ctx[4].x + /*lineChartPosition*/ ctx[4].scaling * (/*x*/ ctx[6](/*hoverData*/ ctx[3].year) + 8) + "px");
-    			set_style(div, "background", "rgba(255, 255, 255, 0.9)");
-    			set_style(div, "border-radius", "5px");
-    			set_style(div, "border", "1px\r\n        solid #333333");
-    			set_style(div, "padding", "3px 3px");
-    			set_style(div, "z-index", "200");
-    			set_style(div, "font-weight", "600");
-    			add_location(div, file$4, 242, 6, 7029);
+    			add_location(th, file$4, 253, 16, 7545);
+    			add_location(tr, file$4, 252, 14, 7523);
+    			add_location(thead, file$4, 251, 12, 7500);
+    			add_location(tbody, file$4, 256, 12, 7627);
+    			attr_dev(table, "class", "table is-narrow");
+    			add_location(table, file$4, 250, 10, 7455);
+    			attr_dev(div0, "class", "table-container");
+    			add_location(div0, file$4, 249, 8, 7414);
+    			set_style(div1, "position", "fixed");
+    			set_style(div1, "top", /*lineChartPosition*/ ctx[4].clientY + "px");
+    			set_style(div1, "left", /*lineChartPosition*/ ctx[4].x + /*lineChartPosition*/ ctx[4].scaling * (/*x*/ ctx[6](/*hoverData*/ ctx[3].year) + 8) + "px");
+    			set_style(div1, "background", "rgba(255, 255, 255, 0.9)");
+    			set_style(div1, "border-radius", "5px");
+    			set_style(div1, "border", "1px\r\n        solid #333333");
+    			set_style(div1, "padding", "3px\r\n        3px");
+    			set_style(div1, "z-index", "200");
+    			set_style(div1, "font-weight", "600");
+    			set_style(div1, "pointer-events", "none");
+    			add_location(div1, file$4, 244, 6, 7073);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr);
+    			append_dev(tr, th);
+    			append_dev(th, t0);
+    			append_dev(table, t1);
+    			append_dev(table, tbody);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div, null);
+    				each_blocks[i].m(tbody, null);
     			}
     		},
     		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*hoverData*/ 8 && t0_value !== (t0_value = /*hoverData*/ ctx[3].year + "")) set_data_dev(t0, t0_value);
+
     			if (dirty[0] & /*colorMap, hoverData*/ 8200) {
     				each_value = /*hoverData*/ ctx[3].values;
     				let i;
@@ -5285,7 +5321,7 @@ var app = (function () {
     					} else {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
-    						each_blocks[i].m(div, null);
+    						each_blocks[i].m(tbody, null);
     					}
     				}
 
@@ -5296,16 +5332,16 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty[0] & /*lineChartPosition, y, hoverData*/ 152) {
-    				set_style(div, "top", /*lineChartPosition*/ ctx[4].y + /*lineChartPosition*/ ctx[4].scaling * /*y*/ ctx[7](mean(/*hoverData*/ ctx[3].values, func)) + "px");
+    			if (dirty[0] & /*lineChartPosition*/ 16) {
+    				set_style(div1, "top", /*lineChartPosition*/ ctx[4].clientY + "px");
     			}
 
     			if (dirty[0] & /*lineChartPosition, x, hoverData*/ 88) {
-    				set_style(div, "left", /*lineChartPosition*/ ctx[4].x + /*lineChartPosition*/ ctx[4].scaling * (/*x*/ ctx[6](/*hoverData*/ ctx[3].year) + 8) + "px");
+    				set_style(div1, "left", /*lineChartPosition*/ ctx[4].x + /*lineChartPosition*/ ctx[4].scaling * (/*x*/ ctx[6](/*hoverData*/ ctx[3].year) + 8) + "px");
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
     			destroy_each(each_blocks, detaching);
     		}
     	};
@@ -5314,42 +5350,47 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(242:4) {#if hoverData}",
+    		source: "(244:4) {#if hoverData}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (248:8) {#each hoverData.values as row}
+    // (258:14) {#each hoverData.values as row}
     function create_each_block$1(ctx) {
-    	let div;
+    	let tr;
+    	let td;
     	let t0_value = numberFormat(/*row*/ ctx[23].rateOrTotal)(/*row*/ ctx[23].value) + "";
     	let t0;
     	let t1;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			tr = element("tr");
+    			td = element("td");
     			t0 = text(t0_value);
     			t1 = space();
-    			set_style(div, "color", /*colorMap*/ ctx[13].get(/*row*/ ctx[23].id));
-    			add_location(div, file$4, 248, 10, 7457);
+    			set_style(td, "color", /*colorMap*/ ctx[13].get(/*row*/ ctx[23].id));
+    			set_style(td, "text-align", "right");
+    			add_location(td, file$4, 259, 18, 7723);
+    			add_location(tr, file$4, 258, 16, 7699);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, t0);
-    			append_dev(div, t1);
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td);
+    			append_dev(td, t0);
+    			append_dev(tr, t1);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*hoverData*/ 8 && t0_value !== (t0_value = numberFormat(/*row*/ ctx[23].rateOrTotal)(/*row*/ ctx[23].value) + "")) set_data_dev(t0, t0_value);
 
     			if (dirty[0] & /*hoverData*/ 8) {
-    				set_style(div, "color", /*colorMap*/ ctx[13].get(/*row*/ ctx[23].id));
+    				set_style(td, "color", /*colorMap*/ ctx[13].get(/*row*/ ctx[23].id));
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(tr);
     		}
     	};
 
@@ -5357,7 +5398,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(248:8) {#each hoverData.values as row}",
+    		source: "(258:14) {#each hoverData.values as row}",
     		ctx
     	});
 
@@ -5383,7 +5424,7 @@ var app = (function () {
 
     	const linechartlegendtable = new LineChartLegendTable({
     			props: {
-    				legendData: /*data*/ ctx[0].map(/*func_1*/ ctx[21])
+    				legendData: /*data*/ ctx[0].map(/*func*/ ctx[21])
     			},
     			$$inline: true
     		});
@@ -5397,7 +5438,7 @@ var app = (function () {
     			t = space();
     			create_component(linechartlegendtable.$$.fragment);
     			attr_dev(div, "id", "line-chart-div");
-    			add_location(div, file$4, 162, 0, 4147);
+    			add_location(div, file$4, 164, 0, 4191);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5435,7 +5476,7 @@ var app = (function () {
     			}
 
     			const linechartlegendtable_changes = {};
-    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func_1*/ ctx[21]);
+    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func*/ ctx[21]);
     			linechartlegendtable.$set(linechartlegendtable_changes);
     		},
     		i: function intro(local) {
@@ -5489,8 +5530,6 @@ var app = (function () {
     	];
     }
 
-    const func = d => d.value;
-
     function instance$4($$self, $$props, $$invalidate) {
     	let { data } = $$props;
     	let { projectionStartYear } = $$props;
@@ -5515,6 +5554,7 @@ var app = (function () {
     	let lineChartPosition = [];
 
     	function handleHover(e) {
+    		const { clientY } = e;
     		let hoverYear = Math.round(x.invert(getContainerCoords(this, e)[0]));
     		const boundingRect = e.target.getBoundingClientRect();
     		const scaling = boundingRect.width / width;
@@ -5522,7 +5562,8 @@ var app = (function () {
     		$$invalidate(4, lineChartPosition = {
     			x: boundingRect.left,
     			y: boundingRect.top,
-    			scaling
+    			scaling,
+    			clientY
     		});
 
     		if (hoverYear < xExtent[0]) {
@@ -5549,7 +5590,7 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<LineChart> was created with unknown prop '${key}'`);
     	});
 
-    	const func_1 = (d, i) => ({
+    	const func = (d, i) => ({
     		params: d.params,
     		color: colorMap.get(d.id),
     		id: d.id
@@ -5716,7 +5757,7 @@ var app = (function () {
     		xHalfway,
     		yMax,
     		colors,
-    		func_1,
+    		func,
     		deleteProjection_handler
     	];
     }
@@ -6279,7 +6320,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (391:2) {:else}
+    // (392:2) {:else}
     function create_else_block$1(ctx) {
     	let div;
 
@@ -6288,7 +6329,7 @@ var app = (function () {
     			div = element("div");
     			div.textContent = "Select model options and click \"Show\".";
     			attr_dev(div, "class", "notification");
-    			add_location(div, file$7, 391, 4, 12160);
+    			add_location(div, file$7, 392, 4, 12060);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6305,14 +6346,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(391:2) {:else}",
+    		source: "(392:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:2) {#if data.length > 0}
+    // (206:2) {#if data.length > 0}
     function create_if_block$1(ctx) {
     	let h1;
     	let t1;
@@ -6471,42 +6512,42 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			if_block1_anchor = empty();
     			attr_dev(h1, "class", "title");
-    			add_location(h1, file$7, 204, 4, 5224);
+    			add_location(h1, file$7, 206, 4, 5268);
     			attr_dev(h2, "class", "subtitle");
-    			add_location(h2, file$7, 205, 4, 5299);
-    			add_location(defs, file$7, 207, 6, 5438);
+    			add_location(h2, file$7, 207, 4, 5343);
+    			add_location(defs, file$7, 209, 6, 5482);
     			attr_dev(rect0, "width", rect0_width_value = width$1 - /*margin*/ ctx[15].right - /*x*/ ctx[5](/*projectionStartYear*/ ctx[1] - 1));
     			attr_dev(rect0, "x", rect0_x_value = /*x*/ ctx[5](/*projectionStartYear*/ ctx[1] - 1));
     			attr_dev(rect0, "y", rect0_y_value = /*margin*/ ctx[15].top);
     			attr_dev(rect0, "height", rect0_height_value = height$1 - /*margin*/ ctx[15].bottom - /*margin*/ ctx[15].top);
     			attr_dev(rect0, "fill", "#ececec");
-    			add_location(rect0, file$7, 252, 8, 6886);
+    			add_location(rect0, file$7, 254, 8, 6930);
     			attr_dev(text0, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text0, "transform", text0_transform_value = "translate(" + /*x*/ ctx[5](/*projectionStartYear*/ ctx[1] - 1) + "," + (/*margin*/ ctx[15].top - 10) + ")");
-    			add_location(text0, file$7, 258, 8, 7123);
+    			add_location(text0, file$7, 260, 8, 7167);
     			attr_dev(g0, "class", "xAxis is-size-6 svelte-2pltqo");
     			attr_dev(g0, "transform", g0_transform_value = "translate(0," + (height$1 - /*margin*/ ctx[15].bottom) + ")");
-    			add_location(g0, file$7, 267, 8, 7425);
+    			add_location(g0, file$7, 269, 8, 7469);
     			attr_dev(g1, "class", "yAxis is-size-6 svelte-2pltqo");
     			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*margin*/ ctx[15].left + ",0)");
-    			add_location(g1, file$7, 277, 8, 7743);
+    			add_location(g1, file$7, 279, 8, 7787);
     			attr_dev(text1, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text1, "transform", text1_transform_value = "translate(" + (/*margin*/ ctx[15].left - 70) + "," + height$1 / 1.5 + ") rotate(270)");
-    			add_location(text1, file$7, 340, 8, 10118);
+    			add_location(text1, file$7, 342, 8, 10162);
     			attr_dev(text2, "class", "is-size-5 svelte-2pltqo");
     			attr_dev(text2, "text-anchor", "middle");
     			attr_dev(text2, "transform", text2_transform_value = "translate(" + ((width$1 - /*margin*/ ctx[15].left - /*margin*/ ctx[15].right) / 2 + /*margin*/ ctx[15].left) + "," + (height$1 - 10) + ")");
-    			add_location(text2, file$7, 345, 8, 10295);
+    			add_location(text2, file$7, 347, 8, 10339);
     			attr_dev(rect1, "width", width$1);
     			attr_dev(rect1, "height", height$1);
     			attr_dev(rect1, "fill", "none");
     			set_style(rect1, "pointer-events", "all");
-    			add_location(rect1, file$7, 369, 8, 11192);
+    			add_location(rect1, file$7, 371, 8, 11236);
     			attr_dev(g2, "class", "chart-container");
-    			add_location(g2, file$7, 251, 6, 6849);
+    			add_location(g2, file$7, 253, 6, 6893);
     			attr_dev(svg, "id", "line-chart-svg");
     			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$1 + " " + height$1);
-    			add_location(svg, file$7, 206, 4, 5374);
+    			add_location(svg, file$7, 208, 4, 5418);
 
     			dispose = [
     				listen_dev(rect1, "mousemove", /*handleHover*/ ctx[17], false, false, false),
@@ -6709,14 +6750,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(204:2) {#if data.length > 0}",
+    		source: "(206:2) {#if data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (209:8) {#each data as gradient (gradient.id)}
+    // (211:8) {#each data as gradient (gradient.id)}
     function create_each_block_5(key_1, ctx) {
     	let linearGradient0;
     	let stop0;
@@ -6742,31 +6783,31 @@ var app = (function () {
     			attr_dev(stop0, "offset", "0%");
     			attr_dev(stop0, "stop-color", stop0_stop_color_value = /*colorMap*/ ctx[16].get(/*gradient*/ ctx[40].id));
     			attr_dev(stop0, "stop-opacity", "1");
-    			add_location(stop0, file$7, 215, 12, 5668);
+    			add_location(stop0, file$7, 217, 12, 5712);
     			attr_dev(stop1, "offset", "100%");
     			attr_dev(stop1, "stop-color", "white");
     			attr_dev(stop1, "stop-opacity", "0");
-    			add_location(stop1, file$7, 219, 12, 5803);
+    			add_location(stop1, file$7, 221, 12, 5847);
     			attr_dev(linearGradient0, "id", linearGradient0_id_value = "gradientBelow" + /*gradient*/ ctx[40].id);
     			attr_dev(linearGradient0, "x1", "0%");
     			attr_dev(linearGradient0, "y1", "0%");
     			attr_dev(linearGradient0, "x2", "0%");
     			attr_dev(linearGradient0, "y2", "100%");
-    			add_location(linearGradient0, file$7, 209, 10, 5504);
+    			add_location(linearGradient0, file$7, 211, 10, 5548);
     			attr_dev(stop2, "offset", "0%");
     			attr_dev(stop2, "stop-color", stop2_stop_color_value = /*colorMap*/ ctx[16].get(/*gradient*/ ctx[40].id));
     			attr_dev(stop2, "stop-opacity", "1");
-    			add_location(stop2, file$7, 227, 12, 6066);
+    			add_location(stop2, file$7, 229, 12, 6110);
     			attr_dev(stop3, "offset", "100%");
     			attr_dev(stop3, "stop-color", "white");
     			attr_dev(stop3, "stop-opacity", "0");
-    			add_location(stop3, file$7, 231, 12, 6201);
+    			add_location(stop3, file$7, 233, 12, 6245);
     			attr_dev(linearGradient1, "id", linearGradient1_id_value = "gradientAbove" + /*gradient*/ ctx[40].id);
     			attr_dev(linearGradient1, "x1", "0%");
     			attr_dev(linearGradient1, "y1", "100%");
     			attr_dev(linearGradient1, "x2", "0%");
     			attr_dev(linearGradient1, "y2", "0%");
-    			add_location(linearGradient1, file$7, 221, 10, 5902);
+    			add_location(linearGradient1, file$7, 223, 10, 5946);
     			this.first = linearGradient0;
     		},
     		m: function mount(target, anchor) {
@@ -6804,14 +6845,14 @@ var app = (function () {
     		block,
     		id: create_each_block_5.name,
     		type: "each",
-    		source: "(209:8) {#each data as gradient (gradient.id)}",
+    		source: "(211:8) {#each data as gradient (gradient.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (236:6) {#each data as clip (clip.id)}
+    // (238:6) {#each data as clip (clip.id)}
     function create_each_block_4$1(key_1, ctx) {
     	let clipPath0;
     	let path0;
@@ -6830,14 +6871,14 @@ var app = (function () {
     			path0 = svg_element("path");
     			clipPath1 = svg_element("clipPath");
     			path1 = svg_element("path");
-    			attr_dev(path0, "d", path0_d_value = /*aboveClip*/ ctx[7](/*clip*/ ctx[37].values.map(func$1)));
-    			add_location(path0, file$7, 237, 10, 6413);
+    			attr_dev(path0, "d", path0_d_value = /*aboveClip*/ ctx[7](/*clip*/ ctx[37].values.map(func)));
+    			add_location(path0, file$7, 239, 10, 6457);
     			attr_dev(clipPath0, "id", clipPath0_id_value = "above" + /*clip*/ ctx[37].id);
-    			add_location(clipPath0, file$7, 236, 8, 6368);
+    			add_location(clipPath0, file$7, 238, 8, 6412);
     			attr_dev(path1, "d", path1_d_value = /*belowClip*/ ctx[8](/*clip*/ ctx[37].values.map(func_1)));
-    			add_location(path1, file$7, 244, 10, 6647);
+    			add_location(path1, file$7, 246, 10, 6691);
     			attr_dev(clipPath1, "id", clipPath1_id_value = "below" + /*clip*/ ctx[37].id);
-    			add_location(clipPath1, file$7, 243, 8, 6602);
+    			add_location(clipPath1, file$7, 245, 8, 6646);
     			this.first = clipPath0;
     		},
     		m: function mount(target, anchor) {
@@ -6847,7 +6888,7 @@ var app = (function () {
     			append_dev(clipPath1, path1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*aboveClip, data*/ 129 && path0_d_value !== (path0_d_value = /*aboveClip*/ ctx[7](/*clip*/ ctx[37].values.map(func$1)))) {
+    			if (dirty[0] & /*aboveClip, data*/ 129 && path0_d_value !== (path0_d_value = /*aboveClip*/ ctx[7](/*clip*/ ctx[37].values.map(func)))) {
     				attr_dev(path0, "d", path0_d_value);
     			}
 
@@ -6873,14 +6914,14 @@ var app = (function () {
     		block,
     		id: create_each_block_4$1.name,
     		type: "each",
-    		source: "(236:6) {#each data as clip (clip.id)}",
+    		source: "(238:6) {#each data as clip (clip.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (271:10) {#each xTicks as tick (tick)}
+    // (273:10) {#each xTicks as tick (tick)}
     function create_each_block_3$1(key_1, ctx) {
     	let first;
     	let current;
@@ -6932,14 +6973,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3$1.name,
     		type: "each",
-    		source: "(271:10) {#each xTicks as tick (tick)}",
+    		source: "(273:10) {#each xTicks as tick (tick)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (279:10) {#each yTicks as tick (tick)}
+    // (281:10) {#each yTicks as tick (tick)}
     function create_each_block_2$2(key_1, ctx) {
     	let first;
     	let current;
@@ -6992,14 +7033,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2$2.name,
     		type: "each",
-    		source: "(279:10) {#each yTicks as tick (tick)}",
+    		source: "(281:10) {#each yTicks as tick (tick)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (287:8) {#each data as lineElement (lineElement.id)}
+    // (289:8) {#each data as lineElement (lineElement.id)}
     function create_each_block_1$2(key_1, ctx) {
     	let first;
     	let path0;
@@ -7045,11 +7086,11 @@ var app = (function () {
     			attr_dev(path0, "clip-path", path0_clip_path_value = `url(#above${/*lineElement*/ ctx[29].id})`);
     			attr_dev(path0, "fill", path0_fill_value = `url(#gradientBelow${/*lineElement*/ ctx[29].id})`);
     			attr_dev(path0, "d", path0_d_value = /*aboveArea*/ ctx[9](addExtentToValues(/*lineElement*/ ctx[29].values).map(func_4)));
-    			add_location(path0, file$7, 305, 10, 8752);
+    			add_location(path0, file$7, 307, 10, 8796);
     			attr_dev(path1, "clip-path", path1_clip_path_value = `url(#below${/*lineElement*/ ctx[29].id})`);
     			attr_dev(path1, "fill", path1_fill_value = `url(#gradientAbove${/*lineElement*/ ctx[29].id})`);
     			attr_dev(path1, "d", path1_d_value = /*belowArea*/ ctx[10](addExtentToValues(/*lineElement*/ ctx[29].values).map(func_5)));
-    			add_location(path1, file$7, 316, 10, 9161);
+    			add_location(path1, file$7, 318, 10, 9205);
     			this.first = first;
     		},
     		m: function mount(target, anchor) {
@@ -7118,14 +7159,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(287:8) {#each data as lineElement (lineElement.id)}",
+    		source: "(289:8) {#each data as lineElement (lineElement.id)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (353:8) {#if hoverData && data.length > 0}
+    // (355:8) {#if hoverData && data.length > 0}
     function create_if_block_2$1(ctx) {
     	let line_1;
     	let line_1_x__value;
@@ -7155,7 +7196,7 @@ var app = (function () {
     			attr_dev(line_1, "y2", line_1_y__value_1 = height$1 - /*margin*/ ctx[15].bottom);
     			attr_dev(line_1, "stroke", "#333");
     			attr_dev(line_1, "stroke-width", "2");
-    			add_location(line_1, file$7, 353, 10, 10558);
+    			add_location(line_1, file$7, 355, 10, 10602);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, line_1, anchor);
@@ -7209,14 +7250,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$1.name,
     		type: "if",
-    		source: "(353:8) {#if hoverData && data.length > 0}",
+    		source: "(355:8) {#if hoverData && data.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (361:10) {#each hoverData.values as row}
+    // (363:10) {#each hoverData.values as row}
     function create_each_block$3(ctx) {
     	let g0;
     	let circle0;
@@ -7236,17 +7277,17 @@ var app = (function () {
     			attr_dev(circle0, "r", "5");
     			attr_dev(circle0, "stroke", "#333");
     			attr_dev(circle0, "fill", "none");
-    			add_location(circle0, file$7, 362, 14, 10904);
+    			add_location(circle0, file$7, 364, 14, 10948);
     			attr_dev(g0, "transform", g0_transform_value = "translate(" + /*x*/ ctx[5](/*hoverData*/ ctx[3].year) + " " + /*y*/ ctx[6](/*row*/ ctx[26].demandMean) + ")");
-    			add_location(g0, file$7, 361, 12, 10822);
+    			add_location(g0, file$7, 363, 12, 10866);
     			attr_dev(circle1, "cx", "0");
     			attr_dev(circle1, "cy", "0");
     			attr_dev(circle1, "r", "5");
     			attr_dev(circle1, "stroke", "#333");
     			attr_dev(circle1, "fill", "none");
-    			add_location(circle1, file$7, 365, 14, 11074);
+    			add_location(circle1, file$7, 367, 14, 11118);
     			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*x*/ ctx[5](/*hoverData*/ ctx[3].year) + " " + /*y*/ ctx[6](/*row*/ ctx[26].supplyMean) + ")");
-    			add_location(g1, file$7, 364, 12, 10992);
+    			add_location(g1, file$7, 366, 12, 11036);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g0, anchor);
@@ -7273,14 +7314,14 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(361:10) {#each hoverData.values as row}",
+    		source: "(363:10) {#each hoverData.values as row}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (380:4) {#if hoverData}
+    // (382:4) {#if hoverData}
     function create_if_block_1$1(ctx) {
     	let div;
     	let current;
@@ -7296,7 +7337,7 @@ var app = (function () {
     			create_component(differencetooltiptable.$$.fragment);
     			attr_dev(div, "class", "tooltip");
     			set_style(div, "position", "fixed");
-    			set_style(div, "top", /*lineChartPosition*/ ctx[2].top + /*lineChartPosition*/ ctx[2].scaling * /*y*/ ctx[6](mean(/*hoverData*/ ctx[3].values.map(func_6).reduce(func_7, []))) + "px");
+    			set_style(div, "top", /*lineChartPosition*/ ctx[2].clientY + "px");
 
     			set_style(div, "left", (/*hoverData*/ ctx[3].year < /*xHalfway*/ ctx[12]
     			? /*lineChartPosition*/ ctx[2].left + /*lineChartPosition*/ ctx[2].scaling * /*x*/ ctx[5](/*hoverData*/ ctx[3].year) + 8
@@ -7305,11 +7346,12 @@ var app = (function () {
     			set_style(div, "background", "rgba(255, 255, 255, 0.9)");
     			set_style(div, "border-radius", "5px");
     			set_style(div, "border", "1px\r\n        solid #333333");
-    			set_style(div, "padding", "3px 3px");
+    			set_style(div, "padding", "3px\r\n        3px");
     			set_style(div, "z-index", "200");
     			set_style(div, "font-weight", "600");
     			set_style(div, "width", "260px");
-    			add_location(div, file$7, 380, 6, 11438);
+    			set_style(div, "pointer-events", "none");
+    			add_location(div, file$7, 382, 6, 11482);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7321,8 +7363,8 @@ var app = (function () {
     			if (dirty[0] & /*hoverData*/ 8) differencetooltiptable_changes.rows = /*hoverData*/ ctx[3].values;
     			differencetooltiptable.$set(differencetooltiptable_changes);
 
-    			if (!current || dirty[0] & /*lineChartPosition, y, hoverData*/ 76) {
-    				set_style(div, "top", /*lineChartPosition*/ ctx[2].top + /*lineChartPosition*/ ctx[2].scaling * /*y*/ ctx[6](mean(/*hoverData*/ ctx[3].values.map(func_6).reduce(func_7, []))) + "px");
+    			if (!current || dirty[0] & /*lineChartPosition*/ 4) {
+    				set_style(div, "top", /*lineChartPosition*/ ctx[2].clientY + "px");
     			}
 
     			if (!current || dirty[0] & /*hoverData, xHalfway, lineChartPosition, x*/ 4140) {
@@ -7350,7 +7392,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(380:4) {#if hoverData}",
+    		source: "(382:4) {#if hoverData}",
     		ctx
     	});
 
@@ -7376,7 +7418,7 @@ var app = (function () {
 
     	const linechartlegendtable = new LineChartLegendTable({
     			props: {
-    				legendData: /*data*/ ctx[0].map(/*func_8*/ ctx[24])
+    				legendData: /*data*/ ctx[0].map(/*func_6*/ ctx[24])
     			},
     			$$inline: true
     		});
@@ -7390,7 +7432,7 @@ var app = (function () {
     			t = space();
     			create_component(linechartlegendtable.$$.fragment);
     			attr_dev(div, "id", "line-chart-div");
-    			add_location(div, file$7, 202, 0, 5168);
+    			add_location(div, file$7, 204, 0, 5212);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7428,7 +7470,7 @@ var app = (function () {
     			}
 
     			const linechartlegendtable_changes = {};
-    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func_8*/ ctx[24]);
+    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func_6*/ ctx[24]);
     			linechartlegendtable.$set(linechartlegendtable_changes);
     		},
     		i: function intro(local) {
@@ -7489,14 +7531,12 @@ var app = (function () {
     	];
     }
 
-    const func$1 = ({ year, demandMean }) => ({ year, value: demandMean });
+    const func = ({ year, demandMean }) => ({ year, value: demandMean });
     const func_1 = ({ year, demandMean }) => ({ year, value: demandMean });
     const func_2 = ({ year, supplyMean }) => ({ year, value: supplyMean });
     const func_3 = ({ year, demandMean }) => ({ year, value: demandMean });
     const func_4 = ({ year, supplyMean, min, max }) => ({ year, value: supplyMean, min, max });
     const func_5 = ({ year, supplyMean, min, max }) => ({ year, value: supplyMean, min, max });
-    const func_6 = d => [d.supplyMean, d.demandMean];
-    const func_7 = (acc, val) => acc.concat(val);
 
     function instance$7($$self, $$props, $$invalidate) {
     	let { data } = $$props;
@@ -7522,6 +7562,7 @@ var app = (function () {
     	let hoverData;
 
     	function handleHover(e) {
+    		const { clientY } = e;
     		let hoverYear = Math.round(x.invert(getContainerCoords$1(this, e)[0]));
     		const boundingRect = e.target.getBoundingClientRect();
     		const scaling = boundingRect.width / width$1;
@@ -7530,7 +7571,8 @@ var app = (function () {
     			left: boundingRect.left,
     			right: boundingRect.right,
     			top: boundingRect.top,
-    			scaling
+    			scaling,
+    			clientY
     		});
 
     		if (hoverYear < xExtent[0]) {
@@ -7557,7 +7599,7 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<LineChartDifference> was created with unknown prop '${key}'`);
     	});
 
-    	const func_8 = (d, i) => ({
+    	const func_6 = (d, i) => ({
     		params: d.params,
     		color: colorMap.get(d.id),
     		id: d.id
@@ -7744,7 +7786,7 @@ var app = (function () {
     		yMax,
     		colors,
     		curve,
-    		func_8,
+    		func_6,
     		deleteProjection_handler
     	];
     }
@@ -10599,7 +10641,7 @@ var app = (function () {
     	let h2;
 
     	let t5_value = permute(/*params*/ ctx[6], [
-    		.../*data*/ ctx[0].params.filter(func$2).map(func_1$1),
+    		.../*data*/ ctx[0].params.filter(func$1).map(func_1$1),
     		"setting",
     		"education",
     		"fteOrHeadcount",
@@ -10639,7 +10681,7 @@ var app = (function () {
     			if (dirty[0] & /*params*/ 64 && t2_value !== (t2_value = /*params*/ ctx[6]["locationType"].trim() + "")) set_data_dev(t2, t2_value);
 
     			if (dirty[0] & /*params, data*/ 65 && t5_value !== (t5_value = permute(/*params*/ ctx[6], [
-    				.../*data*/ ctx[0].params.filter(func$2).map(func_1$1),
+    				.../*data*/ ctx[0].params.filter(func$1).map(func_1$1),
     				"setting",
     				"education",
     				"fteOrHeadcount",
@@ -11100,7 +11142,7 @@ var app = (function () {
     }
 
     const numberPerPage = 10;
-    const func$2 = d => d[0].includes("Scenario");
+    const func$1 = d => d[0].includes("Scenario");
     const func_1$1 = d => d[0];
     const func_2$1 = (_, i) => i + 1;
 
@@ -11530,7 +11572,7 @@ var app = (function () {
     		"education",
     		"fteOrHeadcount",
     		"rateOrTotal",
-    		.../*data*/ ctx[0].params.filter(func$3).map(func_1$2)
+    		.../*data*/ ctx[0].params.filter(func$2).map(func_1$2)
     	]).join(", ") + "";
 
     	let t7;
@@ -11711,7 +11753,7 @@ var app = (function () {
     				"education",
     				"fteOrHeadcount",
     				"rateOrTotal",
-    				.../*data*/ ctx[0].params.filter(func$3).map(func_1$2)
+    				.../*data*/ ctx[0].params.filter(func$2).map(func_1$2)
     			]).join(", ") + "")) set_data_dev(t7, t7_value);
 
     			const rowchart_changes = {};
@@ -12179,7 +12221,7 @@ var app = (function () {
     const hoveredColor = "#898989";
     const width$3 = 320;
     const height$2 = 160;
-    const func$3 = d => d[0].includes("Scenario");
+    const func$2 = d => d[0].includes("Scenario");
     const func_1$2 = d => d[0];
 
     function instance$a($$self, $$props, $$invalidate) {
@@ -12989,7 +13031,7 @@ var app = (function () {
     	let h2;
 
     	let t3_value = permute(/*params*/ ctx[5], [
-    		.../*data*/ ctx[0].params.filter(func$4).map(func_1$3),
+    		.../*data*/ ctx[0].params.filter(func$3).map(func_1$3),
     		"location",
     		"education",
     		"fteOrHeadcount",
@@ -13024,7 +13066,7 @@ var app = (function () {
     			if (dirty[0] & /*params*/ 32 && t0_value !== (t0_value = /*params*/ ctx[5]["type"] + "")) set_data_dev(t0, t0_value);
 
     			if (dirty[0] & /*params, data*/ 33 && t3_value !== (t3_value = permute(/*params*/ ctx[5], [
-    				.../*data*/ ctx[0].params.filter(func$4).map(func_1$3),
+    				.../*data*/ ctx[0].params.filter(func$3).map(func_1$3),
     				"location",
     				"education",
     				"fteOrHeadcount",
@@ -13505,7 +13547,7 @@ var app = (function () {
 
     const numberPerPage$1 = 10;
     const frozenWidth = "14em";
-    const func$4 = d => d[0].includes("Scenario");
+    const func$3 = d => d[0].includes("Scenario");
     const func_1$3 = d => d[0];
     const func_2$2 = (_, i) => i + 1;
 
