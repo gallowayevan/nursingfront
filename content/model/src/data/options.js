@@ -233,4 +233,4 @@ export default new Map([
         "name": "fteOrHeadcount",
         "label": "FTE or Headcount"
     }
-].map(d => [d.name, d]))
+].map(d => [d.name, Object.assign({ optionsMap: new Map(d.options.map(e => [e.value, e.label])) }, d)]))

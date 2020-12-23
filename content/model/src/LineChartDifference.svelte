@@ -1,6 +1,6 @@
 <script>
   import Line from "./Line.svelte";
-  import LineChartLegend from "./LineChartLegend.svelte";
+  import LineChartLegendTable from "./LineChartLegendTable.svelte";
   import { scaleLinear } from "d3-scale";
   import { extent, max, group, descending, mean } from "d3-array";
   import { line as d3line, area as d3area, curveMonotoneX } from "d3-shape";
@@ -391,7 +391,7 @@
   {:else}
     <div class="notification">Select model options and click "Show".</div>
   {/if}
-  <LineChartLegend
+  <LineChartLegendTable
     on:deleteProjection
     legendData={data.map((d, i) => ({
       params: d.params,

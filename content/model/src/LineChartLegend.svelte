@@ -16,7 +16,7 @@
   //then there are different values for that parameter
   $: parametersDifferent = rollup(
     legendData.map(d => d.params).flat(),
-    v => new Set(v.map(e => e[1])).size > 1, //
+    v => new Set(v.map(e => e[1])).size > 1,
     d => d[0]
   );
 
@@ -66,10 +66,7 @@
                   .map(d => d[0])
               ]
             ) as item}
-              {@debug item}
-              <li class:has-text-weight-bold={parametersDifferent.get(item)}>
-                {item}
-              </li>
+              <li }>{item}</li>
             {/each}
           </ul>
         </div>
