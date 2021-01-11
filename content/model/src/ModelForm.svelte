@@ -123,7 +123,7 @@ of patterns to what sort of data can actually be selected. -->
         <input bind:group={nurseType} type="radio" name="type" value="1" />
         LPN
       </label>
-      <InfoBox name={'Type of Nurse'} info={formInfo.get('type')} />
+      <InfoBox title={'Type of Nurse'} info={formInfo.get('type')} />
     </div>
   </div>
 
@@ -164,7 +164,7 @@ of patterns to what sort of data can actually be selected. -->
         </label>
       {/if}
       <InfoBox
-        name={'Basic Education Degree for Licensure'}
+        title={'Basic Education Degree for Licensure'}
         info={formInfo.get('education')} />
     </div>
   </div>
@@ -187,7 +187,7 @@ of patterns to what sort of data can actually be selected. -->
         </label>
       {/if}
       <InfoBox
-        name={'Rate per 10,000 Population or Total'}
+        title={'Rate per 10,000 Population or Total'}
         info={formInfo.get('rateOrTotal')} />
     </div>
   </div>
@@ -203,7 +203,7 @@ of patterns to what sort of data can actually be selected. -->
         FTE
       </label>
       <InfoBox
-        name={'Full Time Equivalents (FTE) or Headcount'}
+        title={'Full Time Equivalents (FTE) or Headcount'}
         info={formInfo.get('fteOrHeadcount')} />
     </div>
   </div>
@@ -217,12 +217,12 @@ of patterns to what sort of data can actually be selected. -->
     on:change={handleLocationTypeChange}
     value={currentLocationType}
     {...locationTypeOptions}>
-    <InfoBox name={'Location Type'} info={formInfo.get('locationType')} />
+    <InfoBox title={'Location Type'} info={formInfo.get('locationType')} />
   </SimpleSelect>
   <SimpleSelect
     display={chartType == 'line' || chartType == 'table'}
     {...currentLocationOptions}>
-    <InfoBox name={'Location'} info={formInfo.get('location')} />
+    <InfoBox title={'Location'} info={formInfo.get('location')} />
   </SimpleSelect>
   {#if chartType != 'table'}
     <!-- Filter out nurse education setting for LPNs. This setting was
@@ -235,17 +235,17 @@ of patterns to what sort of data can actually be selected. -->
       label={options.get('setting').label}
       disabled={educationType != '0'}
       on:change={handleSettingChange}>
-      <InfoBox name={'Setting'} info={formInfo.get('setting')} />
+      <InfoBox title={'Setting'} info={formInfo.get('setting')} />
     </SimpleSelect>
   {/if}
   {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
     <SimpleSelect {...options.get('demandScenario')}>
-      <InfoBox name={'Demand Scenario'} info={formInfo.get('scenario')} />
+      <InfoBox title={'Demand Scenario'} info={formInfo.get('scenario')} />
     </SimpleSelect>
   {/if}
   {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}
     <SimpleSelect {...options.get('supplyScenario')}>
-      <InfoBox name={'Supply Scenario'} info={formInfo.get('scenario')} />
+      <InfoBox title={'Supply Scenario'} info={formInfo.get('scenario')} />
     </SimpleSelect>
   {/if}
 
@@ -262,8 +262,11 @@ of patterns to what sort of data can actually be selected. -->
         Clear
       </button>
     </div>
-    <div>{isLoading ? 'Loading . . .' : ''}</div>
+    {#if isLoading}
+      <progress class="progress is-small is-primary" max="100" />
+    {/if}
   </div>
+
   <hr />
   <button
     class="button is-primary is-outlined is-center is-rounded"

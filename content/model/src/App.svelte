@@ -9,6 +9,7 @@
   import IntroBlock from "./IntroBlock.svelte";
   import TutorialModal from "./TutorialModal.svelte";
   import CardButton from "./CardButton.svelte";
+  import formInfo from "./data/formInfo.js";
   import { onMount } from "svelte";
   import { dataFetch, makeQueryURL } from "./utilities.js";
 
@@ -53,10 +54,12 @@
         } else {
           data.get(calc).set(type, [newData]);
         }
+
         //Trigger change
         data = data;
       })
       .then(() => {
+        // setTimeout(() => (isLoading = false), 3000);
         isLoading = false;
       });
   }
@@ -100,45 +103,44 @@
 <section class="section" class:is-clipped={showModal}>
   <TutorialModal {showModal} on:click={() => (showModal = false)} />
   <div class="container" id="main-container">
-    <!-- <SimpleSelect
-    {...options.get('calculation')}
-    disabled={educationType != '0'}
-    on:change={handleCalculationChange}>
-    <InfoBox name={'Calculation'} info={formInfo.get('calculation')} />
-  </SimpleSelect>-->
 
     <div class="columns" style="margin-bottom: 2rem;">
       <CardButton
         name="difference"
+        title="Supply - Demand"
+        info={formInfo.get('difference')}
         {calculation}
         on:clicked={handleCalculationClick}>
-        <span slot="title">Supply - Demand</span>
         <span slot="subtitle">Will there be a shortage or surplus?</span>
       </CardButton>
       <CardButton
         name="ratio"
+        title="Supply / Demand"
+        info={formInfo.get('ratio')}
         {calculation}
         on:clicked={handleCalculationClick}>
-        >
-        <span slot="title">Supply / Demand</span>
+
         <span slot="subtitle">What is the ratio of supply vs demand?</span>
+
       </CardButton>
       <CardButton
         name="supply"
+        title="Supply"
+        info={formInfo.get('supply')}
         {calculation}
         on:clicked={handleCalculationClick}>
-        >
-        <span slot="title">Supply</span>
+
         <span slot="subtitle">
           How many nurses are projected in the future?
         </span>
       </CardButton>
       <CardButton
         name="demand"
+        title="Demand"
+        info={formInfo.get('demand')}
         {calculation}
         on:clicked={handleCalculationClick}>
-        >
-        <span slot="title">Demand</span>
+
         <span slot="subtitle">What will be the demand for services?</span>
       </CardButton>
     </div>

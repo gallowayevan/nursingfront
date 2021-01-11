@@ -1,10 +1,13 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import InfoBox from "./InfoBox.svelte";
 
   const dispatch = createEventDispatcher();
 
   export let calculation;
   export let name;
+  export let title;
+  export let info;
 
   $: active = calculation == name;
 </script>
@@ -26,11 +29,12 @@
   class:has-text-white={active}
   on:click={() => dispatch('clicked', name)}>
   <div class="card-content">
-    <p class="is-size-3">
-      <slot name="title">Title</slot>
-    </p>
+    <p class="is-size-3">{title}</p>
     <p class="is-size-4">
       <slot name="subtitle">Subtitle</slot>
     </p>
+  </div>
+  <div class="is-pulled-right">
+    <InfoBox {title} {info} invert={active} />
   </div>
 </div>

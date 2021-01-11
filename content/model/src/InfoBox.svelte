@@ -1,7 +1,8 @@
 <script>
   import { fade } from "svelte/transition";
-  export let name = "Name";
+  export let title = "Title";
   export let info = "Information";
+  export let invert = false;
   let active = false;
 
   function windowClicked(e) {
@@ -28,6 +29,15 @@
     width: 16px;
     height: 16px;
   }
+
+  .has-fill-white {
+    fill: #ffffff;
+  }
+
+  .message {
+    box-shadow: 0 0 11px rgba(51, 51, 51, 0.7);
+    z-index: 100;
+  }
 </style>
 
 <svelte:window on:click|stopPropagation={windowClicked} />
@@ -35,14 +45,14 @@
   <svg
     class="icon-svg has-fill-primary"
     on:click|stopPropagation={() => (active = true)}>
-    <use xlink:href="#fa-info-circle" />
+    <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
   </svg>
   {#if active}
     <article
       class="message is-small is-primary close-on-window-click"
       transition:fade>
       <div class="message-header close-on-window-click">
-        <p>{name}</p>
+        <p>{title}</p>
         <button
           class="delete"
           aria-label="delete"
