@@ -34,7 +34,7 @@ export default new Map([
                 "value": 3
             },
             {
-                "label": "Public and Community Health",
+                "label": "Community and Population Health",
                 "value": 5
             }
         ],
