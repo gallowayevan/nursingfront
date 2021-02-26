@@ -138,7 +138,7 @@ export default new Map([
     {
         "options": [
             {
-                "value": 32,
+                "value": 50,
                 "label": "Baseline Supply"
             },
             {
