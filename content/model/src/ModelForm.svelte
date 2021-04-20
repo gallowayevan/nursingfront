@@ -28,7 +28,7 @@
     label: "Location Type",
     options: options
       .get("locationType")
-      .options.filter(e => !(chartType == "map" && +e.value == 0))
+      .options.filter((e) => !(chartType == "map" && +e.value == 0)),
   };
 
   //Create map with location type as the key and an
@@ -37,21 +37,21 @@
   const locationOptions = new Map(
     Array.from(
       group(
-        options.get("location").options.map(d => ({
+        options.get("location").options.map((d) => ({
           //Get first digit of location to use as location type key, e.g., 800 -> 8
           key: +d.value.toString().slice(0, 1),
           value: d.value,
-          label: d.label
+          label: d.label,
         })),
-        d => d.key
+        (d) => d.key
       )
-    ).map(d => [
+    ).map((d) => [
       d[0],
       {
         name: options.get("location").name,
         label: options.get("location").label,
-        options: d[1].map(e => ({ label: e.label, value: e.value }))
-      }
+        options: d[1].map((e) => ({ label: e.label, value: e.value })),
+      },
     ])
   );
 
@@ -72,7 +72,7 @@
           display:
             el.type == "select-one"
               ? el.selectedOptions[0].innerText
-              : el.parentElement.innerText.trim()
+              : el.parentElement.innerText.trim(),
         });
       }
     }
@@ -107,7 +107,8 @@
 of patterns to what sort of data can actually be selected. -->
 <form
   on:submit|preventDefault={handleShowProjection}
-  on:change={() => (formHasChanged = true)}>
+  on:change={() => (formHasChanged = true)}
+>
   <div class="field">
     <div class="control">
       <label class="radio">
@@ -116,14 +117,15 @@ of patterns to what sort of data can actually be selected. -->
           type="radio"
           name="type"
           value="2"
-          checked />
+          checked
+        />
         RN
       </label>
       <label class="radio">
         <input bind:group={nurseType} type="radio" name="type" value="1" />
         LPN
       </label>
-      <InfoBox title={'Type of Nurse'} info={formInfo.get('type')} />
+      <InfoBox title={"Type of Nurse"} info={formInfo.get("type")} />
     </div>
   </div>
 
@@ -131,7 +133,7 @@ of patterns to what sort of data can actually be selected. -->
     <div class="control">
       <!-- If nurse type is LPN or if nurse type is RN and Setting is Hospital, 
     then disallow any education selection except All Education. -->
-      {#if nurseType == '1' || (nurseType == '2') & (settingType != '0') || calculation != 'supply' || chartType == 'table'}
+      {#if nurseType == "1" || (nurseType == "2") & (settingType != "0") || calculation != "supply" || chartType == "table"}
         <label class="radio" disabled>
           <input type="radio" name="education" value="0" checked disabled />
           All Education
@@ -143,7 +145,8 @@ of patterns to what sort of data can actually be selected. -->
             type="radio"
             name="education"
             value="0"
-            checked />
+            checked
+          />
           All Education
         </label>
         <label class="radio">
@@ -151,7 +154,8 @@ of patterns to what sort of data can actually be selected. -->
             bind:group={educationType}
             type="radio"
             name="education"
-            value="4" />
+            value="4"
+          />
           BS & MS
         </label>
         <label class="radio">
@@ -159,36 +163,39 @@ of patterns to what sort of data can actually be selected. -->
             bind:group={educationType}
             type="radio"
             name="education"
-            value="5" />
+            value="5"
+          />
           ADN & Diploma
         </label>
       {/if}
       <InfoBox
-        title={'Basic Education Degree for Licensure'}
-        info={formInfo.get('education')} />
+        title={"Basic Education Degree for Licensure"}
+        info={formInfo.get("education")}
+      />
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      {#if chartType == 'map' || calculation == 'ratio'}
+      {#if chartType == "map" || calculation == "ratio"}
         <label class="radio" disabled>
           <input type="radio" name="rateOrTotal" value="0" checked disabled />
           Rate per 10K population
         </label>
       {:else}
         <label class="radio">
-          <input type="radio" name="rateOrTotal" value="0" checked />
-          Rate per 10k population
+          <input type="radio" name="rateOrTotal" value="1" checked />
+          Total
         </label>
         <label class="radio">
-          <input type="radio" name="rateOrTotal" value="1" />
-          Total
+          <input type="radio" name="rateOrTotal" value="0" />
+          Rate per 10k population
         </label>
       {/if}
       <InfoBox
-        title={'Rate per 10,000 Population or Total'}
-        info={formInfo.get('rateOrTotal')} />
+        title={"Rate per 10,000 Population or Total"}
+        info={formInfo.get("rateOrTotal")}
+      />
     </div>
   </div>
 
@@ -203,8 +210,9 @@ of patterns to what sort of data can actually be selected. -->
         FTE
       </label>
       <InfoBox
-        title={'Full Time Equivalents (FTE) or Headcount'}
-        info={formInfo.get('fteOrHeadcount')} />
+        title={"Full Time Equivalents (FTE) or Headcount"}
+        info={formInfo.get("fteOrHeadcount")}
+      />
     </div>
   </div>
   <!-- <SimpleSelect
@@ -216,46 +224,47 @@ of patterns to what sort of data can actually be selected. -->
   <SimpleSelect
     on:change={handleLocationTypeChange}
     value={currentLocationType}
-    {...locationTypeOptions}>
-    <InfoBox title={'Location Type'} info={formInfo.get('locationType')} />
+    {...locationTypeOptions}
+  >
+    <InfoBox title={"Location Type"} info={formInfo.get("locationType")} />
   </SimpleSelect>
   <SimpleSelect
-    display={chartType == 'line' || chartType == 'table'}
-    {...currentLocationOptions}>
-    <InfoBox title={'Location'} info={formInfo.get('location')} />
+    display={chartType == "line" || chartType == "table"}
+    {...currentLocationOptions}
+  >
+    <InfoBox title={"Location"} info={formInfo.get("location")} />
   </SimpleSelect>
-  {#if chartType != 'table'}
+  {#if chartType != "table"}
     <!-- Filter out nurse education setting for LPNs. This setting was
     deemed potentially confusing.-->
     <SimpleSelect
       options={options
-        .get('setting')
-        .options.filter(d => nurseType == 2 || d.value != 6)}
-      name={options.get('setting').name}
-      label={options.get('setting').label}
-      disabled={educationType != '0'}
-      on:change={handleSettingChange}>
-      <InfoBox title={'Setting'} info={formInfo.get('setting')} />
+        .get("setting")
+        .options.filter((d) => nurseType == 2 || d.value != 6)}
+      name={options.get("setting").name}
+      label={options.get("setting").label}
+      disabled={educationType != "0"}
+      on:change={handleSettingChange}
+    >
+      <InfoBox title={"Setting"} info={formInfo.get("setting")} />
     </SimpleSelect>
   {/if}
-  {#if calculation == 'demand' || calculation == 'difference' || calculation == 'ratio'}
-    <SimpleSelect {...options.get('demandScenario')}>
-      <InfoBox title={'Demand Scenario'} info={formInfo.get('scenario')} />
+  {#if calculation == "demand" || calculation == "difference" || calculation == "ratio"}
+    <SimpleSelect {...options.get("demandScenario")}>
+      <InfoBox title={"Demand Scenario"} info={formInfo.get("scenario")} />
     </SimpleSelect>
   {/if}
-  {#if calculation == 'supply' || calculation == 'difference' || calculation == 'ratio'}
-    <SimpleSelect {...options.get('supplyScenario')}>
-      <InfoBox title={'Supply Scenario'} info={formInfo.get('scenario')} />
+  {#if calculation == "supply" || calculation == "difference" || calculation == "ratio"}
+    <SimpleSelect {...options.get("supplyScenario")}>
+      <InfoBox title={"Supply Scenario"} info={formInfo.get("scenario")} />
     </SimpleSelect>
   {/if}
 
   <div class="field is-grouped">
     <div class="control">
-
       <button class="button" class:is-warning={formHasChanged} type="submit">
         Show
       </button>
-
     </div>
     <div class="control">
       <button class="button" type="button" on:click={handleClearData}>
@@ -271,7 +280,8 @@ of patterns to what sort of data can actually be selected. -->
   <button
     class="button is-primary is-outlined is-center is-rounded"
     id="btn"
-    on:click={handleLaunchTutorial}>
+    on:click={handleLaunchTutorial}
+  >
     Launch User Guide
   </button>
 </form>
