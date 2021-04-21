@@ -27,7 +27,7 @@
     "#e377c2",
     "#7f7f7f",
     "#bcbd22",
-    "#17becf"
+    "#17becf",
   ];
 
   let colorMap = new Map();
@@ -35,17 +35,17 @@
   //Could this be cleaner?
   $: {
     //Remove unused colors
-    colorMap.forEach(function(value, key) {
-      if (!data.map(d => d.id).includes(+key)) {
+    colorMap.forEach(function (value, key) {
+      if (!data.map((d) => d.id).includes(+key)) {
         colorMap.delete(key);
       }
     });
 
     //Assign color to new data
-    data.forEach(function(d) {
+    data.forEach(function (d) {
       if (!colorMap.has(d.id)) {
         const availableColors = colors.filter(
-          d => !Array.from(colorMap.values()).includes(d)
+          (d) => !Array.from(colorMap.values()).includes(d)
         );
         colorMap.set(d.id, availableColors[0]);
       }
@@ -61,59 +61,59 @@
   //Shape generators
   $: line = d3line()
     .curve(curve)
-    .defined(d => !isNaN(d.value))
-    .x(d => x(d.year))
-    .y(d => y(d.value));
+    .defined((d) => !isNaN(d.value))
+    .x((d) => x(d.year))
+    .y((d) => y(d.value));
 
   $: aboveClip = d3area()
-    .x(d => x(d.year))
+    .x((d) => x(d.year))
     .y0(0)
-    .y1(d => y(d.value))
+    .y1((d) => y(d.value))
     .curve(curve);
 
   $: belowClip = d3area()
-    .x(d => x(d.year))
+    .x((d) => x(d.year))
     .y0(height)
-    .y1(d => y(d.value))
+    .y1((d) => y(d.value))
     .curve(curve);
 
   $: aboveArea = d3area()
     .curve(curve)
-    .x(d => x(d.year))
-    .y0(d => y(d.min))
-    .y1(d => y(d.value));
+    .x((d) => x(d.year))
+    .y0((d) => y(d.min))
+    .y1((d) => y(d.value));
 
   $: belowArea = d3area()
     .curve(curve)
-    .x(d => x(d.year))
-    .y0(d => y(d.max))
-    .y1(d => y(d.value));
+    .x((d) => x(d.year))
+    .y0((d) => y(d.max))
+    .y1((d) => y(d.value));
 
   //clipAbove and clipBelow generators
   //Then use clip component to create clipPaths and
   //https://observablehq.com/@d3/difference-chart
 
   $: flatData = data
-    .map(d =>
-      d.values.map(e =>
+    .map((d) =>
+      d.values.map((e) =>
         Object.assign(
           {
             id: d.id,
-            rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1],
-            color: colorMap.get(d.id)
+            rateOrTotal: d.params.find((d) => d[0] == "rateOrTotal")[1],
+            color: colorMap.get(d.id),
           },
           e
         )
       )
     )
     .flat();
-  $: byYearData = group(flatData, d => d.year);
+  $: byYearData = group(flatData, (d) => d.year);
   $: xExtent =
-    flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
+    flatData.length > 0 ? extent(flatData, (d) => d.year) : [2015, 2032];
   $: xHalfway = Math.round((xExtent[1] + xExtent[0]) / 2);
   $: yMax =
     flatData.length > 0
-      ? max(flatData.flatMap(d => [d.supplyMean, d.demandMean]))
+      ? max(flatData.flatMap((d) => [d.supplyMean, d.demandMean]))
       : 50;
   $: x = scaleLinear()
     .domain(xExtent)
@@ -137,7 +137,7 @@
       right: boundingRect.right,
       top: boundingRect.top,
       scaling: scaling,
-      clientY
+      clientY,
     };
     if (hoverYear < xExtent[0]) {
       hoverYear = xExtent[0];
@@ -146,12 +146,12 @@
     }
     hoverData = {
       year: hoverYear,
-      values: byYearData.get(hoverYear).sort(function(a, b) {
+      values: byYearData.get(hoverYear).sort(function (a, b) {
         return descending(
           mean([a.supplyMean, a.demandMean]),
           mean([b.supplyMean, b.demandMean])
         );
-      })
+      }),
     };
   }
 
@@ -161,9 +161,9 @@
 
   function addExtentToValues(values) {
     const [min, max] = extent(
-      values.flatMap(d => [d.supplyMean, d.demandMean])
+      values.flatMap((d) => [d.supplyMean, d.demandMean])
     );
-    return values.map(d => Object.assign({ min, max }, d));
+    return values.map((d) => Object.assign({ min, max }, d));
   }
 
   function getContainerCoords(node, event) {
@@ -182,25 +182,10 @@
     var rect = node.getBoundingClientRect();
     return [
       event.clientX - rect.left - node.clientLeft,
-      event.clientY - rect.top - node.clientTop
+      event.clientY - rect.top - node.clientTop,
     ];
   }
 </script>
-
-<style>
-  .xAxis {
-    text-anchor: middle;
-  }
-
-  .yAxis {
-    text-anchor: end;
-  }
-
-  text {
-    /* has-text-grey-dark */
-    fill: hsl(0, 0%, 29%);
-  }
-</style>
 
 <div id="line-chart-div">
   {#if data.length > 0}
@@ -210,45 +195,55 @@
       <defs>
         {#each data as gradient (gradient.id)}
           <linearGradient
-            id={'gradientBelow' + gradient.id}
+            id={"gradientBelow" + gradient.id}
             x1="0%"
             y1="0%"
             x2="0%"
-            y2="100%">
+            y2="100%"
+          >
             <stop
               offset="0%"
               stop-color={colorMap.get(gradient.id)}
-              stop-opacity="1" />
+              stop-opacity="1"
+            />
             <stop offset="100%" stop-color="white" stop-opacity="0" />
           </linearGradient>
           <linearGradient
-            id={'gradientAbove' + gradient.id}
+            id={"gradientAbove" + gradient.id}
             x1="0%"
             y1="100%"
             x2="0%"
-            y2="0%">
+            y2="0%"
+          >
             <stop
               offset="0%"
               stop-color={colorMap.get(gradient.id)}
-              stop-opacity="1" />
+              stop-opacity="1"
+            />
             <stop offset="100%" stop-color="white" stop-opacity="0" />
           </linearGradient>
         {/each}
       </defs>
       {#each data as clip (clip.id)}
-        <clipPath id={'above' + clip.id}>
+        <clipPath id={"above" + clip.id}>
           <path
-            d={aboveClip(clip.values.map(({ year, demandMean }) => ({
+            d={aboveClip(
+              clip.values.map(({ year, demandMean }) => ({
                 year,
-                value: demandMean
-              })))} />
+                value: demandMean,
+              }))
+            )}
+          />
         </clipPath>
-        <clipPath id={'below' + clip.id}>
+        <clipPath id={"below" + clip.id}>
           <path
-            d={belowClip(clip.values.map(({ year, demandMean }) => ({
+            d={belowClip(
+              clip.values.map(({ year, demandMean }) => ({
                 year,
-                value: demandMean
-              })))} />
+                value: demandMean,
+              }))
+            )}
+          />
         </clipPath>
       {/each}
       <g class="chart-container">
@@ -257,24 +252,29 @@
           x={x(projectionStartYear - 1)}
           y={margin.top}
           height={height - margin.bottom - margin.top}
-          fill="#ececec" />
+          fill="#ececec"
+        />
         <text
           class="is-size-5"
-          transform="translate({x(projectionStartYear - 1)},{margin.top - 10})">
+          transform="translate({x(projectionStartYear - 1)},{margin.top - 10})"
+        >
           Projected
         </text>
         <LineLegend
           {dashArray}
           {strokeWidth}
-          transform="translate({width - 285},{margin.top - 10})" />
+          transform="translate({width - 285},{margin.top - 10})"
+        />
         <g
           class="xAxis is-size-6"
-          transform="translate(0,{height - margin.bottom})">
+          transform="translate(0,{height - margin.bottom})"
+        >
           {#each xTicks as tick (tick)}
             <XTick
               position={[x(tick), 0]}
               value={tick}
-              duration={transitionDuration} />
+              duration={transitionDuration}
+            />
           {/each}
         </g>
         <g class="yAxis is-size-6" transform="translate({margin.left},0)">
@@ -283,50 +283,63 @@
               {y}
               value={tick}
               duration={transitionDuration}
-              chartWidth={width - margin.right - margin.left} />
+              chartWidth={width - margin.right - margin.left}
+            />
           {/each}
         </g>
         {#each data as lineElement (lineElement.id)}
           <Line
-            linePath={line(lineElement.values.map(({ year, supplyMean }) => ({
+            linePath={line(
+              lineElement.values.map(({ year, supplyMean }) => ({
                 year,
-                value: supplyMean
-              })))}
+                value: supplyMean,
+              }))
+            )}
             color={colorMap.get(lineElement.id)}
             duration={transitionDuration}
-            {strokeWidth} />
+            {strokeWidth}
+          />
           <Line
-            linePath={line(lineElement.values.map(({ year, demandMean }) => ({
+            linePath={line(
+              lineElement.values.map(({ year, demandMean }) => ({
                 year,
-                value: demandMean
-              })))}
+                value: demandMean,
+              }))
+            )}
             {dashArray}
             color={colorMap.get(lineElement.id)}
             duration={transitionDuration}
-            {strokeWidth} />
+            {strokeWidth}
+          />
 
           <path
             clip-path={`url(#above${lineElement.id})`}
             fill={`url(#gradientBelow${lineElement.id})`}
-            d={aboveArea(addExtentToValues(lineElement.values).map(
+            d={aboveArea(
+              addExtentToValues(lineElement.values).map(
                 ({ year, supplyMean, min, max }) => ({
                   year,
                   value: supplyMean,
                   min,
-                  max
+                  max,
                 })
-              ))} />
+              )
+            )}
+          />
           <path
             clip-path={`url(#below${lineElement.id})`}
             fill={`url(#gradientAbove${lineElement.id})`}
-            d={belowArea(addExtentToValues(lineElement.values).map(
+            d={belowArea(
+              addExtentToValues(lineElement.values).map(
                 ({ year, supplyMean, min, max }) => ({
                   year,
                   value: supplyMean,
                   min,
-                  max
+                  max,
                 })
-              ))} />
+              )
+            )}
+          />
           <!-- <path clip-path={`url(#below${lineElement.id})`}
             d={aboveClip(lineElement.values.map(({ year, supplyMean }) => ({
                 year,
@@ -342,13 +355,16 @@
         {/each}
         <text
           class="is-size-5"
-          transform="translate({margin.left - 70},{height / 1.5}) rotate(270)">
+          transform="translate({margin.left - 70},{height / 1.5}) rotate(270)"
+        >
           Nurse FTE or Head Count
         </text>
         <text
           class="is-size-5"
           text-anchor="middle"
-          transform="translate({(width - margin.left - margin.right) / 2 + margin.left},{height - 10})">
+          transform="translate({(width - margin.left - margin.right) / 2 +
+            margin.left},{height - 10})"
+        >
           Year
         </text>
 
@@ -359,7 +375,8 @@
             y1={margin.top}
             y2={height - margin.bottom}
             stroke="#333"
-            stroke-width="2" />
+            stroke-width="2"
+          />
           {#each hoverData.values as row}
             <g transform="translate({x(hoverData.year)} {y(row.demandMean)})">
               <circle cx="0" cy="0" r="5" stroke="#333" fill="none" />
@@ -375,17 +392,25 @@
           fill="none"
           on:mousemove={handleHover}
           on:mouseleave={handleMouseLeave}
-          style="pointer-events:all;" />
+          style="pointer-events:all;"
+        />
       </g>
-
     </svg>
     {#if hoverData}
       <div
         class="tooltip"
-        style="position:fixed; top:{lineChartPosition.clientY}px; left:{hoverData.year < xHalfway ? lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) + 8 : lineChartPosition.left + lineChartPosition.scaling * x(hoverData.year) - 268}px;
+        style="position:fixed; top:{lineChartPosition.clientY}px; left:{hoverData.year <
+        xHalfway
+          ? lineChartPosition.left +
+            lineChartPosition.scaling * x(hoverData.year) +
+            8
+          : lineChartPosition.left +
+            lineChartPosition.scaling * x(hoverData.year) -
+            268}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
         solid #333333;padding:3px
-        3px;z-index:200;font-weight:600;width:260px;pointer-events:none;">
+        3px;z-index:200;font-weight:600;width:260px;pointer-events:none;"
+      >
         <DifferenceToolTipTable rows={hoverData.values} />
       </div>
     {/if}
@@ -397,6 +422,22 @@
     legendData={data.map((d, i) => ({
       params: d.params,
       color: colorMap.get(d.id),
-      id: d.id
-    }))} />
+      id: d.id,
+    }))}
+  />
 </div>
+
+<style>
+  .xAxis {
+    text-anchor: middle;
+  }
+
+  .yAxis {
+    text-anchor: end;
+  }
+
+  text {
+    /* has-text-grey-dark */
+    fill: hsl(0, 0%, 29%);
+  }
+</style>
