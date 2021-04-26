@@ -80,14 +80,14 @@
   $: aboveArea = d3area()
     .curve(curve)
     .x((d) => x(d.year))
-    .y0((d) => y(d.min))
-    .y1((d) => y(d.value));
+    .y0((d) => y(d.supplyMean))
+    .y1((d) => y(d.demandMean));
 
   $: belowArea = d3area()
     .curve(curve)
     .x((d) => x(d.year))
-    .y0((d) => y(d.max))
-    .y1((d) => y(d.value));
+    .y0((d) => y(d.demandMean))
+    .y1((d) => y(d.supplyMean));
 
   //clipAbove and clipBelow generators
   //Then use clip component to create clipPaths and
@@ -317,8 +317,10 @@
             fill={`url(#gradientBelow${lineElement.id})`}
             d={aboveArea(
               addExtentToValues(lineElement.values).map(
-                ({ year, supplyMean, min, max }) => ({
+                ({ year, supplyMean, demandMean, min, max }) => ({
                   year,
+                  supplyMean,
+                  demandMean,
                   value: supplyMean,
                   min,
                   max,
@@ -331,8 +333,10 @@
             fill={`url(#gradientAbove${lineElement.id})`}
             d={belowArea(
               addExtentToValues(lineElement.values).map(
-                ({ year, supplyMean, min, max }) => ({
+                ({ year, supplyMean, demandMean, min, max }) => ({
                   year,
+                  supplyMean,
+                  demandMean,
                   value: supplyMean,
                   min,
                   max,

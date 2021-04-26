@@ -139,7 +139,11 @@ export default new Map([
         "options": [
             {
                 "value": 51,
-                "label": "Baseline Supply"
+                "label": "Old Baseline Supply"
+            },
+            {
+                "value": 52,
+                "label": "New Baseline Supply (after changes to the ED OOS supply)"
             },
             {
                 "value": 33,
