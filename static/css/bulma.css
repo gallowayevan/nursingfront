@@ -320,7 +320,7 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #465D80;
+  /* color: #465D80; */
   cursor: pointer;
   text-decoration: none; }
   a strong {

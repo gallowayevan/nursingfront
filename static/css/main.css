@@ -21,6 +21,16 @@ fill: #465D80;
   pointer-events: none;
 }
 
+/* Definition List */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 1rem;
+}
+
 /* Range / Slider http://danielstern.ca/range.css/ */
 input[type=range] {
     -webkit-appearance: none;
