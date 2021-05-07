@@ -262,7 +262,7 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field is-grouped">
     <div class="control">
-      <button class="button" class:is-warning={formHasChanged} type="submit">
+      <button class="button" class:is-yellowish={formHasChanged} type="submit">
         Show
       </button>
     </div>

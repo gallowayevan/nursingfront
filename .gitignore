@@ -1,4 +1,6 @@
 node_modules
+public
+resources
 content/diffusion/build/layers
 content/diffusion/build/exact
 content/diffusion/build/ellipses

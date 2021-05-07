@@ -13,6 +13,32 @@
   }
 </script>
 
+<svelte:window on:click|stopPropagation={windowClicked} />
+<div class="info-icon-wrapper ">
+  <svg
+    class="icon-svg has-fill-primary"
+    on:click|stopPropagation={() => (active = true)}
+  >
+    <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
+  </svg>
+  {#if active}
+    <article
+      class="message is-small is-primary close-on-window-click"
+      transition:fade
+    >
+      <div class="message-header close-on-window-click">
+        <p>{title}</p>
+        <button
+          class="delete"
+          aria-label="delete"
+          on:click|preventDefault|stopPropagation={() => (active = false)}
+        />
+      </div>
+      <div class="message-body close-on-window-click">{info}</div>
+    </article>
+  {/if}
+</div>
+
 <style>
   .info-icon-wrapper {
     display: inline-flex;
@@ -39,26 +65,3 @@
     z-index: 100;
   }
 </style>
-
-<svelte:window on:click|stopPropagation={windowClicked} />
-<div class="info-icon-wrapper ">
-  <svg
-    class="icon-svg has-fill-primary"
-    on:click|stopPropagation={() => (active = true)}>
-    <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
-  </svg>
-  {#if active}
-    <article
-      class="message is-small is-primary close-on-window-click"
-      transition:fade>
-      <div class="message-header close-on-window-click">
-        <p>{title}</p>
-        <button
-          class="delete"
-          aria-label="delete"
-          on:click|preventDefault|stopPropagation={() => (active = false)} />
-      </div>
-      <div class="message-body close-on-window-click">{info}</div>
-    </article>
-  {/if}
-</div>

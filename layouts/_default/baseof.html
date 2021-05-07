@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{.Title}} - NC Nursing Supply & Demand</title>
 
-    <link rel="stylesheet" href="/css/bulma.css">
-    <link rel="stylesheet" href="/css/main.css">
+
+    {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" ) }}
+    {{ $bulma := resources.Get "bulma/main.scss" | resources.ToCSS $options }}
+    <link rel="stylesheet" href="{{ $bulma.Permalink }}">
+
     {{ if isset .Page.Params "css" }}
     {{range .Page.Params.css}}
     <link rel="stylesheet" href="{{ . }}" type="text/css">
@@ -44,22 +47,21 @@
 
         <div class="navbar-menu is-active">
             <div class="navbar-start">
-                <a class="navbar-item has-text-weight-light is-size-5" href="/">
+                <a class="navbar-item is-size-5" href="/">
                     Home
                 </a>
-
-                <a class="navbar-item has-text-weight-light is-size-5" href="/model">
+                <a class="navbar-item is-size-5" href="/model">
                     Supply & Demand
                 </a>
-                <a class="navbar-item has-text-weight-light is-size-5" href="/diffusion">
+                <a class="navbar-item is-size-5" href="/diffusion">
                     Diffusion
                 </a>
 
-                <a class="navbar-item has-text-weight-light is-size-5" href="/documentation">
+                <a class="navbar-item is-size-5" href="/documentation">
                     Documentation
                 </a>
 
-                <a class="navbar-item has-text-weight-light is-size-5" href="/publications">
+                <a class="navbar-item is-size-5" href="/publications">
                     Publications
                 </a>
 
@@ -73,12 +75,12 @@
     {{end}}
 
 
-    <section class="section has-background-white-er is-bold">
-        <h1 class="title center is-spaced has-text-weight-light"> Explore</h1>
+    <section class="section is-bold">
+        <h1 class="title center"> Explore</h1>
         <div class="container">
             <div class="columns">
                 <div class="column">
-                    <article class="media notification is-link" style="height:100%;">
+                    <article class="media notification is-primary" style="height:100%;">
                         <figure class="media-left">
                             <span class="icon is-medium">
                                 <svg>
@@ -88,14 +90,14 @@
                         </figure>
                         <div class="media-content">
                             <div class="content">
-                                <h1 class="title has-text-weight-light is-size-4"> Supply & Demand </h1>
+                                <h1 class="title is-size-4"> Supply & Demand </h1>
                                 <p class="is-size-5">
                                     Want to learn about the future supply and demand of our state's licensed practical
                                     nurses and registered nurses across settings and geographic regions?
 
                                 </p>
-                                <a class="button is-warning is-outlined is-center is-rounded" href="/model">
-                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                <a class="button is-yellowish is-outlined is-rounded" href="/model">
+                                    See projections
                                 </a>
 
                             </div>
@@ -105,7 +107,7 @@
                 </div>
 
                 <div class="column">
-                    <article class="media notification is-link" style="height:100%;">
+                    <article class="media notification is-primary" style="height:100%;">
                         <figure class="media-left">
                             <span class="icon is-medium">
                                 <svg>
@@ -115,14 +117,14 @@
                         </figure>
                         <div class="media-content">
                             <div class="content">
-                                <h1 class="title has-text-weight-light is-size-4"> Program Diffusion</h1>
+                                <h1 class="title is-size-4">Program Diffusion</h1>
                                 <p class="is-size-5">
                                     Want to see how different North Carolina nursing programs impact the
                                     distribution of health professionals in their area and across the state?
                                 </p>
 
-                                <a class="button is-warning is-outlined is-center is-rounded" href="/diffusion">
-                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                <a class="button is-yellowish is-outlined is-rounded" href="/diffusion">
+                                    Examine diffusion
                                 </a>
                             </div>
                         </div>
@@ -130,7 +132,7 @@
                     </article>
                 </div>
                 <div class="column">
-                    <article class="media notification is-link" style="height:100%;">
+                    <article class="media notification is-primary" style="height:100%;">
                         <figure class="media-left">
                             <span class="icon is-medium">
                                 <svg>
@@ -140,7 +142,7 @@
                         </figure>
                         <div class="media-content">
                             <div class="content">
-                                <h1 class="title has-text-weight-light is-size-4"> Documentation </h1>
+                                <h1 class="title is-size-4"> Documentation </h1>
                                 <p class="is-size-5">
                                     Are you a data-oriented individual? Want to learn more about
                                     our model and methodology, basic nursing statistics, and the science behind our
@@ -148,8 +150,8 @@
 
                                 </p>
 
-                                <a class="button is-warning is-outlined is-center is-rounded" href="/documentation">
-                                    <strong class="has-text-weight-semibold">Select here</strong>
+                                <a class="button is-yellowish is-outlined is-rounded" href="/documentation">
+                                    Read documentation
                                 </a>
 
                             </div>
@@ -161,11 +163,11 @@
         </div>
     </section>
 
-    <section class="section has-background-light is-bold">
+    <section class="section has-background-light">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-desktop is-offset-2-desktop">
-                    <h1 class="title center is-spaced has-text-weight-light">
+                <div class="column is-8-desktop is-offset-2-desktop ">
+                    <h1 class="title center ">
                         Who are we?
                     </h1>
                     <h2 class="subtitle">
@@ -179,7 +181,7 @@
 
     </section>
 
-    <footer class="footer has-background-warning">
+    <footer class="footer has-background-yellowish">
 
         <div class="container">
             <div class="columns">
@@ -203,8 +205,8 @@
 
 
                         </div>
-                        <div class="column has-text-right">
-                            <p> <strong> Contact us </strong>
+                        <div class="column has-text-right is-size-5">
+                            <p><span class="has-text-weight-bold">Contact us</span>
                                 <br>UNC Program on Health Workforce & Research
                                 <br> Email: nchealthworkforce@unc.edu
                                 <br> Phone: 919-966-5011

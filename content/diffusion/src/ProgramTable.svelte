@@ -13,7 +13,7 @@
     ["setting7", "# Home Health / Hospice (%)"],
     ["nonmetro", "# Rural (%)"],
     ["distance", "Mean Distance in Miles"],
-    ["retention", "Percent Retention in NC"]
+    ["retention", "Percent Retention in NC"],
   ]);
 
   const order = [
@@ -25,7 +25,7 @@
     ["setting7", "integer"],
     ["nonmetro", "integer"],
     ["distance", "decimal"],
-    ["retention", "percent"]
+    ["retention", "percent"],
   ];
 
   const showPercentVariables = ["setting1", "setting2", "setting7", "nonmetro"];
@@ -33,11 +33,11 @@
   export let rows = [];
   export let colors = new Map();
 
-  const percentFormatter = v =>
+  const percentFormatter = (v) =>
     v.toLocaleString(undefined, {
       style: "percent",
       minimumSignificantDigits: 2,
-      maximumSignificantDigits: 2
+      maximumSignificantDigits: 2,
     });
 
   function cellFormatter(row, [variable, type]) {
@@ -89,9 +89,10 @@
         <tr>
           <th>
             <button
-              data-value={row['educationprogramcode']}
+              data-value={row["educationprogramcode"]}
               class="delete"
-              on:click={handleDeleteClicked} />
+              on:click={handleDeleteClicked}
+            />
           </th>
           {#each order as column, index}
             <th style={cellStyle(column, row, index)}>
@@ -102,7 +103,7 @@
       {/each}
     </tbody>
   </table>
-  <span class="tag is-info">
+  <span class="tag is-secondary">
     Percentages will not sum to 100% as there are additional work settings not
     shown. Data for these other settings are available in the downloadable file.
   </span>

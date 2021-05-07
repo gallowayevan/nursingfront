@@ -1,7 +1,5 @@
 ---
-type: static
 title: Documentation
-subtitle: Definitions and a list of frequently asked questions.
 ---
 [About](#about)
 
