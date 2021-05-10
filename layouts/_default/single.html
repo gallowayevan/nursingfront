@@ -1,23 +1,36 @@
 {{define "main"}}
 
 <section class="section pt-2">
-    <div class="has-background-secondary py-5 pl-5">
 
-        <h1 class="title">
-            {{.Title}}
-        </h1>
-        {{with .Params.subtitle}}
-        <p class="subtitle">
-            {{.Params.subtitle}}
-        </p>
-        {{end}}
+    <div class="has-background-secondary py-5 columns is-centered">
+        <div class="column
+        is-two-thirds-tablet
+        is-half-desktop
+        is-one-half-widescreen
+        is-one-third-fullhd">
+            <h1 class="title">
+                {{.Title}}
+            </h1>
+            {{with .Params.subtitle}}
+            <p class="subtitle">
+                {{.}}
+            </p>
+            {{end}}
 
+        </div>
     </div>
+
     {{with .Content}}
-    <article class="content column is-half">
-        {{.}}
-    </article>
-    {{end}}
+    <div class="columns is-centered">
+        <article class="content column
+        is-two-thirds-tablet
+        is-half-desktop
+        is-one-half-widescreen
+        is-one-third-fullhd">
+            {{.}}
+        </article>
+        {{end}}
+    </div>
 
     {{with .Params.app}}
     <section id="app"></section>
