@@ -11,13 +11,23 @@
       active = false;
     }
   }
+
+  function onKeyDown(e) {
+    if (e.keyCode === 13) active = true;
+    if (e.keyCode === 27) active = false;
+  }
 </script>
 
-<svelte:window on:click|stopPropagation={windowClicked} />
+<svelte:window
+  on:click|stopPropagation={windowClicked}
+  on:keydown|stopPropagation={onKeyDown}
+/>
 <div class="info-icon-wrapper ">
   <svg
+    tabindex="0"
     class="icon-svg has-fill-primary"
     on:click|stopPropagation={() => (active = true)}
+    on:keydown|stopPropagation={onKeyDown}
   >
     <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
   </svg>
