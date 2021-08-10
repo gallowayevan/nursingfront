@@ -142,20 +142,24 @@ export default new Map([
                 "label": "Baseline Supply"
             },
             {
-                "value": 33,
-                "label": "Early Leavers"
+                "value": 56,
+                "label": "Early Leavers (2 years early so everyone retires by 68)"
             },
             {
-                "value": 35,
-                "label": "Delayed Leavers"
+                "value": 57,
+                "label": "Early Leavers (5 years early so everyone retires by 65)"
             },
             {
-                "value": 40,
+                "value": 58,
+                "label": "Delayed Leavers (delayed by 2 years but everyone retires by 70)"
+            },
+            {
+                "value": 59,
                 "label": "Reduction in Out-of-State Supply by 2.5%"
             },
             {
-                "value": 41,
-                "label": "2% Increase in Graduate Supply"
+                "value": 62,
+                "label": "10% Increase in Graduate Supply"
             },
         ],
         "label": "Supply Scenario",
