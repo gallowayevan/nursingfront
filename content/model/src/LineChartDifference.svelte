@@ -12,7 +12,7 @@
   import LineLegend from "./LineLegend.svelte";
 
   export let data;
-  export let projectionStartYear;
+  // export let projectionStartYear;
 
   const width = 800;
   const height = 475;
@@ -247,7 +247,7 @@
         </clipPath>
       {/each}
       <g class="chart-container">
-        <rect
+        <!-- <rect
           width={width - margin.right - x(projectionStartYear - 1)}
           x={x(projectionStartYear - 1)}
           y={margin.top}
@@ -259,7 +259,7 @@
           transform="translate({x(projectionStartYear - 1)},{margin.top - 10})"
         >
           Projected
-        </text>
+        </text> -->
         <LineLegend
           {dashArray}
           {strokeWidth}

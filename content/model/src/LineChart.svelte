@@ -11,7 +11,7 @@
   import { numberFormat } from "./utilities.js";
 
   export let data;
-  export let projectionStartYear;
+  // export let projectionStartYear;
   export let calculation;
 
   const width = 800;
@@ -27,7 +27,7 @@
     "#e377c2",
     "#7f7f7f",
     "#bcbd22",
-    "#17becf"
+    "#17becf",
   ];
 
   let colorMap = new Map();
@@ -35,17 +35,17 @@
   //Could this be cleaner?
   $: {
     //Remove unused colors
-    colorMap.forEach(function(value, key) {
-      if (!data.map(d => d.id).includes(+key)) {
+    colorMap.forEach(function (value, key) {
+      if (!data.map((d) => d.id).includes(+key)) {
         colorMap.delete(key);
       }
     });
 
     //Assign color to new data
-    data.forEach(function(d) {
+    data.forEach(function (d) {
       if (!colorMap.has(d.id)) {
         const availableColors = colors.filter(
-          d => !Array.from(colorMap.values()).includes(d)
+          (d) => !Array.from(colorMap.values()).includes(d)
         );
         colorMap.set(d.id, availableColors[0]);
       }
@@ -57,35 +57,35 @@
   //Shape generators
   $: line = d3line()
     .curve(curveMonotoneX)
-    .defined(d => !isNaN(d.value))
-    .x(d => x(d.year))
-    .y(d => y(d.value));
+    .defined((d) => !isNaN(d.value))
+    .x((d) => x(d.year))
+    .y((d) => y(d.value));
 
   $: area = d3area()
-    .x(d => x(d.year))
-    .y0(d => y(d.uci))
-    .y1(d => y(d.lci))
+    .x((d) => x(d.year))
+    .y0((d) => y(d.uci))
+    .y1((d) => y(d.lci))
     .curve(curveMonotoneX);
   $: console.log(flatData);
   //Scale
   $: flatData = data
-    .map(d =>
-      d.values.map(e =>
+    .map((d) =>
+      d.values.map((e) =>
         Object.assign(
           {
             id: d.id,
-            rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1]
+            rateOrTotal: d.params.find((d) => d[0] == "rateOrTotal")[1],
           },
           e
         )
       )
     )
     .flat();
-  $: byYearData = group(flatData, d => d.year);
+  $: byYearData = group(flatData, (d) => d.year);
   $: xExtent =
-    flatData.length > 0 ? extent(flatData, d => d.year) : [2015, 2032];
+    flatData.length > 0 ? extent(flatData, (d) => d.year) : [2015, 2032];
   $: xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]);
-  $: yMax = flatData.length > 0 ? max(flatData, d => d.value) : 50;
+  $: yMax = flatData.length > 0 ? max(flatData, (d) => d.value) : 50;
   $: x = scaleLinear()
     .domain(xExtent)
     .range([margin.left, width - margin.right]);
@@ -107,7 +107,7 @@
       x: boundingRect.left,
       y: boundingRect.top,
       scaling: scaling,
-      clientY
+      clientY,
     };
     if (hoverYear < xExtent[0]) {
       hoverYear = xExtent[0];
@@ -116,9 +116,9 @@
     }
     hoverData = {
       year: hoverYear,
-      values: byYearData.get(hoverYear).sort(function(a, b) {
+      values: byYearData.get(hoverYear).sort(function (a, b) {
         return descending(a.value, b.value);
-      })
+      }),
     };
   }
 
@@ -142,35 +142,22 @@
     var rect = node.getBoundingClientRect();
     return [
       event.clientX - rect.left - node.clientLeft,
-      event.clientY - rect.top - node.clientTop
+      event.clientY - rect.top - node.clientTop,
     ];
   }
 </script>
 
-<style>
-  .xAxis {
-    text-anchor: middle;
-  }
-
-  .yAxis {
-    text-anchor: end;
-  }
-
-  text {
-    /* has-text-grey-dark */
-    fill: hsl(0, 0%, 29%);
-  }
-</style>
-
 <div id="line-chart-div">
   {#if data.length > 0}
     <h1 class="title">
-      Projection of Nurse Workforce, {calculation == 'ratio' ? 'Supply / Demand' : calculation.slice(0, 1).toUpperCase() + calculation.slice(1)}
+      Projection of Nurse Workforce, {calculation == "ratio"
+        ? "Supply / Demand"
+        : calculation.slice(0, 1).toUpperCase() + calculation.slice(1)}
     </h1>
     <h2 class="subtitle">North Carolina, {xExtent[0]} - {xExtent[1]}</h2>
     <svg id="line-chart-svg" viewBox="0 0 {width} {height}">
       <g class="chart-container">
-        <rect
+        <!-- <rect
           width={width - margin.right - x(projectionStartYear - 1)}
           x={x(projectionStartYear - 1)}
           y={margin.top}
@@ -180,15 +167,17 @@
           class="is-size-5"
           transform="translate({x(projectionStartYear - 1)},{margin.top - 5})">
           Projected
-        </text>
+        </text> -->
         <g
           class="xAxis is-size-6"
-          transform="translate(0,{height - margin.bottom})">
+          transform="translate(0,{height - margin.bottom})"
+        >
           {#each xTicks as tick (tick)}
             <XTick
               position={[x(tick), 0]}
               value={tick}
-              duration={transitionDuration} />
+              duration={transitionDuration}
+            />
           {/each}
         </g>
         <g class="yAxis is-size-6" transform="translate({margin.left},0)">
@@ -197,7 +186,8 @@
               {y}
               value={tick}
               duration={transitionDuration}
-              chartWidth={width - margin.right - margin.left} />
+              chartWidth={width - margin.right - margin.left}
+            />
           {/each}
         </g>
         {#each data as lineElement (lineElement.id)}
@@ -205,17 +195,21 @@
             areaPath={area(lineElement.values)}
             linePath={line(lineElement.values)}
             color={colorMap.get(lineElement.id)}
-            duration={transitionDuration} />
+            duration={transitionDuration}
+          />
         {/each}
         <text
           class="is-size-5"
-          transform="translate({margin.left - 70},{height / 1.5}) rotate(270)">
+          transform="translate({margin.left - 70},{height / 1.5}) rotate(270)"
+        >
           Nurse FTE or Head Count
         </text>
         <text
           class="is-size-5"
           text-anchor="middle"
-          transform="translate({(width - margin.left - margin.right) / 2 + margin.left},{height - 10})">
+          transform="translate({(width - margin.left - margin.right) / 2 +
+            margin.left},{height - 10})"
+        >
           Year
         </text>
         {#if hoverData && data.length > 0}
@@ -225,7 +219,8 @@
             y1={margin.top}
             y2={height - margin.bottom}
             stroke="#333"
-            stroke-width="2" />
+            stroke-width="2"
+          />
           {#each hoverData.values as row}
             <g transform="translate({x(hoverData.year)} {y(row.value)})">
               <circle cx="0" cy="0" r="5" stroke="#333" fill="none" />
@@ -238,15 +233,18 @@
           fill="none"
           on:mousemove={handleHover}
           on:mouseleave={handleMouseLeave}
-          style="pointer-events:all;" />
+          style="pointer-events:all;"
+        />
       </g>
     </svg>
     {#if hoverData}
       <div
-        style="position:fixed; top:{lineChartPosition.clientY}px; left:{lineChartPosition.x + lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
+        style="position:fixed; top:{lineChartPosition.clientY}px; left:{lineChartPosition.x +
+          lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
         solid #333333;padding:3px
-        3px;z-index:200;font-weight:600;pointer-events:none;">
+        3px;z-index:200;font-weight:600;pointer-events:none;"
+      >
         <div class="table-container">
           <table class="table is-narrow">
             <thead>
@@ -275,6 +273,22 @@
     legendData={data.map((d, i) => ({
       params: d.params,
       color: colorMap.get(d.id),
-      id: d.id
-    }))} />
+      id: d.id,
+    }))}
+  />
 </div>
+
+<style>
+  .xAxis {
+    text-anchor: middle;
+  }
+
+  .yAxis {
+    text-anchor: end;
+  }
+
+  text {
+    /* has-text-grey-dark */
+    fill: hsl(0, 0%, 29%);
+  }
+</style>
