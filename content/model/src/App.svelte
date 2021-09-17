@@ -17,9 +17,9 @@
 
   //Create basic data structure for storing data
   let data = new Map(
-    ["supply", "demand", "ratio", "difference"].map(d => [
+    ["supply", "demand", "percentage", "difference"].map((d) => [
       d,
-      new Map(["line", "map", "table"].map(e => [e, []]))
+      new Map(["line", "map", "table"].map((e) => [e, []])),
     ])
   );
   let geoJSON;
@@ -40,14 +40,14 @@
       localStorage.setItem("nurse-model-tutorial", "seen");
     }
 
-    dataFetch(`/model/public/maps/ncLayers.json`).then(json => {
+    dataFetch(`/model/public/maps/ncLayers.json`).then((json) => {
       geoJSON = json;
     });
   });
 
   async function getData(type, calc, allParams) {
     dataFetch(makeQueryURL(allParams))
-      .then(function(newData) {
+      .then(function (newData) {
         if (type == "line") {
           const currentData = data.get(calc).get(type);
           data.get(calc).set(type, [...currentData, newData]);
@@ -68,16 +68,17 @@
     isLoading = true;
     getData(chartType, calculation, [
       { name: "calculation", value: calculation },
-      ...detail
+      ...detail,
     ]);
     // console.log(detail);
   }
 
   function handleDeleteProjection(e) {
     const currentProjections = data.get(calculation).get(chartType);
-    data
-      .get(calculation)
-      .set(chartType, currentProjections.filter(d => d.id != +e.detail));
+    data.get(calculation).set(
+      chartType,
+      currentProjections.filter((d) => d.id != +e.detail)
+    );
     data = data;
   }
 
@@ -103,33 +104,33 @@
 <section class="section" class:is-clipped={showModal}>
   <TutorialModal {showModal} on:click={() => (showModal = false)} />
   <div class="container" id="main-container">
-
     <div class="columns" style="margin-bottom: 2rem;">
       <CardButton
         name="difference"
         title="Supply - Demand"
-        info={formInfo.get('difference')}
+        info={formInfo.get("difference")}
         {calculation}
-        on:clicked={handleCalculationClick}>
+        on:clicked={handleCalculationClick}
+      >
         <span slot="subtitle">Will there be a shortage or surplus?</span>
       </CardButton>
       <CardButton
-        name="ratio"
+        name="percentage"
         title="Supply / Demand"
-        info={formInfo.get('ratio')}
+        info={formInfo.get("percentage")}
         {calculation}
-        on:clicked={handleCalculationClick}>
-
-        <span slot="subtitle">What is the ratio of supply vs demand?</span>
-
+        on:clicked={handleCalculationClick}
+      >
+        <span slot="subtitle">What is the relative shortage or surplus?</span>
       </CardButton>
+
       <CardButton
         name="supply"
         title="Supply"
-        info={formInfo.get('supply')}
+        info={formInfo.get("supply")}
         {calculation}
-        on:clicked={handleCalculationClick}>
-
+        on:clicked={handleCalculationClick}
+      >
         <span slot="subtitle">
           How many nurses are projected in the future?
         </span>
@@ -137,10 +138,10 @@
       <CardButton
         name="demand"
         title="Demand"
-        info={formInfo.get('demand')}
+        info={formInfo.get("demand")}
         {calculation}
-        on:clicked={handleCalculationClick}>
-
+        on:clicked={handleCalculationClick}
+      >
         <span slot="subtitle">What will be the demand for services?</span>
       </CardButton>
     </div>
@@ -153,19 +154,20 @@
           on:launchTutorial={handleLaunchTutorial}
           {isLoading}
           {calculation}
-          {chartType} />
+          {chartType}
+        />
       </div>
       <div class="column is-8 box">
         <div class="tabs ">
           <!-- svelte-ignore a11y-missing-attribute -->
           <ul>
-            <li class={chartType == 'line' ? 'is-active' : ''}>
+            <li class={chartType == "line" ? "is-active" : ""}>
               <a id="line" on:click={tabClicked}>Compare Projections</a>
             </li>
-            <li class={chartType == 'map' ? 'is-active' : ''}>
+            <li class={chartType == "map" ? "is-active" : ""}>
               <a id="map" on:click={tabClicked}>Compare Places</a>
             </li>
-            <li class={chartType == 'table' ? 'is-active' : ''}>
+            <li class={chartType == "table" ? "is-active" : ""}>
               <a id="table" on:click={tabClicked}>Compare Settings</a>
             </li>
           </ul>
@@ -174,37 +176,42 @@
           <div class="columns is-marginless">
             <div class="column is-hidden-mobile is-paddingless" />
             <div class="column is-narrow is-paddingless">
-              {#if chartType == 'line' || chartType == 'map'}
+              {#if chartType == "line" || chartType == "map"}
                 <DownloadImage {chartType} />
               {/if}
               <DownloadData
                 data={data.get(calculation).get(chartType)}
                 {chartType}
-                {projectionStartYear} />
+                {projectionStartYear}
+              />
             </div>
           </div>
-          {#if chartType == 'line'}
-            {#if calculation == 'difference'}
+          {#if chartType == "line"}
+            {#if calculation == "difference"}
               <LineChartDifference
                 data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
-                {projectionStartYear} />
+                {projectionStartYear}
+              />
             {:else}
               <LineChart
                 data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
                 {projectionStartYear}
-                {calculation} />
+                {calculation}
+              />
             {/if}
-          {:else if chartType == 'map'}
+          {:else if chartType == "map"}
             <SimpleMap
               data={data.get(calculation).get(chartType)[0]}
               {geoJSON}
-              {projectionStartYear} />
-          {:else if chartType == 'table'}
+              {projectionStartYear}
+            />
+          {:else if chartType == "table"}
             <SettingTable
               data={data.get(calculation).get(chartType)[0]}
-              {projectionStartYear} />
+              {projectionStartYear}
+            />
           {:else}
             <div class="notification">An error has occurred.</div>
           {/if}

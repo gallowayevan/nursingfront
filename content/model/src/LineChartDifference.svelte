@@ -410,10 +410,10 @@
             8
           : lineChartPosition.left +
             lineChartPosition.scaling * x(hoverData.year) -
-            268}px;
+            318}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
         solid #333333;padding:3px
-        3px;z-index:200;font-weight:600;width:260px;pointer-events:none;"
+        3px;z-index:200;font-weight:600;width:310px;pointer-events:none;"
       >
         <DifferenceToolTipTable rows={hoverData.values} />
       </div>
