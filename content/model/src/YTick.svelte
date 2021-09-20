@@ -6,10 +6,11 @@
   export let y;
   export let value;
   export let chartWidth;
+  export let format = (val) => val.toLocaleString();
 
   const options = {
     duration,
-    easing: cubicInOut
+    easing: cubicInOut,
   };
 
   const lineStore = tweened(undefined, options);
@@ -30,5 +31,5 @@
 
 <g class="tick" opacity="1" transform="translate({$lineStore})">
   <line x2={chartWidth} />
-  <text x="-5" dy="0.32em">{value.toLocaleString()}</text>
+  <text x="-5" dy="0.32em">{format(value)}</text>
 </g>

@@ -249,12 +249,12 @@ of patterns to what sort of data can actually be selected. -->
       <InfoBox title={"Setting"} info={formInfo.get("setting")} />
     </SimpleSelect>
   {/if}
-  {#if calculation == "demand" || calculation == "difference" || calculation == "ratio"}
+  {#if calculation == "demand" || calculation == "difference" || calculation == "percentage"}
     <SimpleSelect {...options.get("demandScenario")}>
       <InfoBox title={"Demand Scenario"} info={formInfo.get("scenario")} />
     </SimpleSelect>
   {/if}
-  {#if calculation == "supply" || calculation == "difference" || calculation == "ratio"}
+  {#if calculation == "supply" || calculation == "difference" || calculation == "percentage"}
     <SimpleSelect {...options.get("supplyScenario")}>
       <InfoBox title={"Supply Scenario"} info={formInfo.get("scenario")} />
     </SimpleSelect>

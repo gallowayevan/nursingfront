@@ -2,7 +2,6 @@
   import { numberFormat } from "./utilities.js";
 
   export let rows;
-  $: console.log(rows);
 </script>
 
 <div class="table-container">
@@ -16,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each rows as { supplyMean, demandMean, value, color, rateOrTotal, percentage }}
+      {#each rows as { supplyMean, demandMean, value, color, rateOrTotal, percentage, difference }}
         <tr>
           <td style="color:{color}; text-align:right;">
             {numberFormat(rateOrTotal)(supplyMean)}
@@ -25,11 +24,12 @@
             {numberFormat(rateOrTotal)(demandMean)}
           </td>
           <td style="color:{color}; text-align:right;">
-            {numberFormat(rateOrTotal)(value)}
+            {numberFormat(rateOrTotal)(difference || value)}
           </td>
           <td style="color:{color}; text-align:right;">
-            {percentage.toLocaleString(undefined, {
+            {(percentage || value).toLocaleString(undefined, {
               style: "percent",
+              maximumFractionDigits: 1,
             })}
           </td>
         </tr>

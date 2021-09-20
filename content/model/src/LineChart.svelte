@@ -1,6 +1,7 @@
 <script>
   import Line from "./Line.svelte";
   import LineChartLegendTable from "./LineChartLegendTable.svelte";
+  import DifferenceToolTipTable from "./DifferenceToolTipTable.svelte";
   import { scaleLinear } from "d3-scale";
   import { extent, max, group, mean, descending } from "d3-array";
   import { line as d3line, area as d3area, curveMonotoneX } from "d3-shape";
@@ -75,6 +76,7 @@
           {
             id: d.id,
             rateOrTotal: d.params.find((d) => d[0] == "rateOrTotal")[1],
+            color: colorMap.get(d.id),
           },
           e
         )
@@ -85,16 +87,22 @@
   $: xExtent =
     flatData.length > 0 ? extent(flatData, (d) => d.year) : [2015, 2032];
   $: xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]);
-  $: yMax = flatData.length > 0 ? max(flatData, (d) => d.value) : 50;
+  $: yExtent = flatData.length > 0 ? extent(flatData, (d) => d.value) : [0, 50];
   $: x = scaleLinear()
     .domain(xExtent)
     .range([margin.left, width - margin.right]);
   $: xTicks = x.ticks();
   $: y = scaleLinear()
-    .domain([0, yMax])
+    .domain([yExtent[0] >= 0 ? 0 : yExtent[0], yExtent[1]])
     .nice()
     .range([height - margin.bottom, margin.top]);
   $: yTicks = y.ticks();
+  $: yFormat = (val) =>
+    calculation === "percentage"
+      ? val.toLocaleString(undefined, {
+          style: "percent",
+        })
+      : val.toLocaleString();
 
   let hoverData;
   let lineChartPosition = [];
@@ -104,8 +112,8 @@
     const boundingRect = e.target.getBoundingClientRect();
     const scaling = boundingRect.width / width;
     lineChartPosition = {
-      x: boundingRect.left,
-      y: boundingRect.top,
+      left: boundingRect.left,
+      top: boundingRect.top,
       scaling: scaling,
       clientY,
     };
@@ -150,8 +158,8 @@
 <div id="line-chart-div">
   {#if data.length > 0}
     <h1 class="title">
-      Projection of Nurse Workforce, {calculation == "ratio"
-        ? "Supply / Demand"
+      Projection of Nurse Workforce, {calculation == "percentage"
+        ? "Percent Surplus or Shortage"
         : calculation.slice(0, 1).toUpperCase() + calculation.slice(1)}
     </h1>
     <h2 class="subtitle">North Carolina, {xExtent[0]} - {xExtent[1]}</h2>
@@ -187,6 +195,7 @@
               value={tick}
               duration={transitionDuration}
               chartWidth={width - margin.right - margin.left}
+              format={yFormat}
             />
           {/each}
         </g>
@@ -238,32 +247,51 @@
       </g>
     </svg>
     {#if hoverData}
-      <div
-        style="position:fixed; top:{lineChartPosition.clientY}px; left:{lineChartPosition.x +
-          lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
+      {#if calculation === "percentage"}
+        <div
+          class="tooltip"
+          style="position:fixed; top:{lineChartPosition.clientY}px; left:{hoverData.year <
+          xHalfway
+            ? lineChartPosition.left +
+              lineChartPosition.scaling * x(hoverData.year) +
+              8
+            : lineChartPosition.left +
+              lineChartPosition.scaling * x(hoverData.year) -
+              318}px;
+      background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
+      solid #333333;padding:3px
+      3px;z-index:200;font-weight:600;width:310px;pointer-events:none;"
+        >
+          <DifferenceToolTipTable rows={hoverData.values} />
+        </div>
+      {:else}
+        <div
+          style="position:fixed; top:{lineChartPosition.clientY}px; left:{lineChartPosition.left +
+            lineChartPosition.scaling * (x(hoverData.year) + 8)}px;
         background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
         solid #333333;padding:3px
         3px;z-index:200;font-weight:600;pointer-events:none;"
-      >
-        <div class="table-container">
-          <table class="table is-narrow">
-            <thead>
-              <tr>
-                <th>{hoverData.year}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {#each hoverData.values as row}
+        >
+          <div class="table-container">
+            <table class="table is-narrow">
+              <thead>
                 <tr>
-                  <td style="color:{colorMap.get(row.id)}; text-align:right;">
-                    {numberFormat(row.rateOrTotal)(row.value)}
-                  </td>
+                  <th>{hoverData.year}</th>
                 </tr>
-              {/each}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {#each hoverData.values as row}
+                  <tr>
+                    <td style="color:{colorMap.get(row.id)}; text-align:right;">
+                      {numberFormat(row.rateOrTotal)(row.value)}
+                    </td>
+                  </tr>
+                {/each}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      {/if}
     {/if}
   {:else}
     <div class="notification">Select model options and click "Show".</div>
