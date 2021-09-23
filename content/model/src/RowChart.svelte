@@ -11,12 +11,13 @@
   export let hovered;
   export let hoveredColor;
   export let rateOrTotal;
+  export let calculation;
 
   $: margin = {
     top: 30,
     right: 10,
     bottom: 10,
-    left: locationType == "Medicaid Region" ? 155 : 110
+    left: locationType == "Medicaid Region" ? 155 : 110,
   };
   const width = 320;
   $: height = mapYearDataArray.length * 20 + margin.top + margin.bottom;
@@ -26,11 +27,11 @@
     .range([margin.left, width - margin.right]);
 
   $: y = scaleBand()
-    .domain(mapYearDataArray.map(d => d[0]))
+    .domain(mapYearDataArray.map((d) => d[0]))
     .range([margin.top, height - margin.bottom])
     .paddingInner(0.1);
 
-  const tickFormat = t => t.toLocaleString();
+  export let tickFormat = (t) => t.toLocaleString();
 
   function handleLocationHover(id) {
     dispatch("locationHover", id);
@@ -40,28 +41,17 @@
   }
 </script>
 
-<style>
-  .yAxis {
-    text-anchor: end;
-  }
-
-  .anchor-middle {
-    text-anchor: middle;
-  }
-
-  svg text {
-    font-size: 12px;
-    fill: #363636;
-  }
-</style>
-
 <svg id="row-chart-svg" viewBox="0 0 {width} {height}">
   <g>
     <text
       class="anchor-middle"
-      transform="translate({margin.left + (width - margin.left - margin.right) / 2}
-      10)">
-      {rateOrTotal}
+      transform="translate({margin.left +
+        (width - margin.left - margin.right) / 2}
+      10)"
+    >
+      {calculation === "percentage"
+        ? "Percentage Shortage/Surplus"
+        : rateOrTotal}
     </text>
     <g>
       {#each mapYearDataArray as bar}
@@ -73,14 +63,16 @@
             fill={hovered == bar[0] ? hoveredColor : bar[1].fill}
             stroke-width={hovered == bar[0] ? 3 : 0}
             on:mouseenter={() => handleLocationHover(bar[0])}
-            on:mouseleave={handleLocationLeave}>
+            on:mouseleave={handleLocationLeave}
+          >
             <title>{bar[1].name}: {bar[1].value}</title>
           </rect>
           <text
             class="yAxis"
             transform="translate({margin.left})"
             dy="1em"
-            dx="-3">
+            dx="-3"
+          >
             {bar[1].name}
           </text>
         </g>
@@ -96,3 +88,18 @@
     </g>
   </g>
 </svg>
+
+<style>
+  .yAxis {
+    text-anchor: end;
+  }
+
+  .anchor-middle {
+    text-anchor: middle;
+  }
+
+  svg text {
+    font-size: 12px;
+    fill: #363636;
+  }
+</style>

@@ -30,6 +30,7 @@
   export let hovered;
   export let hoveredColor;
   export let colorScale = (d) => "#fff";
+  export let valueFormat = (d) => d.toLocaleFormat();
 
   let leftCoord = 0;
 
@@ -56,9 +57,16 @@
     ? new Map(data.params.map((d) => [d.name, d]))
     : undefined;
 
-  $: currentNumberFormat = numberFormat(
-    +data.params.find((d) => d[0] == "rateOrTotal")[1]
-  );
+  //This needs to get cleaned up.
+  $: currentNumberFormat = function (d) {
+    if (data.params.find((d) => d[0] == "calculation")[1] === "percentage") {
+      return valueFormat(d);
+    } else {
+      return numberFormat(+data.params.find((d) => d[0] == "rateOrTotal")[1])(
+        d
+      );
+    }
+  };
 
   //Create Map for ordering based on baseYearOrder
   $: groupedMap = group(data.values, (d) => d.location);
@@ -83,6 +91,12 @@
   $: numOfPages = Math.ceil(grouped.length / numberPerPage);
   $: paged = group(grouped, (d, i) => Math.floor(i / numberPerPage));
   $: currentRows = paged.get(currentPage);
+
+  $: if (currentYear) {
+    const currentEl = document.getElementById(`header-${currentYear}`);
+    if (currentEl)
+      currentEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 
   function jumpToPage(e) {
     currentPage = +e.target.innerText - 1;
@@ -162,7 +176,7 @@
               {params["locationType"]}
             </th>
             {#each grouped[0][1] as year}
-              <th>
+              <th id="header-{year.year}">
                 {year.year}
               </th>
             {/each}

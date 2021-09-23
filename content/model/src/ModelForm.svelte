@@ -177,7 +177,12 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field">
     <div class="control">
-      {#if chartType == "map" || calculation == "ratio"}
+      {#if calculation === "percentage"}
+        <label class="radio" disabled>
+          <input type="radio" name="rateOrTotal" value="1" checked disabled />
+          Total
+        </label>
+      {:else if chartType == "map"}
         <label class="radio" disabled>
           <input type="radio" name="rateOrTotal" value="0" checked disabled />
           Rate per 10K population

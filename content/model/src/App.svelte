@@ -23,10 +23,10 @@
     ])
   );
   let geoJSON;
-  let chartType = "line";
+  let chartType = "map";
   let showModal = false;
   let projectionStartYear = 2019;
-  let calculation = "difference";
+  let calculation = "percentage";
 
   //Whether or not data is loading
   let isLoading = false;

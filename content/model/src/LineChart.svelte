@@ -101,6 +101,7 @@
     calculation === "percentage"
       ? val.toLocaleString(undefined, {
           style: "percent",
+          signDisplay: "exceptZero",
         })
       : val.toLocaleString();
 

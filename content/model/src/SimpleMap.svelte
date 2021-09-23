@@ -84,6 +84,16 @@
       ? metroNonmetroColorScale
       : scaleOrdinal().domain(currentYearOrder).range(colorScheme);
 
+  $: valueFormat = (val) =>
+    calculation === "percentage"
+      ? val.toLocaleString(undefined, {
+          style: "percent",
+          signDisplay: "exceptZero",
+        })
+      : val.toLocaleString();
+
+  $: calculation = data.params.find((d) => d[0] === "calculation")[1];
+
   const width = 320;
   const height = 160;
   let path;
@@ -137,6 +147,8 @@
           on:locationLeave={handleLocationLeave}
           {hovered}
           {hoveredColor}
+          tickFormat={valueFormat}
+          {calculation}
         />
       </div>
       <div class="column is-two-fifths" style="padding: 0px 5px 0px 0px;">
@@ -171,9 +183,9 @@
                     >
                       {#if mapYearData.has(+feature.properties.id)}
                         <title>
-                          {mapYearData.get(+feature.properties.id).name}: {mapYearData.get(
-                            +feature.properties.id
-                          ).value}
+                          {mapYearData.get(+feature.properties.id).name}: {valueFormat(
+                            mapYearData.get(+feature.properties.id).value
+                          )}
                         </title>
                       {/if}
                     </path>
@@ -213,6 +225,7 @@
         on:locationLeave={handleLocationLeave}
         {hovered}
         {hoveredColor}
+        {valueFormat}
       />
     </div>
   {:else}
