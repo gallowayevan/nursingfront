@@ -23,7 +23,7 @@
     ])
   );
   let geoJSON;
-  let chartType = "map";
+  let chartType = "table";
   let showModal = false;
   let projectionStartYear = 2019;
   let calculation = "percentage";

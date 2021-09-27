@@ -27,6 +27,7 @@
   export let data;
   // export let projectionStartYear;
   export let showTitle = true;
+  let calculation = data.params.find((d) => d[0] === "calculation")[1];
   let leftCoord = 0;
 
   const frozenWidth = "14em";
@@ -59,10 +60,10 @@
   $: grouped = Array.from(group(data.values, (d) => d.setting))
     .map(function (d) {
       const baseValue = d[1].find((e) => e.year == baseYear).value;
-      const calculationDifferenceRatio =
-        (calculation == "difference") | (calculation == "ratio");
+      const calculationDifferencePercentage =
+        (calculation == "difference") | (calculation == "percentage");
       const valueArray = d[1].map(function (e) {
-        const change = calculationDifferenceRatio
+        const change = calculationDifferencePercentage
           ? e.value
           : e.value / baseValue;
         return Object.assign({ change: change }, e);
@@ -76,7 +77,7 @@
 
   $: flatChangeValues = grouped.flatMap((d) => d[1]).map((d) => d.change);
   $: maxChange =
-    (calculation == "difference") | (calculation == "ratio")
+    (calculation == "difference") | (calculation == "percentage")
       ? max(flatChangeValues, (d) => Math.abs(d))
       : Math.max(
           max(flatChangeValues, (d) => (d == 0 ? 0 : 1 / d)),
