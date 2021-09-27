@@ -131,9 +131,9 @@ of patterns to what sort of data can actually be selected. -->
 
   <div class="field">
     <div class="control">
-      <!-- If nurse type is LPN or if nurse type is RN and Setting is Hospital, 
+      <!-- If nurse type is LPN or if nurse type is RN and Setting is any but All, 
     then disallow any education selection except All Education. -->
-      {#if nurseType == "1" || (nurseType == "2") & (settingType != "0") || calculation != "supply" || chartType == "table"}
+      {#if nurseType == "1" || settingType != "0" || calculation != "supply" || chartType == "table"}
         <label class="radio" disabled>
           <input type="radio" name="education" value="0" checked disabled />
           All Education
@@ -240,12 +240,16 @@ of patterns to what sort of data can actually be selected. -->
     <InfoBox title={"Location"} info={formInfo.get("location")} />
   </SimpleSelect>
   {#if chartType != "table"}
-    <!-- Filter out nurse education setting for LPNs. This setting was
+    <!-- Filter out nurse education and public health setting for LPNs. These settings were
     deemed potentially confusing.-->
     <SimpleSelect
       options={options
         .get("setting")
-        .options.filter((d) => nurseType == 2 || d.value != 6)}
+        .options.filter(
+          (d) =>
+            nurseType == 2 || (nurseType == 1) & (d.value != 6) & (d.value != 5)
+        )
+        .filter((d) => !((chartType === "map") & (d.value < 0)))}
       name={options.get("setting").name}
       label={options.get("setting").label}
       disabled={educationType != "0"}
@@ -254,11 +258,7 @@ of patterns to what sort of data can actually be selected. -->
       <InfoBox title={"Setting"} info={formInfo.get("setting")} />
     </SimpleSelect>
   {/if}
-  {#if calculation == "demand" || calculation == "difference" || calculation == "percentage"}
-    <SimpleSelect {...options.get("demandScenario")}>
-      <InfoBox title={"Demand Scenario"} info={formInfo.get("scenario")} />
-    </SimpleSelect>
-  {/if}
+
   {#if calculation == "supply" || calculation == "difference" || calculation == "percentage"}
     <SimpleSelect {...options.get("supplyScenario")}>
       <InfoBox title={"Supply Scenario"} info={formInfo.get("scenario")} />

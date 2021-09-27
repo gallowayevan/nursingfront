@@ -2,8 +2,12 @@ export default new Map([
     {
         "options": [
             {
-                "label": "All Settings",
+                "label": "Any Setting",
                 "value": 0
+            },
+            {
+                "label": "All Settings (Each One Separately)",
+                "value": -9
             },
             {
                 "label": "Ambulatory Care",

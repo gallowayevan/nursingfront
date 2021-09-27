@@ -23,7 +23,7 @@
     ])
   );
   let geoJSON;
-  let chartType = "table";
+  let chartType = "line";
   let showModal = false;
   let projectionStartYear = 2019;
   let calculation = "percentage";
@@ -50,9 +50,9 @@
       .then(function (newData) {
         if (type == "line") {
           const currentData = data.get(calc).get(type);
-          data.get(calc).set(type, [...currentData, newData]);
+          data.get(calc).set(type, [...currentData, ...newData]);
         } else {
-          data.get(calc).set(type, [newData]);
+          data.get(calc).set(type, newData);
         }
 
         //Trigger change
