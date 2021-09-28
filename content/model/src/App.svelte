@@ -8,10 +8,11 @@
   import IntroBlock from "./IntroBlock.svelte";
   import ButtonRadio from "./ButtonRadio.svelte";
   import TutorialModal from "./TutorialModal.svelte";
-  import CardButton from "./CardButton.svelte";
   import formInfo from "./data/formInfo.js";
   import { onMount } from "svelte";
   import { dataFetch, makeQueryURL } from "./utilities.js";
+  import CardRadio from "./CardRadio.svelte";
+  import cardInfo from "./data/cardInfo.js";
 
   const ROOT = "root"; //Allows for rollup to switch data root.
 
@@ -103,47 +104,10 @@
 <section class="section" class:is-clipped={showModal}>
   <TutorialModal {showModal} on:click={() => (showModal = false)} />
   <div class="container" id="main-container">
-    <div class="columns" style="margin-bottom: 2rem;">
-      <CardButton
-        name="difference"
-        title="Supply - Demand"
-        info={formInfo.get("difference")}
-        {calculation}
-        on:clicked={handleCalculationClick}
-      >
-        <span slot="subtitle">Will there be a shortage or surplus?</span>
-      </CardButton>
-      <CardButton
-        name="percentage"
-        title="Supply / Demand"
-        info={formInfo.get("percentage")}
-        {calculation}
-        on:clicked={handleCalculationClick}
-      >
-        <span slot="subtitle">What is the relative shortage or surplus?</span>
-      </CardButton>
-
-      <CardButton
-        name="supply"
-        title="Supply"
-        info={formInfo.get("supply")}
-        {calculation}
-        on:clicked={handleCalculationClick}
-      >
-        <span slot="subtitle">
-          How many nurses are projected in the future?
-        </span>
-      </CardButton>
-      <CardButton
-        name="demand"
-        title="Demand"
-        info={formInfo.get("demand")}
-        {calculation}
-        on:clicked={handleCalculationClick}
-      >
-        <span slot="subtitle">What will be the demand for services?</span>
-      </CardButton>
-    </div>
+    <CardRadio
+      on:handleCalculationClick={handleCalculationClick}
+      options={cardInfo}
+    />
 
     <div class="columns">
       <div class="column is-4">
