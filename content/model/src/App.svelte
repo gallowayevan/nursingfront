@@ -147,6 +147,16 @@
 
     <div class="columns">
       <div class="column is-4">
+        <ButtonRadio
+          on:changeChartType={changeChartType}
+          groupLabel={"Line chart or Map"}
+          {chartType}
+          options={[
+            { value: "line", label: "Line Chart" },
+            { value: "map", label: "Map" },
+          ]}
+        />
+        <hr />
         <ModelForm
           on:showProjection={handleShowProjection}
           on:clearProjections={handleClearData}
@@ -157,16 +167,6 @@
         />
       </div>
       <div class="column is-8 box">
-        <ButtonRadio
-          on:changeChartType={changeChartType}
-          groupLabel={"Line chart or Map"}
-          {chartType}
-          options={[
-            { value: "line", label: "Line" },
-            { value: "map", label: "Map" },
-          ]}
-        />
-
         {#if data.get(calculation).get(chartType).length > 0}
           <div class="columns is-marginless">
             <div class="column is-hidden-mobile is-paddingless" />
