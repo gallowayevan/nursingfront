@@ -2,7 +2,6 @@
   import LineChart from "./LineChart.svelte";
   import LineChartDifference from "./LineChartDifference.svelte";
   import SimpleMap from "./SimpleMap.svelte";
-  import SettingTable from "./SettingTable.svelte";
   import ModelForm from "./ModelForm.svelte";
   import DownloadData from "./DownloadData.svelte";
   import DownloadImage from "./DownloadImage.svelte";
@@ -19,14 +18,14 @@
   let data = new Map(
     ["supply", "demand", "percentage", "difference"].map((d) => [
       d,
-      new Map(["line", "map", "table"].map((e) => [e, []])),
+      new Map(["line", "map"].map((e) => [e, []])),
     ])
   );
   let geoJSON;
   let chartType = "line";
   let showModal = false;
   let projectionStartYear = 2019;
-  let calculation = "percentage";
+  let calculation = "difference";
 
   //Whether or not data is loading
   let isLoading = false;
@@ -162,13 +161,10 @@
           <!-- svelte-ignore a11y-missing-attribute -->
           <ul>
             <li class={chartType == "line" ? "is-active" : ""}>
-              <a id="line" on:click={tabClicked}>Compare Projections</a>
+              <a id="line" on:click={tabClicked}>Line Chart</a>
             </li>
             <li class={chartType == "map" ? "is-active" : ""}>
-              <a id="map" on:click={tabClicked}>Compare Places</a>
-            </li>
-            <li class={chartType == "table" ? "is-active" : ""}>
-              <a id="table" on:click={tabClicked}>Compare Settings</a>
+              <a id="map" on:click={tabClicked}>Map</a>
             </li>
           </ul>
         </div>
@@ -205,11 +201,6 @@
             <SimpleMap
               data={data.get(calculation).get(chartType)[0]}
               {geoJSON}
-              {projectionStartYear}
-            />
-          {:else if chartType == "table"}
-            <SettingTable
-              data={data.get(calculation).get(chartType)[0]}
               {projectionStartYear}
             />
           {:else}
