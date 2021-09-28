@@ -6,6 +6,7 @@
   import DownloadData from "./DownloadData.svelte";
   import DownloadImage from "./DownloadImage.svelte";
   import IntroBlock from "./IntroBlock.svelte";
+  import ButtonRadio from "./ButtonRadio.svelte";
   import TutorialModal from "./TutorialModal.svelte";
   import CardButton from "./CardButton.svelte";
   import formInfo from "./data/formInfo.js";
@@ -86,17 +87,16 @@
     data = data;
   }
 
-  function tabClicked(e) {
-    if (chartType != e.target.id) {
-      chartType = e.target.id;
-    }
-  }
   function handleCalculationClick({ detail }) {
     calculation = detail;
   }
 
   function handleLaunchTutorial() {
     showModal = true;
+  }
+
+  function changeChartType({ detail }) {
+    chartType = detail;
   }
 </script>
 
@@ -157,17 +157,16 @@
         />
       </div>
       <div class="column is-8 box">
-        <div class="tabs ">
-          <!-- svelte-ignore a11y-missing-attribute -->
-          <ul>
-            <li class={chartType == "line" ? "is-active" : ""}>
-              <a id="line" on:click={tabClicked}>Line Chart</a>
-            </li>
-            <li class={chartType == "map" ? "is-active" : ""}>
-              <a id="map" on:click={tabClicked}>Map</a>
-            </li>
-          </ul>
-        </div>
+        <ButtonRadio
+          on:changeChartType={changeChartType}
+          groupLabel={"Line chart or Map"}
+          {chartType}
+          options={[
+            { value: "line", label: "Line" },
+            { value: "map", label: "Map" },
+          ]}
+        />
+
         {#if data.get(calculation).get(chartType).length > 0}
           <div class="columns is-marginless">
             <div class="column is-hidden-mobile is-paddingless" />

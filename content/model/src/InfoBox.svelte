@@ -12,6 +12,10 @@
     }
   }
 
+  function onKeyDownWindow(e) {
+    if (e.keyCode === 27) active = false;
+  }
+
   function onKeyDown(e) {
     if (e.keyCode === 13) active = true;
     if (e.keyCode === 27) active = false;
@@ -20,7 +24,7 @@
 
 <svelte:window
   on:click|stopPropagation={windowClicked}
-  on:keydown|stopPropagation={onKeyDown}
+  on:keydown|stopPropagation={onKeyDownWindow}
 />
 <div class="info-icon-wrapper ">
   <svg
@@ -40,7 +44,7 @@
         <p>{title}</p>
         <button
           class="delete"
-          aria-label="delete"
+          aria-label="close"
           on:click|preventDefault|stopPropagation={() => (active = false)}
         />
       </div>
