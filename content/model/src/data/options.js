@@ -55,10 +55,10 @@ export default new Map([
     },
     {
         "options": [
+            { "value": "difference", "label": "Supply - Demand" },
+            { "value": "percentage", "label": "Supply / Demand" },
             { "value": "supply", "label": "Supply" },
             { "value": "demand", "label": "Demand" },
-            { "value": "percentage", "label": "Supply / Demand" },
-            { "value": "difference", "label": "Supply - Demand" },
         ], "label": "Calculation", "name": "calculation"
     },
     {

@@ -295,7 +295,12 @@
   }
 </script>
 
-<button title="Save Image" class="button" on:click={handleSaveImage}>
+<button
+  title="Save Image"
+  class="button"
+  on:click={handleSaveImage}
+  aria-label="Download Image of Current Chart"
+>
   <svg class="button-icon-svg has-fill-primary">
     <use xlink:href="#fa-image" />
   </svg>

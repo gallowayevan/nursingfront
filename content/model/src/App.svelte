@@ -105,7 +105,9 @@
   <TutorialModal {showModal} on:click={() => (showModal = false)} />
   <div class="container" id="main-container">
     <CardRadio
-      on:handleCalculationClick={handleCalculationClick}
+      on:calculationClicked={handleCalculationClick}
+      {calculation}
+      groupLabel="Radio for Selecting a Calculation Type"
       options={cardInfo}
     />
 
@@ -135,9 +137,8 @@
           <div class="columns is-marginless">
             <div class="column is-hidden-mobile is-paddingless" />
             <div class="column is-narrow is-paddingless">
-              {#if chartType == "line" || chartType == "map"}
-                <DownloadImage {chartType} />
-              {/if}
+              <DownloadImage {chartType} />
+
               <DownloadData
                 data={data.get(calculation).get(chartType)}
                 {chartType}
