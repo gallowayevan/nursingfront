@@ -1,8 +1,7 @@
 ---
-
 title: Publications
 ---
-## Briefs & blogs
+## Related Work
 
 Patel E. "Comparing Hospital Nurse Settings from the 2018 NSSRN vs. 2008-2013 North Carolina Licensure Data". [Policy Brief](https://nchealthworkforce.unc.edu/briefs/nssrn_hospital_setting/). June 25, 2020.
 

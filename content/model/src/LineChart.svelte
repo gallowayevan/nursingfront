@@ -18,17 +18,28 @@
   const width = 800;
   const height = 475;
   const margin = { top: 20, right: 60, bottom: 65, left: 90 };
+
   const colors = [
-    "#1f77b4",
-    "#ff7f0e",
-    "#2ca02c",
-    "#d62728",
-    "#9467bd",
-    "#8c564b",
-    "#e377c2",
-    "#7f7f7f",
-    "#bcbd22",
-    "#17becf",
+    "rgb(31, 119, 180)",
+    "rgb(255, 127, 14)",
+    "rgb(44, 160, 44)",
+    "rgb(214, 39, 40)",
+    "rgb(148, 103, 189)",
+    "rgb(140, 86, 75)",
+    "rgb(227, 119, 194)",
+    "rgb(127, 127, 127)",
+    "rgb(188, 189, 34)",
+    "rgb(23, 190, 207)",
+    "rgb(174, 199, 232)",
+    "rgb(255, 187, 120)",
+    "rgb(152, 223, 138)",
+    "rgb(255, 152, 150)",
+    "rgb(197, 176, 213)",
+    "rgb(196, 156, 148)",
+    "rgb(247, 182, 210)",
+    "rgb(199, 199, 199)",
+    "rgb(219, 219, 141)",
+    "rgb(158, 218, 229)",
   ];
 
   let colorMap = new Map();
@@ -102,6 +113,7 @@
       ? val.toLocaleString(undefined, {
           style: "percent",
           signDisplay: "exceptZero",
+          maximumFractionDigits: 2,
         })
       : val.toLocaleString();
 

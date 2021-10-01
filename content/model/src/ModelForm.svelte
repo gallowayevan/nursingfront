@@ -280,6 +280,9 @@ of patterns to what sort of data can actually be selected. -->
       <progress class="progress is-small is-primary" max="100" />
     {/if}
   </div>
+  <p class="help is-primary">
+    You can add multiple projections for comparison!
+  </p>
 
   <hr />
   <button

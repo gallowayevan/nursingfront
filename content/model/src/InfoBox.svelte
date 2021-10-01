@@ -1,9 +1,16 @@
 <script>
+  import { tick } from "svelte";
   import { fade } from "svelte/transition";
   export let title = "Title";
   export let info = "Information";
   export let invert = false;
   let active = false;
+
+  //santize titles for use as html ids:
+  //https://stackoverflow.com/questions/9635625/javascript-regex-to-remove-illegal-characters-from-dom-id/9635698
+  const id = `${title
+    .toLowerCase()
+    .replace(/^[^a-z]+|[^\w:.-]+/gi, "-")}-info-box`;
 
   function windowClicked(e) {
     const classList = Array.from(e.target.classList);
@@ -12,32 +19,42 @@
     }
   }
 
-  function onKeyDownWindow(e) {
-    if (e.keyCode === 27) active = false;
+  function onKeyDownClose(e) {
+    if (e.key === "Escape") active = false;
   }
 
-  function onKeyDown(e) {
-    if (e.keyCode === 13) active = true;
-    if (e.keyCode === 27) active = false;
+  async function onKeyDown(e) {
+    if (e.key === "Enter") {
+      active = true;
+      await tick();
+      document.getElementById(id).focus();
+    }
+    if (e.key === "Escape") active = false;
+  }
+
+  async function handleIconClick() {
+    active = true;
+    await tick();
+    document.getElementById(id).focus(); //Does not seem to do anything?
   }
 </script>
 
-<svelte:window
-  on:click|stopPropagation={windowClicked}
-  on:keydown|stopPropagation={onKeyDownWindow}
-/>
+<svelte:window on:click|stopPropagation={windowClicked} />
 <div class="info-icon-wrapper ">
   <svg
     tabindex="0"
     class="icon-svg has-fill-primary"
-    on:click|stopPropagation={() => (active = true)}
+    on:click|stopPropagation={handleIconClick}
     on:keydown|stopPropagation={onKeyDown}
   >
     <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
   </svg>
   {#if active}
     <article
+      {id}
+      on:keydown={onKeyDownClose}
       class="message is-small is-primary close-on-window-click"
+      tabindex="0"
       transition:fade
     >
       <div class="message-header close-on-window-click">
@@ -45,7 +62,10 @@
         <button
           class="delete"
           aria-label="close"
-          on:click|preventDefault|stopPropagation={() => (active = false)}
+          on:click|stopPropagation|preventDefault={() => (active = false)}
+          on:keydown|stopPropagation={(e) => {
+            if (e.key === "Enter") active = false;
+          }}
         />
       </div>
       <div class="message-body close-on-window-click">{info}</div>
@@ -56,6 +76,10 @@
 <style>
   .info-icon-wrapper {
     display: inline-flex;
+  }
+
+  article:focus {
+    outline-width: 2px;
   }
 
   article {

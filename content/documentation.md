@@ -194,7 +194,7 @@ The project team has tried to be as transparent as possible by describing the mo
 
 ### How does the web-based interface work?
 
-The web-based interface is built using a variety of open source software, most notably the D3 data visualization library, the JavaScript framework Svelte and the JavaScript bundler Rollup. The nurse diffusion map also makes heavy use of the Mapbox GL JS JavaScript library. Most of the website style (i.e., CSS) is defined using Bulma, a CSS framework. Together, these compose the user interface.
+The web-based interface is built using a variety of open source software, most notably the D3 data visualization library, the JavaScript framework Svelte and the JavaScript bundler Rollup. The nurse graduate diffusion map also makes heavy use of the Mapbox GL JS JavaScript library. Most of the website style (i.e., CSS) is defined using Bulma, a CSS framework. Together, these compose the user interface.
 
 The data is housed on a server provided by Carolina CloudApps within a container running Node.js. The main job of this server is to pass data from an SQLite database to the user interface. The database is loaded with precalculated projection data for all the parameter combinations in the visualizations.
 

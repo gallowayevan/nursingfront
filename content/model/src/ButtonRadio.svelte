@@ -14,9 +14,9 @@
     }
 
     function tabKeydown(e) {
-        if (e.keyCode === 37 || e.keyCode === 39) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
             const currentIndex = +e.target.getAttribute("data-index");
-            const moveIndex = e.keyCode === 37 ? -1 : 1;
+            const moveIndex = e.key === "ArrowLeft" ? -1 : 1;
             let newIndex = currentIndex + moveIndex;
 
             if (newIndex >= options.length) {

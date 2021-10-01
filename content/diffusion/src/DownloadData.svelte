@@ -6,9 +6,9 @@
   export let settingDisplay;
 
   function handleDownloadData() {
-    const dataWithAmendedHeaders = data.map(function(d) {
+    const dataWithAmendedHeaders = data.map(function (d) {
       const newObj = {};
-      Object.keys(d).forEach(function(e) {
+      Object.keys(d).forEach(function (e) {
         const settingCode = +e.slice(7);
         if (settingDisplay.has(settingCode)) {
           newObj[settingDisplay.get(settingCode)] = d[e];
@@ -27,13 +27,13 @@
       // IE 10+
       navigator.msSaveBlob(
         new Blob([download], { type: "text/csv;charset=utf-8;" }),
-        "nurse_diffusion.csv"
+        "nurse_graduate_diffusion.csv"
       );
     } else {
       var uri = "data:attachment/csv;charset=utf-8," + encodeURI(download);
       var downloadLink = document.createElement("a");
       downloadLink.href = uri;
-      downloadLink.download = "nurse_diffusion.csv";
+      downloadLink.download = "nurse_graduate_diffusion.csv";
 
       document.body.appendChild(downloadLink);
       downloadLink.click();

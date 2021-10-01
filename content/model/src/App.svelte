@@ -102,7 +102,10 @@
 </script>
 
 <section class="section" class:is-clipped={showModal}>
-  <TutorialModal {showModal} on:click={() => (showModal = false)} />
+  <TutorialModal
+    {showModal}
+    on:changeModalState={(e) => (showModal = e.detail)}
+  />
   <div class="container" id="main-container">
     <CardRadio
       on:calculationClicked={handleCalculationClick}

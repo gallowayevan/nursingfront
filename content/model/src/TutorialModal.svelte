@@ -1,5 +1,9 @@
 <script>
   import TutorialImage from "./TutorialImage.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   export let showModal;
 
   const images = [
@@ -8,19 +12,24 @@
     "Linechart guide 500px.png",
     "clearviz 500px.png",
     "MapGuide 500px.png",
-    "Table PNG plain.png"
+    "Table PNG plain.png",
   ];
+
+  function handleModalClick() {
+    dispatch("changeModalState", false);
+  }
+
+  function onKeyDownWindow(e) {
+    if (e.key === "Escape") {
+      dispatch("changeModalState", false);
+    }
+  }
 </script>
 
-<style>
-  .is-family-code {
-    font-weight: bolder;
-    background-color: #ececec;
-  }
-</style>
+<svelte:window on:keydown|stopPropagation={onKeyDownWindow} />
 
 <div class="modal" class:is-active={showModal}>
-  <div class="modal-background" on:click />
+  <div class="modal-background" on:click={handleModalClick} />
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">User Guide</p>
@@ -28,7 +37,8 @@
         class="delete"
         aria-label="close"
         data-bulma-modal="close"
-        on:click />
+        on:click={handleModalClick}
+      />
     </header>
     <section class="modal-card-body content">
       <h1 class="title">Viewing Nurse Workforce Projections</h1>
@@ -54,28 +64,26 @@
         </p>
       </TutorialImage>
       <TutorialImage imageFileName={images[2]}>
-
         <h2>Using the line chart function</h2>
         <p>
           <span class="has-text-weight-semibold">
             If you are using the line chart option,
           </span>
-          you can display multiple lines at once to compare. Just change your
-          options and select
+          you can display multiple lines at once to compare. Just change your options
+          and select
           <span class="is-family-code">Show</span>
           again. To remove a line, hit the
           <span class="is-family-code">X</span>
-          button in the top left of its corresponding box. Once you have
-          displayed the projections* you are interested in, you can download the
-          image (as a PNG) or the data (as a CSV file).
+          button in the top left of its corresponding box. Once you have displayed
+          the projections* you are interested in, you can download the image (as
+          a PNG) or the data (as a CSV file).
         </p>
         <p>
           <span class="has-text-weight-semibold">Please note:</span>
-          the model won’t allow you to display the projections for specific
-          education categories combined with specific settings at the same time.
-          For instance, the projection for RN, with BS for education, and
-          hospital for setting is not available. This is because the numbers are
-          small.
+          the model won’t allow you to display the projections for specific education
+          categories combined with specific settings at the same time. For instance,
+          the projection for RN, with BS for education, and hospital for setting
+          is not available. This is because the numbers are small.
         </p>
         <p>
           *The projection line does include some historical data, but
@@ -97,8 +105,8 @@
           <span class="has-text-weight-semibold">
             You can also view projections as a map.
           </span>
-          Use the slider below the map to change the year of data. The maps are
-          color-coded to indicate the location of each area.
+          Use the slider below the map to change the year of data. The maps are color-coded
+          to indicate the location of each area.
         </p>
       </TutorialImage>
       <TutorialImage imageFileName={images[5]}>
@@ -107,16 +115,22 @@
           <span class="has-text-weight-semibold">
             You can also view projections in a table.
           </span>
-          The colors represent the change relative to the baseline (the first
-          year, in this case, 2008).
+          The colors represent the change relative to the baseline (the first year,
+          in this case, 2008).
           <span style="color:red;">Red</span>
           indicates a decrease from the baseline.
           <span style="color:blue;">Blue</span>
-          indicates an increase from the baseline. The table can be downloaded
-          as a CSV file.
+          indicates an increase from the baseline. The table can be downloaded as
+          a CSV file.
         </p>
       </TutorialImage>
-
     </section>
   </div>
 </div>
+
+<style>
+  .is-family-code {
+    font-weight: bolder;
+    background-color: #ececec;
+  }
+</style>
