@@ -1,6 +1,6 @@
 <script>
   import LineChart from "./LineChart.svelte";
-  import LineChartDifference from "./LineChartDifference.svelte";
+  import LineChartDifference2 from "./LineChartDifference2.svelte";
   import SimpleMap from "./SimpleMap.svelte";
   import ModelForm from "./ModelForm.svelte";
   import DownloadData from "./DownloadData.svelte";
@@ -151,7 +151,7 @@
           </div>
           {#if chartType == "line"}
             {#if calculation == "difference"}
-              <LineChartDifference
+              <LineChartDifference2
                 data={data.get(calculation).get(chartType)}
                 on:deleteProjection={handleDeleteProjection}
                 {projectionStartYear}

@@ -7,6 +7,7 @@
   export let color;
   export let linePath;
   export let areaPath;
+  export let areaOpacity = 0.7;
   export let duration;
   export let dashArray = "";
   export let strokeWidth = 2;
@@ -14,7 +15,7 @@
   const options = {
     duration: duration,
     easing: cubicInOut,
-    interpolate: interpolateString
+    interpolate: interpolateString,
   };
 
   const lineStore = tweened(undefined, options);
@@ -31,8 +32,8 @@
     stroke={color}
     stroke-width={strokeWidth}
     stroke-dasharray={dashArray}
-    d={$lineStore} />
+    d={$lineStore}
+  />
 
-  <path class="areas" fill={color} opacity="0.7" d={$areaStore} />
-
+  <path class="areas" fill={color} opacity={areaOpacity} d={$areaStore} />
 </g>
