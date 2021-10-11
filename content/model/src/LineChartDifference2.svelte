@@ -335,10 +335,10 @@
                 xHalfway
                     ? lineChartPosition.left +
                       lineChartPosition.scaling * x(hoverData.year) +
-                      8
+                      4
                     : lineChartPosition.left +
                       lineChartPosition.scaling * x(hoverData.year) -
-                      318}px;
+                      324}px;
           background: rgba(255, 255, 255, 0.9); border-radius:5px;border: 1px
           solid #333333;padding:3px
           3px;z-index:200;font-weight:600;width:320px;pointer-events:none;"

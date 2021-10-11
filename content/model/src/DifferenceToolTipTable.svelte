@@ -24,13 +24,18 @@
             {numberFormat(rateOrTotal)(demandMean)}
           </td>
           <td style="color:{color}; text-align:right;">
-            {numberFormat(rateOrTotal)(difference || value)}
+            {numberFormat(rateOrTotal)(
+              difference === undefined ? value : difference
+            )}
           </td>
           <td style="color:{color}; text-align:right;">
-            {(percentage || value).toLocaleString(undefined, {
-              style: "percent",
-              maximumFractionDigits: 1,
-            })}
+            {(percentage === undefined ? value : percentage).toLocaleString(
+              undefined,
+              {
+                style: "percent",
+                maximumFractionDigits: 1,
+              }
+            )}
           </td>
         </tr>
       {/each}
