@@ -165,6 +165,10 @@ export default new Map([
                 "value": 62,
                 "label": "10% Increase in Graduate Supply"
             },
+            {
+                "value": 71,
+                "label": "COVID Combination"
+            },
         ],
         "label": "Supply Scenario",
         "name": "supplyScenario"
