@@ -56,7 +56,7 @@ export default new Map([
     {
         "options": [
             { "value": "difference", "label": "Supply - Demand" },
-            { "value": "percentage", "label": "Supply / Demand" },
+            { "value": "percentage", "label": "% Surplus or Shortage" },
             { "value": "supply", "label": "Supply" },
             { "value": "demand", "label": "Demand" },
         ], "label": "Calculation", "name": "calculation"
@@ -167,7 +167,7 @@ export default new Map([
             },
             {
                 "value": 71,
-                "label": "COVID Combination"
+                "label": "Early Exit (5 years) & 10% Increase in Graduates & 2.5% Reduction in Out-of-State"
             },
         ],
         "label": "Supply Scenario",

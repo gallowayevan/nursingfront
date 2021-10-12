@@ -172,7 +172,7 @@
   {#if data.length > 0}
     <h1 class="title">
       Projection of Nurse Workforce, {calculation == "percentage"
-        ? "Percent Surplus or Shortage"
+        ? "% Surplus or Shortage"
         : calculation.slice(0, 1).toUpperCase() + calculation.slice(1)}
     </h1>
     <h2 class="subtitle">North Carolina, {xExtent[0]} - {xExtent[1]}</h2>
