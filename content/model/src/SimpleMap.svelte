@@ -1,7 +1,13 @@
 <script>
-  import { permute } from "d3-array";
+  import { ascending, permute } from "d3-array";
   import { geoPath, geoAlbers } from "d3-geo";
-  import { scaleOrdinal } from "d3-scale";
+  import { scaleOrdinal, scaleSequential, scaleDiverging } from "d3-scale";
+  import {
+    interpolateYlGn,
+    interpolatePiYG,
+    interpolatePuOr,
+    interpolatePurples,
+  } from "d3-scale-chromatic";
   import { max, extent } from "d3-array";
   import RowChart from "./RowChart.svelte";
   import MapTable from "./MapTable.svelte";
@@ -15,7 +21,7 @@
   export let geoJSON;
   export let projectionStartYear;
 
-  let currentYear = 2019;
+  let currentYear = 2033;
   const baseYear = 2019;
 
   let hovered = undefined;
@@ -41,13 +47,8 @@
 
   $: baseYearOrder = data.values
     .filter((d) => d.year == baseYear)
-    .sort((a, b) => b.value - a.value)
-    .map((d) => d.location);
-
-  $: currentYearOrder = data.values
-    .filter((d) => d.year == currentYear)
-    .sort((a, b) => a.value - b.value)
-    .map((d) => d.location);
+    .map((d) => d.location)
+    .sort((a, b) => ascending(a, b));
 
   $: currentYearData = new Map(
     data.values
@@ -55,7 +56,7 @@
       .map((d) => [
         d.location,
         {
-          fill: color(d.location),
+          fill: color(d.value),
           fontFill: fontColor(color(d.value)),
           value: d.value,
           name: locationNamesMap.get(d.location),
@@ -66,23 +67,29 @@
   $: mapYearDataArray = baseYearOrder.map((d) => [d, currentYearData.get(d)]);
   $: mapYearData = new Map(mapYearDataArray);
 
-  $: valueExtentAllTime = extent(data.values || [], (d) => d.value).map(
-    (d, i) => (i == 0 && d > 0 ? 0 : d) //Always make baseline at least 0
-  );
-
-  $: colorScheme = quantize(
-    interpolateHcl("#e0f3db", "#084081"),
-    baseYearOrder.length
-  );
+  $: valueExtentAllTime = extent(data.values || [], (d) => d.value);
 
   const metroNonmetroColorScale = scaleOrdinal()
     .domain(["700", "701"])
     .range(["#1f78b4", "#33a02c"]);
 
+  $: sequentialScale =
+    scaleSequential(interpolatePurples).domain(valueExtentAllTime);
+
+  $: divergingScale = scaleDiverging(interpolatePuOr).domain([
+    valueExtentAllTime[1],
+    0,
+    valueExtentAllTime[0],
+  ]);
+
   $: color =
-    params["locationType"] == "Metro/Nonmetro"
+    params["locationType"] === "Metro/Nonmetro"
       ? metroNonmetroColorScale
-      : scaleOrdinal().domain(currentYearOrder).range(colorScheme);
+      : //Only diverging if less than 0
+      (calculation === "difference" || calculation === "percentage") &
+        (valueExtentAllTime[0] < 0)
+      ? divergingScale
+      : sequentialScale;
 
   $: valueFormat = (val) =>
     calculation === "percentage"
@@ -90,9 +97,12 @@
           style: "percent",
           signDisplay: "exceptZero",
         })
+      : rateOrTotal === 1
+      ? val.toLocaleString(undefined, { notation: "compact" })
       : val.toLocaleString();
 
   $: calculation = data.params.find((d) => d[0] === "calculation")[1];
+  $: rateOrTotal = data.params.find((d) => d[0] === "rateOrTotal")[1];
 
   const width = 320;
   const height = 160;
