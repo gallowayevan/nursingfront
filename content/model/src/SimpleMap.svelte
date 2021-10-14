@@ -76,10 +76,13 @@
   $: sequentialScale =
     scaleSequential(interpolatePurples).domain(valueExtentAllTime);
 
+  $: divergingScaleAbsoluteMax = Math.max(
+    ...valueExtentAllTime.map((d) => Math.abs(d))
+  );
   $: divergingScale = scaleDiverging(interpolatePuOr).domain([
-    valueExtentAllTime[1],
+    divergingScaleAbsoluteMax,
     0,
-    valueExtentAllTime[0],
+    -divergingScaleAbsoluteMax,
   ]);
 
   $: color =
