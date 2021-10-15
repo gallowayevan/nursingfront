@@ -24,7 +24,7 @@
     ])
   );
   let geoJSON;
-  let chartType = "map";
+  let chartType = "line";
   let showModal = false;
   let projectionStartYear = 2019;
   let calculation = "difference";
