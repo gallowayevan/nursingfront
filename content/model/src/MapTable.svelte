@@ -85,7 +85,7 @@
       ? "#ffffff"
       : hovered == cell.location
       ? hoveredColor
-      : colorScale(cell.location);
+      : colorScale(cell.value);
   };
 
   $: numOfPages = Math.ceil(grouped.length / numberPerPage);
@@ -123,6 +123,10 @@
   onMount(() => {
     calculatePosition();
     window.onresize = throttle(calculatePosition, 100);
+
+    //Initial scroll into view for default year
+    const currentEl = document.getElementById(`header-${currentYear}`);
+    if (currentEl) currentEl.scrollIntoView({ block: "nearest" });
   });
 
   onDestroy(() => {

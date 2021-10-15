@@ -22,8 +22,12 @@
   const width = 320;
   $: height = mapYearDataArray.length * 20 + margin.top + margin.bottom;
 
+  $: xDomain = valueExtentAllTime.map(
+    (d, i) => (i == 0 && d > 0 ? 0 : d) //Always make baseline at least 0
+  );
+
   $: x = scaleLinear()
-    .domain(valueExtentAllTime)
+    .domain(xDomain)
     .range([margin.left, width - margin.right]);
 
   $: y = scaleBand()
@@ -53,6 +57,7 @@
         ? "Percentage Shortage/Surplus"
         : rateOrTotal}
     </text>
+
     <g>
       {#each mapYearDataArray as bar}
         <g transform="translate(0 {y(bar[0])})">
@@ -80,7 +85,7 @@
       <g transform="translate(0 {margin.top})">
         {#each x.ticks(5) as tick}
           <g transform="translate({x(tick)} 0)">
-            <line y1="0" y2={height} stroke="#fff" />
+            <line y1="0" y2={height} stroke="#ececec" />
             <text class="anchor-middle" dy="-5">{tickFormat(tick)}</text>
           </g>
         {/each}
@@ -99,7 +104,7 @@
   }
 
   svg text {
-    font-size: 12px;
+    font-size: 0.75rem;
     fill: #363636;
   }
 </style>
