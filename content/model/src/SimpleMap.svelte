@@ -2,20 +2,12 @@
   import { ascending, permute } from "d3-array";
   import { geoPath, geoAlbers } from "d3-geo";
   import { scaleOrdinal, scaleSequential, scaleDiverging } from "d3-scale";
-  import {
-    interpolateYlGn,
-    interpolatePiYG,
-    interpolatePuOr,
-    interpolatePurples,
-  } from "d3-scale-chromatic";
-  import { max, extent } from "d3-array";
+  import { interpolateRdYlBu, interpolateBlues } from "d3-scale-chromatic";
+  import { extent } from "d3-array";
   import RowChart from "./RowChart.svelte";
   import MapTable from "./MapTable.svelte";
   import options from "./data/options.js";
   import { fontColor } from "./utilities.js";
-  import { interpolateHcl, quantize } from "d3-interpolate";
-
-  // import { interpolatePurples as colorSchemeInterpolator } from "d3-scale-chromatic";
 
   export let data;
   export let geoJSON;
@@ -45,10 +37,11 @@
     (d) => d.year
   );
 
-  $: baseYearOrder = data.values
-    .filter((d) => d.year == baseYear)
-    .map((d) => d.location)
-    .sort((a, b) => ascending(a, b));
+  $: locationsSet = new Set(data.values.map((d) => d.location));
+  $: baseYearOrder = options
+    .get("location")
+    .options.filter((d) => locationsSet.has(d.value))
+    .map((d) => d.value);
 
   $: currentYearData = new Map(
     data.values
@@ -69,28 +62,25 @@
 
   $: valueExtentAllTime = extent(data.values || [], (d) => d.value);
 
-  const metroNonmetroColorScale = scaleOrdinal()
-    .domain(["700", "701"])
-    .range(["#1f78b4", "#33a02c"]);
+  // const metroNonmetroColorScale = scaleOrdinal()
+  //   .domain(["700", "701"])
+  //   .range(["#1f78b4", "#33a02c"]);
 
   $: sequentialScale =
-    scaleSequential(interpolatePurples).domain(valueExtentAllTime);
+    scaleSequential(interpolateBlues).domain(valueExtentAllTime);
 
   $: divergingScaleAbsoluteMax = Math.max(
     ...valueExtentAllTime.map((d) => Math.abs(d))
   );
-  $: divergingScale = scaleDiverging(interpolatePuOr).domain([
-    divergingScaleAbsoluteMax,
-    0,
+  $: divergingScale = scaleDiverging(interpolateRdYlBu).domain([
     -divergingScaleAbsoluteMax,
+    0,
+    divergingScaleAbsoluteMax,
   ]);
 
   $: color =
-    params["locationType"] === "Metro/Nonmetro"
-      ? metroNonmetroColorScale
-      : //Only diverging if less than 0
-      (calculation === "difference" || calculation === "percentage") &
-        (valueExtentAllTime[0] < 0)
+    (calculation === "difference" || calculation === "percentage") &
+    (valueExtentAllTime[0] < 0)
       ? divergingScale
       : sequentialScale;
 
