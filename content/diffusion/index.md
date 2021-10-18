@@ -1,7 +1,7 @@
 ---
 title: How far do nurses go after graduation in North Carolina?
 subtitle: Examining the diffusion of nurses post-graduation in North Carolina.
-type: single
+
 javascript: [build/bundle.js]
 css: [build/css/mapbox-gl.css]
 app: true

@@ -1,5 +1,6 @@
 ---
 title: Graduate Diffusion Tutorial
+
 ---
 The graduate diffusion visualization shows where nurses are practicing two years after graduating from a nursing education program. Read below to find out more about how to use the visualization.
 
