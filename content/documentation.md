@@ -126,7 +126,7 @@ The supply model projects the future headcount and FTE of RNs and LPNs from 2018
 **Figure 1: Supply Model for Estimating North Carolina RN and LPN workforce, 2018-2030**
 {{< img alt="Supply model flow chart." src="/images/supplymodel.png">}}
 
-An agent-based microsimulation approach was used to develop the supply model. This approach involves applying many repeated computer simulations of trajectories of _individual_ nurses based on their age, nurse type (RN and LPN), degree (ADN, BSN, LPN), gender, and employment setting (hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities).
+An agent-based microsimulation approach was used to develop the supply model. This approach involves applying many repeated computer simulations of trajectories of _individual_ nurses based on their age, nurse type (RN and LPN), degree (ADN, BSN, LPN), gender, and employment setting (hospital, ambulatory care, nursing home/extended care/assisted living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities).
 
 In-state Training pipeline
 : We modeled the pipeline of North Carolina-educated students who enter licensure after completing their initial nursing education. The nursing workforce pipeline took into account, although did not explicitly model, graduates who do not enter the nursing workforce in North Carolina because they don&#39;t pass the NCLEX, don&#39;t practice nursing or because they leave North Carolina. Licensure data was also used to model the employment settings and geographic locations of new nurse entrants to the workforce.
@@ -163,7 +163,7 @@ The demand model draws on different data sources to model aspects of demand that
 
 ### How were the settings for supply and demand modeling selected?
 
-The final model included the following settings: hospital, ambulatory care, nursing home/extended care/assistive living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities.
+The final model included the following settings: hospital, ambulatory care, nursing home/extended care/assisted living, home health/hospice, public and community health, academic settings, mental health, and correctional facilities.
 
 We originally proposed to include other settings, like inpatient versus outpatient hospital,emergency department, and mental health, based on NC population health needs and the shift of care from inpatient to outpatient settings. However, these settings were not collected after 2013 due to a change in the Nursys data system. We ultimately modeled settings based on Nursys setting definitions after 2014. Additionally, given that we could no longer identify mental health nurses from their employment setting, nurses working in a mental health setting were identified based on their specialty and/or employer.
 

@@ -34,7 +34,7 @@ export default new Map([
                 "value": 6
             },
             {
-                "label": "Nursing Home/Extended Care/Assistive Living",
+                "label": "Nursing Home/Extended Care/Assisted Living",
                 "value": 3
             },
             {
