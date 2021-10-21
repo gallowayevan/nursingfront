@@ -174,7 +174,11 @@
             <div class="notification">An error has occurred.</div>
           {/if}
         {:else}
-          <IntroBlock on:launchTutorial={handleLaunchTutorial} {chartType} />
+          <IntroBlock
+            on:launchTutorial={handleLaunchTutorial}
+            {chartType}
+            {calculation}
+          />
         {/if}
       </div>
     </div>
