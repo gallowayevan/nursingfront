@@ -1,5 +1,6 @@
 <script>
   import { scaleLinear, scaleBand } from "d3-scale";
+  import { color } from "d3-color";
   import { format } from "d3-format";
   import { createEventDispatcher } from "svelte";
 
@@ -62,11 +63,14 @@
       {#each mapYearDataArray as bar}
         <g transform="translate(0 {y(bar[0])})">
           <rect
-            width={Math.abs(x(bar[1].value) - x(0))}
+            width={Math.abs(x(bar[1].value) - x(0)) || 1}
             x={x(Math.min(bar[1].value, 0))}
             height={y.bandwidth()}
             fill={hovered == bar[0] ? hoveredColor : bar[1].fill}
-            stroke-width={hovered == bar[0] ? 3 : 0}
+            stroke-width="1"
+            stroke={color(
+              hovered == bar[0] ? hoveredColor : bar[1].fill
+            ).darker(2)}
             on:mouseenter={() => handleLocationHover(bar[0])}
             on:mouseleave={handleLocationLeave}
           >
@@ -85,7 +89,7 @@
       <g transform="translate(0 {margin.top})">
         {#each x.ticks(5) as tick}
           <g transform="translate({x(tick)} 0)">
-            <line y1="0" y2={height} stroke="#ececec" />
+            <line y1="0" y2={height} stroke={tick === 0 ? "" : "#fff"} />
             <text class="anchor-middle" dy="-5">{tickFormat(tick)}</text>
           </g>
         {/each}

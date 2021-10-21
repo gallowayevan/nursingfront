@@ -10,14 +10,14 @@
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-replace": "^2.3.3",
     "rollup": "^2.3.4",
-    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-svelte": "^6.1.1",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0"
   },
   "dependencies": {
     "array-flat-polyfill": "^1.0.1",
     "d3-array": "^2.4.0",
-    "d3-color": "^1.4.0",
+    "d3-color": "^3.0.1",
     "d3-dsv": "^1.2.0",
     "d3-format": "^1.4.3",
     "d3-geo": "^1.11.9",

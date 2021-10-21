@@ -1,6 +1,7 @@
 <script>
   import { ascending, permute } from "d3-array";
   import { geoPath, geoAlbers } from "d3-geo";
+  import { color as d3color } from "d3-color";
   import { scaleOrdinal, scaleSequential, scaleDiverging } from "d3-scale";
   import { interpolateRdYlBu, interpolateBlues } from "d3-scale-chromatic";
   import { extent } from "d3-array";
@@ -97,6 +98,18 @@
   $: calculation = data.params.find((d) => d[0] === "calculation")[1];
   $: rateOrTotal = data.params.find((d) => d[0] === "rateOrTotal")[1];
 
+  //Need these to be able to lookup parent geography for each county.
+  $: locationCode = data.params.find((d) => d[0] === "locationType")[1];
+  const locationTypeTranslateMap = new Map([
+    [8, "medicaid"],
+    [5, "ahec"],
+    [7, "metro"],
+  ]);
+
+  $: layerMap = new Map(geoJSON.map((d) => [d.name, d]));
+
+  $: locationTypeTranslate = locationTypeTranslateMap.get(locationCode);
+
   const width = 320;
   const height = 160;
   let path;
@@ -108,6 +121,19 @@
       .fitSize([width, height], geoJSON[0].geo);
 
     path = geoPath(projection);
+  }
+
+  function getCountyStroke(feature, hovered, mapYearData) {
+    const parentLocationValue =
+      feature.properties[locationTypeTranslate + "_code"];
+
+    const parentFill =
+      hovered == +parentLocationValue
+        ? hoveredColor
+        : mapYearData.has(+parentLocationValue)
+        ? mapYearData.get(+parentLocationValue).fill
+        : "none";
+    return d3color(parentFill).darker(1);
   }
 
   function handleLocationHover(id) {
@@ -168,12 +194,9 @@
                         : mapYearData.has(+feature.properties.id)
                         ? mapYearData.get(+feature.properties.id).fill
                         : "none"}
-                      stroke-width={layer.name == "county"
-                        ? 1
-                        : mapYearData.has(+feature.properties.id)
-                        ? 2
-                        : 0}
-                      stroke="#333"
+                      stroke={layer.name === "county"
+                        ? getCountyStroke(feature, hovered, mapYearData)
+                        : "none"}
                       style="pointer-events:{mapYearData.has(
                         +feature.properties.id
                       )
@@ -195,6 +218,18 @@
                   {/each}
                 </g>
               {/each}
+              <!-- Overlay of parent layer to get stroke on top -->
+              <g class="parent-overlay">
+                {#each layerMap.get(locationTypeTranslate).geo.features as feature}
+                  <path
+                    class="feature"
+                    fill="none"
+                    stroke-width="2"
+                    stroke="#333"
+                    d={path(feature)}
+                  />
+                {/each}
+              </g>
             {/if}
           </g>
         </svg>
