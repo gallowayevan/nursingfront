@@ -68,14 +68,14 @@
       </span>
       Use the slider below the map to change the year of data. The row chart displays
       the projected values for the selected year. The colors in the map also indicate
-      the projected value. You can see the exact projected values in the table at
-      the bottom. Hovering over any chart/map/table elements highlights the same
-      geography in the other elements.
+      the projected value. You can see the projected values in the table at the bottom.
+      Hovering over any chart/map/table element highlights the same geography in
+      the other elements.
     </p>
     <img
       class="image"
       alt="How to use the map."
-      src="public/images/tutorial/05_map.png"
+      src="public/images/tutorial/map_instructions.png"
     />
   {:else if chartType == "table"}
     <h2>You can create a table.</h2>
