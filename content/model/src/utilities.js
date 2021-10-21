@@ -9,6 +9,15 @@ export function fontColor(bgColor) {
         : "#ffffff";
 }
 
+export function strokeColorContrast(fill) {
+
+    //https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+    const rgb = color(fill).rgb();
+    return rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114 > 186
+        ? rgb.darker(2)
+        : rgb.brighter(2);
+}
+
 export function titleCase(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }

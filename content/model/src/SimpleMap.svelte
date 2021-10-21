@@ -8,7 +8,7 @@
   import RowChart from "./RowChart.svelte";
   import MapTable from "./MapTable.svelte";
   import options from "./data/options.js";
-  import { fontColor } from "./utilities.js";
+  import { fontColor, strokeColorContrast } from "./utilities.js";
 
   export let data;
   export let geoJSON;
@@ -133,7 +133,7 @@
         : mapYearData.has(+parentLocationValue)
         ? mapYearData.get(+parentLocationValue).fill
         : "none";
-    return d3color(parentFill).darker(1);
+    return strokeColorContrast(parentFill);
   }
 
   function handleLocationHover(id) {
