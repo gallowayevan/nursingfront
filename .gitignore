@@ -1,5 +1,5 @@
 node_modules
-public
+/build
 resources
 content/diffusion/build/layers
 content/diffusion/build/exact
