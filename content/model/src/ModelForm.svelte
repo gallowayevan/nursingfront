@@ -288,13 +288,4 @@ of patterns to what sort of data can actually be selected. -->
   <p class="help is-primary">
     You can add multiple projections for comparison!
   </p>
-
-  <hr />
-  <button
-    class="button is-primary is-outlined is-center is-rounded"
-    id="btn"
-    on:click={handleLaunchTutorial}
-  >
-    Launch User Guide
-  </button>
 </form>

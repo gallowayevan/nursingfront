@@ -2,11 +2,12 @@
   export let imageFileName;
 </script>
 
-<div>
+<div class="column is-full">
   <slot />
   <img
     class="image"
     alt="Chart tutorial."
-    src="public/images/tutorial/{imageFileName}" />
+    src="public/images/tutorial/{imageFileName}"
+  />
   <hr />
 </div>

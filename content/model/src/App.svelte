@@ -7,7 +7,7 @@
   import DownloadImage from "./DownloadImage.svelte";
   import IntroBlock from "./IntroBlock.svelte";
   import ButtonRadio from "./ButtonRadio.svelte";
-  import TutorialModal from "./TutorialModal.svelte";
+  import Tutorial from "./Tutorial.svelte";
   import formInfo from "./data/formInfo.js";
   import { onMount } from "svelte";
   import { dataFetch, makeQueryURL } from "./utilities.js";
@@ -25,7 +25,7 @@
   );
   let geoJSON;
   let chartType = "line";
-  let showModal = false;
+
   let projectionStartYear = 2019;
   let calculation = "difference";
 
@@ -35,12 +35,6 @@
   $: console.log(data);
 
   onMount(() => {
-    const tutorialHistory = localStorage.getItem("nurse-model-tutorial");
-    if (tutorialHistory != "seen") {
-      showModal = true;
-      localStorage.setItem("nurse-model-tutorial", "seen");
-    }
-
     dataFetch(`/model/public/maps/ncLayers.json`).then((json) => {
       geoJSON = json;
     });
@@ -92,20 +86,12 @@
     calculation = detail;
   }
 
-  function handleLaunchTutorial() {
-    showModal = true;
-  }
-
   function changeChartType({ detail }) {
     chartType = detail;
   }
 </script>
 
-<section class="section" class:is-clipped={showModal}>
-  <TutorialModal
-    {showModal}
-    on:changeModalState={(e) => (showModal = e.detail)}
-  />
+<section class="section">
   <div class="container" id="main-container">
     <CardRadio
       on:calculationClicked={handleCalculationClick}
@@ -129,7 +115,6 @@
         <ModelForm
           on:showProjection={handleShowProjection}
           on:clearProjections={handleClearData}
-          on:launchTutorial={handleLaunchTutorial}
           {isLoading}
           {calculation}
           {chartType}
@@ -174,13 +159,11 @@
             <div class="notification">An error has occurred.</div>
           {/if}
         {:else}
-          <IntroBlock
-            on:launchTutorial={handleLaunchTutorial}
-            {chartType}
-            {calculation}
-          />
+          <IntroBlock {chartType} {calculation} />
         {/if}
       </div>
     </div>
   </div>
 </section>
+<hr />
+<section class="section"><Tutorial /></section>

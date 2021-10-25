@@ -46,7 +46,9 @@
     class="icon-svg has-fill-primary"
     on:click|stopPropagation={handleIconClick}
     on:keydown|stopPropagation={onKeyDown}
+    role="button"
   >
+    <title>Select to get more information about this option.</title>
     <use xlink:href="#fa-info-circle" class:has-fill-white={invert} />
   </svg>
   {#if active}

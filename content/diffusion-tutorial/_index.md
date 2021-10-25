@@ -32,7 +32,7 @@ You can add another program to the map.
 
 ---
 ## Get more data in the program table.
-Below the map, is a table with additional data about the programs, like the number of nurses who are working in certain settings or who are in a rural county. The table also displays the percentage of graduates who stayed in state. This data is from [NC Tower](https://www.nctower.com). 
+Below the map, is a table with additional data about the programs, like the number of nurses who are working in certain settings or who are in a rural county. The table also displays the percentage of graduates who stayed in state. These data are from [NC Tower](https://www.nctower.com). 
 {{< img src="/images/diffusion-tutorial/03_table.png" alt="Example table of program data." >}}
 
 ---
