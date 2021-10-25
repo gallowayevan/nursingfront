@@ -117,4 +117,8 @@
     padding: 1rem;
     border-radius: 6px;
   }
+
+  img {
+    max-height: 500px;
+  }
 </style>
