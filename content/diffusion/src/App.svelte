@@ -117,7 +117,7 @@
     (2015 - 2018)
   </h1>
   <h2 class="subtitle is-size-6">
-    Eillipses contain approximately 2/3 of each program's graduates.
+    Ellipses contain approximately 2/3 of each program's graduates.
   </h2>
 </div>
 
