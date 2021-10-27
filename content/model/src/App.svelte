@@ -35,9 +35,13 @@
   $: console.log(data);
 
   onMount(() => {
-    dataFetch(`/model/public/maps/ncLayers.json`).then((json) => {
-      geoJSON = json;
-    });
+    dataFetch(`/model/public/maps/ncLayers.json`)
+      .then((json) => {
+        geoJSON = json;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 
   async function getData(type, calc, allParams) {
@@ -53,7 +57,10 @@
         //Trigger change
         data = data;
       })
-      .then(() => {
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
         // setTimeout(() => (isLoading = false), 3000);
         isLoading = false;
       });
