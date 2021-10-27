@@ -20,7 +20,7 @@
       type: "geojson",
       data: layer,
       cluster: true,
-      clusterMaxZoom: 14
+      clusterMaxZoom: 14,
     });
 
     map.addLayer(
@@ -32,8 +32,8 @@
         paint: {
           "circle-color": fill,
           "circle-opacity": opacity,
-          "circle-radius": ["sqrt", ["*", ["get", "point_count"], 32]]
-        }
+          "circle-radius": ["sqrt", ["*", ["get", "point_count"], 32]],
+        },
       },
       "waterway-label"
     );
@@ -52,9 +52,9 @@
             "case",
             [">", ["get", "point_count"], 50],
             ["literal", [0, 1]],
-            ["literal", [0, 0]]
-          ]
-        }
+            ["literal", [0, 0]],
+          ],
+        },
       },
       "waterway-label"
     );
@@ -70,22 +70,30 @@
           "circle-radius": 4,
           "circle-stroke-width": 1,
           "circle-stroke-color": fill,
-          "circle-opacity": opacity
-        }
+          "circle-opacity": opacity,
+        },
       },
       "waterway-label"
     );
   }
 
   onMount(async () => {
-    const resp = await fetch(`build/exact/${layerID}.json`);
-    layer = await resp.json();
+    try {
+      const resp = await fetch(`build/exact/${layerID}.json`);
+      layer = await resp.json();
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 
   onDestroy(() => {
-    map.removeLayer(layerID + "cluster-count");
-    map.removeLayer(layerID + "clusters");
-    map.removeLayer(layerID + "unclustered-point");
-    map.removeSource(layerID + "exact");
+    try {
+      map.removeLayer(layerID + "cluster-count");
+      map.removeLayer(layerID + "clusters");
+      map.removeLayer(layerID + "unclustered-point");
+      map.removeSource(layerID + "exact");
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 </script>

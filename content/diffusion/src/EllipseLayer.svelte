@@ -15,7 +15,7 @@
   $: if (layer) {
     map.addSource(layerID + "ellipse", {
       type: "geojson",
-      data: layer
+      data: layer,
     });
     map.addLayer(
       {
@@ -25,20 +25,28 @@
         layout: {},
         paint: {
           "fill-color": fill,
-          "fill-opacity": 0.5
-        }
+          "fill-opacity": 0.5,
+        },
       },
       "waterway-label"
     );
   }
 
   onMount(async () => {
-    const resp = await fetch(`build/ellipses_14/${layerID}.json`);
-    layer = await resp.json();
+    try {
+      const resp = await fetch(`build/ellipses_14/${layerID}.json`);
+      layer = await resp.json();
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 
   onDestroy(() => {
-    map.removeLayer(layerID + "ellipse");
-    map.removeSource(layerID + "ellipse");
+    try {
+      map.removeLayer(layerID + "ellipse");
+      map.removeSource(layerID + "ellipse");
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 </script>

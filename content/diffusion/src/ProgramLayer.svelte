@@ -18,35 +18,46 @@
   }
 
   onMount(async () => {
-    const resp = await fetch(`build/layers_14/${layerID}.json`);
-    layer = await resp.json();
+    try {
+      const resp = await fetch(`build/layers_14/${layerID}.json`);
+      layer = await resp.json();
 
-    map.addSource(layerID, {
-      type: "geojson",
-      data: layer
-    });
-    map.addLayer(
-      {
-        id: layerID,
-        type: "circle",
-        source: layerID,
-        paint: {
-          "circle-radius": {
-            base: 1.75,
-            stops: [[12, 5], [22, 180]]
+      map.addSource(layerID, {
+        type: "geojson",
+        data: layer,
+      });
+      map.addLayer(
+        {
+          id: layerID,
+          type: "circle",
+          source: layerID,
+          paint: {
+            "circle-radius": {
+              base: 1.75,
+              stops: [
+                [12, 5],
+                [22, 180],
+              ],
+            },
+            "circle-opacity": 0.7,
+            "circle-color": fill,
           },
-          "circle-opacity": 0.7,
-          "circle-color": fill
-        }
-      },
-      "waterway-label"
-    );
+        },
+        "waterway-label"
+      );
 
-    layerLoaded = true;
+      layerLoaded = true;
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 
   onDestroy(() => {
-    map.removeLayer(layerID);
-    map.removeSource(layerID);
+    try {
+      map.removeLayer(layerID);
+      map.removeSource(layerID);
+    } catch (error) {
+      console.error(error.message);
+    }
   });
 </script>
