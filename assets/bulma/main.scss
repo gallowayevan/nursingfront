@@ -11,6 +11,25 @@ $custom-colors: ("secondary": #D9E8FF, "yellowish": #FFD98C);
 
 @import "./bulma.sass";
 
+.content figure figcaption {
+	font-style: normal;
+}
+
+.content figure {
+	text-align: left;
+  display: table;
+}
+
+.content figcaption {
+  display: table-caption;
+  caption-side: top;
+  }
+
+
+
+.data-source {
+font-size:.75em;
+}
 
 
 .has-fill-primary {

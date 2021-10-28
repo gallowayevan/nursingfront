@@ -1,5 +1,3 @@
 ---
 title: Briefs
 ---
-
-Coming soon!
