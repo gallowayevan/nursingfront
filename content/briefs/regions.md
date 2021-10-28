@@ -1,5 +1,5 @@
 ---
-title: NC Nursecast Nurse Workforce Projections by Setting
+title: NC Nursecast Nurse Workforce Projections by Region
 ---
 
 ## RN Shortages by Medicaid Region 
