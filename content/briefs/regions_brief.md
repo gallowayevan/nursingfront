@@ -53,8 +53,8 @@ future projected workforce. Home health/hospice and nursing education
 settings are also projected to have shortfalls relative to the size of
 their projected workforce.
 
-**Table 1. Projected Registered Nurse Workforce Shortages, Northwest
-AHEC Region in 2033 by Setting**
+
+{{< tablewrapper source="Source: NC Nursecast. https://ncnursecast.unc.edu/" title="Table 1. Projected Registered Nurse Workforce Shortages, Northwest AHEC Region in 2033 by Setting">}}
 
 | **Setting**                                | **Difference between Projected Supply/Demand in 2033** | **% Difference between Projected Supply/Demand** |
 |:-------------------------------------------|-------------------------------------------------------:|-------------------------------------------------:|
@@ -67,7 +67,8 @@ AHEC Region in 2033 by Setting**
 | Community and Population Health            | -33                                                    | -3.9%                                            |
 | Mental Health Hospital/Facility            | 6                                                      | 1.0%                                             |
 
-<span class="data-source">Source: NC Nursecast. https://ncnursecast.unc.edu/</span>
+{{< /tablewrapper >}}
+
 
 Examining supply and demand in specific regions and by setting provides
 a more nuanced understanding of future workforce needs in a given
@@ -105,12 +106,9 @@ shortages are in hospitals, but nursing home, extended care and assisted
 living facilities face the greatest shortfalls as a percentage of their
 workforce.
 
-
-**Table 2. Projected Licensed Practical Nurse Workforce in 2033 in
-Piedmont/Triangle Region by Setting**
-
+{{< tablewrapper source="Source: NC Nursecast. https://ncnursecast.unc.edu/" title="Table 2. Projected Licensed Practical Nurse Workforce in 2033 in Piedmont/Triangle Region by Setting">}}
                                     
-<div style="text-align:right; font-weight:700;color: #363636">2033 Workforce Shortage/Surplus </div>
+<div class="has-text-right has-text-weight-bold has-text-dark" >2033 Workforce Shortage/Surplus </div>
 
 |  Setting                                   | (\# of RNs)                     | (% of RNs) | (\# of LPNs) | (% of LPNs) |
 |--------------------------------------------|--------------------------------:|-----------:|-------------:|------------:|
@@ -121,7 +119,7 @@ Piedmont/Triangle Region by Setting**
 | Hospital                                   | **-3,403**                      | -19.7%     | -60          | -43.2%      |
 | Correctional Facility                      | -120                            | -34.1%     | -15          | -14.9%      |
 
-<span class="data-source">Source: NC Nursecast. https://ncnursecast.unc.edu/</span>
+{{< /tablewrapper >}}
 
 
 ## Careful consideration must be given to interpreting forecasts.  

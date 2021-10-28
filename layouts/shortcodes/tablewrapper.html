@@ -1,0 +1,15 @@
+<div class="table-container">
+    {{with .Get "title" | markdownify}}
+    <caption>
+        <h4>{{.}}</h4>
+    </caption>
+    {{end}}
+
+    {{with .Inner | markdownify}}
+    {{.}}
+    {{end}}
+
+    {{with .Get "source" | markdownify}}
+    <span class="is-size-7">{{.}}</span>
+    {{end}}
+</div>
