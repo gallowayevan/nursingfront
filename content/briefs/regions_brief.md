@@ -17,9 +17,9 @@ greatest shortages followed by the Piedmont/Triangle (including
 Raleigh-Durham-Chapel Hill), and finally Southcentral Charlotte. Eastern
 NC is projected to have a balance of supply and demand for RNs.
 
-{{< figurecustom title="Figure 1. RN Shortage/Surplus per 10K Population, All Settings, by Medicaid Region" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" src="/images/regions_brief/image1.png">}}
+{{< figurecustom title="Figure 1. RN Shortage/Surplus per 10K Population, All Settings, by Medicaid Region" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" src="/images/regions_brief/image1.png" alt="A map of North Carolina broken into medicaid regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
 
-{{< figurecustom src="/images/regions_brief/image2.png" title="Figure 2. RN Shortage/Surplus per 10K Population, All Settings, by Metropolitan and Non-Metropolitan Areas" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" >}}
+{{< figurecustom src="/images/regions_brief/image2.png" title="Figure 2. RN Shortage/Surplus per 10K Population, All Settings, by Metropolitan and Non-Metropolitan Areas" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" alt="A map of North Carolina broken into metropolitan and nonmetropolitan regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
 
 ## RN Shortages by AHEC Region
 The nine AHEC regions provide a useful
@@ -38,7 +38,7 @@ Wake and Northwest AHEC areas will face the largest shortages (Figure
 
 
 
-{{< figurecustom src="/images/regions_brief/image3.png" title="Figure 3. RN Shortage/Surplus per 10K Population, All Settings, by AHEC regions" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" >}}
+{{< figurecustom src="/images/regions_brief/image3.png" title="Figure 3. RN Shortage/Surplus per 10K Population, All Settings, by AHEC regions" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" alt="A map of North Carolina broken into AHEC regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
 
 
 
@@ -87,10 +87,10 @@ and non-metropolitan areas (Figure 4). The Western region and
 Piedmont/Triangle Medicaid regions are projected to face the largest
 shortages of LPNs.
 
-{{< figurecustom src="/images/regions_brief/image4.png" title="Figure 4. LPN Shortage/Surplus per 10K Population, All Settings, by Metropolitan and Non-Metropolitan Areas"  source="Source: NC Nursecast. https://ncnursecast.unc.edu/" >}}
+{{< figurecustom src="/images/regions_brief/image4.png" title="Figure 4. LPN Shortage/Surplus per 10K Population, All Settings, by Metropolitan and Non-Metropolitan Areas"  source="Source: NC Nursecast. https://ncnursecast.unc.edu/" alt="A map of North Carolina broken into metropolitan and nonmetropolitan regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
 
 
-{{< figurecustom src="/images/regions_brief/image5.png" title="Figure 5. LPN Shortage/Surplus per 10K Population, All Settings, by Medicaid Region" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" >}}
+{{< figurecustom src="/images/regions_brief/image5.png" title="Figure 5. LPN Shortage/Surplus per 10K Population, All Settings, by Medicaid Region" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" alt="A map of North Carolina broken into medicaid regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
 
 
 ## LPN workforce projections by setting and region
