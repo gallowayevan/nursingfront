@@ -172,13 +172,9 @@ their graduates more broadly across the state.
 | University of North Carolina at Pembroke    |        104 |           77.2% |                     49%    |                     32 |
 | Western Carolina University                 |        250 |           83.6% |                     12%    |                     68 |
        
-{{< tablewrapper >}}
+{{< /tablewrapper >}}
 
-[^1]: Fraher, E., Knapton, A. (2021). Workforce Planning in a
-Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.).
-Human Resources in Healthcare (pp. 429-456). Health Administration
-Press.
 
-[^2]: Association of American Medical Colleges. North Carolina
-Physician Workforce Profile (2018).
-https://www.aamc.org/media/38001/download, accessed October 26, 2021.
+[^1]: Fraher, E., Knapton, A. (2021). Workforce Planning in a Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.). Human Resources in Healthcare (pp. 429-456). Health Administration Press.
+
+[^2]: Association of American Medical Colleges. North Carolina Physician Workforce Profile (2018). https://www.aamc.org/media/38001/download, accessed October 26, 2021.
