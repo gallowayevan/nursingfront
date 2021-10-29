@@ -304,18 +304,10 @@ graduates. The power of NC Nursecast is the ability to see how these
 regional and employment setting differences play out under different
 possible “futures”.
 
-[^1]: Bateman, T., Hobaugh, S., Pridgen, E., Reddy, A. (2021). US
-healthcare labor market. Mercer. Retrieved from:
-https://www.mercer.us/content/dam/mercer/assets/content-images/north-america/united-states/us-healt
-hcare-news/us-2021-healthcare-labor-market-whitepaper.pdf
+[^1]: Bateman, T., Hobaugh, S., Pridgen, E., Reddy, A. (2021). US healthcare labor market. Mercer. Retrieved from: https://www.mercer.us/content/dam/mercer/assets/content-images/north-america/united-states/us-healthcare-news/us-2021-healthcare-labor-market-whitepaper.pdf
 
-[^2]: Auerbach DI, Buerhaus PI, Staiger DO. Registered nurses are
-delaying retirement, a shift that has contributed to recent growth in
-the nurse workforce. Health Aff (Millwood). 2014 Aug;33(8):1474-80. doi:
-10.1377/hlthaff.2014.0128. Epub 2014 Jul 16. PMID: 25031246.
+[^2]: Auerbach DI, Buerhaus PI, Staiger DO. Registered nurses are delaying retirement, a shift that has contributed to recent growth in the nurse workforce. Health Aff (Millwood). 2014 Aug;33(8):1474-80. doi:10.1377/hlthaff.2014.0128. Epub 2014 Jul 16. PMID: 25031246.
 
-[^3]: Fraher, E., Knapton, A. (2021). Workforce Planning in a
-Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.).
-Human Resources in Healthcare (pp. 429-456). Health Administration Press.
+[^3]: Fraher, E., Knapton, A. (2021). Workforce Planning in a Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.). Human Resources in Healthcare (pp. 429-456). Health Administration Press.
 
 [^4]: The New York Times: https://www.nytimes.com/live/2021/02/18/world/covid-19-coronavirus#it-was-like-a-war-call-applications-to-nursing-schools-rose-during-the-pandemic
