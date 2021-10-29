@@ -16,6 +16,11 @@
                 {{.}}
             </p>
             {{end}}
+            {{with .Params.download}}
+            <p class="subtitle has-text-right">
+                <a href="/pdf/{{.}}">Download this brief. (PDF)</a>
+            </p>
+            {{end}}
 
         </div>
     </div>
