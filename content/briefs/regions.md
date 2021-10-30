@@ -10,11 +10,11 @@ region. Almost all of the state’s Medicaid regions will face RN
 shortages in the future except the Southeast, which is projected to see
 a slight surplus of RNs by 2033, likely due to the high retention of
 graduates from local training institutions (Figure 1). Figure 2 shows
-that after adjusting for population size, metropolitan areas will face
-far greater RN shortages than rural areas with the Northwest/Triad
+that, after adjusting for population size, metropolitan areas will face
+far greater RN shortages than rural areas, with the Northwest/Triad
 Medicaid region (including Greensboro and Winston-Salem) facing the
-greatest shortages followed by the Piedmont/Triangle (including
-Raleigh-Durham-Chapel Hill), and finally Southcentral Charlotte. Eastern
+greatest shortages, followed by the Piedmont/Triangle (including
+Raleigh-Durham-Chapel Hill), and, finally, Southcentral/Charlotte. Eastern
 NC is projected to have a balance of supply and demand for RNs.
 
 {{< figurecustom title="Figure 1. RN Shortage/Surplus per 10K Population, All Settings, by Medicaid Region" source="Source: NC Nursecast. https://ncnursecast.unc.edu/" src="/images/regions_brief/image1.png" alt="A map of North Carolina broken into medicaid regions and a row chart where the colors in both indicate the relative shortage and surplus.">}}
@@ -31,9 +31,9 @@ the community colleges and universities where nurses are educated and
 the hospitals and other health care institutions that provide the vast
 majority of their clinical experiences. These factors make the AHEC
 regions particularly helpful in any analysis of nurse workforce trends.
-Not surprisingly, NC Nursecast projects that even after adjusting for
+Not surprisingly, NC Nursecast projects that, even after adjusting for
 population, AHECs with large health care systems and hospitals in the
-Wake and Northwest AHEC areas will face the largest shortages (Figure
+Wake and Northwest AHEC regions will face the largest shortages (Figure
 3).
 
 
@@ -74,7 +74,7 @@ Examining supply and demand in specific regions and by setting provides
 a more nuanced understanding of future workforce needs in a given
 geographic area. For example, while the South East AHEC region is
 forecast to experience a small surplus in nurses overall, two settings
-in SE AHEC face shortages. Home care and hospice faces an RN shortage of
+in South East AHEC face shortages. Home care and hospice faces an RN shortage of
 44 nurses (or 6.7% of its workforce) and nursing home, extended care and
 assisted living facilities face an RN shortage of 83 nurses (or 24.3% of
 its workforce).
@@ -123,10 +123,10 @@ workforce.
 
 
 ## Careful consideration must be given to interpreting forecasts.  
-Despite the power of the NC Nursecast tool to project estimated supply
-and demand in regions, careful consideration must be given when using
-this tool for planning purposes. As explained in the NC Nursecast
-Settings Brief, the forecasts rely on the historical <u>utilization</u>
+Despite the power of the NC Nursecast tool to project region-specific estimated supply
+and demand of nurses, careful consideration must be given when using
+this tool for planning purposes. As explained in the [NC Nursecast Projections by Setting
+brief](/settings), the forecasts rely on the historical <u>utilization</u>
 of LPNs and RNs (per population) in different employment settings by
 region. They do not reflect the number of LPNs and RNs that would
 be <u>needed</u> to fully meet patients’ needs for care or fill position

@@ -9,7 +9,7 @@ Registered Nurses (RNs) and Licensed Practical Nurses (LPNs) in North
 Carolina. NC Nursecast gives policy makers, legislators, educators,
 professional organizations, employers, and other nursing stakeholders
 the data they need to understand and plan for the future. It is built on
-data derived from 2015-2019 NC Board of Nursing licensure files; this
+data derived from 2015-2018 NC Board of Nursing licensure files; this
 rich source of state-specific information about nurse demographics,
 educational institutions, practice locations, and employment settings
 provides a more accurate basis for a North Carolina model than any other
@@ -85,45 +85,34 @@ out-of-state nurses decreases. These scenarios can be compared to the
 and assumes trends in the supply and demand for nurses will remain the
 same in the future.
 
-**Although the effects of COVID on the NC nurse workforce remain unknown
-at this point,** we can simulate how multiple scenarios might combine to
-affect the workforce. Workforce models are often assumed to produce one
-“answer” to the question: will RN and LPN supply meet demand in the
-future for a given employment setting or geographic area?3 However,
-nursing workforce participation patterns, models of care, and other
-factors are likely to change in the future. NC Nursecast was developed
-using data captured before COVID-19 emerged and while we know the
-pandemic will affect nursing supply and demand in the future, these
-effects are not yet well understood.
+**Although the effects of COVID on the NC nurse workforce remain unknown at this point,** 
+we can simulate how multiple scenarios might combine to
+affect the workforce. Nurses may exit the workforce five years earlier than expected due to various reasons including burnout, vaccine mandates, or the rising demand for traveling nurses. NC may face increased competition from other states, reducing our ability to import nurses from outside NC. The state may follow national trends with increased enrollments in pre-licensure nursing programs. If we combine all these effects—nurses exiting the workforce five years earlier + a 10% increase in nurse graduate supply + a 2.5% reduction in out-of-state supply—the net effect is a shortage of over 18,000 Registered Nurses (Figure 1).
 
 
 {{< figurecustom src="/images/overview_brief/image1.png" title="Figure 1. RN Supply and Demand under Baseline Model vs. RNs Exiting Workforce 5 Years Earlier + Out-of-State Supply Reduced by 2.5% + 10% Increase in Nurse Graduate Supply" source="Source: NC Nursecast. https://ncnursecast.unc.edu/model." alt="A line chart with two pairs of lines representing the supply and the demand forecasts for two different projections. The x axis is time (years) and the y axis is number of registered nurses in North Carolina. The supply line is lower for the combination scenario." >}}
 
 ## How can we address future workforce shortages?
- The power of NC
-Nursecast is that it gives policymakers, educators, employers, and other
+ The power of NC Nursecast is that it gives policymakers, educators, employers, and other
 nursing stakeholders easily accessible, usable to understand which
 employment settings and geographies may struggle to meet patient care
 demands in the future.
 
-One common reaction to workforce shortages is to invest in expanding
+One common reaction to workforce shortages is to invest in expanding training program
 enrollments. However, faculty and preceptor shortages in North Carolina,
-along with clinical site availability and physical space capacity, limit
+along with limited clinical site availability and physical space capacity, constrain
 the number of students that can be admitted to nursing programs. Given
 these challenges, NC will not likely be able to dramatically increase
-nurse enrollments. However, even if the state could achieve a 10%
+nursing program enrollments. However, even if the state could achieve a 10%
 increase in new graduate nurse supply, we will still face a shortage of
-over 10,000 nurses in 2033. These findings highlight the importance of
-investing in efforts to retain the current NC nurse workforce rather
-than assuming that growth in the number of nurse graduates will address
-emerging workforce shortfalls.
+over 10,000 nurses in 2033. **These findings highlight the importance of investing in efforts to retain the current NC nurse workforce rather than assuming that growth in the number of nurse graduates will address emerging workforce shortfalls.**
 
 Although increasing nursing program enrollment alone will not solve
 workforce shortages, increasing funding of nursing programs, raising
 faculty wages so they can better compete with clinical salaries, and
 addressing the shortage of preceptors in the state can help increase
 supply. The good news is that investments in nursing programs yield a
-high return-on-investment. Table 1 shows that LPN and ADN programs
+high return on investment. Table 1 shows that LPN and ADN programs
 retain 92% of their graduates and BSN programs retain 86% of graduates
 in North Carolina. By comparison, medical schools in North Carolina
 retain 38% of their graduates in the state.[^2]
@@ -151,7 +140,7 @@ UNC-CH’s graduates to 49% of UNC-Pembroke’s grads. The tool can also be
 used to see which programs are producing graduates for a more local
 versus more regional market. Both UNC-CH and Fayetteville State
 graduates travel an average 20 miles from their program to their first
-practice location while graduates from Appalachian State University,
+practice location, while graduates from Appalachian State University,
 East Carolina, UNC-Wilmington, and Western Carolina University diffuse
 their graduates more broadly across the state.
 
