@@ -1,3 +1,7 @@
+---
+title: Documentation
+---
+
 ## About the Project
 
 NC Nursecast was developed by [The Cecil G. Sheps Center’s](https://www.shepscenter.unc.edu/) [Program on
