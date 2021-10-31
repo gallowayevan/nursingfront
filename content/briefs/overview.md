@@ -48,7 +48,7 @@ of LPNs by 2033. As LPNs leave hospital employment, hospitals will also
 face a large percentage shortfall (31.7%) of LPNs by 2033. More detailed
 information about how the future supply and demand of LPNs and RNs will
 vary by setting is available in our brief: [Nurse Workforce Projections
-by Setting](/settings)
+by Setting](/settings).
 
 ## Which areas of NC will face the greatest shortages?
  A powerful feature of NC Nursecast is the ability to examine workforce forecasts at
