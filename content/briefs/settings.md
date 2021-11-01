@@ -1,5 +1,6 @@
 ---
 title: NC Nursecast Nurse Workforce Projections by Setting
+download: NursecastBrief_Setting_Clean.pdf
 ---
 
 ## Registered Nurse (RN) Supply and Demand.
