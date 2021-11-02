@@ -147,15 +147,15 @@ export default new Map([
             },
             {
                 "value": 56,
-                "label": "Early Exit (2 years early, so everyone retires by 68)"
+                "label": "Early Exit (2 years early, so everyone leaves by 68)"
             },
             {
                 "value": 57,
-                "label": "Early Exit (5 years early, so everyone retires by 65)"
+                "label": "Early Exit (5 years early, so everyone leaves by 65)"
             },
             {
                 "value": 58,
-                "label": "Delayed Exit (delayed by 2 years, but everyone retires by 70)"
+                "label": "Delayed Exit (delayed by 2 years, but everyone leaves by 70)"
             },
             {
                 "value": 59,

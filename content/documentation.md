@@ -228,11 +228,7 @@ of nurses working in this setting, much of which as a result of nurses
 undertaking new roles in ambulatory care rather than an increase in
 total demand for ambulatory care. Therefore, to forecast ambulatory
 demand based on changes in population alone will not reflect the
-expected continued increase in ambulatory care nurses. Following input
-from chief nursing officers and nursing leaders in ambulatory care, it
-was agreed that the model would continue the historical increase in
-ambulatory care nurses until 2025, after which demand is driven by
-population growth in 2025.
+expected continued increase in ambulatory care nurses. Following input from chief nursing officers and nursing leaders in ambulatory care, it was agreed that the model would continue the historical increase in ambulatory care nurses until 2023, between 2023 and 2025 there is a smoothed transition to demand driven by population growth which is used beyond 2025.
 
 Forecasts of future demand were then generated using the population
 forecasts from the NC Office of Budget and Management to model the
