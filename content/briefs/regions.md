@@ -1,6 +1,7 @@
 ---
 title: NC Nursecast Nurse Workforce Projections by Region
 download: NursecastBrief_Region_Clean.pdf
+teaserImage: regions_brief/thumbnails/image3.png
 ---
 
 ## RN Shortages by Medicaid Region 

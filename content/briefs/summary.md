@@ -1,6 +1,7 @@
 ---
 title: NC Nursecast Executive Summary
 download: Nursecast_ExecSummary_2021-11-04_Clean.pdf
+teaserImage: summary_text_thumbnail.png
 ---
 
 ## Introduction

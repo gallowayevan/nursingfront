@@ -1,6 +1,7 @@
 ---
 title: Nurse Workforce Projections under Alternative “What if” Scenarios
 download: NursecastBrief_Scenarios_Clean.pdf
+teaserImage: scenarios_brief/thumbnails/image1.jpg
 ---
 
 ## NC Nursecast's Baseline Model.

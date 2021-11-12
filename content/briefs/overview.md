@@ -1,6 +1,7 @@
 ---
 title: "Overview: Supply and Demand Model and Graduate Diffusion Tool"
 download: NursecastBrief_Overview_Clean.pdf
+teaserImage: overview_brief/thumbnails/image1.jpg
 ---
 
 ## What is NC Nursecast?

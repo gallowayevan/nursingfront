@@ -30,13 +30,28 @@
             {{.Content}}
 
 
-            <ul>
+            <div class="columns is-multiline">
                 {{ range .Pages.Reverse }}
-                <li>
-                    <a href="{{.Permalink}}"> {{.Title}}</a>
-                </li>
+                <div class="column is-one-third thumbnail" data-file-id={{.File.UniqueID}}>
+                    <div class="card" style="height: 100%;">
+                        <div class="card-image">
+                            <a href="{{.RelPermalink}}">
+                                <figure class="image">
+                                    <img loading="lazy" src="/images/{{.Params.teaserImage}}" alt="{{.Title}}">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="card-footer">
+
+                            <p class="card-footer-item subtitle"> <a href="{{.RelPermalink}}">{{.Title}}</a></p>
+
+
+
+                        </div>
+                    </div>
+                </div>
                 {{ end }}
-            </ul>
+            </div>
         </article>
     </div>
     {{with .Params.app}}
