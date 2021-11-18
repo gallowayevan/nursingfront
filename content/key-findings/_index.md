@@ -25,6 +25,8 @@ LPNs
 -   As LPNs leave hospital employment, hospitals will also face a large
     percentage shortfall (31.7%) of LPNs by 2033.
 
+Also see our [brief about employment settings](/briefs/settings).
+
 ## Regional Projections
 
 -   Most regions of the state are projected to face RN shortages except
@@ -39,6 +41,8 @@ LPNs
 
 -   The Mountain AHEC (western NC) and Wake AHEC face the largest LPN
     shortages
+
+Also see our [brief about regional projections](/briefs/regions).
 
 ## NC Nursecast models alternative, "what if" scenarios and how they change the baseline model predictions
 
@@ -82,6 +86,8 @@ Scenarios Likely to Improve or Decrease Nurse Shortage
 > supply, retaining current nurses, and possibly recruiting nurses that
 > have left the workforce to address projected shortages.
 
+Also see our [brief about forecast scenarios](/briefs/scenarios).
+
 **What about COVID?** We do not know the effect that COVID will have on
 the supply and demand of nurses in NC. Reports of burnout, nurses
 shifting to travel positions for higher pay, nurses returning to work,
@@ -93,4 +99,4 @@ enrollment in nursing programs:
 -   The RN shortage worsens from 12,500 to 18,600 by 2033
 -   The LPN shortage worsens from 5,000 to 5,800 by 2033
 
-## For more key findings, read these: 
+## For more key findings, check out our [briefs](/briefs).
