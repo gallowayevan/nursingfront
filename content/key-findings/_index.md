@@ -7,23 +7,22 @@ By 2033, North Carolina faces an estimated shortage of nearly 12,500 registered 
 
 ## Employment Setting Projections
 
-RNs
+**RNs**
 
--   The largest numeric shortfalls for RNs will occur in hospitals where
-    demand will exceed supply by nearly 10,000 positions by 2033.
+-   The largest numeric shortfalls for RNs is projected to occur in hospitals where
+    demand could exceed supply by nearly 10,000 positions by 2033.
 
 -   The second largest projected shortage of RNs in absolute numbers and
-    the largest shortage as the percent of the workforce will occur in
+    the largest shortage as the percent of the workforce is projected to occur in
     nursing home, extended care, and assisted living facilities.
 
-LPNs
+**LPNs**
 
 -   Nursing home, extended care, and assisted living facilities employ
     the greatest number of LPNs and these settings face a nearly 50%
     forecasted shortage of LPNs by 2033.
 
--   As LPNs leave hospital employment, hospitals will also face a large
-    percentage shortfall (31.7%) of LPNs by 2033.
+-   Hospitals also face a large percentage shortfall (31.7%) of LPNs by 2033.
 
 Also see our [brief about employment settings](/briefs/settings).
 
@@ -46,7 +45,7 @@ Also see our [brief about regional projections](/briefs/regions).
 
 ## NC Nursecast models alternative, "what if" scenarios and how they change the baseline model predictions
 
-Scenarios Likely to Increase Nurse Shortage
+**Scenarios Likely to Increase Nurse Shortage**
 
 -   **What if nurses exit the workforce 2 years early?**
 
@@ -66,21 +65,20 @@ Scenarios Likely to Increase Nurse Shortage
 
     -   The shortage worsens to 5,250 LPNs by 2033
 
-Scenarios Likely to Improve or Decrease Nurse Shortage
+**Scenarios Likely to Improve or Decrease Nurse Shortage**
 
 -   **What if nurses remain in the workforce two years longer than
     expected?**
 
     -   The RN shortage improves from 12,500 to 11,500 by 2033
 
-    -   The LPN shortage remains similar from 5,000 to 4,900 by 2033
+    -   The LPN shortage remains similar, going from 5,000 to 4,900 by 2033
 
 -   **What if the number of nurse graduates increases by 10%?**
 
     -   The RN shortage improves slightly from 12,500 to 10,000 by 2033
 
-    -   NC faces a similar shortage of LPNs from 5,000 at the baseline
-        to 4,500 by 2033
+    -   The LPN shortage remains similar, going from 5,000 to 4,500 by 2033
 
 > **Takeaway:** It will require a combination of increasing graduate
 > supply, retaining current nurses, and possibly recruiting nurses that
@@ -92,9 +90,10 @@ Also see our [brief about forecast scenarios](/briefs/scenarios).
 the supply and demand of nurses in NC. Reports of burnout, nurses
 shifting to travel positions for higher pay, nurses returning to work,
 students wanting to become nurses, and other factors will affect future
-nursing supply and demand. If we balance early exits from the nurse
-workforce and increased competition from other states with increased
-enrollment in nursing programs:
+nursing supply and demand. 
+
+In one possible scenario, if we combine early exits from the nurse workforce 
+and increased competition from other states with increased enrollment in nursing programs:
 
 -   The RN shortage worsens from 12,500 to 18,600 by 2033
 -   The LPN shortage worsens from 5,000 to 5,800 by 2033
