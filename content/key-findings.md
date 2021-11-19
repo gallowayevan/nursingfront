@@ -1,5 +1,6 @@
 ---
 title: Key Findings
+download: NursecastBrief_KeyFindings_2021-11-18.pdf
 ---
 
 ## Overarching
