@@ -7,3 +7,4 @@ content/diffusion/build/ellipses
 package-lock.json
 todo.md
 .vscode
+/public
