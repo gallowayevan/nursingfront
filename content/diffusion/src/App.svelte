@@ -159,6 +159,6 @@
 </div>
 <div class="container">
   <article class="message is-size-7">
-    <div class="message-body">Note: {note}</div>
+    <div class="message-body">Note: {note}<br><br>To cite, please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/diffusion</div>
   </article>
 </div>

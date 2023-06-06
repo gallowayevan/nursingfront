@@ -118,3 +118,6 @@ demand could exceed supply by nearly 10,000 positions by 2033.
 | Bachelor of Science in Nursing (BSN) Programs |  86%                |  10%                |
 
 
+{{< /tablewrapper>}}
+
+{{<citation>}}

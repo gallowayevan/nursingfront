@@ -169,3 +169,5 @@ their graduates more broadly across the state.
 [^1]: Fraher, E., Knapton, A. (2021). Workforce Planning in a Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.). Human Resources in Healthcare (pp. 429-456). Health Administration Press.
 
 [^2]: Association of American Medical Colleges. North Carolina Physician Workforce Profile (2018). https://www.aamc.org/media/38001/download, accessed October 26, 2021.
+
+{{<citation>}}

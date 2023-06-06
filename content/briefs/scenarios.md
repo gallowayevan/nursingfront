@@ -312,3 +312,5 @@ possible “futures.”
 [^3]: Fraher, E., Knapton, A. (2021). Workforce Planning in a Rapidly Changing Healthcare System. In C.J. Sampson, B.J Fried (Ed.). Human Resources in Healthcare (pp. 429-456). Health Administration Press.
 
 [^4]: The New York Times: https://www.nytimes.com/live/2021/02/18/world/covid-19-coronavirus#it-was-like-a-war-call-applications-to-nursing-schools-rose-during-the-pandemic
+
+{{<citation>}}

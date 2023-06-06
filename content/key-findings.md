@@ -100,3 +100,5 @@ and increased competition from other states with increased enrollment in nursing
 -   The LPN shortage worsens from 5,000 to 5,800 by 2033
 
 ## For more key findings, check out our [briefs](/briefs).
+
+{{< citation >}}

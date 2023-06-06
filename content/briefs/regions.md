@@ -136,3 +136,5 @@ vacancies. Therefore, if a region is using the tool to make decisions
 about workforce planning, additional research and expert opinions and
 insights are needed to complement NC Nursecast data and adequately
 reflect local trends.
+
+{{<citation>}}

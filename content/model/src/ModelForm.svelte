@@ -286,6 +286,8 @@ of patterns to what sort of data can actually be selected. -->
     {/if}
   </div>
   <p class="help is-primary">
-    You can add multiple projections for comparison!
+    You can add multiple projections for comparison!<br><br>
+    To cite, please include the following:
+The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model/
   </p>
 </form>

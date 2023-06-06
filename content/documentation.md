@@ -453,3 +453,5 @@ degree (an Associate’s Degree in Nursing, or ADN), a diploma in nursing
 four-year postsecondary degree (Bachelor of Science in Nursing, or BSN),
 passed a licensure exam, and completed licensure with a state board of
 nursing.
+
+{{< citation >}}

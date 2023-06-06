@@ -5,6 +5,9 @@
   import { createSVGtext } from "./utilities.js";
   export let chartType;
 
+const citation =   "To cite, please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model"
+
+
   function generateLineChartImage() {
     //Get and prepare non-svg elements for conversion into svg elements
     const div = document.getElementById("line-chart-div");
@@ -188,23 +191,32 @@
     subtitleText.innerHTML = subtitle;
 
     //Source
-    const sourceText = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "text"
-    );
-    sourceText.setAttributeNS(null, "font-size", "12px");
-    sourceText.setAttributeNS(
-      null,
-      "transform",
-      `translate(40,${height - 20})`
-    );
-    sourceText.innerHTML = "See more at " + window.location.href;
+    // const sourceText = document.createElementNS(
+    //   "http://www.w3.org/2000/svg",
+    //   "text"
+    // );
+    // sourceText.setAttributeNS(null, "font-size", "12px");
+    // sourceText.setAttributeNS(
+    //   null,
+    //   "transform",
+    //   `translate(40,${height - 20})`
+    // );
+
+    const citationText = createSVGtext({
+      text: citation,
+      x: 20,
+      y: height - 20,
+      fontSize: 12,
+      maxCharsPerLine: 150,
+    });
+    // sourceText.innerHTML = "See more at " + window.location.href;
 
     //Append elements
     svg.appendChild(titleText);
     svg.appendChild(subtitleText);
     svg.appendChild(tableGroup);
-    svg.appendChild(sourceText);
+    // svg.appendChild(sourceText);
+    svg.appendChild(citationText);
 
     saveSvgAsPng.saveSvgAsPng(svg, "nurse_line_chart.png", {
       backgroundColor: "#fff",
@@ -264,22 +276,30 @@
     });
 
     //Source
-    const sourceText = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "text"
-    );
-    sourceText.setAttributeNS(null, "font-size", "12px");
-    sourceText.setAttributeNS(
-      null,
-      "transform",
-      `translate(40,${height - 20})`
-    );
-    sourceText.innerHTML = "See more at " + window.location.href;
+    // const sourceText = document.createElementNS(
+    //   "http://www.w3.org/2000/svg",
+    //   "text"
+    // );
+    // sourceText.setAttributeNS(null, "font-size", "12px");
+    // sourceText.setAttributeNS(
+    //   null,
+    //   "transform",
+    //   `translate(40,${height - 20})`
+    // );
+    // sourceText.innerHTML = "See more at " + window.location.href;
+    const citationText = createSVGtext({
+      text: citation,
+      x: 20,
+      y: height - 20,
+      fontSize: 12,
+      maxCharsPerLine: 150,
+    });
 
     //Append elements
     svg.appendChild(titleText);
     svg.appendChild(subtitleText);
-    svg.appendChild(sourceText);
+    svg.appendChild(citationText);
+    // svg.appendChild(sourceText);
 
     saveSvgAsPng.saveSvgAsPng(svg, "nurse_projection_map.png", {
       backgroundColor: "#fff",

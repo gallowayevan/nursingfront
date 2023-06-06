@@ -19,7 +19,7 @@
     projectionStartYear - 1
   } are projected based on model parameters. Values from ${
     projectionStartYear - 1
-  } and earlier are based on licensure data.\n`;
+  } and earlier are based on licensure data.\nTo cite please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. NC Nursecast: A Supply and Demand Model for Nurses in North Carolina. November 1 2021. https://ncnursecast.unc.edu/model/\n`;
 
   function makeYearByGroup(callingChart) {
     const groupingVariable = callingChart == "map" ? "location" : "setting";

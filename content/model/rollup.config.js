@@ -28,7 +28,8 @@ export default {
 		}),
 		replace({
 			include: 'src/**',
-			__root__: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" : "http://localhost:8080/data/"
+			//Just have it query production instead of: __root__: production ? "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" : "http://localhost:8080/data/" //Just have it query production
+			__root__: "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/" 
 		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
