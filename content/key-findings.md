@@ -101,4 +101,3 @@ and increased competition from other states with increased enrollment in nursing
 
 ## For more key findings, check out our [briefs](/briefs).
 
-{{< citation >}}

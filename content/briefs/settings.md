@@ -165,4 +165,4 @@ Health Professions Data System (HPDS)](https://nchealthworkforce.unc.edu/interac
 [^3]: “The Nursing Faculty Bottleneck.” Higher Ed Works. July 21, 2021. [Article](https://www.higheredworks.org/2021/07/the-nursing-faculty-bottleneck/) and [video](https://www.youtube.com/watch?v=RJO2ykhp8z0&t=1s).“ NC is paying for neglecting nurses and teachers. It’s about to get worse”. [News & Observer Editorial Board](https://www.newsobserver.com/opinion/article253932103.html). September 3, 2021.
 
 
-{{<citation>}}
+

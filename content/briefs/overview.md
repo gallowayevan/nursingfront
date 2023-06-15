@@ -170,4 +170,4 @@ their graduates more broadly across the state.
 
 [^2]: Association of American Medical Colleges. North Carolina Physician Workforce Profile (2018). https://www.aamc.org/media/38001/download, accessed October 26, 2021.
 
-{{<citation>}}
+
