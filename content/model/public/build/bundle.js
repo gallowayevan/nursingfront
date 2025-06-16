@@ -1,2 +1,19480 @@
-var app=function(){"use strict";function t(){}const e=t=>t;function n(t,e){for(const n in e)t[n]=e[n];return t}function r(t){return t()}function o(){return Object.create(null)}function i(t){t.forEach(r)}function a(t){return"function"==typeof t}function l(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}let s;function c(t,e){return s||(s=document.createElement("a")),s.href=e,t===s.href}function u(e,n,r){e.$$.on_destroy.push(function(e,...n){if(null==e)return t;const r=e.subscribe(...n);return r.unsubscribe?()=>r.unsubscribe():r}(n,r))}function f(t,e,r,o){return t[1]&&o?n(r.ctx.slice(),t[1](o(e))):r.ctx}const d="undefined"!=typeof window;let h=d?()=>window.performance.now():()=>Date.now(),p=d?t=>requestAnimationFrame(t):t;const g=new Set;function m(t){g.forEach(e=>{e.c(t)||(g.delete(e),e.f())}),0!==g.size&&p(m)}function y(t){let e;return 0===g.size&&p(m),{promise:new Promise(n=>{g.add(e={c:t,f:n})}),abort(){g.delete(e)}}}function v(t,e){t.appendChild(e)}function b(t){if(!t)return document;const e=t.getRootNode?t.getRootNode():t.ownerDocument;return e&&e.host?e:t.ownerDocument}function w(t){const e=k("style");return function(t,e){v(t.head||t,e)}(b(t),e),e}function $(t,e,n){t.insertBefore(e,n||null)}function x(t){t.parentNode.removeChild(t)}function S(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}function k(t){return document.createElement(t)}function M(t){return document.createElementNS("http://www.w3.org/2000/svg",t)}function _(t){return document.createTextNode(t)}function N(){return _(" ")}function T(){return _("")}function E(t,e,n,r){return t.addEventListener(e,n,r),()=>t.removeEventListener(e,n,r)}function A(t){return function(e){return e.preventDefault(),t.call(this,e)}}function C(t){return function(e){return e.stopPropagation(),t.call(this,e)}}function j(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function O(t,e){e=""+e,t.wholeText!==e&&(t.data=e)}function L(t,e){t.value=null==e?"":e}function P(t,e,n,r){t.style.setProperty(e,n,r?"important":"")}function R(t,e,n){t.classList[n?"add":"remove"](e)}function H(t,e,n=!1){const r=document.createEvent("CustomEvent");return r.initCustomEvent(t,n,!1,e),r}const D=new Set;let z,B=0;function Y(t,e,n,r,o,i,a,l=0){const s=16.666/r;let c="{\n";for(let t=0;t<=1;t+=s){const r=e+(n-e)*i(t);c+=100*t+`%{${a(r,1-r)}}\n`}const u=c+`100% {${a(n,1-n)}}\n}`,f=`__svelte_${function(t){let e=5381,n=t.length;for(;n--;)e=(e<<5)-e^t.charCodeAt(n);return e>>>0}(u)}_${l}`,d=b(t);D.add(d);const h=d.__svelte_stylesheet||(d.__svelte_stylesheet=w(t).sheet),p=d.__svelte_rules||(d.__svelte_rules={});p[f]||(p[f]=!0,h.insertRule(`@keyframes ${f} ${u}`,h.cssRules.length));const g=t.style.animation||"";return t.style.animation=`${g?g+", ":""}${f} ${r}ms linear ${o}ms 1 both`,B+=1,f}function F(t,e){const n=(t.style.animation||"").split(", "),r=n.filter(e?t=>t.indexOf(e)<0:t=>-1===t.indexOf("__svelte")),o=n.length-r.length;o&&(t.style.animation=r.join(", "),B-=o,B||p(()=>{B||(D.forEach(t=>{const e=t.__svelte_stylesheet;let n=e.cssRules.length;for(;n--;)e.deleteRule(n);t.__svelte_rules={}}),D.clear())}))}function I(t){z=t}function q(){if(!z)throw new Error("Function called outside component initialization");return z}function U(t){q().$$.on_mount.push(t)}function W(){const t=q();return(e,n)=>{const r=t.$$.callbacks[e];if(r){const o=H(e,n);r.slice().forEach(e=>{e.call(t,o)})}}}function G(t,e){const n=t.$$.callbacks[e.type];n&&n.slice().forEach(t=>t.call(this,e))}const V=[],X=[],Z=[],J=[],K=Promise.resolve();let Q=!1;function tt(){Q||(Q=!0,K.then(it))}function et(){return tt(),K}function nt(t){Z.push(t)}let rt=!1;const ot=new Set;function it(){if(!rt){rt=!0;do{for(let t=0;t<V.length;t+=1){const e=V[t];I(e),at(e.$$)}for(I(null),V.length=0;X.length;)X.pop()();for(let t=0;t<Z.length;t+=1){const e=Z[t];ot.has(e)||(ot.add(e),e())}Z.length=0}while(V.length);for(;J.length;)J.pop()();Q=!1,rt=!1,ot.clear()}}function at(t){if(null!==t.fragment){t.update(),i(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(nt)}}let lt;function st(t,e,n){t.dispatchEvent(H(`${e?"intro":"outro"}${n}`))}const ct=new Set;let ut;function ft(){ut={r:0,c:[],p:ut}}function dt(){ut.r||i(ut.c),ut=ut.p}function ht(t,e){t&&t.i&&(ct.delete(t),t.i(e))}function pt(t,e,n,r){if(t&&t.o){if(ct.has(t))return;ct.add(t),ut.c.push(()=>{ct.delete(t),r&&(n&&t.d(1),r())}),t.o(e)}}const gt={duration:0};function mt(n,r,o,l){let s=r(n,o),c=l?0:1,u=null,f=null,d=null;function p(){d&&F(n,d)}function g(t,e){const n=t.b-c;return e*=Math.abs(n),{a:c,b:t.b,d:n,duration:e,start:t.start,end:t.start+e,group:t.group}}function m(r){const{delay:o=0,duration:a=300,easing:l=e,tick:m=t,css:v}=s||gt,b={start:h()+o,b:r};r||(b.group=ut,ut.r+=1),u||f?f=b:(v&&(p(),d=Y(n,c,r,a,o,l,v)),r&&m(0,1),u=g(b,a),nt(()=>st(n,r,"start")),y(t=>{if(f&&t>f.start&&(u=g(f,a),f=null,st(n,u.b,"start"),v&&(p(),d=Y(n,c,u.b,u.duration,0,l,s.css))),u)if(t>=u.end)m(c=u.b,1-c),st(n,u.b,"end"),f||(u.b?p():--u.group.r||i(u.group.c)),u=null;else if(t>=u.start){const e=t-u.start;c=u.a+u.d*l(e/u.duration),m(c,1-c)}return!(!u&&!f)}))}return{run(t){a(s)?(lt||(lt=Promise.resolve(),lt.then(()=>{lt=null})),lt).then(()=>{s=s(),m(t)}):m(t)},end(){p(),u=f=null}}}const yt="undefined"!=typeof window?window:"undefined"!=typeof globalThis?globalThis:global;function vt(t,e){pt(t,1,1,()=>{e.delete(t.key)})}function bt(t,e,n,r,o,i,a,l,s,c,u,f){let d=t.length,h=i.length,p=d;const g={};for(;p--;)g[t[p].key]=p;const m=[],y=new Map,v=new Map;for(p=h;p--;){const t=f(o,i,p),l=n(t);let s=a.get(l);s?r&&s.p(t,e):(s=c(l,t),s.c()),y.set(l,m[p]=s),l in g&&v.set(l,Math.abs(p-g[l]))}const b=new Set,w=new Set;function $(t){ht(t,1),t.m(l,u),a.set(t.key,t),u=t.first,h--}for(;d&&h;){const e=m[h-1],n=t[d-1],r=e.key,o=n.key;e===n?(u=e.first,d--,h--):y.has(o)?!a.has(r)||b.has(r)?$(e):w.has(o)?d--:v.get(r)>v.get(o)?(w.add(r),$(e)):(b.add(o),d--):(s(n,a),d--)}for(;d--;){const e=t[d];y.has(e.key)||s(e,a)}for(;h;)$(m[h-1]);return m}function wt(t,e){const n={},r={},o={$$scope:1};let i=t.length;for(;i--;){const a=t[i],l=e[i];if(l){for(const t in a)t in l||(r[t]=1);for(const t in l)o[t]||(n[t]=l[t],o[t]=1);t[i]=l}else for(const t in a)o[t]=1}for(const t in r)t in n||(n[t]=void 0);return n}function $t(t){return"object"==typeof t&&null!==t?t:{}}function xt(t){t&&t.c()}function St(t,e,n,o){const{fragment:l,on_mount:s,on_destroy:c,after_update:u}=t.$$;l&&l.m(e,n),o||nt(()=>{const e=s.map(r).filter(a);c?c.push(...e):i(e),t.$$.on_mount=[]}),u.forEach(nt)}function kt(t,e){const n=t.$$;null!==n.fragment&&(i(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}function Mt(e,n,r,a,l,s,c,u=[-1]){const f=z;I(e);const d=e.$$={fragment:null,ctx:null,props:s,update:t,not_equal:l,bound:o(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(n.context||(f?f.$$.context:[])),callbacks:o(),dirty:u,skip_bound:!1,root:n.target||f.$$.root};c&&c(d.root);let h=!1;if(d.ctx=r?r(e,n.props||{},(t,n,...r)=>{const o=r.length?r[0]:n;return d.ctx&&l(d.ctx[t],d.ctx[t]=o)&&(!d.skip_bound&&d.bound[t]&&d.bound[t](o),h&&function(t,e){-1===t.$$.dirty[0]&&(V.push(t),tt(),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}(e,t)),n}):[],d.update(),h=!0,i(d.before_update),d.fragment=!!a&&a(d.ctx),n.target){if(n.hydrate){const t=function(t){return Array.from(t.childNodes)}(n.target);d.fragment&&d.fragment.l(t),t.forEach(x)}else d.fragment&&d.fragment.c();n.intro&&ht(e.$$.fragment),St(e,n.target,n.anchor,n.customElement),it()}I(f)}class _t{$destroy(){kt(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){var e;this.$$set&&(e=t,0!==Object.keys(e).length)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}const Nt=[];function Tt(t){return t<.5?4*t*t*t:.5*Math.pow(2*t-2,3)+1}function Et(t){return"[object Date]"===Object.prototype.toString.call(t)}function At(t,e){if(t===e||t!=t)return()=>t;const n=typeof t;if(n!==typeof e||Array.isArray(t)!==Array.isArray(e))throw new Error("Cannot interpolate values of different type");if(Array.isArray(t)){const n=e.map((e,n)=>At(t[n],e));return t=>n.map(e=>e(t))}if("object"===n){if(!t||!e)throw new Error("Object cannot be null");if(Et(t)&&Et(e)){t=t.getTime();const n=(e=e.getTime())-t;return e=>new Date(t+e*n)}const n=Object.keys(e),r={};return n.forEach(n=>{r[n]=At(t[n],e[n])}),t=>{const e={};return n.forEach(n=>{e[n]=r[n](t)}),e}}if("number"===n){const n=e-t;return e=>t+e*n}throw new Error(`Cannot interpolate ${n} values`)}function Ct(r,o={}){const i=function(e,n=t){let r;const o=new Set;function i(t){if(l(e,t)&&(e=t,r)){const t=!Nt.length;for(const t of o)t[1](),Nt.push(t,e);if(t){for(let t=0;t<Nt.length;t+=2)Nt[t][0](Nt[t+1]);Nt.length=0}}}return{set:i,update:function(t){i(t(e))},subscribe:function(a,l=t){const s=[a,l];return o.add(s),1===o.size&&(r=n(i)||t),a(e),()=>{o.delete(s),0===o.size&&(r(),r=null)}}}}(r);let a,s=r;function c(t,l){if(null==r)return i.set(r=t),Promise.resolve();s=t;let c=a,u=!1,{delay:f=0,duration:d=400,easing:p=e,interpolate:g=At}=n(n({},o),l);if(0===d)return c&&(c.abort(),c=null),i.set(r=s),Promise.resolve();const m=h()+f;let v;return a=y(e=>{if(e<m)return!0;u||(v=g(r,t),"function"==typeof d&&(d=d(r,t)),u=!0),c&&(c.abort(),c=null);const n=e-m;return n>d?(i.set(r=t),!1):(i.set(r=v(p(n/d))),!0)}),a.promise}return{set:c,update:(t,e)=>c(t(s,r),e),subscribe:i.subscribe}}function jt(t,e,n){t.prototype=e.prototype=n,n.constructor=t}function Ot(t,e){var n=Object.create(t.prototype);for(var r in e)n[r]=e[r];return n}function Lt(){}var Pt="\\s*([+-]?\\d+)\\s*",Rt="\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",Ht="\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",Dt=/^#([0-9a-f]{3,8})$/,zt=new RegExp("^rgb\\("+[Pt,Pt,Pt]+"\\)$"),Bt=new RegExp("^rgb\\("+[Ht,Ht,Ht]+"\\)$"),Yt=new RegExp("^rgba\\("+[Pt,Pt,Pt,Rt]+"\\)$"),Ft=new RegExp("^rgba\\("+[Ht,Ht,Ht,Rt]+"\\)$"),It=new RegExp("^hsl\\("+[Rt,Ht,Ht]+"\\)$"),qt=new RegExp("^hsla\\("+[Rt,Ht,Ht,Rt]+"\\)$"),Ut={aliceblue:15792383,antiquewhite:16444375,aqua:65535,aquamarine:8388564,azure:15794175,beige:16119260,bisque:16770244,black:0,blanchedalmond:16772045,blue:255,blueviolet:9055202,brown:10824234,burlywood:14596231,cadetblue:6266528,chartreuse:8388352,chocolate:13789470,coral:16744272,cornflowerblue:6591981,cornsilk:16775388,crimson:14423100,cyan:65535,darkblue:139,darkcyan:35723,darkgoldenrod:12092939,darkgray:11119017,darkgreen:25600,darkgrey:11119017,darkkhaki:12433259,darkmagenta:9109643,darkolivegreen:5597999,darkorange:16747520,darkorchid:10040012,darkred:9109504,darksalmon:15308410,darkseagreen:9419919,darkslateblue:4734347,darkslategray:3100495,darkslategrey:3100495,darkturquoise:52945,darkviolet:9699539,deeppink:16716947,deepskyblue:49151,dimgray:6908265,dimgrey:6908265,dodgerblue:2003199,firebrick:11674146,floralwhite:16775920,forestgreen:2263842,fuchsia:16711935,gainsboro:14474460,ghostwhite:16316671,gold:16766720,goldenrod:14329120,gray:8421504,green:32768,greenyellow:11403055,grey:8421504,honeydew:15794160,hotpink:16738740,indianred:13458524,indigo:4915330,ivory:16777200,khaki:15787660,lavender:15132410,lavenderblush:16773365,lawngreen:8190976,lemonchiffon:16775885,lightblue:11393254,lightcoral:15761536,lightcyan:14745599,lightgoldenrodyellow:16448210,lightgray:13882323,lightgreen:9498256,lightgrey:13882323,lightpink:16758465,lightsalmon:16752762,lightseagreen:2142890,lightskyblue:8900346,lightslategray:7833753,lightslategrey:7833753,lightsteelblue:11584734,lightyellow:16777184,lime:65280,limegreen:3329330,linen:16445670,magenta:16711935,maroon:8388608,mediumaquamarine:6737322,mediumblue:205,mediumorchid:12211667,mediumpurple:9662683,mediumseagreen:3978097,mediumslateblue:8087790,mediumspringgreen:64154,mediumturquoise:4772300,mediumvioletred:13047173,midnightblue:1644912,mintcream:16121850,mistyrose:16770273,moccasin:16770229,navajowhite:16768685,navy:128,oldlace:16643558,olive:8421376,olivedrab:7048739,orange:16753920,orangered:16729344,orchid:14315734,palegoldenrod:15657130,palegreen:10025880,paleturquoise:11529966,palevioletred:14381203,papayawhip:16773077,peachpuff:16767673,peru:13468991,pink:16761035,plum:14524637,powderblue:11591910,purple:8388736,rebeccapurple:6697881,red:16711680,rosybrown:12357519,royalblue:4286945,saddlebrown:9127187,salmon:16416882,sandybrown:16032864,seagreen:3050327,seashell:16774638,sienna:10506797,silver:12632256,skyblue:8900331,slateblue:6970061,slategray:7372944,slategrey:7372944,snow:16775930,springgreen:65407,steelblue:4620980,tan:13808780,teal:32896,thistle:14204888,tomato:16737095,turquoise:4251856,violet:15631086,wheat:16113331,white:16777215,whitesmoke:16119285,yellow:16776960,yellowgreen:10145074};function Wt(){return this.rgb().formatHex()}function Gt(){return this.rgb().formatRgb()}function Vt(t){var e,n;return t=(t+"").trim().toLowerCase(),(e=Dt.exec(t))?(n=e[1].length,e=parseInt(e[1],16),6===n?Xt(e):3===n?new Qt(e>>8&15|e>>4&240,e>>4&15|240&e,(15&e)<<4|15&e,1):8===n?Zt(e>>24&255,e>>16&255,e>>8&255,(255&e)/255):4===n?Zt(e>>12&15|e>>8&240,e>>8&15|e>>4&240,e>>4&15|240&e,((15&e)<<4|15&e)/255):null):(e=zt.exec(t))?new Qt(e[1],e[2],e[3],1):(e=Bt.exec(t))?new Qt(255*e[1]/100,255*e[2]/100,255*e[3]/100,1):(e=Yt.exec(t))?Zt(e[1],e[2],e[3],e[4]):(e=Ft.exec(t))?Zt(255*e[1]/100,255*e[2]/100,255*e[3]/100,e[4]):(e=It.exec(t))?re(e[1],e[2]/100,e[3]/100,1):(e=qt.exec(t))?re(e[1],e[2]/100,e[3]/100,e[4]):Ut.hasOwnProperty(t)?Xt(Ut[t]):"transparent"===t?new Qt(NaN,NaN,NaN,0):null}function Xt(t){return new Qt(t>>16&255,t>>8&255,255&t,1)}function Zt(t,e,n,r){return r<=0&&(t=e=n=NaN),new Qt(t,e,n,r)}function Jt(t){return t instanceof Lt||(t=Vt(t)),t?new Qt((t=t.rgb()).r,t.g,t.b,t.opacity):new Qt}function Kt(t,e,n,r){return 1===arguments.length?Jt(t):new Qt(t,e,n,null==r?1:r)}function Qt(t,e,n,r){this.r=+t,this.g=+e,this.b=+n,this.opacity=+r}function te(){return"#"+ne(this.r)+ne(this.g)+ne(this.b)}function ee(){var t=this.opacity;return(1===(t=isNaN(t)?1:Math.max(0,Math.min(1,t)))?"rgb(":"rgba(")+Math.max(0,Math.min(255,Math.round(this.r)||0))+", "+Math.max(0,Math.min(255,Math.round(this.g)||0))+", "+Math.max(0,Math.min(255,Math.round(this.b)||0))+(1===t?")":", "+t+")")}function ne(t){return((t=Math.max(0,Math.min(255,Math.round(t)||0)))<16?"0":"")+t.toString(16)}function re(t,e,n,r){return r<=0?t=e=n=NaN:n<=0||n>=1?t=e=NaN:e<=0&&(t=NaN),new ie(t,e,n,r)}function oe(t){if(t instanceof ie)return new ie(t.h,t.s,t.l,t.opacity);if(t instanceof Lt||(t=Vt(t)),!t)return new ie;if(t instanceof ie)return t;var e=(t=t.rgb()).r/255,n=t.g/255,r=t.b/255,o=Math.min(e,n,r),i=Math.max(e,n,r),a=NaN,l=i-o,s=(i+o)/2;return l?(a=e===i?(n-r)/l+6*(n<r):n===i?(r-e)/l+2:(e-n)/l+4,l/=s<.5?i+o:2-i-o,a*=60):l=s>0&&s<1?0:a,new ie(a,l,s,t.opacity)}function ie(t,e,n,r){this.h=+t,this.s=+e,this.l=+n,this.opacity=+r}function ae(t,e,n){return 255*(t<60?e+(n-e)*t/60:t<180?n:t<240?e+(n-e)*(240-t)/60:e)}function le(t){return function(){return t}}function se(t){return 1==(t=+t)?ce:function(e,n){return n-e?function(t,e,n){return t=Math.pow(t,n),e=Math.pow(e,n)-t,n=1/n,function(r){return Math.pow(t+r*e,n)}}(e,n,t):le(isNaN(e)?n:e)}}function ce(t,e){var n=e-t;return n?function(t,e){return function(n){return t+n*e}}(t,n):le(isNaN(t)?e:t)}jt(Lt,Vt,{copy:function(t){return Object.assign(new this.constructor,this,t)},displayable:function(){return this.rgb().displayable()},hex:Wt,formatHex:Wt,formatHsl:function(){return oe(this).formatHsl()},formatRgb:Gt,toString:Gt}),jt(Qt,Kt,Ot(Lt,{brighter:function(t){return t=null==t?1/.7:Math.pow(1/.7,t),new Qt(this.r*t,this.g*t,this.b*t,this.opacity)},darker:function(t){return t=null==t?.7:Math.pow(.7,t),new Qt(this.r*t,this.g*t,this.b*t,this.opacity)},rgb:function(){return this},displayable:function(){return-.5<=this.r&&this.r<255.5&&-.5<=this.g&&this.g<255.5&&-.5<=this.b&&this.b<255.5&&0<=this.opacity&&this.opacity<=1},hex:te,formatHex:te,formatRgb:ee,toString:ee})),jt(ie,(function(t,e,n,r){return 1===arguments.length?oe(t):new ie(t,e,n,null==r?1:r)}),Ot(Lt,{brighter:function(t){return t=null==t?1/.7:Math.pow(1/.7,t),new ie(this.h,this.s,this.l*t,this.opacity)},darker:function(t){return t=null==t?.7:Math.pow(.7,t),new ie(this.h,this.s,this.l*t,this.opacity)},rgb:function(){var t=this.h%360+360*(this.h<0),e=isNaN(t)||isNaN(this.s)?0:this.s,n=this.l,r=n+(n<.5?n:1-n)*e,o=2*n-r;return new Qt(ae(t>=240?t-240:t+120,o,r),ae(t,o,r),ae(t<120?t+240:t-120,o,r),this.opacity)},displayable:function(){return(0<=this.s&&this.s<=1||isNaN(this.s))&&0<=this.l&&this.l<=1&&0<=this.opacity&&this.opacity<=1},formatHsl:function(){var t=this.opacity;return(1===(t=isNaN(t)?1:Math.max(0,Math.min(1,t)))?"hsl(":"hsla(")+(this.h||0)+", "+100*(this.s||0)+"%, "+100*(this.l||0)+"%"+(1===t?")":", "+t+")")}}));var ue=function t(e){var n=se(e);function r(t,e){var r=n((t=Kt(t)).r,(e=Kt(e)).r),o=n(t.g,e.g),i=n(t.b,e.b),a=ce(t.opacity,e.opacity);return function(e){return t.r=r(e),t.g=o(e),t.b=i(e),t.opacity=a(e),t+""}}return r.gamma=t,r}(1);var fe,de=(fe=function(t){var e=t.length-1;return function(n){var r=n<=0?n=0:n>=1?(n=1,e-1):Math.floor(n*e),o=t[r],i=t[r+1],a=r>0?t[r-1]:2*o-i,l=r<e-1?t[r+2]:2*i-o;return function(t,e,n,r,o){var i=t*t,a=i*t;return((1-3*t+3*i-a)*e+(4-6*i+3*a)*n+(1+3*t+3*i-3*a)*r+a*o)/6}((n-r/e)*e,a,o,i,l)}},function(t){var e,n,r=t.length,o=new Array(r),i=new Array(r),a=new Array(r);for(e=0;e<r;++e)n=Kt(t[e]),o[e]=n.r||0,i[e]=n.g||0,a[e]=n.b||0;return o=fe(o),i=fe(i),a=fe(a),n.opacity=1,function(t){return n.r=o(t),n.g=i(t),n.b=a(t),n+""}});function he(t,e){e||(e=[]);var n,r=t?Math.min(e.length,t.length):0,o=e.slice();return function(i){for(n=0;n<r;++n)o[n]=t[n]*(1-i)+e[n]*i;return o}}function pe(t,e){var n,r=e?e.length:0,o=t?Math.min(r,t.length):0,i=new Array(o),a=new Array(r);for(n=0;n<o;++n)i[n]=$e(t[n],e[n]);for(;n<r;++n)a[n]=e[n];return function(t){for(n=0;n<o;++n)a[n]=i[n](t);return a}}function ge(t,e){var n=new Date;return t=+t,e=+e,function(r){return n.setTime(t*(1-r)+e*r),n}}function me(t,e){return t=+t,e=+e,function(n){return t*(1-n)+e*n}}function ye(t,e){var n,r={},o={};for(n in null!==t&&"object"==typeof t||(t={}),null!==e&&"object"==typeof e||(e={}),e)n in t?r[n]=$e(t[n],e[n]):o[n]=e[n];return function(t){for(n in r)o[n]=r[n](t);return o}}var ve=/[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g,be=new RegExp(ve.source,"g");function we(t,e){var n,r,o,i=ve.lastIndex=be.lastIndex=0,a=-1,l=[],s=[];for(t+="",e+="";(n=ve.exec(t))&&(r=be.exec(e));)(o=r.index)>i&&(o=e.slice(i,o),l[a]?l[a]+=o:l[++a]=o),(n=n[0])===(r=r[0])?l[a]?l[a]+=r:l[++a]=r:(l[++a]=null,s.push({i:a,x:me(n,r)})),i=be.lastIndex;return i<e.length&&(o=e.slice(i),l[a]?l[a]+=o:l[++a]=o),l.length<2?s[0]?function(t){return function(e){return t(e)+""}}(s[0].x):function(t){return function(){return t}}(e):(e=s.length,function(t){for(var n,r=0;r<e;++r)l[(n=s[r]).i]=n.x(t);return l.join("")})}function $e(t,e){var n,r=typeof e;return null==e||"boolean"===r?le(e):("number"===r?me:"string"===r?(n=Vt(e))?(e=n,ue):we:e instanceof Vt?ue:e instanceof Date?ge:function(t){return ArrayBuffer.isView(t)&&!(t instanceof DataView)}(e)?he:Array.isArray(e)?pe:"function"!=typeof e.valueOf&&"function"!=typeof e.toString||isNaN(e)?ye:me)(t,e)}function xe(t,e){return t=+t,e=+e,function(n){return Math.round(t*(1-n)+e*n)}}function Se(t,e){for(var n=0,r=e.length-1,o=e[0],i=new Array(r<0?0:r);n<r;)i[n]=t(o,o=e[++n]);return function(t){var e=Math.max(0,Math.min(r-1,Math.floor(t*=r)));return i[e](t-e)}}function ke(t,{delay:n=0,duration:r=400,easing:o=e}={}){const i=+getComputedStyle(t).opacity;return{delay:n,duration:r,easing:o,css:t=>"opacity: "+t*i}}function Me(e){let n,r,o;return{c(){n=M("g"),r=M("path"),o=M("path"),j(r,"class","lines"),j(r,"fill","none"),j(r,"stroke",e[0]),j(r,"stroke-width",e[3]),j(r,"stroke-dasharray",e[2]),j(r,"d",e[4]),j(o,"class","areas"),j(o,"fill",e[0]),j(o,"opacity",e[1]),j(o,"d",e[5])},m(t,e){$(t,n,e),v(n,r),v(n,o)},p(t,[e]){1&e&&j(r,"stroke",t[0]),8&e&&j(r,"stroke-width",t[3]),4&e&&j(r,"stroke-dasharray",t[2]),16&e&&j(r,"d",t[4]),1&e&&j(o,"fill",t[0]),2&e&&j(o,"opacity",t[1]),32&e&&j(o,"d",t[5])},i:t,o:t,d(t){t&&x(n)}}}function _e(t,e,n){let r,o,{color:i}=e,{linePath:a}=e,{areaPath:l}=e,{areaOpacity:s=.7}=e,{duration:c}=e,{dashArray:f=""}=e,{strokeWidth:d=2}=e;const h={duration:c,easing:Tt,interpolate:we},p=Ct(void 0,h);u(t,p,t=>n(4,r=t));const g=Ct(void 0,h);return u(t,g,t=>n(5,o=t)),t.$$set=t=>{"color"in t&&n(0,i=t.color),"linePath"in t&&n(8,a=t.linePath),"areaPath"in t&&n(9,l=t.areaPath),"areaOpacity"in t&&n(1,s=t.areaOpacity),"duration"in t&&n(10,c=t.duration),"dashArray"in t&&n(2,f=t.dashArray),"strokeWidth"in t&&n(3,d=t.strokeWidth)},t.$$.update=()=>{256&t.$$.dirty&&p.set(a),512&t.$$.dirty&&g.set(l)},[i,s,f,d,r,o,p,g,a,l,c]}class Ne extends _t{constructor(t){super(),Mt(this,t,_e,Me,l,{color:0,linePath:8,areaPath:9,areaOpacity:1,duration:10,dashArray:2,strokeWidth:3})}}function Te(t,e){return t<e?-1:t>e?1:t>=e?0:NaN}function Ee(t){let e=t,n=t;function r(t,e,r,o){for(null==r&&(r=0),null==o&&(o=t.length);r<o;){const i=r+o>>>1;n(t[i],e)<0?r=i+1:o=i}return r}return 1===t.length&&(e=(e,n)=>t(e)-n,n=function(t){return(e,n)=>Te(t(e),n)}(t)),{left:r,center:function(t,n,o,i){null==o&&(o=0),null==i&&(i=t.length);const a=r(t,n,o,i-1);return a>o&&e(t[a-1],n)>-e(t[a],n)?a-1:a},right:function(t,e,r,o){for(null==r&&(r=0),null==o&&(o=t.length);r<o;){const i=r+o>>>1;n(t[i],e)>0?o=i:r=i+1}return r}}}const Ae=Ee(Te).right;Ee((function(t){return null===t?NaN:+t})).center;var Ce=Ae;function je(t,e){return e<t?-1:e>t?1:e>=t?0:NaN}function Oe(t,e){let n,r;if(void 0===e)for(const e of t)null!=e&&(void 0===n?e>=e&&(n=r=e):(n>e&&(n=e),r<e&&(r=e)));else{let o=-1;for(let i of t)null!=(i=e(i,++o,t))&&(void 0===n?i>=i&&(n=r=i):(n>i&&(n=i),r<i&&(r=i)))}return[n,r]}class Le extends Map{constructor(t,e=Re){if(super(),Object.defineProperties(this,{_intern:{value:new Map},_key:{value:e}}),null!=t)for(const[e,n]of t)this.set(e,n)}get(t){return super.get(Pe(this,t))}has(t){return super.has(Pe(this,t))}set(t,e){return super.set(function({_intern:t,_key:e},n){const r=e(n);return t.has(r)?t.get(r):(t.set(r,n),n)}(this,t),e)}delete(t){return super.delete(function({_intern:t,_key:e},n){const r=e(n);t.has(r)&&(n=t.get(n),t.delete(r));return n}(this,t))}}function Pe({_intern:t,_key:e},n){const r=e(n);return t.has(r)?t.get(r):n}function Re(t){return null!==t&&"object"==typeof t?t.valueOf():t}function He(t){return t}function De(t,...e){return ze(t,He,He,e)}function ze(t,e,n,r){return function t(o,i){if(i>=r.length)return n(o);const a=new Le,l=r[i++];let s=-1;for(const t of o){const e=l(t,++s,o),n=a.get(e);n?n.push(t):a.set(e,[t])}for(const[e,n]of a)a.set(e,t(n,i));return e(a)}(t,0)}function Be(t,e){return Array.from(e,e=>t[e])}var Ye=Math.sqrt(50),Fe=Math.sqrt(10),Ie=Math.sqrt(2);function qe(t,e,n){var r=(e-t)/Math.max(0,n),o=Math.floor(Math.log(r)/Math.LN10),i=r/Math.pow(10,o);return o>=0?(i>=Ye?10:i>=Fe?5:i>=Ie?2:1)*Math.pow(10,o):-Math.pow(10,-o)/(i>=Ye?10:i>=Fe?5:i>=Ie?2:1)}function Ue(t,e){let n;if(void 0===e)for(const e of t)null!=e&&(n<e||void 0===n&&e>=e)&&(n=e);else{let r=-1;for(let o of t)null!=(o=e(o,++r,t))&&(n<o||void 0===n&&o>=o)&&(n=o)}return n}function We(t,e){let n=0,r=0;if(void 0===e)for(let e of t)null!=e&&(e=+e)>=e&&(++n,r+=e);else{let o=-1;for(let i of t)null!=(i=e(i,++o,t))&&(i=+i)>=i&&(++n,r+=i)}if(n)return r/n}function Ge(t,e,n){t=+t,e=+e,n=(o=arguments.length)<2?(e=t,t=0,1):o<3?1:+n;for(var r=-1,o=0|Math.max(0,Math.ceil((e-t)/n)),i=new Array(o);++r<o;)i[r]=t+r*n;return i}var Ve=new Map([{options:[{label:"All Settings (Combined)",value:0},{label:"All Settings (Separately)",value:-9},{label:"Ambulatory Care",value:2},{label:"Correctional Facility",value:8},{label:"Home Health/Hospice",value:4},{label:"Hospital",value:1},{label:"Mental Health Hospital/Facility",value:7},{label:"Nursing Education",value:6},{label:"Nursing Home/Extended Care/Assisted Living",value:3},{label:"Community and Population Health",value:5}],label:"Setting",name:"setting"},{options:[{value:0,label:"State"},{value:8,label:"Medicaid Region"},{value:5,label:"AHEC"},{value:7,label:"Metro/Nonmetro"}],label:"Location Type",name:"locationType"},{options:[{value:"difference",label:"Supply - Demand"},{value:"percentage",label:"% Surplus or Shortage"},{value:"supply",label:"Supply"},{value:"demand",label:"Demand"}],label:"Calculation",name:"calculation"},{options:[{value:0,label:"All NC"},{value:800,label:"Western NC (1)"},{value:801,label:"Northwest / Triad (2)"},{value:802,label:"Southcentral / Charlotte (3)"},{value:803,label:"Piedmont / Triangle (4)"},{value:804,label:"Southeast / Wilmington (5)"},{value:805,label:"Eastern NC (6)"},{value:500,label:"Area L"},{value:501,label:"Charlotte AHEC"},{value:503,label:"Eastern"},{value:504,label:"Greensboro"},{value:505,label:"Mountain"},{value:506,label:"Northwest"},{value:502,label:"South East"},{value:507,label:"Southern Regional"},{value:508,label:"Wake AHEC"},{value:700,label:"Metropolitan"},{value:701,label:"Nonmetropolitan"}],label:"Location",name:"location"},{options:[{value:52,label:"Baseline Supply"},{value:56,label:"Early Exit (2 years early, so everyone leaves by 68)"},{value:57,label:"Early Exit (5 years early, so everyone leaves by 65)"},{value:58,label:"Delayed Exit (delayed by 2 years, but everyone leaves by 70)"},{value:59,label:"Reduction in Out-of-State Supply by 2.5%"},{value:62,label:"10% Increase in Graduate Supply"},{value:71,label:"Early Exit (5 years) & 10% Increase in Graduates & 2.5% Reduction in Out-of-State"}],label:"Supply Scenario",name:"supplyScenario"},{options:[{value:1,label:"Baseline Demand"}],label:"Demand Scenario",name:"demandScenario"},{options:[{value:0,label:"LPN & RN"},{value:1,label:"LPN"},{value:2,label:"RN"}],name:"type",label:"Nurse Type"},{options:[{value:0,label:"All Education"},{value:4,label:"BS & MS"},{value:5,label:"ADN & Diploma"}],name:"education",label:"Education"},{options:[{value:0,label:"Rate per 10K population"},{value:1,label:"Total"}],name:"rateOrTotal",label:"Rate Or Total"},{options:[{value:0,label:"Headcount"},{value:1,label:"FTE"}],name:"fteOrHeadcount",label:"FTE or Headcount"}].map(t=>[t.name,Object.assign({optionsMap:new Map(t.options.map(t=>[t.value,t.label]))},t)]));function Xe(t,e,n){t.prototype=e.prototype=n,n.constructor=t}function Ze(t,e){var n=Object.create(t.prototype);for(var r in e)n[r]=e[r];return n}function Je(){}var Ke="\\s*([+-]?\\d+)\\s*",Qe="\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",tn="\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",en=/^#([0-9a-f]{3,8})$/,nn=new RegExp("^rgb\\("+[Ke,Ke,Ke]+"\\)$"),rn=new RegExp("^rgb\\("+[tn,tn,tn]+"\\)$"),on=new RegExp("^rgba\\("+[Ke,Ke,Ke,Qe]+"\\)$"),an=new RegExp("^rgba\\("+[tn,tn,tn,Qe]+"\\)$"),ln=new RegExp("^hsl\\("+[Qe,tn,tn]+"\\)$"),sn=new RegExp("^hsla\\("+[Qe,tn,tn,Qe]+"\\)$"),cn={aliceblue:15792383,antiquewhite:16444375,aqua:65535,aquamarine:8388564,azure:15794175,beige:16119260,bisque:16770244,black:0,blanchedalmond:16772045,blue:255,blueviolet:9055202,brown:10824234,burlywood:14596231,cadetblue:6266528,chartreuse:8388352,chocolate:13789470,coral:16744272,cornflowerblue:6591981,cornsilk:16775388,crimson:14423100,cyan:65535,darkblue:139,darkcyan:35723,darkgoldenrod:12092939,darkgray:11119017,darkgreen:25600,darkgrey:11119017,darkkhaki:12433259,darkmagenta:9109643,darkolivegreen:5597999,darkorange:16747520,darkorchid:10040012,darkred:9109504,darksalmon:15308410,darkseagreen:9419919,darkslateblue:4734347,darkslategray:3100495,darkslategrey:3100495,darkturquoise:52945,darkviolet:9699539,deeppink:16716947,deepskyblue:49151,dimgray:6908265,dimgrey:6908265,dodgerblue:2003199,firebrick:11674146,floralwhite:16775920,forestgreen:2263842,fuchsia:16711935,gainsboro:14474460,ghostwhite:16316671,gold:16766720,goldenrod:14329120,gray:8421504,green:32768,greenyellow:11403055,grey:8421504,honeydew:15794160,hotpink:16738740,indianred:13458524,indigo:4915330,ivory:16777200,khaki:15787660,lavender:15132410,lavenderblush:16773365,lawngreen:8190976,lemonchiffon:16775885,lightblue:11393254,lightcoral:15761536,lightcyan:14745599,lightgoldenrodyellow:16448210,lightgray:13882323,lightgreen:9498256,lightgrey:13882323,lightpink:16758465,lightsalmon:16752762,lightseagreen:2142890,lightskyblue:8900346,lightslategray:7833753,lightslategrey:7833753,lightsteelblue:11584734,lightyellow:16777184,lime:65280,limegreen:3329330,linen:16445670,magenta:16711935,maroon:8388608,mediumaquamarine:6737322,mediumblue:205,mediumorchid:12211667,mediumpurple:9662683,mediumseagreen:3978097,mediumslateblue:8087790,mediumspringgreen:64154,mediumturquoise:4772300,mediumvioletred:13047173,midnightblue:1644912,mintcream:16121850,mistyrose:16770273,moccasin:16770229,navajowhite:16768685,navy:128,oldlace:16643558,olive:8421376,olivedrab:7048739,orange:16753920,orangered:16729344,orchid:14315734,palegoldenrod:15657130,palegreen:10025880,paleturquoise:11529966,palevioletred:14381203,papayawhip:16773077,peachpuff:16767673,peru:13468991,pink:16761035,plum:14524637,powderblue:11591910,purple:8388736,rebeccapurple:6697881,red:16711680,rosybrown:12357519,royalblue:4286945,saddlebrown:9127187,salmon:16416882,sandybrown:16032864,seagreen:3050327,seashell:16774638,sienna:10506797,silver:12632256,skyblue:8900331,slateblue:6970061,slategray:7372944,slategrey:7372944,snow:16775930,springgreen:65407,steelblue:4620980,tan:13808780,teal:32896,thistle:14204888,tomato:16737095,turquoise:4251856,violet:15631086,wheat:16113331,white:16777215,whitesmoke:16119285,yellow:16776960,yellowgreen:10145074};function un(){return this.rgb().formatHex()}function fn(){return this.rgb().formatRgb()}function dn(t){var e,n;return t=(t+"").trim().toLowerCase(),(e=en.exec(t))?(n=e[1].length,e=parseInt(e[1],16),6===n?hn(e):3===n?new mn(e>>8&15|e>>4&240,e>>4&15|240&e,(15&e)<<4|15&e,1):8===n?pn(e>>24&255,e>>16&255,e>>8&255,(255&e)/255):4===n?pn(e>>12&15|e>>8&240,e>>8&15|e>>4&240,e>>4&15|240&e,((15&e)<<4|15&e)/255):null):(e=nn.exec(t))?new mn(e[1],e[2],e[3],1):(e=rn.exec(t))?new mn(255*e[1]/100,255*e[2]/100,255*e[3]/100,1):(e=on.exec(t))?pn(e[1],e[2],e[3],e[4]):(e=an.exec(t))?pn(255*e[1]/100,255*e[2]/100,255*e[3]/100,e[4]):(e=ln.exec(t))?wn(e[1],e[2]/100,e[3]/100,1):(e=sn.exec(t))?wn(e[1],e[2]/100,e[3]/100,e[4]):cn.hasOwnProperty(t)?hn(cn[t]):"transparent"===t?new mn(NaN,NaN,NaN,0):null}function hn(t){return new mn(t>>16&255,t>>8&255,255&t,1)}function pn(t,e,n,r){return r<=0&&(t=e=n=NaN),new mn(t,e,n,r)}function gn(t){return t instanceof Je||(t=dn(t)),t?new mn((t=t.rgb()).r,t.g,t.b,t.opacity):new mn}function mn(t,e,n,r){this.r=+t,this.g=+e,this.b=+n,this.opacity=+r}function yn(){return"#"+bn(this.r)+bn(this.g)+bn(this.b)}function vn(){var t=this.opacity;return(1===(t=isNaN(t)?1:Math.max(0,Math.min(1,t)))?"rgb(":"rgba(")+Math.max(0,Math.min(255,Math.round(this.r)||0))+", "+Math.max(0,Math.min(255,Math.round(this.g)||0))+", "+Math.max(0,Math.min(255,Math.round(this.b)||0))+(1===t?")":", "+t+")")}function bn(t){return((t=Math.max(0,Math.min(255,Math.round(t)||0)))<16?"0":"")+t.toString(16)}function wn(t,e,n,r){return r<=0?t=e=n=NaN:n<=0||n>=1?t=e=NaN:e<=0&&(t=NaN),new xn(t,e,n,r)}function $n(t){if(t instanceof xn)return new xn(t.h,t.s,t.l,t.opacity);if(t instanceof Je||(t=dn(t)),!t)return new xn;if(t instanceof xn)return t;var e=(t=t.rgb()).r/255,n=t.g/255,r=t.b/255,o=Math.min(e,n,r),i=Math.max(e,n,r),a=NaN,l=i-o,s=(i+o)/2;return l?(a=e===i?(n-r)/l+6*(n<r):n===i?(r-e)/l+2:(e-n)/l+4,l/=s<.5?i+o:2-i-o,a*=60):l=s>0&&s<1?0:a,new xn(a,l,s,t.opacity)}function xn(t,e,n,r){this.h=+t,this.s=+e,this.l=+n,this.opacity=+r}function Sn(t,e,n){return 255*(t<60?e+(n-e)*t/60:t<180?n:t<240?e+(n-e)*(240-t)/60:e)}function kn(t){const e=dn(t).rgb();return.299*e.r+.587*e.g+.114*e.b>186?"#000000":"#ffffff"}function Mn(t){const e=dn(t).rgb();return.299*e.r+.587*e.g+.114*e.b>186?e.darker(2):e.brighter(2)}function _n(t=1){return e=>t?Math.round(e).toLocaleString():e.toLocaleString(void 0,{minimumSignificantDigits:3,maximumSignificantDigits:3})}async function Nn(t){return await fetch(t).then(t=>{if(!t.ok)throw new Error("Network response was not ok");return t.json()}).then(t=>{if(0==t.length)throw new Error("No data.");return t}).catch(t=>{console.error("There has been a problem with your fetch operation:",t)})}Xe(Je,dn,{copy:function(t){return Object.assign(new this.constructor,this,t)},displayable:function(){return this.rgb().displayable()},hex:un,formatHex:un,formatHsl:function(){return $n(this).formatHsl()},formatRgb:fn,toString:fn}),Xe(mn,(function(t,e,n,r){return 1===arguments.length?gn(t):new mn(t,e,n,null==r?1:r)}),Ze(Je,{brighter:function(t){return t=null==t?1/.7:Math.pow(1/.7,t),new mn(this.r*t,this.g*t,this.b*t,this.opacity)},darker:function(t){return t=null==t?.7:Math.pow(.7,t),new mn(this.r*t,this.g*t,this.b*t,this.opacity)},rgb:function(){return this},displayable:function(){return-.5<=this.r&&this.r<255.5&&-.5<=this.g&&this.g<255.5&&-.5<=this.b&&this.b<255.5&&0<=this.opacity&&this.opacity<=1},hex:yn,formatHex:yn,formatRgb:vn,toString:vn})),Xe(xn,(function(t,e,n,r){return 1===arguments.length?$n(t):new xn(t,e,n,null==r?1:r)}),Ze(Je,{brighter:function(t){return t=null==t?1/.7:Math.pow(1/.7,t),new xn(this.h,this.s,this.l*t,this.opacity)},darker:function(t){return t=null==t?.7:Math.pow(.7,t),new xn(this.h,this.s,this.l*t,this.opacity)},rgb:function(){var t=this.h%360+360*(this.h<0),e=isNaN(t)||isNaN(this.s)?0:this.s,n=this.l,r=n+(n<.5?n:1-n)*e,o=2*n-r;return new mn(Sn(t>=240?t-240:t+120,o,r),Sn(t,o,r),Sn(t<120?t+240:t-120,o,r),this.opacity)},displayable:function(){return(0<=this.s&&this.s<=1||isNaN(this.s))&&0<=this.l&&this.l<=1&&0<=this.opacity&&this.opacity<=1},formatHsl:function(){var t=this.opacity;return(1===(t=isNaN(t)?1:Math.max(0,Math.min(1,t)))?"hsl(":"hsla(")+(this.h||0)+", "+100*(this.s||0)+"%, "+100*(this.l||0)+"%"+(1===t?")":", "+t+")")}}));function Tn(t={}){let{text:e,x:n=0,y:r=0,fontSize:o=14,fill:i="#333",textAnchor:a="left",maxCharsPerLine:l=65,lineHeight:s=1.3}=t;"string"==typeof t&&(e=t);let c=document.createElementNS("http://www.w3.org/2000/svg","text");c.setAttributeNS(null,"x",n),c.setAttributeNS(null,"y",r),c.setAttributeNS(null,"font-size",o),c.setAttributeNS(null,"fill",i),c.setAttributeNS(null,"text-anchor",a);let u,f=e.trim().split(/\s+/).reverse(),d=0,h=[];for(;u=f.pop();){if(h.push(u),h.join(" ").length>l){h.pop();let t=document.createElementNS("http://www.w3.org/2000/svg","tspan");t.setAttributeNS(null,"x",n),t.setAttributeNS(null,"dy",d+"em");let e=document.createTextNode(h.join(" "));t.appendChild(e),c.appendChild(t),h=[u],d=s}}let p=document.createElementNS("http://www.w3.org/2000/svg","tspan");p.setAttributeNS(null,"x",n),p.setAttributeNS(null,"dy",d+"em");let g=document.createTextNode(h.join(" "));return p.appendChild(g),c.appendChild(p),c}function En(t,e,n){const r=t.slice();return r[6]=e[n],r}function An(t,e,n){const r=t.slice();return r[9]=e[n],r}function Cn(t,e,n){const r=t.slice();return r[9]=e[n],r}function jn(t){let e,n,r=Ve.get(t[9]).label+"";return{c(){e=k("th"),n=_(r)},m(t,r){$(t,e,r),v(e,n)},p(t,e){4&e&&r!==(r=Ve.get(t[9]).label+"")&&O(n,r)},d(t){t&&x(e)}}}function On(t){let e,n,r=Ve.get(t[9]).optionsMap.get(t[6].paramsMap.get(t[9]))+"";return{c(){e=k("td"),n=_(r),R(e,"has-text-weight-bold",t[0].get(t[9])),R(e,"has-text-black-bis",t[0].get(t[9]))},m(t,r){$(t,e,r),v(e,n)},p(t,o){6&o&&r!==(r=Ve.get(t[9]).optionsMap.get(t[6].paramsMap.get(t[9]))+"")&&O(n,r),5&o&&R(e,"has-text-weight-bold",t[0].get(t[9])),5&o&&R(e,"has-text-black-bis",t[0].get(t[9]))},d(t){t&&x(e)}}}function Ln(t){let e,n,r,o,i,a,l,s,c=t[2],u=[];for(let e=0;e<c.length;e+=1)u[e]=On(An(t,c,e));return{c(){e=k("tr"),n=k("td"),r=k("button"),i=N();for(let t=0;t<u.length;t+=1)u[t].c();a=N(),j(r,"class","delete"),j(r,"data-id",o=t[6].id),j(r,"aria-label","delete"),P(n,"background-color",t[6].color),P(n,"vertical-align","middle")},m(o,c){$(o,e,c),v(e,n),v(n,r),v(e,i);for(let t=0;t<u.length;t+=1)u[t].m(e,null);v(e,a),l||(s=E(r,"click",t[3]),l=!0)},p(t,i){if(2&i&&o!==(o=t[6].id)&&j(r,"data-id",o),2&i&&P(n,"background-color",t[6].color),7&i){let n;for(c=t[2],n=0;n<c.length;n+=1){const r=An(t,c,n);u[n]?u[n].p(r,i):(u[n]=On(r),u[n].c(),u[n].m(e,a))}for(;n<u.length;n+=1)u[n].d(1);u.length=c.length}},d(t){t&&x(e),S(u,t),l=!1,s()}}}function Pn(e){let n,r,o,i,a,l,s,c,u=e[2],f=[];for(let t=0;t<u.length;t+=1)f[t]=jn(Cn(e,u,t));let d=e[1],h=[];for(let t=0;t<d.length;t+=1)h[t]=Ln(En(e,d,t));return{c(){n=k("div"),r=k("table"),o=k("thead"),i=k("tr"),a=k("th"),l=N();for(let t=0;t<f.length;t+=1)f[t].c();s=N(),c=k("tbody");for(let t=0;t<h.length;t+=1)h[t].c();j(r,"class","table is-narrow"),j(r,"id","line-chart-table"),j(n,"class","table-container")},m(t,e){$(t,n,e),v(n,r),v(r,o),v(o,i),v(i,a),v(i,l);for(let t=0;t<f.length;t+=1)f[t].m(i,null);v(r,s),v(r,c);for(let t=0;t<h.length;t+=1)h[t].m(c,null)},p(t,[e]){if(4&e){let n;for(u=t[2],n=0;n<u.length;n+=1){const r=Cn(t,u,n);f[n]?f[n].p(r,e):(f[n]=jn(r),f[n].c(),f[n].m(i,null))}for(;n<f.length;n+=1)f[n].d(1);f.length=u.length}if(15&e){let n;for(d=t[1],n=0;n<d.length;n+=1){const r=En(t,d,n);h[n]?h[n].p(r,e):(h[n]=Ln(r),h[n].c(),h[n].m(c,null))}for(;n<h.length;n+=1)h[n].d(1);h.length=d.length}},i:t,o:t,d(t){t&&x(n),S(f,t),S(h,t)}}}function Rn(t,e,n){let r,o,i;const a=W();let{legendData:l}=e;return t.$$set=t=>{"legendData"in t&&n(4,l=t.legendData)},t.$$.update=()=>{16&t.$$.dirty&&n(2,r=["type","education","rateOrTotal","fteOrHeadcount","location","setting",...l[0].params.filter(t=>t[0].includes("Scenario")).map(t=>t[0])]),16&t.$$.dirty&&n(1,o=l.map(t=>Object.assign({paramsMap:new Map(t.params)},t))),16&t.$$.dirty&&n(0,i=function(t,e,...n){return ze(t,He,e,n)}(l.map(t=>t.params).flat(),t=>new Set(t.map(t=>t[1])).size>1,t=>t[0]))},[i,o,r,function(t){a("deleteProjection",t.target.getAttribute("data-id"))},l]}!function(t,e){e=null==e?t.length-1:+e}((function(t,e,n){return setTimeout((function(){return t.apply(null,n)}),e)}));class Hn extends _t{constructor(t){super(),Mt(this,t,Rn,Pn,l,{legendData:4})}}function Dn(t,e,n){const r=t.slice();return r[1]=e[n].supplyMean,r[2]=e[n].demandMean,r[3]=e[n].value,r[4]=e[n].color,r[5]=e[n].rateOrTotal,r[6]=e[n].percentage,r[7]=e[n].difference,r}function zn(t){let e,n,r,o,i,a,l,s,c,u,f,d,h,p=_n(t[5])(t[1])+"",g=_n(t[5])(t[2])+"",m=_n(t[5])(void 0===t[7]?t[3]:t[7])+"",y=(void 0===t[6]?t[3]:t[6]).toLocaleString(void 0,{style:"percent",maximumFractionDigits:1})+"";return{c(){e=k("tr"),n=k("td"),r=_(p),o=N(),i=k("td"),a=_(g),l=N(),s=k("td"),c=_(m),u=N(),f=k("td"),d=_(y),h=N(),P(n,"color",t[4]),P(n,"text-align","right"),j(n,"class","svelte-1rn85a9"),P(i,"color",t[4]),P(i,"text-align","right"),j(i,"class","svelte-1rn85a9"),P(s,"color",t[4]),P(s,"text-align","right"),j(s,"class","svelte-1rn85a9"),P(f,"color",t[4]),P(f,"text-align","right"),j(f,"class","svelte-1rn85a9")},m(t,p){$(t,e,p),v(e,n),v(n,r),v(e,o),v(e,i),v(i,a),v(e,l),v(e,s),v(s,c),v(e,u),v(e,f),v(f,d),v(e,h)},p(t,e){1&e&&p!==(p=_n(t[5])(t[1])+"")&&O(r,p),1&e&&P(n,"color",t[4]),1&e&&g!==(g=_n(t[5])(t[2])+"")&&O(a,g),1&e&&P(i,"color",t[4]),1&e&&m!==(m=_n(t[5])(void 0===t[7]?t[3]:t[7])+"")&&O(c,m),1&e&&P(s,"color",t[4]),1&e&&y!==(y=(void 0===t[6]?t[3]:t[6]).toLocaleString(void 0,{style:"percent",maximumFractionDigits:1})+"")&&O(d,y),1&e&&P(f,"color",t[4])},d(t){t&&x(e)}}}function Bn(e){let n,r,o,i,a,l=e[0],s=[];for(let t=0;t<l.length;t+=1)s[t]=zn(Dn(e,l,t));return{c(){n=k("div"),r=k("table"),o=k("thead"),o.innerHTML='<tr><th style="text-align:right;">Supply</th> \n        <th style="text-align:right;">Demand</th> \n        <th style="text-align:right;">Difference</th> \n        <th style="text-align:right;">%</th></tr>',i=N(),a=k("tbody");for(let t=0;t<s.length;t+=1)s[t].c();j(r,"class","table is-narrow"),j(n,"class","table-container")},m(t,e){$(t,n,e),v(n,r),v(r,o),v(r,i),v(r,a);for(let t=0;t<s.length;t+=1)s[t].m(a,null)},p(t,[e]){if(1&e){let n;for(l=t[0],n=0;n<l.length;n+=1){const r=Dn(t,l,n);s[n]?s[n].p(r,e):(s[n]=zn(r),s[n].c(),s[n].m(a,null))}for(;n<s.length;n+=1)s[n].d(1);s.length=l.length}},i:t,o:t,d(t){t&&x(n),S(s,t)}}}function Yn(t,e,n){let{rows:r}=e;return t.$$set=t=>{"rows"in t&&n(0,r=t.rows)},[r]}class Fn extends _t{constructor(t){super(),Mt(this,t,Yn,Bn,l,{rows:0})}}function In(t,e){switch(arguments.length){case 0:break;case 1:this.range(t);break;default:this.range(e).domain(t)}return this}function qn(t,e){switch(arguments.length){case 0:break;case 1:"function"==typeof t?this.interpolator(t):this.range(t);break;default:this.domain(t),"function"==typeof e?this.interpolator(e):this.range(e)}return this}const Un=Symbol("implicit");function Wn(){var t=new Map,e=[],n=[],r=Un;function o(o){var i=o+"",a=t.get(i);if(!a){if(r!==Un)return r;t.set(i,a=e.push(o))}return n[(a-1)%n.length]}return o.domain=function(n){if(!arguments.length)return e.slice();e=[],t=new Map;for(const r of n){const n=r+"";t.has(n)||t.set(n,e.push(r))}return o},o.range=function(t){return arguments.length?(n=Array.from(t),o):n.slice()},o.unknown=function(t){return arguments.length?(r=t,o):r},o.copy=function(){return Wn(e,n).unknown(r)},In.apply(o,arguments),o}function Gn(t){return+t}var Vn=[0,1];function Xn(t){return t}function Zn(t,e){return(e-=t=+t)?function(n){return(n-t)/e}:function(t){return function(){return t}}(isNaN(e)?NaN:.5)}function Jn(t,e,n){var r=t[0],o=t[1],i=e[0],a=e[1];return o<r?(r=Zn(o,r),i=n(a,i)):(r=Zn(r,o),i=n(i,a)),function(t){return i(r(t))}}function Kn(t,e,n){var r=Math.min(t.length,e.length)-1,o=new Array(r),i=new Array(r),a=-1;for(t[r]<t[0]&&(t=t.slice().reverse(),e=e.slice().reverse());++a<r;)o[a]=Zn(t[a],t[a+1]),i[a]=n(e[a],e[a+1]);return function(e){var n=Ce(t,e,1,r)-1;return i[n](o[n](e))}}function Qn(t,e){return e.domain(t.domain()).range(t.range()).interpolate(t.interpolate()).clamp(t.clamp()).unknown(t.unknown())}function tr(){var t,e,n,r,o,i,a=Vn,l=Vn,s=$e,c=Xn;function u(){var t,e,n,s=Math.min(a.length,l.length);return c!==Xn&&(t=a[0],e=a[s-1],t>e&&(n=t,t=e,e=n),c=function(n){return Math.max(t,Math.min(e,n))}),r=s>2?Kn:Jn,o=i=null,f}function f(e){return null==e||isNaN(e=+e)?n:(o||(o=r(a.map(t),l,s)))(t(c(e)))}return f.invert=function(n){return c(e((i||(i=r(l,a.map(t),me)))(n)))},f.domain=function(t){return arguments.length?(a=Array.from(t,Gn),u()):a.slice()},f.range=function(t){return arguments.length?(l=Array.from(t),u()):l.slice()},f.rangeRound=function(t){return l=Array.from(t),s=xe,u()},f.clamp=function(t){return arguments.length?(c=!!t||Xn,u()):c!==Xn},f.interpolate=function(t){return arguments.length?(s=t,u()):s},f.unknown=function(t){return arguments.length?(n=t,f):n},function(n,r){return t=n,e=r,u()}}function er(){return tr()(Xn,Xn)}function nr(t,e){if((n=(t=e?t.toExponential(e-1):t.toExponential()).indexOf("e"))<0)return null;var n,r=t.slice(0,n);return[r.length>1?r[0]+r.slice(2):r,+t.slice(n+1)]}function rr(t){return(t=nr(Math.abs(t)))?t[1]:NaN}var or,ir=/^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;function ar(t){if(!(e=ir.exec(t)))throw new Error("invalid format: "+t);var e;return new lr({fill:e[1],align:e[2],sign:e[3],symbol:e[4],zero:e[5],width:e[6],comma:e[7],precision:e[8]&&e[8].slice(1),trim:e[9],type:e[10]})}function lr(t){this.fill=void 0===t.fill?" ":t.fill+"",this.align=void 0===t.align?">":t.align+"",this.sign=void 0===t.sign?"-":t.sign+"",this.symbol=void 0===t.symbol?"":t.symbol+"",this.zero=!!t.zero,this.width=void 0===t.width?void 0:+t.width,this.comma=!!t.comma,this.precision=void 0===t.precision?void 0:+t.precision,this.trim=!!t.trim,this.type=void 0===t.type?"":t.type+""}function sr(t,e){var n=nr(t,e);if(!n)return t+"";var r=n[0],o=n[1];return o<0?"0."+new Array(-o).join("0")+r:r.length>o+1?r.slice(0,o+1)+"."+r.slice(o+1):r+new Array(o-r.length+2).join("0")}ar.prototype=lr.prototype,lr.prototype.toString=function(){return this.fill+this.align+this.sign+this.symbol+(this.zero?"0":"")+(void 0===this.width?"":Math.max(1,0|this.width))+(this.comma?",":"")+(void 0===this.precision?"":"."+Math.max(0,0|this.precision))+(this.trim?"~":"")+this.type};var cr={"%":function(t,e){return(100*t).toFixed(e)},b:function(t){return Math.round(t).toString(2)},c:function(t){return t+""},d:function(t){return Math.abs(t=Math.round(t))>=1e21?t.toLocaleString("en").replace(/,/g,""):t.toString(10)},e:function(t,e){return t.toExponential(e)},f:function(t,e){return t.toFixed(e)},g:function(t,e){return t.toPrecision(e)},o:function(t){return Math.round(t).toString(8)},p:function(t,e){return sr(100*t,e)},r:sr,s:function(t,e){var n=nr(t,e);if(!n)return t+"";var r=n[0],o=n[1],i=o-(or=3*Math.max(-8,Math.min(8,Math.floor(o/3))))+1,a=r.length;return i===a?r:i>a?r+new Array(i-a+1).join("0"):i>0?r.slice(0,i)+"."+r.slice(i):"0."+new Array(1-i).join("0")+nr(t,Math.max(0,e+i-1))[0]},X:function(t){return Math.round(t).toString(16).toUpperCase()},x:function(t){return Math.round(t).toString(16)}};function ur(t){return t}var fr,dr,hr,pr=Array.prototype.map,gr=["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"];function mr(t){var e,n,r=void 0===t.grouping||void 0===t.thousands?ur:(e=pr.call(t.grouping,Number),n=t.thousands+"",function(t,r){for(var o=t.length,i=[],a=0,l=e[0],s=0;o>0&&l>0&&(s+l+1>r&&(l=Math.max(1,r-s)),i.push(t.substring(o-=l,o+l)),!((s+=l+1)>r));)l=e[a=(a+1)%e.length];return i.reverse().join(n)}),o=void 0===t.currency?"":t.currency[0]+"",i=void 0===t.currency?"":t.currency[1]+"",a=void 0===t.decimal?".":t.decimal+"",l=void 0===t.numerals?ur:function(t){return function(e){return e.replace(/[0-9]/g,(function(e){return t[+e]}))}}(pr.call(t.numerals,String)),s=void 0===t.percent?"%":t.percent+"",c=void 0===t.minus?"-":t.minus+"",u=void 0===t.nan?"NaN":t.nan+"";function f(t){var e=(t=ar(t)).fill,n=t.align,f=t.sign,d=t.symbol,h=t.zero,p=t.width,g=t.comma,m=t.precision,y=t.trim,v=t.type;"n"===v?(g=!0,v="g"):cr[v]||(void 0===m&&(m=12),y=!0,v="g"),(h||"0"===e&&"="===n)&&(h=!0,e="0",n="=");var b="$"===d?o:"#"===d&&/[boxX]/.test(v)?"0"+v.toLowerCase():"",w="$"===d?i:/[%p]/.test(v)?s:"",$=cr[v],x=/[defgprs%]/.test(v);function S(t){var o,i,s,d=b,S=w;if("c"===v)S=$(t)+S,t="";else{var k=(t=+t)<0||1/t<0;if(t=isNaN(t)?u:$(Math.abs(t),m),y&&(t=function(t){t:for(var e,n=t.length,r=1,o=-1;r<n;++r)switch(t[r]){case".":o=e=r;break;case"0":0===o&&(o=r),e=r;break;default:if(!+t[r])break t;o>0&&(o=0)}return o>0?t.slice(0,o)+t.slice(e+1):t}(t)),k&&0==+t&&"+"!==f&&(k=!1),d=(k?"("===f?f:c:"-"===f||"("===f?"":f)+d,S=("s"===v?gr[8+or/3]:"")+S+(k&&"("===f?")":""),x)for(o=-1,i=t.length;++o<i;)if(48>(s=t.charCodeAt(o))||s>57){S=(46===s?a+t.slice(o+1):t.slice(o))+S,t=t.slice(0,o);break}}g&&!h&&(t=r(t,1/0));var M=d.length+t.length+S.length,_=M<p?new Array(p-M+1).join(e):"";switch(g&&h&&(t=r(_+t,_.length?p-S.length:1/0),_=""),n){case"<":t=d+t+S+_;break;case"=":t=d+_+t+S;break;case"^":t=_.slice(0,M=_.length>>1)+d+t+S+_.slice(M);break;default:t=_+d+t+S}return l(t)}return m=void 0===m?6:/[gprs]/.test(v)?Math.max(1,Math.min(21,m)):Math.max(0,Math.min(20,m)),S.toString=function(){return t+""},S}return{format:f,formatPrefix:function(t,e){var n=f(((t=ar(t)).type="f",t)),r=3*Math.max(-8,Math.min(8,Math.floor(rr(e)/3))),o=Math.pow(10,-r),i=gr[8+r/3];return function(t){return n(o*t)+i}}}}function yr(t,e,n,r){var o,i=function(t,e,n){var r=Math.abs(e-t)/Math.max(0,n),o=Math.pow(10,Math.floor(Math.log(r)/Math.LN10)),i=r/o;return i>=Ye?o*=10:i>=Fe?o*=5:i>=Ie&&(o*=2),e<t?-o:o}(t,e,n);switch((r=ar(null==r?",f":r)).type){case"s":var a=Math.max(Math.abs(t),Math.abs(e));return null!=r.precision||isNaN(o=function(t,e){return Math.max(0,3*Math.max(-8,Math.min(8,Math.floor(rr(e)/3)))-rr(Math.abs(t)))}(i,a))||(r.precision=o),hr(r,a);case"":case"e":case"g":case"p":case"r":null!=r.precision||isNaN(o=function(t,e){return t=Math.abs(t),e=Math.abs(e)-t,Math.max(0,rr(e)-rr(t))+1}(i,Math.max(Math.abs(t),Math.abs(e))))||(r.precision=o-("e"===r.type));break;case"f":case"%":null!=r.precision||isNaN(o=function(t){return Math.max(0,-rr(Math.abs(t)))}(i))||(r.precision=o-2*("%"===r.type))}return dr(r)}function vr(t){var e=t.domain;return t.ticks=function(t){var n=e();return function(t,e,n){var r,o,i,a,l=-1;if(n=+n,(t=+t)===(e=+e)&&n>0)return[t];if((r=e<t)&&(o=t,t=e,e=o),0===(a=qe(t,e,n))||!isFinite(a))return[];if(a>0){let n=Math.round(t/a),r=Math.round(e/a);for(n*a<t&&++n,r*a>e&&--r,i=new Array(o=r-n+1);++l<o;)i[l]=(n+l)*a}else{a=-a;let n=Math.round(t*a),r=Math.round(e*a);for(n/a<t&&++n,r/a>e&&--r,i=new Array(o=r-n+1);++l<o;)i[l]=(n+l)/a}return r&&i.reverse(),i}(n[0],n[n.length-1],null==t?10:t)},t.tickFormat=function(t,n){var r=e();return yr(r[0],r[r.length-1],null==t?10:t,n)},t.nice=function(n){null==n&&(n=10);var r,o,i=e(),a=0,l=i.length-1,s=i[a],c=i[l],u=10;for(c<s&&(o=s,s=c,c=o,o=a,a=l,l=o);u-- >0;){if((o=qe(s,c,n))===r)return i[a]=s,i[l]=c,e(i);if(o>0)s=Math.floor(s/o)*o,c=Math.ceil(c/o)*o;else{if(!(o<0))break;s=Math.ceil(s*o)/o,c=Math.floor(c*o)/o}r=o}return t},t}function br(){var t=er();return t.copy=function(){return Qn(t,br())},In.apply(t,arguments),vr(t)}function wr(){var t,e,n,r,o,i=0,a=1,l=Xn,s=!1;function c(e){return null==e||isNaN(e=+e)?o:l(0===n?.5:(e=(r(e)-t)*n,s?Math.max(0,Math.min(1,e)):e))}function u(t){return function(e){var n,r;return arguments.length?([n,r]=e,l=t(n,r),c):[l(0),l(1)]}}return c.domain=function(o){return arguments.length?([i,a]=o,t=r(i=+i),e=r(a=+a),n=t===e?0:1/(e-t),c):[i,a]},c.clamp=function(t){return arguments.length?(s=!!t,c):s},c.interpolator=function(t){return arguments.length?(l=t,c):l},c.range=u($e),c.rangeRound=u(xe),c.unknown=function(t){return arguments.length?(o=t,c):o},function(o){return r=o,t=o(i),e=o(a),n=t===e?0:1/(e-t),c}}function $r(t,e){return e.domain(t.domain()).interpolator(t.interpolator()).clamp(t.clamp()).unknown(t.unknown())}function xr(){var t,e,n,r,o,i,a,l=0,s=.5,c=1,u=1,f=Xn,d=!1;function h(t){return isNaN(t=+t)?a:(t=.5+((t=+i(t))-e)*(u*t<u*e?r:o),f(d?Math.max(0,Math.min(1,t)):t))}function p(t){return function(e){var n,r,o;return arguments.length?([n,r,o]=e,f=Se(t,[n,r,o]),h):[f(0),f(.5),f(1)]}}return h.domain=function(a){return arguments.length?([l,s,c]=a,t=i(l=+l),e=i(s=+s),n=i(c=+c),r=t===e?0:.5/(e-t),o=e===n?0:.5/(n-e),u=e<t?-1:1,h):[l,s,c]},h.clamp=function(t){return arguments.length?(d=!!t,h):d},h.interpolator=function(t){return arguments.length?(f=t,h):f},h.range=p($e),h.rangeRound=p(xe),h.unknown=function(t){return arguments.length?(a=t,h):a},function(a){return i=a,t=a(l),e=a(s),n=a(c),r=t===e?0:.5/(e-t),o=e===n?0:.5/(n-e),u=e<t?-1:1,h}}fr=mr({decimal:".",thousands:",",grouping:[3],currency:["$",""],minus:"-"}),dr=fr.format,hr=fr.formatPrefix;var Sr=Math.PI,kr=2*Sr,Mr=kr-1e-6;function _r(){this._x0=this._y0=this._x1=this._y1=null,this._=""}function Nr(){return new _r}function Tr(t){return function(){return t}}function Er(t){this._context=t}function Ar(t){return new Er(t)}function Cr(t){return t[0]}function jr(t){return t[1]}function Or(){var t=Cr,e=jr,n=Tr(!0),r=null,o=Ar,i=null;function a(a){var l,s,c,u=a.length,f=!1;for(null==r&&(i=o(c=Nr())),l=0;l<=u;++l)!(l<u&&n(s=a[l],l,a))===f&&((f=!f)?i.lineStart():i.lineEnd()),f&&i.point(+t(s,l,a),+e(s,l,a));if(c)return i=null,c+""||null}return a.x=function(e){return arguments.length?(t="function"==typeof e?e:Tr(+e),a):t},a.y=function(t){return arguments.length?(e="function"==typeof t?t:Tr(+t),a):e},a.defined=function(t){return arguments.length?(n="function"==typeof t?t:Tr(!!t),a):n},a.curve=function(t){return arguments.length?(o=t,null!=r&&(i=o(r)),a):o},a.context=function(t){return arguments.length?(null==t?r=i=null:i=o(r=t),a):r},a}function Lr(){var t=Cr,e=null,n=Tr(0),r=jr,o=Tr(!0),i=null,a=Ar,l=null;function s(s){var c,u,f,d,h,p=s.length,g=!1,m=new Array(p),y=new Array(p);for(null==i&&(l=a(h=Nr())),c=0;c<=p;++c){if(!(c<p&&o(d=s[c],c,s))===g)if(g=!g)u=c,l.areaStart(),l.lineStart();else{for(l.lineEnd(),l.lineStart(),f=c-1;f>=u;--f)l.point(m[f],y[f]);l.lineEnd(),l.areaEnd()}g&&(m[c]=+t(d,c,s),y[c]=+n(d,c,s),l.point(e?+e(d,c,s):m[c],r?+r(d,c,s):y[c]))}if(h)return l=null,h+""||null}function c(){return Or().defined(o).curve(a).context(i)}return s.x=function(n){return arguments.length?(t="function"==typeof n?n:Tr(+n),e=null,s):t},s.x0=function(e){return arguments.length?(t="function"==typeof e?e:Tr(+e),s):t},s.x1=function(t){return arguments.length?(e=null==t?null:"function"==typeof t?t:Tr(+t),s):e},s.y=function(t){return arguments.length?(n="function"==typeof t?t:Tr(+t),r=null,s):n},s.y0=function(t){return arguments.length?(n="function"==typeof t?t:Tr(+t),s):n},s.y1=function(t){return arguments.length?(r=null==t?null:"function"==typeof t?t:Tr(+t),s):r},s.lineX0=s.lineY0=function(){return c().x(t).y(n)},s.lineY1=function(){return c().x(t).y(r)},s.lineX1=function(){return c().x(e).y(n)},s.defined=function(t){return arguments.length?(o="function"==typeof t?t:Tr(!!t),s):o},s.curve=function(t){return arguments.length?(a=t,null!=i&&(l=a(i)),s):a},s.context=function(t){return arguments.length?(null==t?i=l=null:l=a(i=t),s):i},s}function Pr(t){return t<0?-1:1}function Rr(t,e,n){var r=t._x1-t._x0,o=e-t._x1,i=(t._y1-t._y0)/(r||o<0&&-0),a=(n-t._y1)/(o||r<0&&-0),l=(i*o+a*r)/(r+o);return(Pr(i)+Pr(a))*Math.min(Math.abs(i),Math.abs(a),.5*Math.abs(l))||0}function Hr(t,e){var n=t._x1-t._x0;return n?(3*(t._y1-t._y0)/n-e)/2:e}function Dr(t,e,n){var r=t._x0,o=t._y0,i=t._x1,a=t._y1,l=(i-r)/3;t._context.bezierCurveTo(r+l,o+l*e,i-l,a-l*n,i,a)}function zr(t){this._context=t}function Br(t){return new zr(t)}function Yr(e){let n,r,o,i,a;return{c(){n=M("g"),r=M("line"),o=M("text"),i=_(e[0]),j(r,"y2","6"),j(o,"y","9"),j(o,"dy",".9em"),j(n,"class","tick"),j(n,"transform",a="translate("+e[1]+")")},m(t,e){$(t,n,e),v(n,r),v(n,o),v(o,i)},p(t,[e]){1&e&&O(i,t[0]),2&e&&a!==(a="translate("+t[1]+")")&&j(n,"transform",a)},i:t,o:t,d(t){t&&x(n)}}}function Fr(t,e,n){let r,{duration:o}=e,{position:i}=e,{value:a}=e;const l=Ct(void 0,{duration:o,easing:Tt});return u(t,l,t=>n(1,r=t)),t.$$set=t=>{"duration"in t&&n(3,o=t.duration),"position"in t&&n(4,i=t.position),"value"in t&&n(0,a=t.value)},t.$$.update=()=>{16&t.$$.dirty&&l.set(i)},[a,r,l,o,i]}_r.prototype=Nr.prototype={constructor:_r,moveTo:function(t,e){this._+="M"+(this._x0=this._x1=+t)+","+(this._y0=this._y1=+e)},closePath:function(){null!==this._x1&&(this._x1=this._x0,this._y1=this._y0,this._+="Z")},lineTo:function(t,e){this._+="L"+(this._x1=+t)+","+(this._y1=+e)},quadraticCurveTo:function(t,e,n,r){this._+="Q"+ +t+","+ +e+","+(this._x1=+n)+","+(this._y1=+r)},bezierCurveTo:function(t,e,n,r,o,i){this._+="C"+ +t+","+ +e+","+ +n+","+ +r+","+(this._x1=+o)+","+(this._y1=+i)},arcTo:function(t,e,n,r,o){t=+t,e=+e,n=+n,r=+r,o=+o;var i=this._x1,a=this._y1,l=n-t,s=r-e,c=i-t,u=a-e,f=c*c+u*u;if(o<0)throw new Error("negative radius: "+o);if(null===this._x1)this._+="M"+(this._x1=t)+","+(this._y1=e);else if(f>1e-6)if(Math.abs(u*l-s*c)>1e-6&&o){var d=n-i,h=r-a,p=l*l+s*s,g=d*d+h*h,m=Math.sqrt(p),y=Math.sqrt(f),v=o*Math.tan((Sr-Math.acos((p+f-g)/(2*m*y)))/2),b=v/y,w=v/m;Math.abs(b-1)>1e-6&&(this._+="L"+(t+b*c)+","+(e+b*u)),this._+="A"+o+","+o+",0,0,"+ +(u*d>c*h)+","+(this._x1=t+w*l)+","+(this._y1=e+w*s)}else this._+="L"+(this._x1=t)+","+(this._y1=e);else;},arc:function(t,e,n,r,o,i){t=+t,e=+e,i=!!i;var a=(n=+n)*Math.cos(r),l=n*Math.sin(r),s=t+a,c=e+l,u=1^i,f=i?r-o:o-r;if(n<0)throw new Error("negative radius: "+n);null===this._x1?this._+="M"+s+","+c:(Math.abs(this._x1-s)>1e-6||Math.abs(this._y1-c)>1e-6)&&(this._+="L"+s+","+c),n&&(f<0&&(f=f%kr+kr),f>Mr?this._+="A"+n+","+n+",0,1,"+u+","+(t-a)+","+(e-l)+"A"+n+","+n+",0,1,"+u+","+(this._x1=s)+","+(this._y1=c):f>1e-6&&(this._+="A"+n+","+n+",0,"+ +(f>=Sr)+","+u+","+(this._x1=t+n*Math.cos(o))+","+(this._y1=e+n*Math.sin(o))))},rect:function(t,e,n,r){this._+="M"+(this._x0=this._x1=+t)+","+(this._y0=this._y1=+e)+"h"+ +n+"v"+ +r+"h"+-n+"Z"},toString:function(){return this._}},Er.prototype={areaStart:function(){this._line=0},areaEnd:function(){this._line=NaN},lineStart:function(){this._point=0},lineEnd:function(){(this._line||0!==this._line&&1===this._point)&&this._context.closePath(),this._line=1-this._line},point:function(t,e){switch(t=+t,e=+e,this._point){case 0:this._point=1,this._line?this._context.lineTo(t,e):this._context.moveTo(t,e);break;case 1:this._point=2;default:this._context.lineTo(t,e)}}},zr.prototype={areaStart:function(){this._line=0},areaEnd:function(){this._line=NaN},lineStart:function(){this._x0=this._x1=this._y0=this._y1=this._t0=NaN,this._point=0},lineEnd:function(){switch(this._point){case 2:this._context.lineTo(this._x1,this._y1);break;case 3:Dr(this,this._t0,Hr(this,this._t0))}(this._line||0!==this._line&&1===this._point)&&this._context.closePath(),this._line=1-this._line},point:function(t,e){var n=NaN;if(e=+e,(t=+t)!==this._x1||e!==this._y1){switch(this._point){case 0:this._point=1,this._line?this._context.lineTo(t,e):this._context.moveTo(t,e);break;case 1:this._point=2;break;case 2:this._point=3,Dr(this,Hr(this,n=Rr(this,t,e)),n);break;default:Dr(this,this._t0,n=Rr(this,t,e))}this._x0=this._x1,this._x1=t,this._y0=this._y1,this._y1=e,this._t0=n}}},Object.create(zr.prototype).point=function(t,e){zr.prototype.point.call(this,e,t)};class Ir extends _t{constructor(t){super(),Mt(this,t,Fr,Yr,l,{duration:3,position:4,value:0})}}function qr(e){let n,r,o,i,a,l=e[2](e[0])+"";return{c(){n=M("g"),r=M("line"),o=M("text"),i=_(l),j(r,"x2",e[1]),j(o,"x","-5"),j(o,"dy","0.32em"),j(n,"class","tick"),j(n,"opacity","1"),j(n,"transform",a="translate("+e[3]+")")},m(t,e){$(t,n,e),v(n,r),v(n,o),v(o,i)},p(t,[e]){2&e&&j(r,"x2",t[1]),5&e&&l!==(l=t[2](t[0])+"")&&O(i,l),8&e&&a!==(a="translate("+t[3]+")")&&j(n,"transform",a)},i:t,o:t,d(t){t&&x(n)}}}function Ur(t,e,n){let r,{duration:o}=e,{y:i}=e,{value:a}=e,{chartWidth:l}=e,{format:s=(t=>t.toLocaleString())}=e;const c=Ct(void 0,{duration:o,easing:Tt});return u(t,c,t=>n(3,r=t)),t.$$set=t=>{"duration"in t&&n(5,o=t.duration),"y"in t&&n(6,i=t.y),"value"in t&&n(0,a=t.value),"chartWidth"in t&&n(1,l=t.chartWidth),"format"in t&&n(2,s=t.format)},t.$$.update=()=>{65&t.$$.dirty&&c.set([0,i(a)])},[a,l,s,r,c,o,i]}class Wr extends _t{constructor(t){super(),Mt(this,t,Ur,qr,l,{duration:5,y:6,value:0,chartWidth:1,format:2})}}Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,value:function t(){var e=isNaN(arguments[0])?1:Number(arguments[0]);return e?Array.prototype.reduce.call(this,(function(n,r){return Array.isArray(r)?n.push.apply(n,t.call(r,e-1)):n.push(r),n}),[]):Array.prototype.slice.call(this)},writable:!0}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,value:function(t){return Array.prototype.map.apply(this,arguments).flat()},writable:!0});const{Map:Gr}=yt;function Vr(t,e,n){const r=t.slice();return r[23]=e[n],r}function Xr(t,e,n){const r=t.slice();return r[23]=e[n],r}function Zr(t,e,n){const r=t.slice();return r[28]=e[n],r}function Jr(t,e,n){const r=t.slice();return r[31]=e[n],r}function Kr(t,e,n){const r=t.slice();return r[31]=e[n],r}function Qr(e){let n;return{c(){n=k("div"),n.textContent='Select model options and click "Show".',j(n,"class","notification")},m(t,e){$(t,n,e)},p:t,i:t,o:t,d(t){t&&x(n)}}}function to(t){let e,n,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,A,C,L,R,H,D=("percentage"==t[1]?"% Surplus or Shortage":t[1].slice(0,1).toUpperCase()+t[1].slice(1))+"",z=t[2][0]+"",B=t[2][1]+"",Y=[],F=new Gr,I=[],q=new Gr,U=[],W=new Gr,G=t[9];const V=t=>t[31];for(let e=0;e<G.length;e+=1){let n=Kr(t,G,e),r=V(n);F.set(r,Y[e]=eo(r,n))}let X=t[8];const Z=t=>t[31];for(let e=0;e<X.length;e+=1){let n=Jr(t,X,e),r=Z(n);q.set(r,I[e]=no(r,n))}let J=t[0];const K=t=>t[28].id;for(let e=0;e<J.length;e+=1){let n=Zr(t,J,e),r=K(n);W.set(r,U[e]=ro(r,n))}let Q=t[5]&&t[0].length>0&&oo(t),tt=t[5]&&ao(t);return{c(){e=k("h1"),n=_("Projection of Nurse Workforce, "),r=_(D),o=N(),a=k("h2"),l=_("North Carolina, "),s=_(z),c=_(" - "),u=_(B),f=N(),d=M("svg"),h=M("g"),p=M("g");for(let t=0;t<Y.length;t+=1)Y[t].c();g=M("g");for(let t=0;t<I.length;t+=1)I[t].c();for(let t=0;t<U.length;t+=1)U[t].c();m=M("text"),y=_("Nurse FTE or Head Count\r\n        "),b=M("text"),w=_("Year\r\n        "),Q&&Q.c(),S=M("rect"),A=N(),tt&&tt.c(),C=T(),j(e,"class","title"),j(a,"class","subtitle"),j(p,"class","xAxis is-size-6 svelte-ynia07"),j(p,"transform","translate(0,"+(ho-t[13].bottom)+")"),j(g,"class","yAxis is-size-6 svelte-ynia07"),j(g,"transform","translate("+t[13].left+",0)"),j(m,"class","is-size-5 svelte-ynia07"),j(m,"transform","translate("+(t[13].left-70)+","+ho/1.5+") rotate(270)"),j(b,"class","is-size-5 svelte-ynia07"),j(b,"text-anchor","middle"),j(b,"transform","translate("+((fo-t[13].left-t[13].right)/2+t[13].left)+","+(ho-10)+")"),j(S,"width",fo),j(S,"height",ho),j(S,"fill","none"),P(S,"pointer-events","all"),j(h,"class","chart-container"),j(d,"id","line-chart-svg"),j(d,"viewBox","0 0 "+fo+" "+ho)},m(i,x){$(i,e,x),v(e,n),v(e,r),$(i,o,x),$(i,a,x),v(a,l),v(a,s),v(a,c),v(a,u),$(i,f,x),$(i,d,x),v(d,h),v(h,p);for(let t=0;t<Y.length;t+=1)Y[t].m(p,null);v(h,g);for(let t=0;t<I.length;t+=1)I[t].m(g,null);for(let t=0;t<U.length;t+=1)U[t].m(h,null);v(h,m),v(m,y),v(h,b),v(b,w),Q&&Q.m(h,null),v(h,S),$(i,A,x),tt&&tt.m(i,x),$(i,C,x),L=!0,R||(H=[E(S,"mousemove",t[15]),E(S,"mouseleave",t[16])],R=!0)},p(t,e){(!L||2&e[0])&&D!==(D=("percentage"==t[1]?"% Surplus or Shortage":t[1].slice(0,1).toUpperCase()+t[1].slice(1))+"")&&O(r,D),(!L||4&e[0])&&z!==(z=t[2][0]+"")&&O(s,z),(!L||4&e[0])&&B!==(B=t[2][1]+"")&&O(u,B),520&e[0]&&(G=t[9],ft(),Y=bt(Y,e,V,1,t,G,F,p,vt,eo,null,Kr),dt()),8592&e[0]&&(X=t[8],ft(),I=bt(I,e,Z,1,t,X,q,g,vt,no,null,Jr),dt()),22529&e[0]&&(J=t[0],ft(),U=bt(U,e,K,1,t,J,W,h,vt,ro,m,Zr),dt()),t[5]&&t[0].length>0?Q?Q.p(t,e):(Q=oo(t),Q.c(),Q.m(h,S)):Q&&(Q.d(1),Q=null),t[5]?tt?(tt.p(t,e),32&e[0]&&ht(tt,1)):(tt=ao(t),tt.c(),ht(tt,1),tt.m(C.parentNode,C)):tt&&(ft(),pt(tt,1,1,()=>{tt=null}),dt())},i(t){if(!L){for(let t=0;t<G.length;t+=1)ht(Y[t]);for(let t=0;t<X.length;t+=1)ht(I[t]);for(let t=0;t<J.length;t+=1)ht(U[t]);ht(tt),L=!0}},o(t){for(let t=0;t<Y.length;t+=1)pt(Y[t]);for(let t=0;t<I.length;t+=1)pt(I[t]);for(let t=0;t<U.length;t+=1)pt(U[t]);pt(tt),L=!1},d(t){t&&x(e),t&&x(o),t&&x(a),t&&x(f),t&&x(d);for(let t=0;t<Y.length;t+=1)Y[t].d();for(let t=0;t<I.length;t+=1)I[t].d();for(let t=0;t<U.length;t+=1)U[t].d();Q&&Q.d(),t&&x(A),tt&&tt.d(t),t&&x(C),R=!1,i(H)}}}function eo(t,e){let n,r,o;return r=new Ir({props:{position:[e[3](e[31]),0],value:e[31],duration:po}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),o=!0},p(t,n){e=t;const o={};520&n[0]&&(o.position=[e[3](e[31]),0]),512&n[0]&&(o.value=e[31]),r.$set(o)},i(t){o||(ht(r.$$.fragment,t),o=!0)},o(t){pt(r.$$.fragment,t),o=!1},d(t){t&&x(n),kt(r,t)}}}function no(t,e){let n,r,o;return r=new Wr({props:{y:e[4],value:e[31],duration:po,chartWidth:fo-e[13].right-e[13].left,format:e[7]}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),o=!0},p(t,n){e=t;const o={};16&n[0]&&(o.y=e[4]),256&n[0]&&(o.value=e[31]),128&n[0]&&(o.format=e[7]),r.$set(o)},i(t){o||(ht(r.$$.fragment,t),o=!0)},o(t){pt(r.$$.fragment,t),o=!1},d(t){t&&x(n),kt(r,t)}}}function ro(t,e){let n,r,o;return r=new Ne({props:{areaPath:e[11](e[28].values),linePath:e[12](e[28].values),color:e[14].get(e[28].id),duration:po}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),o=!0},p(t,n){e=t;const o={};2049&n[0]&&(o.areaPath=e[11](e[28].values)),4097&n[0]&&(o.linePath=e[12](e[28].values)),1&n[0]&&(o.color=e[14].get(e[28].id)),r.$set(o)},i(t){o||(ht(r.$$.fragment,t),o=!0)},o(t){pt(r.$$.fragment,t),o=!1},d(t){t&&x(n),kt(r,t)}}}function oo(t){let e,n,r,o,i,a,l=t[5].values,s=[];for(let e=0;e<l.length;e+=1)s[e]=io(Xr(t,l,e));return{c(){e=M("line");for(let t=0;t<s.length;t+=1)s[t].c();a=T(),j(e,"x1",n=t[3](t[5].year)),j(e,"x2",r=t[3](t[5].year)),j(e,"y1",o=t[13].top),j(e,"y2",i=ho-t[13].bottom),j(e,"stroke","#333"),j(e,"stroke-width","2")},m(t,n){$(t,e,n);for(let e=0;e<s.length;e+=1)s[e].m(t,n);$(t,a,n)},p(t,o){if(40&o[0]&&n!==(n=t[3](t[5].year))&&j(e,"x1",n),40&o[0]&&r!==(r=t[3](t[5].year))&&j(e,"x2",r),56&o[0]){let e;for(l=t[5].values,e=0;e<l.length;e+=1){const n=Xr(t,l,e);s[e]?s[e].p(n,o):(s[e]=io(n),s[e].c(),s[e].m(a.parentNode,a))}for(;e<s.length;e+=1)s[e].d(1);s.length=l.length}},d(t){t&&x(e),S(s,t),t&&x(a)}}}function io(t){let e,n,r;return{c(){e=M("g"),n=M("circle"),j(n,"cx","0"),j(n,"cy","0"),j(n,"r","5"),j(n,"stroke","#333"),j(n,"fill","none"),j(e,"transform",r="translate("+t[3](t[5].year)+" "+t[4](t[23].value)+")")},m(t,r){$(t,e,r),v(e,n)},p(t,n){56&n[0]&&r!==(r="translate("+t[3](t[5].year)+" "+t[4](t[23].value)+")")&&j(e,"transform",r)},d(t){t&&x(e)}}}function ao(t){let e,n,r,o;const i=[so,lo],a=[];function l(t,e){return"percentage"===t[1]?0:1}return e=l(t),n=a[e]=i[e](t),{c(){n.c(),r=T()},m(t,n){a[e].m(t,n),$(t,r,n),o=!0},p(t,o){let s=e;e=l(t),e===s?a[e].p(t,o):(ft(),pt(a[s],1,1,()=>{a[s]=null}),dt(),n=a[e],n?n.p(t,o):(n=a[e]=i[e](t),n.c()),ht(n,1),n.m(r.parentNode,r))},i(t){o||(ht(n),o=!0)},o(t){pt(n),o=!1},d(t){a[e].d(t),t&&x(r)}}}function lo(e){let n,r,o,i,a,l,s,c,u,f=e[5].year+"",d=e[5].values,h=[];for(let t=0;t<d.length;t+=1)h[t]=co(Vr(e,d,t));return{c(){n=k("div"),r=k("div"),o=k("table"),i=k("thead"),a=k("tr"),l=k("th"),s=_(f),c=N(),u=k("tbody");for(let t=0;t<h.length;t+=1)h[t].c();j(o,"class","table is-narrow"),j(r,"class","table-container"),P(n,"position","fixed"),P(n,"top",e[6].clientY+"px"),P(n,"left",e[6].left+e[6].scaling*(e[3](e[5].year)+8)+"px"),P(n,"background","rgba(255, 255, 255, 0.9)"),P(n,"border-radius","5px"),P(n,"border","1px solid #333333"),P(n,"padding","3px 3px"),P(n,"z-index","200"),P(n,"font-weight","600"),P(n,"pointer-events","none")},m(t,e){$(t,n,e),v(n,r),v(r,o),v(o,i),v(i,a),v(a,l),v(l,s),v(o,c),v(o,u);for(let t=0;t<h.length;t+=1)h[t].m(u,null)},p(t,e){if(32&e[0]&&f!==(f=t[5].year+"")&&O(s,f),16416&e[0]){let n;for(d=t[5].values,n=0;n<d.length;n+=1){const r=Vr(t,d,n);h[n]?h[n].p(r,e):(h[n]=co(r),h[n].c(),h[n].m(u,null))}for(;n<h.length;n+=1)h[n].d(1);h.length=d.length}64&e[0]&&P(n,"top",t[6].clientY+"px"),104&e[0]&&P(n,"left",t[6].left+t[6].scaling*(t[3](t[5].year)+8)+"px")},i:t,o:t,d(t){t&&x(n),S(h,t)}}}function so(t){let e,n,r;return n=new Fn({props:{rows:t[5].values}}),{c(){e=k("div"),xt(n.$$.fragment),j(e,"class","tooltip"),P(e,"position","fixed"),P(e,"top",t[6].clientY+"px"),P(e,"left",(t[5].year<t[10]?t[6].left+t[6].scaling*t[3](t[5].year)+8:t[6].left+t[6].scaling*t[3](t[5].year)-318)+"px"),P(e,"background","rgba(255, 255, 255, 0.9)"),P(e,"border-radius","5px"),P(e,"border","1px solid #333333"),P(e,"padding","3px 3px"),P(e,"z-index","200"),P(e,"font-weight","600"),P(e,"width","310px"),P(e,"pointer-events","none")},m(t,o){$(t,e,o),St(n,e,null),r=!0},p(t,o){const i={};32&o[0]&&(i.rows=t[5].values),n.$set(i),(!r||64&o[0])&&P(e,"top",t[6].clientY+"px"),(!r||1128&o[0])&&P(e,"left",(t[5].year<t[10]?t[6].left+t[6].scaling*t[3](t[5].year)+8:t[6].left+t[6].scaling*t[3](t[5].year)-318)+"px")},i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){t&&x(e),kt(n)}}}function co(t){let e,n,r,o,i=_n(t[23].rateOrTotal)(t[23].value)+"";return{c(){e=k("tr"),n=k("td"),r=_(i),o=N(),P(n,"color",t[14].get(t[23].id)),P(n,"text-align","right")},m(t,i){$(t,e,i),v(e,n),v(n,r),v(e,o)},p(t,e){32&e[0]&&i!==(i=_n(t[23].rateOrTotal)(t[23].value)+"")&&O(r,i),32&e[0]&&P(n,"color",t[14].get(t[23].id))},d(t){t&&x(e)}}}function uo(t){let e,n,r,o,i,a;const l=[to,Qr],s=[];function c(t,e){return t[0].length>0?0:1}return n=c(t),r=s[n]=l[n](t),i=new Hn({props:{legendData:t[0].map(t[19])}}),i.$on("deleteProjection",t[20]),{c(){e=k("div"),r.c(),o=N(),xt(i.$$.fragment),j(e,"id","line-chart-div")},m(t,r){$(t,e,r),s[n].m(e,null),v(e,o),St(i,e,null),a=!0},p(t,a){let u=n;n=c(t),n===u?s[n].p(t,a):(ft(),pt(s[u],1,1,()=>{s[u]=null}),dt(),r=s[n],r?r.p(t,a):(r=s[n]=l[n](t),r.c()),ht(r,1),r.m(e,o));const f={};1&a[0]&&(f.legendData=t[0].map(t[19])),i.$set(f)},i(t){a||(ht(r),ht(i.$$.fragment,t),a=!0)},o(t){pt(r),pt(i.$$.fragment,t),a=!1},d(t){t&&x(e),s[n].d(),kt(i)}}}const fo=800,ho=475,po=400;function go(t,e,n){let r,o,i,a,l,s,c,u,f,d,h,p,{data:g}=e,{calculation:m}=e;const y={top:20,right:60,bottom:65,left:90},v=["rgb(31, 119, 180)","rgb(255, 127, 14)","rgb(44, 160, 44)","rgb(214, 39, 40)","rgb(148, 103, 189)","rgb(140, 86, 75)","rgb(227, 119, 194)","rgb(127, 127, 127)","rgb(188, 189, 34)","rgb(23, 190, 207)","rgb(174, 199, 232)","rgb(255, 187, 120)","rgb(152, 223, 138)","rgb(255, 152, 150)","rgb(197, 176, 213)","rgb(196, 156, 148)","rgb(247, 182, 210)","rgb(199, 199, 199)","rgb(219, 219, 141)","rgb(158, 218, 229)"];let b,w=new Map,$=[];return t.$$set=t=>{"data"in t&&n(0,g=t.data),"calculation"in t&&n(1,m=t.calculation)},t.$$.update=()=>{1&t.$$.dirty[0]&&(w.forEach((function(t,e){g.map(t=>t.id).includes(+e)||w.delete(e)})),g.forEach((function(t){if(!w.has(t.id)){const e=v.filter(t=>!Array.from(w.values()).includes(t));w.set(t.id,e[0])}}))),1&t.$$.dirty[0]&&n(18,i=g.map(t=>t.values.map(e=>Object.assign({id:t.id,rateOrTotal:t.params.find(t=>"rateOrTotal"==t[0])[1],color:w.get(t.id)},e))).flat()),262144&t.$$.dirty[0]&&n(2,l=i.length>0?Oe(i,t=>t.year):[2015,2032]),4&t.$$.dirty[0]&&n(3,u=br().domain(l).range([y.left,fo-y.right])),262144&t.$$.dirty[0]&&n(17,c=i.length>0?Oe(i,t=>t.value):[0,50]),131072&t.$$.dirty[0]&&n(4,d=br().domain([c[0]>=0?0:c[0],c[1]]).nice().range([ho-y.bottom,y.top])),24&t.$$.dirty[0]&&n(12,r=Or().curve(Br).defined(t=>!isNaN(t.value)).x(t=>u(t.year)).y(t=>d(t.value))),24&t.$$.dirty[0]&&n(11,o=Lr().x(t=>u(t.year)).y0(t=>d(t.uci)).y1(t=>d(t.lci)).curve(Br)),262144&t.$$.dirty[0]&&console.log(i),262144&t.$$.dirty[0]&&(a=De(i,t=>t.year)),4&t.$$.dirty[0]&&n(10,s=Math.round((l[1]-l[0])/2+l[0])),8&t.$$.dirty[0]&&n(9,f=u.ticks()),16&t.$$.dirty[0]&&n(8,h=d.ticks()),2&t.$$.dirty[0]&&n(7,p=t=>"percentage"===m?t.toLocaleString(void 0,{style:"percent",signDisplay:"exceptZero",maximumFractionDigits:2}):t.toLocaleString())},[g,m,l,u,d,b,$,p,h,f,s,o,r,y,w,function(t){const{clientY:e}=t;let r=Math.round(u.invert(function(t,e){var n=t.ownerSVGElement||t;if(n.createSVGPoint){var r=n.createSVGPoint();return r.x=e.clientX,r.y=e.clientY,[(r=r.matrixTransform(t.getScreenCTM().inverse())).x,r.y]}var o=t.getBoundingClientRect();return[e.clientX-o.left-t.clientLeft,e.clientY-o.top-t.clientTop]}(this,t)[0]));const o=t.target.getBoundingClientRect(),i=o.width/fo;n(6,$={left:o.left,top:o.top,scaling:i,clientY:e}),r<l[0]?r=l[0]:r>l[1]&&(r=l[1]),n(5,b={year:r,values:a.get(r).sort((function(t,e){return je(t.value,e.value)}))})},function(){n(5,b=void 0)},c,i,(t,e)=>({params:t.params,color:w.get(t.id),id:t.id}),function(e){G.call(this,t,e)}]}class mo extends _t{constructor(t){super(),Mt(this,t,go,uo,l,{data:0,calculation:1},null,[-1,-1])}}function yo(e){let n,r,o,i,a,l,s,c,u;return{c(){n=M("g"),r=M("g"),o=M("text"),i=_("Supply"),a=M("line"),l=M("g"),s=M("text"),c=_("Demand"),u=M("line"),j(o,"class","is-size-5 svelte-c0cuwi"),j(a,"x1","-75"),j(a,"stroke-width",e[1]),j(a,"x2","-5"),j(a,"y1","-7"),j(a,"y2","-7"),j(a,"stroke","black"),j(s,"class","is-size-5 svelte-c0cuwi"),j(u,"x1","-75"),j(u,"stroke-dasharray",e[0]),j(u,"stroke-width",e[1]),j(u,"x2","-5"),j(u,"y1","-7"),j(u,"y2","-7"),j(u,"stroke","black"),j(l,"transform","translate(150)"),j(n,"transform",e[2])},m(t,e){$(t,n,e),v(n,r),v(r,o),v(o,i),v(r,a),v(n,l),v(l,s),v(s,c),v(l,u)},p(t,[e]){2&e&&j(a,"stroke-width",t[1]),1&e&&j(u,"stroke-dasharray",t[0]),2&e&&j(u,"stroke-width",t[1]),4&e&&j(n,"transform",t[2])},i:t,o:t,d(t){t&&x(n)}}}function vo(t,e,n){let{dashArray:r=""}=e,{strokeWidth:o}=e,{transform:i}=e;return t.$$set=t=>{"dashArray"in t&&n(0,r=t.dashArray),"strokeWidth"in t&&n(1,o=t.strokeWidth),"transform"in t&&n(2,i=t.transform)},[r,o,i]}class bo extends _t{constructor(t){super(),Mt(this,t,vo,yo,l,{dashArray:0,strokeWidth:1,transform:2})}}const{Map:wo}=yt;function $o(t,e,n){const r=t.slice();return r[23]=e[n],r}function xo(t,e,n){const r=t.slice();return r[26]=e[n],r}function So(t,e,n){const r=t.slice();return r[29]=e[n],r}function ko(t,e,n){const r=t.slice();return r[29]=e[n],r}function Mo(e){let n;return{c(){n=k("div"),n.textContent='Select model options and click "Show".',j(n,"class","notification")},m(t,e){$(t,n,e)},p:t,i:t,o:t,d(t){t&&x(n)}}}function _o(t){let e,n,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,A,C,L,R,H=t[1][0]+"",D=t[1][1]+"",z=[],B=new wo,Y=[],F=new wo,I=[],q=new wo;d=new bo({props:{dashArray:Ho,strokeWidth:Do,transform:"translate("+(Lo-285)+","+(t[11].top-10)+")"}});let U=t[7];const W=t=>t[29];for(let e=0;e<U.length;e+=1){let n=ko(t,U,e),r=W(n);B.set(r,z[e]=No(r,n))}let G=t[6];const V=t=>t[29];for(let e=0;e<G.length;e+=1){let n=So(t,G,e),r=V(n);F.set(r,Y[e]=To(r,n))}let X=t[0];const Z=t=>t[26].id;for(let e=0;e<X.length;e+=1){let n=xo(t,X,e),r=Z(n);q.set(r,I[e]=Eo(r,n))}let J=t[5]&&t[0].length>0&&Ao(t),K=t[5]&&jo(t);return{c(){e=k("h1"),e.textContent="Projection of Nurse Workforce, Supply - Demand",n=N(),r=k("h2"),o=_("North Carolina, "),a=_(H),l=_(" - "),s=_(D),c=N(),u=M("svg"),f=M("g"),xt(d.$$.fragment),h=M("g");for(let t=0;t<z.length;t+=1)z[t].c();p=M("g");for(let t=0;t<Y.length;t+=1)Y[t].c();for(let t=0;t<I.length;t+=1)I[t].c();g=M("text"),m=_("Nurse FTE or Head Count\r\n                "),y=M("text"),b=_("Year\r\n                "),J&&J.c(),w=M("rect"),S=N(),K&&K.c(),A=T(),j(e,"class","title"),j(r,"class","subtitle"),j(h,"class","xAxis is-size-6 svelte-j6aox3"),j(h,"transform","translate(0,"+(Po-t[11].bottom)+")"),j(p,"class","yAxis is-size-6 svelte-j6aox3"),j(p,"transform","translate("+t[11].left+",0)"),j(g,"class","is-size-5 svelte-j6aox3"),j(g,"transform","translate("+(t[11].left-70)+","+Po/1.5+") rotate(270)"),j(y,"class","is-size-5 svelte-j6aox3"),j(y,"text-anchor","middle"),j(y,"transform","translate("+((Lo-t[11].left-t[11].right)/2+t[11].left)+","+(Po-10)+")"),j(w,"width",Lo),j(w,"height",Po),j(w,"fill","none"),P(w,"pointer-events","all"),j(f,"class","chart-container"),j(u,"id","line-chart-svg"),j(u,"viewBox","0 0 "+Lo+" "+Po)},m(i,x){$(i,e,x),$(i,n,x),$(i,r,x),v(r,o),v(r,a),v(r,l),v(r,s),$(i,c,x),$(i,u,x),v(u,f),St(d,f,null),v(f,h);for(let t=0;t<z.length;t+=1)z[t].m(h,null);v(f,p);for(let t=0;t<Y.length;t+=1)Y[t].m(p,null);for(let t=0;t<I.length;t+=1)I[t].m(f,null);v(f,g),v(g,m),v(f,y),v(y,b),J&&J.m(f,null),v(f,w),$(i,S,x),K&&K.m(i,x),$(i,A,x),C=!0,L||(R=[E(w,"mousemove",t[13]),E(w,"mouseleave",t[14])],L=!0)},p(t,e){(!C||2&e[0])&&H!==(H=t[1][0]+"")&&O(a,H),(!C||2&e[0])&&D!==(D=t[1][1]+"")&&O(s,D),132&e[0]&&(U=t[7],ft(),z=bt(z,e,W,1,t,U,B,h,vt,No,null,ko),dt()),2120&e[0]&&(G=t[6],ft(),Y=bt(Y,e,V,1,t,G,F,p,vt,To,null,So),dt()),5633&e[0]&&(X=t[0],ft(),I=bt(I,e,Z,1,t,X,q,f,vt,Eo,g,xo),dt()),t[5]&&t[0].length>0?J?J.p(t,e):(J=Ao(t),J.c(),J.m(f,w)):J&&(J.d(1),J=null),t[5]?K?(K.p(t,e),32&e[0]&&ht(K,1)):(K=jo(t),K.c(),ht(K,1),K.m(A.parentNode,A)):K&&(ft(),pt(K,1,1,()=>{K=null}),dt())},i(t){if(!C){ht(d.$$.fragment,t);for(let t=0;t<U.length;t+=1)ht(z[t]);for(let t=0;t<G.length;t+=1)ht(Y[t]);for(let t=0;t<X.length;t+=1)ht(I[t]);ht(K),C=!0}},o(t){pt(d.$$.fragment,t);for(let t=0;t<z.length;t+=1)pt(z[t]);for(let t=0;t<Y.length;t+=1)pt(Y[t]);for(let t=0;t<I.length;t+=1)pt(I[t]);pt(K),C=!1},d(t){t&&x(e),t&&x(n),t&&x(r),t&&x(c),t&&x(u),kt(d);for(let t=0;t<z.length;t+=1)z[t].d();for(let t=0;t<Y.length;t+=1)Y[t].d();for(let t=0;t<I.length;t+=1)I[t].d();J&&J.d(),t&&x(S),K&&K.d(t),t&&x(A),L=!1,i(R)}}}function No(t,e){let n,r,o;return r=new Ir({props:{position:[e[2](e[29]),0],value:e[29],duration:Ro}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),o=!0},p(t,n){e=t;const o={};132&n[0]&&(o.position=[e[2](e[29]),0]),128&n[0]&&(o.value=e[29]),r.$set(o)},i(t){o||(ht(r.$$.fragment,t),o=!0)},o(t){pt(r.$$.fragment,t),o=!1},d(t){t&&x(n),kt(r,t)}}}function To(t,e){let n,r,o;return r=new Wr({props:{y:e[3],value:e[29],duration:Ro,chartWidth:Lo-e[11].right-e[11].left}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),o=!0},p(t,n){e=t;const o={};8&n[0]&&(o.y=e[3]),64&n[0]&&(o.value=e[29]),r.$set(o)},i(t){o||(ht(r.$$.fragment,t),o=!0)},o(t){pt(r.$$.fragment,t),o=!1},d(t){t&&x(n),kt(r,t)}}}function Eo(t,e){let n,r,o,i;return r=new Ne({props:{linePath:e[10](e[26].values.map(zo)),color:e[12].get(e[26].id),duration:Ro,strokeWidth:Do,areaPath:e[9](e[26].values),areaOpacity:.2}}),o=new Ne({props:{linePath:e[10](e[26].values.map(Bo)),dashArray:Ho,color:e[12].get(e[26].id),duration:Ro,strokeWidth:Do}}),{key:t,first:null,c(){n=T(),xt(r.$$.fragment),xt(o.$$.fragment),this.first=n},m(t,e){$(t,n,e),St(r,t,e),St(o,t,e),i=!0},p(t,n){e=t;const i={};1025&n[0]&&(i.linePath=e[10](e[26].values.map(zo))),1&n[0]&&(i.color=e[12].get(e[26].id)),513&n[0]&&(i.areaPath=e[9](e[26].values)),r.$set(i);const a={};1025&n[0]&&(a.linePath=e[10](e[26].values.map(Bo))),1&n[0]&&(a.color=e[12].get(e[26].id)),o.$set(a)},i(t){i||(ht(r.$$.fragment,t),ht(o.$$.fragment,t),i=!0)},o(t){pt(r.$$.fragment,t),pt(o.$$.fragment,t),i=!1},d(t){t&&x(n),kt(r,t),kt(o,t)}}}function Ao(t){let e,n,r,o,i,a,l=t[5].values,s=[];for(let e=0;e<l.length;e+=1)s[e]=Co($o(t,l,e));return{c(){e=M("line");for(let t=0;t<s.length;t+=1)s[t].c();a=T(),j(e,"x1",n=t[2](t[5].year)),j(e,"x2",r=t[2](t[5].year)),j(e,"y1",o=t[11].top),j(e,"y2",i=Po-t[11].bottom),j(e,"stroke","#333"),j(e,"stroke-width","2")},m(t,n){$(t,e,n);for(let e=0;e<s.length;e+=1)s[e].m(t,n);$(t,a,n)},p(t,o){if(36&o[0]&&n!==(n=t[2](t[5].year))&&j(e,"x1",n),36&o[0]&&r!==(r=t[2](t[5].year))&&j(e,"x2",r),44&o[0]){let e;for(l=t[5].values,e=0;e<l.length;e+=1){const n=$o(t,l,e);s[e]?s[e].p(n,o):(s[e]=Co(n),s[e].c(),s[e].m(a.parentNode,a))}for(;e<s.length;e+=1)s[e].d(1);s.length=l.length}},d(t){t&&x(e),S(s,t),t&&x(a)}}}function Co(t){let e,n,r,o,i,a;return{c(){e=M("g"),n=M("circle"),o=M("g"),i=M("circle"),j(n,"cx","0"),j(n,"cy","0"),j(n,"r","5"),j(n,"stroke","#333"),j(n,"fill","none"),j(e,"transform",r="translate("+t[2](t[5].year)+" "+t[3](t[23].demandMean)+")"),j(i,"cx","0"),j(i,"cy","0"),j(i,"r","5"),j(i,"stroke","#333"),j(i,"fill","none"),j(o,"transform",a="translate("+t[2](t[5].year)+" "+t[3](t[23].supplyMean)+")")},m(t,r){$(t,e,r),v(e,n),$(t,o,r),v(o,i)},p(t,n){44&n[0]&&r!==(r="translate("+t[2](t[5].year)+" "+t[3](t[23].demandMean)+")")&&j(e,"transform",r),44&n[0]&&a!==(a="translate("+t[2](t[5].year)+" "+t[3](t[23].supplyMean)+")")&&j(o,"transform",a)},d(t){t&&x(e),t&&x(o)}}}function jo(t){let e,n,r;return n=new Fn({props:{rows:t[5].values}}),{c(){e=k("div"),xt(n.$$.fragment),j(e,"class","tooltip"),P(e,"position","fixed"),P(e,"top",t[4].clientY+"px"),P(e,"left",(t[5].year<t[8]?t[4].left+t[4].scaling*t[2](t[5].year)+4:t[4].left+t[4].scaling*t[2](t[5].year)-324)+"px"),P(e,"background","rgba(255, 255, 255, 0.9)"),P(e,"border-radius","5px"),P(e,"border","1px solid #333333"),P(e,"padding","3px 3px"),P(e,"z-index","200"),P(e,"font-weight","600"),P(e,"width","320px"),P(e,"pointer-events","none")},m(t,o){$(t,e,o),St(n,e,null),r=!0},p(t,o){const i={};32&o[0]&&(i.rows=t[5].values),n.$set(i),(!r||16&o[0])&&P(e,"top",t[4].clientY+"px"),(!r||308&o[0])&&P(e,"left",(t[5].year<t[8]?t[4].left+t[4].scaling*t[2](t[5].year)+4:t[4].left+t[4].scaling*t[2](t[5].year)-324)+"px")},i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){t&&x(e),kt(n)}}}function Oo(t){let e,n,r,o,i,a;const l=[_o,Mo],s=[];function c(t,e){return t[0].length>0?0:1}return n=c(t),r=s[n]=l[n](t),i=new Hn({props:{legendData:t[0].map(t[17])}}),i.$on("deleteProjection",t[18]),{c(){e=k("div"),r.c(),o=N(),xt(i.$$.fragment),j(e,"id","line-chart-div")},m(t,r){$(t,e,r),s[n].m(e,null),v(e,o),St(i,e,null),a=!0},p(t,a){let u=n;n=c(t),n===u?s[n].p(t,a):(ft(),pt(s[u],1,1,()=>{s[u]=null}),dt(),r=s[n],r?r.p(t,a):(r=s[n]=l[n](t),r.c()),ht(r,1),r.m(e,o));const f={};1&a[0]&&(f.legendData=t[0].map(t[17])),i.$set(f)},i(t){a||(ht(r),ht(i.$$.fragment,t),a=!0)},o(t){pt(r),pt(i.$$.fragment,t),a=!1},d(t){t&&x(e),s[n].d(),kt(i)}}}const Lo=800,Po=475,Ro=400,Ho="4",Do=2;const zo=({year:t,supplyMean:e})=>({year:t,value:e}),Bo=({year:t,demandMean:e})=>({year:t,value:e});function Yo(t,e,n){let r,o,i,a,l,s,c,u,f,d,h,{data:p}=e;const g={top:30,right:60,bottom:65,left:90},m=["rgb(31, 119, 180)","rgb(255, 127, 14)","rgb(44, 160, 44)","rgb(214, 39, 40)","rgb(148, 103, 189)","rgb(140, 86, 75)","rgb(227, 119, 194)","rgb(127, 127, 127)","rgb(188, 189, 34)","rgb(23, 190, 207)","rgb(174, 199, 232)","rgb(255, 187, 120)","rgb(152, 223, 138)","rgb(255, 152, 150)","rgb(197, 176, 213)","rgb(196, 156, 148)","rgb(247, 182, 210)","rgb(199, 199, 199)","rgb(219, 219, 141)","rgb(158, 218, 229)"];let y=new Map;const v=Br;let b,w=[];return t.$$set=t=>{"data"in t&&n(0,p=t.data)},t.$$.update=()=>{1&t.$$.dirty[0]&&(y.forEach((function(t,e){p.map(t=>t.id).includes(+e)||y.delete(e)})),p.forEach((function(t){if(!y.has(t.id)){const e=m.filter(t=>!Array.from(y.values()).includes(t));y.set(t.id,e[0])}}))),1&t.$$.dirty[0]&&n(16,i=p.map(t=>t.values.map(e=>Object.assign({id:t.id,rateOrTotal:t.params.find(t=>"rateOrTotal"==t[0])[1],color:y.get(t.id)},e))).flat()),65536&t.$$.dirty[0]&&n(1,l=i.length>0?Oe(i,t=>t.year):[2015,2032]),2&t.$$.dirty[0]&&n(2,u=br().domain(l).range([g.left,Lo-g.right])),65536&t.$$.dirty[0]&&n(15,c=i.length>0?Ue(i.flatMap(t=>[t.supplyMean,t.demandMean])):50),32768&t.$$.dirty[0]&&n(3,d=br().domain([0,c]).nice().range([Po-g.bottom,g.top])),12&t.$$.dirty[0]&&n(10,r=Or().curve(v).defined(t=>!isNaN(t.value)).x(t=>u(t.year)).y(t=>d(t.value))),12&t.$$.dirty[0]&&n(9,o=Lr().curve(v).x(t=>u(t.year)).y0(t=>d(t.supplyMean)).y1(t=>d(t.demandMean))),65536&t.$$.dirty[0]&&(a=De(i,t=>t.year)),2&t.$$.dirty[0]&&n(8,s=Math.round((l[1]+l[0])/2)),4&t.$$.dirty[0]&&n(7,f=u.ticks()),8&t.$$.dirty[0]&&n(6,h=d.ticks())},[p,l,u,d,w,b,h,f,s,o,r,g,y,function(t){const{clientY:e}=t;let r=Math.round(u.invert(function(t,e){var n=t.ownerSVGElement||t;if(n.createSVGPoint){var r=n.createSVGPoint();return r.x=e.clientX,r.y=e.clientY,[(r=r.matrixTransform(t.getScreenCTM().inverse())).x,r.y]}var o=t.getBoundingClientRect();return[e.clientX-o.left-t.clientLeft,e.clientY-o.top-t.clientTop]}(this,t)[0]));const o=t.target.getBoundingClientRect(),i=o.width/Lo;n(4,w={left:o.left,right:o.right,top:o.top,scaling:i,clientY:e}),r<l[0]?r=l[0]:r>l[1]&&(r=l[1]),n(5,b={year:r,values:a.get(r).sort((function(t,e){return je(We([t.supplyMean,t.demandMean]),We([e.supplyMean,e.demandMean]))}))})},function(){n(5,b=void 0)},c,i,(t,e)=>({params:t.params,color:y.get(t.id),id:t.id}),function(e){G.call(this,t,e)}]}class Fo extends _t{constructor(t){super(),Mt(this,t,Yo,Oo,l,{data:0},null,[-1,-1])}}function Io(){return new qo}function qo(){this.reset()}qo.prototype={constructor:qo,reset:function(){this.s=this.t=0},add:function(t){Wo(Uo,t,this.t),Wo(this,Uo.s,this.s),this.s?this.t+=Uo.t:this.s=Uo.t},valueOf:function(){return this.s}};var Uo=new qo;function Wo(t,e,n){var r=t.s=e+n,o=r-e,i=r-o;t.t=e-i+(n-o)}var Go=1e-6,Vo=Math.PI,Xo=Vo/2,Zo=Vo/4,Jo=2*Vo,Ko=180/Vo,Qo=Vo/180,ti=Math.abs,ei=Math.atan,ni=Math.atan2,ri=Math.cos,oi=Math.sin,ii=Math.sign||function(t){return t>0?1:t<0?-1:0},ai=Math.sqrt;function li(t){return t>1?Xo:t<-1?-Xo:Math.asin(t)}function si(){}function ci(t,e){t&&fi.hasOwnProperty(t.type)&&fi[t.type](t,e)}var ui={Feature:function(t,e){ci(t.geometry,e)},FeatureCollection:function(t,e){for(var n=t.features,r=-1,o=n.length;++r<o;)ci(n[r].geometry,e)}},fi={Sphere:function(t,e){e.sphere()},Point:function(t,e){t=t.coordinates,e.point(t[0],t[1],t[2])},MultiPoint:function(t,e){for(var n=t.coordinates,r=-1,o=n.length;++r<o;)t=n[r],e.point(t[0],t[1],t[2])},LineString:function(t,e){di(t.coordinates,e,0)},MultiLineString:function(t,e){for(var n=t.coordinates,r=-1,o=n.length;++r<o;)di(n[r],e,0)},Polygon:function(t,e){hi(t.coordinates,e)},MultiPolygon:function(t,e){for(var n=t.coordinates,r=-1,o=n.length;++r<o;)hi(n[r],e)},GeometryCollection:function(t,e){for(var n=t.geometries,r=-1,o=n.length;++r<o;)ci(n[r],e)}};function di(t,e,n){var r,o=-1,i=t.length-n;for(e.lineStart();++o<i;)r=t[o],e.point(r[0],r[1],r[2]);e.lineEnd()}function hi(t,e){var n=-1,r=t.length;for(e.polygonStart();++n<r;)di(t[n],e,1);e.polygonEnd()}function pi(t,e){t&&ui.hasOwnProperty(t.type)?ui[t.type](t,e):ci(t,e)}function gi(t){return[ni(t[1],t[0]),li(t[2])]}function mi(t){var e=t[0],n=t[1],r=ri(n);return[r*ri(e),r*oi(e),oi(n)]}function yi(t,e){return t[0]*e[0]+t[1]*e[1]+t[2]*e[2]}function vi(t,e){return[t[1]*e[2]-t[2]*e[1],t[2]*e[0]-t[0]*e[2],t[0]*e[1]-t[1]*e[0]]}function bi(t,e){t[0]+=e[0],t[1]+=e[1],t[2]+=e[2]}function wi(t,e){return[t[0]*e,t[1]*e,t[2]*e]}function $i(t){var e=ai(t[0]*t[0]+t[1]*t[1]+t[2]*t[2]);t[0]/=e,t[1]/=e,t[2]/=e}function xi(t,e){function n(n,r){return n=t(n,r),e(n[0],n[1])}return t.invert&&e.invert&&(n.invert=function(n,r){return(n=e.invert(n,r))&&t.invert(n[0],n[1])}),n}function Si(t,e){return[ti(t)>Vo?t+Math.round(-t/Jo)*Jo:t,e]}function ki(t){return function(e,n){return[(e+=t)>Vo?e-Jo:e<-Vo?e+Jo:e,n]}}function Mi(t){var e=ki(t);return e.invert=ki(-t),e}function _i(t,e){var n=ri(t),r=oi(t),o=ri(e),i=oi(e);function a(t,e){var a=ri(e),l=ri(t)*a,s=oi(t)*a,c=oi(e),u=c*n+l*r;return[ni(s*o-u*i,l*n-c*r),li(u*o+s*i)]}return a.invert=function(t,e){var a=ri(e),l=ri(t)*a,s=oi(t)*a,c=oi(e),u=c*o-s*i;return[ni(s*o+c*i,l*n+u*r),li(u*n-l*r)]},a}function Ni(t,e){(e=mi(e))[0]-=t,$i(e);var n=function(t){return t>1?0:t<-1?Vo:Math.acos(t)}(-e[1]);return((-e[2]<0?-n:n)+Jo-Go)%Jo}function Ti(){var t,e=[];return{point:function(e,n,r){t.push([e,n,r])},lineStart:function(){e.push(t=[])},lineEnd:si,rejoin:function(){e.length>1&&e.push(e.pop().concat(e.shift()))},result:function(){var n=e;return e=[],t=null,n}}}function Ei(t,e){return ti(t[0]-e[0])<Go&&ti(t[1]-e[1])<Go}function Ai(t,e,n,r){this.x=t,this.z=e,this.o=n,this.e=r,this.v=!1,this.n=this.p=null}function Ci(t,e,n,r,o){var i,a,l=[],s=[];if(t.forEach((function(t){if(!((e=t.length-1)<=0)){var e,n,r=t[0],a=t[e];if(Ei(r,a)){if(!r[2]&&!a[2]){for(o.lineStart(),i=0;i<e;++i)o.point((r=t[i])[0],r[1]);return void o.lineEnd()}a[0]+=2*Go}l.push(n=new Ai(r,t,null,!0)),s.push(n.o=new Ai(r,null,n,!1)),l.push(n=new Ai(a,t,null,!1)),s.push(n.o=new Ai(a,null,n,!0))}})),l.length){for(s.sort(e),ji(l),ji(s),i=0,a=s.length;i<a;++i)s[i].e=n=!n;for(var c,u,f=l[0];;){for(var d=f,h=!0;d.v;)if((d=d.n)===f)return;c=d.z,o.lineStart();do{if(d.v=d.o.v=!0,d.e){if(h)for(i=0,a=c.length;i<a;++i)o.point((u=c[i])[0],u[1]);else r(d.x,d.n.x,1,o);d=d.n}else{if(h)for(c=d.p.z,i=c.length-1;i>=0;--i)o.point((u=c[i])[0],u[1]);else r(d.x,d.p.x,-1,o);d=d.p}c=(d=d.o).z,h=!h}while(!d.v);o.lineEnd()}}}function ji(t){if(e=t.length){for(var e,n,r=0,o=t[0];++r<e;)o.n=n=t[r],n.p=o,o=n;o.n=n=t[0],n.p=o}}Si.invert=Si;var Oi,Li,Pi=Io();function Ri(t){return ti(t[0])<=Vo?t[0]:ii(t[0])*((ti(t[0])+Vo)%Jo-Vo)}function Hi(t,e){return t<e?-1:t>e?1:t>=e?0:NaN}function Di(t){for(var e,n,r,o=t.length,i=-1,a=0;++i<o;)a+=t[i].length;for(n=new Array(a);--o>=0;)for(e=(r=t[o]).length;--e>=0;)n[--a]=r[e];return n}function zi(t,e,n,r){return function(o){var i,a,l,s=e(o),c=Ti(),u=e(c),f=!1,d={point:h,lineStart:g,lineEnd:m,polygonStart:function(){d.point=y,d.lineStart=v,d.lineEnd=b,a=[],i=[]},polygonEnd:function(){d.point=h,d.lineStart=g,d.lineEnd=m,a=Di(a);var t=function(t,e){var n=Ri(e),r=e[1],o=oi(r),i=[oi(n),-ri(n),0],a=0,l=0;Pi.reset(),1===o?r=Xo+Go:-1===o&&(r=-Xo-Go);for(var s=0,c=t.length;s<c;++s)if(f=(u=t[s]).length)for(var u,f,d=u[f-1],h=Ri(d),p=d[1]/2+Zo,g=oi(p),m=ri(p),y=0;y<f;++y,h=b,g=$,m=x,d=v){var v=u[y],b=Ri(v),w=v[1]/2+Zo,$=oi(w),x=ri(w),S=b-h,k=S>=0?1:-1,M=k*S,_=M>Vo,N=g*$;if(Pi.add(ni(N*k*oi(M),m*x+N*ri(M))),a+=_?S+k*Jo:S,_^h>=n^b>=n){var T=vi(mi(d),mi(v));$i(T);var E=vi(i,T);$i(E);var A=(_^S>=0?-1:1)*li(E[2]);(r>A||r===A&&(T[0]||T[1]))&&(l+=_^S>=0?1:-1)}}return(a<-Go||a<Go&&Pi<-Go)^1&l}(i,r);a.length?(f||(o.polygonStart(),f=!0),Ci(a,Yi,t,n,o)):t&&(f||(o.polygonStart(),f=!0),o.lineStart(),n(null,null,1,o),o.lineEnd()),f&&(o.polygonEnd(),f=!1),a=i=null},sphere:function(){o.polygonStart(),o.lineStart(),n(null,null,1,o),o.lineEnd(),o.polygonEnd()}};function h(e,n){t(e,n)&&o.point(e,n)}function p(t,e){s.point(t,e)}function g(){d.point=p,s.lineStart()}function m(){d.point=h,s.lineEnd()}function y(t,e){l.push([t,e]),u.point(t,e)}function v(){u.lineStart(),l=[]}function b(){y(l[0][0],l[0][1]),u.lineEnd();var t,e,n,r,s=u.clean(),d=c.result(),h=d.length;if(l.pop(),i.push(l),l=null,h)if(1&s){if((e=(n=d[0]).length-1)>0){for(f||(o.polygonStart(),f=!0),o.lineStart(),t=0;t<e;++t)o.point((r=n[t])[0],r[1]);o.lineEnd()}}else h>1&&2&s&&d.push(d.pop().concat(d.shift())),a.push(d.filter(Bi))}return d}}function Bi(t){return t.length>1}function Yi(t,e){return((t=t.x)[0]<0?t[1]-Xo-Go:Xo-t[1])-((e=e.x)[0]<0?e[1]-Xo-Go:Xo-e[1])}1===(Oi=Hi).length&&(Li=Oi,Oi=function(t,e){return Hi(Li(t),e)});var Fi=zi((function(){return!0}),(function(t){var e,n=NaN,r=NaN,o=NaN;return{lineStart:function(){t.lineStart(),e=1},point:function(i,a){var l=i>0?Vo:-Vo,s=ti(i-n);ti(s-Vo)<Go?(t.point(n,r=(r+a)/2>0?Xo:-Xo),t.point(o,r),t.lineEnd(),t.lineStart(),t.point(l,r),t.point(i,r),e=0):o!==l&&s>=Vo&&(ti(n-o)<Go&&(n-=o*Go),ti(i-l)<Go&&(i-=l*Go),r=function(t,e,n,r){var o,i,a=oi(t-n);return ti(a)>Go?ei((oi(e)*(i=ri(r))*oi(n)-oi(r)*(o=ri(e))*oi(t))/(o*i*a)):(e+r)/2}(n,r,i,a),t.point(o,r),t.lineEnd(),t.lineStart(),t.point(l,r),e=0),t.point(n=i,r=a),o=l},lineEnd:function(){t.lineEnd(),n=r=NaN},clean:function(){return 2-e}}}),(function(t,e,n,r){var o;if(null==t)o=n*Xo,r.point(-Vo,o),r.point(0,o),r.point(Vo,o),r.point(Vo,0),r.point(Vo,-o),r.point(0,-o),r.point(-Vo,-o),r.point(-Vo,0),r.point(-Vo,o);else if(ti(t[0]-e[0])>Go){var i=t[0]<e[0]?Vo:-Vo;o=n*i/2,r.point(-i,o),r.point(0,o),r.point(i,o)}else r.point(e[0],e[1])}),[-Vo,-Xo]);function Ii(t){var e=ri(t),n=6*Qo,r=e>0,o=ti(e)>Go;function i(t,n){return ri(t)*ri(n)>e}function a(t,n,r){var o=[1,0,0],i=vi(mi(t),mi(n)),a=yi(i,i),l=i[0],s=a-l*l;if(!s)return!r&&t;var c=e*a/s,u=-e*l/s,f=vi(o,i),d=wi(o,c);bi(d,wi(i,u));var h=f,p=yi(d,h),g=yi(h,h),m=p*p-g*(yi(d,d)-1);if(!(m<0)){var y=ai(m),v=wi(h,(-p-y)/g);if(bi(v,d),v=gi(v),!r)return v;var b,w=t[0],$=n[0],x=t[1],S=n[1];$<w&&(b=w,w=$,$=b);var k=$-w,M=ti(k-Vo)<Go;if(!M&&S<x&&(b=x,x=S,S=b),M||k<Go?M?x+S>0^v[1]<(ti(v[0]-w)<Go?x:S):x<=v[1]&&v[1]<=S:k>Vo^(w<=v[0]&&v[0]<=$)){var _=wi(h,(-p+y)/g);return bi(_,d),[v,gi(_)]}}}function l(e,n){var o=r?t:Vo-t,i=0;return e<-o?i|=1:e>o&&(i|=2),n<-o?i|=4:n>o&&(i|=8),i}return zi(i,(function(t){var e,n,s,c,u;return{lineStart:function(){c=s=!1,u=1},point:function(f,d){var h,p=[f,d],g=i(f,d),m=r?g?0:l(f,d):g?l(f+(f<0?Vo:-Vo),d):0;if(!e&&(c=s=g)&&t.lineStart(),g!==s&&(!(h=a(e,p))||Ei(e,h)||Ei(p,h))&&(p[2]=1),g!==s)u=0,g?(t.lineStart(),h=a(p,e),t.point(h[0],h[1])):(h=a(e,p),t.point(h[0],h[1],2),t.lineEnd()),e=h;else if(o&&e&&r^g){var y;m&n||!(y=a(p,e,!0))||(u=0,r?(t.lineStart(),t.point(y[0][0],y[0][1]),t.point(y[1][0],y[1][1]),t.lineEnd()):(t.point(y[1][0],y[1][1]),t.lineEnd(),t.lineStart(),t.point(y[0][0],y[0][1],3)))}!g||e&&Ei(e,p)||t.point(p[0],p[1]),e=p,s=g,n=m},lineEnd:function(){s&&t.lineEnd(),e=null},clean:function(){return u|(c&&s)<<1}}}),(function(e,r,o,i){!function(t,e,n,r,o,i){if(n){var a=ri(e),l=oi(e),s=r*n;null==o?(o=e+r*Jo,i=e-s/2):(o=Ni(a,o),i=Ni(a,i),(r>0?o<i:o>i)&&(o+=r*Jo));for(var c,u=o;r>0?u>i:u<i;u-=s)c=gi([a,-l*ri(u),-l*oi(u)]),t.point(c[0],c[1])}}(i,t,n,o,e,r)}),r?[0,-t]:[-Vo,t-Vo])}function qi(t,e,n,r){function o(o,i){return t<=o&&o<=n&&e<=i&&i<=r}function i(o,i,l,c){var u=0,f=0;if(null==o||(u=a(o,l))!==(f=a(i,l))||s(o,i)<0^l>0)do{c.point(0===u||3===u?t:n,u>1?r:e)}while((u=(u+l+4)%4)!==f);else c.point(i[0],i[1])}function a(r,o){return ti(r[0]-t)<Go?o>0?0:3:ti(r[0]-n)<Go?o>0?2:1:ti(r[1]-e)<Go?o>0?1:0:o>0?3:2}function l(t,e){return s(t.x,e.x)}function s(t,e){var n=a(t,1),r=a(e,1);return n!==r?n-r:0===n?e[1]-t[1]:1===n?t[0]-e[0]:2===n?t[1]-e[1]:e[0]-t[0]}return function(a){var s,c,u,f,d,h,p,g,m,y,v,b=a,w=Ti(),$={point:x,lineStart:function(){$.point=S,c&&c.push(u=[]);y=!0,m=!1,p=g=NaN},lineEnd:function(){s&&(S(f,d),h&&m&&w.rejoin(),s.push(w.result()));$.point=x,m&&b.lineEnd()},polygonStart:function(){b=w,s=[],c=[],v=!0},polygonEnd:function(){var e=function(){for(var e=0,n=0,o=c.length;n<o;++n)for(var i,a,l=c[n],s=1,u=l.length,f=l[0],d=f[0],h=f[1];s<u;++s)i=d,a=h,f=l[s],d=f[0],h=f[1],a<=r?h>r&&(d-i)*(r-a)>(h-a)*(t-i)&&++e:h<=r&&(d-i)*(r-a)<(h-a)*(t-i)&&--e;return e}(),n=v&&e,o=(s=Di(s)).length;(n||o)&&(a.polygonStart(),n&&(a.lineStart(),i(null,null,1,a),a.lineEnd()),o&&Ci(s,l,e,i,a),a.polygonEnd());b=a,s=c=u=null}};function x(t,e){o(t,e)&&b.point(t,e)}function S(i,a){var l=o(i,a);if(c&&u.push([i,a]),y)f=i,d=a,h=l,y=!1,l&&(b.lineStart(),b.point(i,a));else if(l&&m)b.point(i,a);else{var s=[p=Math.max(-1e9,Math.min(1e9,p)),g=Math.max(-1e9,Math.min(1e9,g))],w=[i=Math.max(-1e9,Math.min(1e9,i)),a=Math.max(-1e9,Math.min(1e9,a))];!function(t,e,n,r,o,i){var a,l=t[0],s=t[1],c=0,u=1,f=e[0]-l,d=e[1]-s;if(a=n-l,f||!(a>0)){if(a/=f,f<0){if(a<c)return;a<u&&(u=a)}else if(f>0){if(a>u)return;a>c&&(c=a)}if(a=o-l,f||!(a<0)){if(a/=f,f<0){if(a>u)return;a>c&&(c=a)}else if(f>0){if(a<c)return;a<u&&(u=a)}if(a=r-s,d||!(a>0)){if(a/=d,d<0){if(a<c)return;a<u&&(u=a)}else if(d>0){if(a>u)return;a>c&&(c=a)}if(a=i-s,d||!(a<0)){if(a/=d,d<0){if(a>u)return;a>c&&(c=a)}else if(d>0){if(a<c)return;a<u&&(u=a)}return c>0&&(t[0]=l+c*f,t[1]=s+c*d),u<1&&(e[0]=l+u*f,e[1]=s+u*d),!0}}}}}(s,w,t,e,n,r)?l&&(b.lineStart(),b.point(i,a),v=!1):(m||(b.lineStart(),b.point(s[0],s[1])),b.point(w[0],w[1]),l||b.lineEnd(),v=!1)}p=i,g=a,m=l}return $}}function Ui(t){return t}var Wi,Gi,Vi,Xi,Zi=Io(),Ji=Io(),Ki={point:si,lineStart:si,lineEnd:si,polygonStart:function(){Ki.lineStart=Qi,Ki.lineEnd=na},polygonEnd:function(){Ki.lineStart=Ki.lineEnd=Ki.point=si,Zi.add(ti(Ji)),Ji.reset()},result:function(){var t=Zi/2;return Zi.reset(),t}};function Qi(){Ki.point=ta}function ta(t,e){Ki.point=ea,Wi=Vi=t,Gi=Xi=e}function ea(t,e){Ji.add(Xi*t-Vi*e),Vi=t,Xi=e}function na(){ea(Wi,Gi)}var ra=Ki,oa=1/0,ia=oa,aa=-oa,la=aa;var sa,ca,ua,fa,da={point:function(t,e){t<oa&&(oa=t);t>aa&&(aa=t);e<ia&&(ia=e);e>la&&(la=e)},lineStart:si,lineEnd:si,polygonStart:si,polygonEnd:si,result:function(){var t=[[oa,ia],[aa,la]];return aa=la=-(ia=oa=1/0),t}},ha=0,pa=0,ga=0,ma=0,ya=0,va=0,ba=0,wa=0,$a=0,xa={point:Sa,lineStart:ka,lineEnd:Na,polygonStart:function(){xa.lineStart=Ta,xa.lineEnd=Ea},polygonEnd:function(){xa.point=Sa,xa.lineStart=ka,xa.lineEnd=Na},result:function(){var t=$a?[ba/$a,wa/$a]:va?[ma/va,ya/va]:ga?[ha/ga,pa/ga]:[NaN,NaN];return ha=pa=ga=ma=ya=va=ba=wa=$a=0,t}};function Sa(t,e){ha+=t,pa+=e,++ga}function ka(){xa.point=Ma}function Ma(t,e){xa.point=_a,Sa(ua=t,fa=e)}function _a(t,e){var n=t-ua,r=e-fa,o=ai(n*n+r*r);ma+=o*(ua+t)/2,ya+=o*(fa+e)/2,va+=o,Sa(ua=t,fa=e)}function Na(){xa.point=Sa}function Ta(){xa.point=Aa}function Ea(){Ca(sa,ca)}function Aa(t,e){xa.point=Ca,Sa(sa=ua=t,ca=fa=e)}function Ca(t,e){var n=t-ua,r=e-fa,o=ai(n*n+r*r);ma+=o*(ua+t)/2,ya+=o*(fa+e)/2,va+=o,ba+=(o=fa*t-ua*e)*(ua+t),wa+=o*(fa+e),$a+=3*o,Sa(ua=t,fa=e)}var ja=xa;function Oa(t){this._context=t}Oa.prototype={_radius:4.5,pointRadius:function(t){return this._radius=t,this},polygonStart:function(){this._line=0},polygonEnd:function(){this._line=NaN},lineStart:function(){this._point=0},lineEnd:function(){0===this._line&&this._context.closePath(),this._point=NaN},point:function(t,e){switch(this._point){case 0:this._context.moveTo(t,e),this._point=1;break;case 1:this._context.lineTo(t,e);break;default:this._context.moveTo(t+this._radius,e),this._context.arc(t,e,this._radius,0,Jo)}},result:si};var La,Pa,Ra,Ha,Da,za=Io(),Ba={point:si,lineStart:function(){Ba.point=Ya},lineEnd:function(){La&&Fa(Pa,Ra),Ba.point=si},polygonStart:function(){La=!0},polygonEnd:function(){La=null},result:function(){var t=+za;return za.reset(),t}};function Ya(t,e){Ba.point=Fa,Pa=Ha=t,Ra=Da=e}function Fa(t,e){Ha-=t,Da-=e,za.add(ai(Ha*Ha+Da*Da)),Ha=t,Da=e}var Ia=Ba;function qa(){this._string=[]}function Ua(t){return"m0,"+t+"a"+t+","+t+" 0 1,1 0,"+-2*t+"a"+t+","+t+" 0 1,1 0,"+2*t+"z"}function Wa(t){return function(e){var n=new Ga;for(var r in t)n[r]=t[r];return n.stream=e,n}}function Ga(){}function Va(t,e,n){var r=t.clipExtent&&t.clipExtent();return t.scale(150).translate([0,0]),null!=r&&t.clipExtent(null),pi(n,t.stream(da)),e(da.result()),null!=r&&t.clipExtent(r),t}function Xa(t,e,n){return Va(t,(function(n){var r=e[1][0]-e[0][0],o=e[1][1]-e[0][1],i=Math.min(r/(n[1][0]-n[0][0]),o/(n[1][1]-n[0][1])),a=+e[0][0]+(r-i*(n[1][0]+n[0][0]))/2,l=+e[0][1]+(o-i*(n[1][1]+n[0][1]))/2;t.scale(150*i).translate([a,l])}),n)}qa.prototype={_radius:4.5,_circle:Ua(4.5),pointRadius:function(t){return(t=+t)!==this._radius&&(this._radius=t,this._circle=null),this},polygonStart:function(){this._line=0},polygonEnd:function(){this._line=NaN},lineStart:function(){this._point=0},lineEnd:function(){0===this._line&&this._string.push("Z"),this._point=NaN},point:function(t,e){switch(this._point){case 0:this._string.push("M",t,",",e),this._point=1;break;case 1:this._string.push("L",t,",",e);break;default:null==this._circle&&(this._circle=Ua(this._radius)),this._string.push("M",t,",",e,this._circle)}},result:function(){if(this._string.length){var t=this._string.join("");return this._string=[],t}return null}},Ga.prototype={constructor:Ga,point:function(t,e){this.stream.point(t,e)},sphere:function(){this.stream.sphere()},lineStart:function(){this.stream.lineStart()},lineEnd:function(){this.stream.lineEnd()},polygonStart:function(){this.stream.polygonStart()},polygonEnd:function(){this.stream.polygonEnd()}};var Za=ri(30*Qo);function Ja(t,e){return+e?function(t,e){function n(r,o,i,a,l,s,c,u,f,d,h,p,g,m){var y=c-r,v=u-o,b=y*y+v*v;if(b>4*e&&g--){var w=a+d,$=l+h,x=s+p,S=ai(w*w+$*$+x*x),k=li(x/=S),M=ti(ti(x)-1)<Go||ti(i-f)<Go?(i+f)/2:ni($,w),_=t(M,k),N=_[0],T=_[1],E=N-r,A=T-o,C=v*E-y*A;(C*C/b>e||ti((y*E+v*A)/b-.5)>.3||a*d+l*h+s*p<Za)&&(n(r,o,i,a,l,s,N,T,M,w/=S,$/=S,x,g,m),m.point(N,T),n(N,T,M,w,$,x,c,u,f,d,h,p,g,m))}}return function(e){var r,o,i,a,l,s,c,u,f,d,h,p,g={point:m,lineStart:y,lineEnd:b,polygonStart:function(){e.polygonStart(),g.lineStart=w},polygonEnd:function(){e.polygonEnd(),g.lineStart=y}};function m(n,r){n=t(n,r),e.point(n[0],n[1])}function y(){u=NaN,g.point=v,e.lineStart()}function v(r,o){var i=mi([r,o]),a=t(r,o);n(u,f,c,d,h,p,u=a[0],f=a[1],c=r,d=i[0],h=i[1],p=i[2],16,e),e.point(u,f)}function b(){g.point=m,e.lineEnd()}function w(){y(),g.point=$,g.lineEnd=x}function $(t,e){v(r=t,e),o=u,i=f,a=d,l=h,s=p,g.point=v}function x(){n(u,f,c,d,h,p,o,i,r,a,l,s,16,e),g.lineEnd=b,b()}return g}}(t,e):function(t){return Wa({point:function(e,n){e=t(e,n),this.stream.point(e[0],e[1])}})}(t)}var Ka=Wa({point:function(t,e){this.stream.point(t*Qo,e*Qo)}});function Qa(t,e,n,r,o){function i(i,a){return[e+t*(i*=r),n-t*(a*=o)]}return i.invert=function(i,a){return[(i-e)/t*r,(n-a)/t*o]},i}function tl(t,e,n,r,o,i){var a=ri(i),l=oi(i),s=a*t,c=l*t,u=a/t,f=l/t,d=(l*n-a*e)/t,h=(l*e+a*n)/t;function p(t,i){return[s*(t*=r)-c*(i*=o)+e,n-c*t-s*i]}return p.invert=function(t,e){return[r*(u*t-f*e+d),o*(h-f*t-u*e)]},p}function el(t){var e,n,r,o,i,a,l,s,c,u,f=150,d=480,h=250,p=0,g=0,m=0,y=0,v=0,b=0,w=1,$=1,x=null,S=Fi,k=null,M=Ui,_=.5;function N(t){return s(t[0]*Qo,t[1]*Qo)}function T(t){return(t=s.invert(t[0],t[1]))&&[t[0]*Ko,t[1]*Ko]}function E(){var t=tl(f,0,0,w,$,b).apply(null,e(p,g)),r=(b?tl:Qa)(f,d-t[0],h-t[1],w,$,b);return n=function(t,e,n){return(t%=Jo)?e||n?xi(Mi(t),_i(e,n)):Mi(t):e||n?_i(e,n):Si}(m,y,v),l=xi(e,r),s=xi(n,l),a=Ja(l,_),A()}function A(){return c=u=null,N}return N.stream=function(t){return c&&u===t?c:c=Ka(function(t){return Wa({point:function(e,n){var r=t(e,n);return this.stream.point(r[0],r[1])}})}(n)(S(a(M(u=t)))))},N.preclip=function(t){return arguments.length?(S=t,x=void 0,A()):S},N.postclip=function(t){return arguments.length?(M=t,k=r=o=i=null,A()):M},N.clipAngle=function(t){return arguments.length?(S=+t?Ii(x=t*Qo):(x=null,Fi),A()):x*Ko},N.clipExtent=function(t){return arguments.length?(M=null==t?(k=r=o=i=null,Ui):qi(k=+t[0][0],r=+t[0][1],o=+t[1][0],i=+t[1][1]),A()):null==k?null:[[k,r],[o,i]]},N.scale=function(t){return arguments.length?(f=+t,E()):f},N.translate=function(t){return arguments.length?(d=+t[0],h=+t[1],E()):[d,h]},N.center=function(t){return arguments.length?(p=t[0]%360*Qo,g=t[1]%360*Qo,E()):[p*Ko,g*Ko]},N.rotate=function(t){return arguments.length?(m=t[0]%360*Qo,y=t[1]%360*Qo,v=t.length>2?t[2]%360*Qo:0,E()):[m*Ko,y*Ko,v*Ko]},N.angle=function(t){return arguments.length?(b=t%360*Qo,E()):b*Ko},N.reflectX=function(t){return arguments.length?(w=t?-1:1,E()):w<0},N.reflectY=function(t){return arguments.length?($=t?-1:1,E()):$<0},N.precision=function(t){return arguments.length?(a=Ja(l,_=t*t),A()):ai(_)},N.fitExtent=function(t,e){return Xa(N,t,e)},N.fitSize=function(t,e){return function(t,e,n){return Xa(t,[[0,0],e],n)}(N,t,e)},N.fitWidth=function(t,e){return function(t,e,n){return Va(t,(function(n){var r=+e,o=r/(n[1][0]-n[0][0]),i=(r-o*(n[1][0]+n[0][0]))/2,a=-o*n[0][1];t.scale(150*o).translate([i,a])}),n)}(N,t,e)},N.fitHeight=function(t,e){return function(t,e,n){return Va(t,(function(n){var r=+e,o=r/(n[1][1]-n[0][1]),i=-o*n[0][0],a=(r-o*(n[1][1]+n[0][1]))/2;t.scale(150*o).translate([i,a])}),n)}(N,t,e)},function(){return e=t.apply(this,arguments),N.invert=e.invert&&T,E()}}function nl(t,e){var n=oi(t),r=(n+oi(e))/2;if(ti(r)<Go)return function(t){var e=ri(t);function n(t,n){return[t*e,oi(n)/e]}return n.invert=function(t,n){return[t/e,li(n*e)]},n}(t);var o=1+n*(2*r-n),i=ai(o)/r;function a(t,e){var n=ai(o-2*r*oi(e))/r;return[n*oi(t*=r),i-n*ri(t)]}return a.invert=function(t,e){var n=i-e,a=ni(t,ti(n))*ii(n);return n*r<0&&(a-=Vo*ii(t)*ii(n)),[a/r,li((o-(t*t+n*n)*r*r)/(2*r))]},a}function rl(){return(t=nl,e=0,n=Vo/3,r=el(t),o=r(e,n),o.parallels=function(t){return arguments.length?r(e=t[0]*Qo,n=t[1]*Qo):[e*Ko,n*Ko]},o).scale(155.424).center([0,33.6442]);var t,e,n,r,o}function ol(t){for(var e=t.length/6|0,n=new Array(e),r=0;r<e;)n[r]="#"+t.slice(6*r,6*++r);return n}function il(t){return de(t[t.length-1])}var al=il(new Array(3).concat("fc8d59ffffbf91bfdb","d7191cfdae61abd9e92c7bb6","d7191cfdae61ffffbfabd9e92c7bb6","d73027fc8d59fee090e0f3f891bfdb4575b4","d73027fc8d59fee090ffffbfe0f3f891bfdb4575b4","d73027f46d43fdae61fee090e0f3f8abd9e974add14575b4","d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4","a50026d73027f46d43fdae61fee090e0f3f8abd9e974add14575b4313695","a50026d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4313695").map(ol)),ll=il(new Array(3).concat("deebf79ecae13182bd","eff3ffbdd7e76baed62171b5","eff3ffbdd7e76baed63182bd08519c","eff3ffc6dbef9ecae16baed63182bd08519c","eff3ffc6dbef9ecae16baed64292c62171b5084594","f7fbffdeebf7c6dbef9ecae16baed64292c62171b5084594","f7fbffdeebf7c6dbef9ecae16baed64292c62171b508519c08306b").map(ol));function sl(t,e,n){const r=t.slice();return r[17]=e[n],r}function cl(t,e,n){const r=t.slice();return r[20]=e[n],r}function ul(t){let e,n,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w=t[20][1].name+"",S=t[20][1].value+"",k=t[20][1].name+"";function N(){return t[15](t[20])}return{c(){e=M("g"),n=M("rect"),r=M("title"),o=_(w),a=_(": "),l=_(S),h=M("text"),p=_(k),j(n,"width",s=Math.abs(t[9](t[20][1].value)-t[9](0))||1),j(n,"x",c=t[9](Math.min(t[20][1].value,0))),j(n,"height",u=t[8].bandwidth()),j(n,"fill",f=t[1]==t[20][0]?t[2]:t[20][1].fill),j(n,"stroke-width","1"),j(n,"stroke",d=dn(t[1]==t[20][0]?t[2]:t[20][1].fill).darker(2)),j(h,"class","yAxis svelte-1jz9hor"),j(h,"transform",g="translate("+t[6].left+")"),j(h,"dy","1em"),j(h,"dx","-3"),j(e,"transform",m="translate(0 "+t[8](t[20][0])+")")},m(i,s){$(i,e,s),v(e,n),v(n,r),v(r,o),v(r,a),v(r,l),v(e,h),v(h,p),y||(b=[E(n,"mouseenter",N),E(n,"mouseleave",t[11])],y=!0)},p(r,i){t=r,1&i&&w!==(w=t[20][1].name+"")&&O(o,w),1&i&&S!==(S=t[20][1].value+"")&&O(l,S),513&i&&s!==(s=Math.abs(t[9](t[20][1].value)-t[9](0))||1)&&j(n,"width",s),513&i&&c!==(c=t[9](Math.min(t[20][1].value,0)))&&j(n,"x",c),256&i&&u!==(u=t[8].bandwidth())&&j(n,"height",u),7&i&&f!==(f=t[1]==t[20][0]?t[2]:t[20][1].fill)&&j(n,"fill",f),7&i&&d!==(d=dn(t[1]==t[20][0]?t[2]:t[20][1].fill).darker(2))&&j(n,"stroke",d),1&i&&k!==(k=t[20][1].name+"")&&O(p,k),64&i&&g!==(g="translate("+t[6].left+")")&&j(h,"transform",g),257&i&&m!==(m="translate(0 "+t[8](t[20][0])+")")&&j(e,"transform",m)},d(t){t&&x(e),y=!1,i(b)}}}function fl(t){let e,n,r,o,i,a,l=t[5](t[17])+"";return{c(){e=M("g"),n=M("line"),o=M("text"),i=_(l),j(n,"y1","0"),j(n,"y2",t[7]),j(n,"stroke",r=0===t[17]?"":"#fff"),j(o,"class","anchor-middle svelte-1jz9hor"),j(o,"dy","-5"),j(e,"transform",a="translate("+t[9](t[17])+" 0)")},m(t,r){$(t,e,r),v(e,n),v(e,o),v(o,i)},p(t,o){128&o&&j(n,"y2",t[7]),512&o&&r!==(r=0===t[17]?"":"#fff")&&j(n,"stroke",r),544&o&&l!==(l=t[5](t[17])+"")&&O(i,l),512&o&&a!==(a="translate("+t[9](t[17])+" 0)")&&j(e,"transform",a)},d(t){t&&x(e)}}}function dl(e){let n,r,o,i,a,l,s,c,u,f=("percentage"===e[4]?"Percentage Shortage/Surplus":e[3])+"",d=e[0],h=[];for(let t=0;t<d.length;t+=1)h[t]=ul(cl(e,d,t));let p=e[9].ticks(5),g=[];for(let t=0;t<p.length;t+=1)g[t]=fl(sl(e,p,t));return{c(){n=M("svg"),r=M("g"),o=M("text"),i=_(f),l=M("g");for(let t=0;t<h.length;t+=1)h[t].c();s=M("g");for(let t=0;t<g.length;t+=1)g[t].c();j(o,"class","anchor-middle svelte-1jz9hor"),j(o,"transform",a="translate("+(e[6].left+(hl-e[6].left-e[6].right)/2)+"\r\n      10)"),j(s,"transform",c="translate(0 "+e[6].top+")"),j(n,"id","row-chart-svg"),j(n,"viewBox",u="0 0 "+hl+" "+e[7]),j(n,"class","svelte-1jz9hor")},m(t,e){$(t,n,e),v(n,r),v(r,o),v(o,i),v(r,l);for(let t=0;t<h.length;t+=1)h[t].m(l,null);v(l,s);for(let t=0;t<g.length;t+=1)g[t].m(s,null)},p(t,[e]){if(24&e&&f!==(f=("percentage"===t[4]?"Percentage Shortage/Surplus":t[3])+"")&&O(i,f),64&e&&a!==(a="translate("+(t[6].left+(hl-t[6].left-t[6].right)/2)+"\r\n      10)")&&j(o,"transform",a),3911&e){let n;for(d=t[0],n=0;n<d.length;n+=1){const r=cl(t,d,n);h[n]?h[n].p(r,e):(h[n]=ul(r),h[n].c(),h[n].m(l,s))}for(;n<h.length;n+=1)h[n].d(1);h.length=d.length}if(672&e){let n;for(p=t[9].ticks(5),n=0;n<p.length;n+=1){const r=sl(t,p,n);g[n]?g[n].p(r,e):(g[n]=fl(r),g[n].c(),g[n].m(s,null))}for(;n<g.length;n+=1)g[n].d(1);g.length=p.length}64&e&&c!==(c="translate(0 "+t[6].top+")")&&j(s,"transform",c),128&e&&u!==(u="0 0 "+hl+" "+t[7])&&j(n,"viewBox",u)},i:t,o:t,d(t){t&&x(n),S(h,t),S(g,t)}}}const hl=320;function pl(t,e,n){let r,o,i,a,l;const s=W();let{mapYearDataArray:c}=e,{valueExtentAllTime:u}=e,{locationType:f}=e,{hovered:d}=e,{hoveredColor:h}=e,{rateOrTotal:p}=e,{calculation:g}=e,{tickFormat:m=(t=>t.toLocaleString())}=e;function y(t){s("locationHover",t)}return t.$$set=t=>{"mapYearDataArray"in t&&n(0,c=t.mapYearDataArray),"valueExtentAllTime"in t&&n(12,u=t.valueExtentAllTime),"locationType"in t&&n(13,f=t.locationType),"hovered"in t&&n(1,d=t.hovered),"hoveredColor"in t&&n(2,h=t.hoveredColor),"rateOrTotal"in t&&n(3,p=t.rateOrTotal),"calculation"in t&&n(4,g=t.calculation),"tickFormat"in t&&n(5,m=t.tickFormat)},t.$$.update=()=>{8192&t.$$.dirty&&n(6,r={top:30,right:10,bottom:10,left:"Medicaid Region"==f?155:110}),65&t.$$.dirty&&n(7,o=20*c.length+r.top+r.bottom),4096&t.$$.dirty&&n(14,i=u.map((t,e)=>0==e&&t>0?0:t)),16448&t.$$.dirty&&n(9,a=br().domain(i).range([r.left,hl-r.right])),193&t.$$.dirty&&n(8,l=function t(){var e,n,r=Wn().unknown(void 0),o=r.domain,i=r.range,a=0,l=1,s=!1,c=0,u=0,f=.5;function d(){var t=o().length,r=l<a,d=r?l:a,h=r?a:l;e=(h-d)/Math.max(1,t-c+2*u),s&&(e=Math.floor(e)),d+=(h-d-e*(t-c))*f,n=e*(1-c),s&&(d=Math.round(d),n=Math.round(n));var p=Ge(t).map((function(t){return d+e*t}));return i(r?p.reverse():p)}return delete r.unknown,r.domain=function(t){return arguments.length?(o(t),d()):o()},r.range=function(t){return arguments.length?([a,l]=t,a=+a,l=+l,d()):[a,l]},r.rangeRound=function(t){return[a,l]=t,a=+a,l=+l,s=!0,d()},r.bandwidth=function(){return n},r.step=function(){return e},r.round=function(t){return arguments.length?(s=!!t,d()):s},r.padding=function(t){return arguments.length?(c=Math.min(1,u=+t),d()):c},r.paddingInner=function(t){return arguments.length?(c=Math.min(1,t),d()):c},r.paddingOuter=function(t){return arguments.length?(u=+t,d()):u},r.align=function(t){return arguments.length?(f=Math.max(0,Math.min(1,t)),d()):f},r.copy=function(){return t(o(),[a,l]).round(s).paddingInner(c).paddingOuter(u).align(f)},In.apply(d(),arguments)}().domain(c.map(t=>t[0])).range([r.top,o-r.bottom]).paddingInner(.1))},[c,d,h,p,g,m,r,o,l,a,y,function(t){s("locationLeave")},u,f,i,t=>y(t[0])]}class gl extends _t{constructor(t){super(),Mt(this,t,pl,dl,l,{mapYearDataArray:0,valueExtentAllTime:12,locationType:13,hovered:1,hoveredColor:2,rateOrTotal:3,calculation:4,tickFormat:5})}}function ml(t,e,n){const r=t.slice();return r[27]=e[n],r}function yl(t,e,n){const r=t.slice();return r[30]=e[n],r[32]=n,r}function vl(t,e,n){const r=t.slice();return r[33]=e[n],r[32]=n,r}function bl(t,e,n){const r=t.slice();return r[35]=e[n],r}function wl(e){let n;return{c(){n=k("div"),n.textContent='Choose a combination of selections and click "Show" to see a table of the\r\n    model\'s projections.',j(n,"class","notification")},m(t,e){$(t,n,e)},p:t,d(t){t&&x(n)}}}function $l(t){let e,n,r,o,i,a,l,s,c,u,f,d,h,p,g,m=t[4].locationType+"",y=t[1]&&xl(t),b=t[3][0][1],w=[];for(let e=0;e<b.length;e+=1)w[e]=Sl(bl(t,b,e));let M=t[6],T=[];for(let e=0;e<M.length;e+=1)T[e]=Ml(yl(t,M,e));let E=t[7]>1&&_l(t);return{c(){e=k("div"),y&&y.c(),n=N(),r=k("div"),o=k("table"),i=k("thead"),a=k("tr"),l=k("th"),s=N(),c=k("tr"),u=k("th"),f=_(m),d=N();for(let t=0;t<w.length;t+=1)w[t].c();h=N(),p=k("tbody");for(let t=0;t<T.length;t+=1)T[t].c();g=N(),E&&E.c(),j(l,"class","frozen projection-header svelte-xizxt8"),P(l,"width",t[10]),j(u,"class","frozen svelte-xizxt8"),P(u,"left",t[5]+"px"),P(u,"padding-bottom","5px"),P(u,"width",t[10]),j(o,"class","table is-narrow"),j(r,"class","table-container svelte-xizxt8"),j(r,"id","wrapper"),P(r,"margin-left",t[10]),j(e,"id","top-level-table-div")},m(t,m){$(t,e,m),y&&y.m(e,null),v(e,n),v(e,r),v(r,o),v(o,i),v(i,a),v(a,l),v(i,s),v(i,c),v(c,u),v(u,f),v(c,d);for(let t=0;t<w.length;t+=1)w[t].m(c,null);v(o,h),v(o,p);for(let t=0;t<T.length;t+=1)T[t].m(p,null);v(e,g),E&&E.m(e,null)},p(t,o){if(t[1]?y?y.p(t,o):(y=xl(t),y.c(),y.m(e,n)):y&&(y.d(1),y=null),1024&o[0]&&P(l,"width",t[10]),16&o[0]&&m!==(m=t[4].locationType+"")&&O(f,m),32&o[0]&&P(u,"left",t[5]+"px"),1024&o[0]&&P(u,"width",t[10]),8&o[0]){let e;for(b=t[3][0][1],e=0;e<b.length;e+=1){const n=bl(t,b,e);w[e]?w[e].p(n,o):(w[e]=Sl(n),w[e].c(),w[e].m(c,null))}for(;e<w.length;e+=1)w[e].d(1);w.length=b.length}if(14176&o[0]){let e;for(M=t[6],e=0;e<M.length;e+=1){const n=yl(t,M,e);T[e]?T[e].p(n,o):(T[e]=Ml(n),T[e].c(),T[e].m(p,null))}for(;e<T.length;e+=1)T[e].d(1);T.length=M.length}1024&o[0]&&P(r,"margin-left",t[10]),t[7]>1?E?E.p(t,o):(E=_l(t),E.c(),E.m(e,null)):E&&(E.d(1),E=null)},d(t){t&&x(e),y&&y.d(),S(w,t),S(T,t),E&&E.d()}}}function xl(t){let e,n,r,o,i,a,l,s,c=t[4].type+"",u=t[4].locationType.trim()+"",f=Be(t[4],[...t[0].params.filter(El).map(Al),"setting","education","fteOrHeadcount","rateOrTotal","calculation"]).join(", ")+"";return{c(){e=k("h1"),n=_(c),r=_("s by "),o=_(u),i=_(", North Carolina"),a=N(),l=k("h2"),s=_(f),j(e,"class","title is-4"),j(l,"class","subtitle is-6")},m(t,c){$(t,e,c),v(e,n),v(e,r),v(e,o),v(e,i),$(t,a,c),$(t,l,c),v(l,s)},p(t,e){16&e[0]&&c!==(c=t[4].type+"")&&O(n,c),16&e[0]&&u!==(u=t[4].locationType.trim()+"")&&O(o,u),17&e[0]&&f!==(f=Be(t[4],[...t[0].params.filter(El).map(Al),"setting","education","fteOrHeadcount","rateOrTotal","calculation"]).join(", ")+"")&&O(s,f)},d(t){t&&x(e),t&&x(a),t&&x(l)}}}function Sl(t){let e,n,r,o,i=t[35].year+"";return{c(){e=k("th"),n=_(i),r=N(),j(e,"id",o="header-"+t[35].year),j(e,"class","svelte-xizxt8")},m(t,o){$(t,e,o),v(e,n),v(e,r)},p(t,r){8&r[0]&&i!==(i=t[35].year+"")&&O(n,i),8&r[0]&&o!==(o="header-"+t[35].year)&&j(e,"id",o)},d(t){t&&x(e)}}}function kl(t){let e,n,r,o,a=t[9](t[33].value)+"";function l(){return t[22](t[33])}return{c(){e=k("td"),n=_(a),j(e,"class","number-cell svelte-xizxt8"),P(e,"background-color",t[8](t[32],t[33])),P(e,"color",kn(t[8](t[32],t[33])))},m(i,a){$(i,e,a),v(e,n),r||(o=[E(e,"mouseenter",l),E(e,"mouseleave",t[13])],r=!0)},p(r,o){t=r,576&o[0]&&a!==(a=t[9](t[33].value)+"")&&O(n,a),320&o[0]&&P(e,"background-color",t[8](t[32],t[33])),320&o[0]&&P(e,"color",kn(t[8](t[32],t[33])))},d(t){t&&x(e),r=!1,i(o)}}}function Ml(t){let e,n,r,o,i,a,l=t[30][0]+"",s=t[30][1],c=[];for(let e=0;e<s.length;e+=1)c[e]=kl(vl(t,s,e));return{c(){e=k("tr"),n=k("td"),r=_(l),i=N();for(let t=0;t<c.length;t+=1)c[t].c();a=N(),j(n,"class","frozen svelte-xizxt8"),j(n,"style",o="width:"+t[10]+";left:"+t[5]+"px;"+(0==t[32]?"padding-bottom:5px;":""))},m(t,o){$(t,e,o),v(e,n),v(n,r),v(e,i);for(let t=0;t<c.length;t+=1)c[t].m(e,null);v(e,a)},p(t,i){if(64&i[0]&&l!==(l=t[30][0]+"")&&O(r,l),1056&i[0]&&o!==(o="width:"+t[10]+";left:"+t[5]+"px;"+(0==t[32]?"padding-bottom:5px;":""))&&j(n,"style",o),13120&i[0]){let n;for(s=t[30][1],n=0;n<s.length;n+=1){const r=vl(t,s,n);c[n]?c[n].p(r,i):(c[n]=kl(r),c[n].c(),c[n].m(e,a))}for(;n<c.length;n+=1)c[n].d(1);c.length=s.length}},d(t){t&&x(e),S(c,t)}}}function _l(t){let e,n,r=Array.from({length:t[7]},Cl),o=[];for(let e=0;e<r.length;e+=1)o[e]=Nl(ml(t,r,e));return{c(){e=k("nav"),n=k("ul");for(let t=0;t<o.length;t+=1)o[t].c();j(n,"class","pagination-list"),j(e,"class","pagination"),j(e,"role","navigation"),j(e,"aria-label","pagination")},m(t,r){$(t,e,r),v(e,n);for(let t=0;t<o.length;t+=1)o[t].m(n,null)},p(t,e){if(2180&e[0]){let i;for(r=Array.from({length:t[7]},Cl),i=0;i<r.length;i+=1){const a=ml(t,r,i);o[i]?o[i].p(a,e):(o[i]=Nl(a),o[i].c(),o[i].m(n,null))}for(;i<o.length;i+=1)o[i].d(1);o.length=r.length}},d(t){t&&x(e),S(o,t)}}}function Nl(t){let e,n,r,o,i,a,l,s,c=t[27]+"";return{c(){e=k("li"),n=k("button"),r=_(c),a=N(),j(n,"class",o="pagination-link "+(t[2]+1==t[27]?"is-current":"")),j(n,"aria-label",i="Goto page "+t[27])},m(o,i){$(o,e,i),v(e,n),v(n,r),v(e,a),l||(s=E(n,"click",t[11]),l=!0)},p(t,e){128&e[0]&&c!==(c=t[27]+"")&&O(r,c),132&e[0]&&o!==(o="pagination-link "+(t[2]+1==t[27]?"is-current":""))&&j(n,"class",o),128&e[0]&&i!==(i="Goto page "+t[27])&&j(n,"aria-label",i)},d(t){t&&x(e),l=!1,s()}}}function Tl(e){let n;function r(t,e){return t[0].values?$l:wl}let o=r(e),i=o(e);return{c(){i.c(),n=T()},m(t,e){i.m(t,e),$(t,n,e)},p(t,e){o===(o=r(t))&&i?i.p(t,e):(i.d(1),i=o(t),i&&(i.c(),i.m(n.parentNode,n)))},i:t,o:t,d(t){i.d(t),t&&x(n)}}}const El=t=>t[0].includes("Scenario"),Al=t=>t[0],Cl=(t,e)=>e+1;function jl(t,e,n){let r,o,i,a,l,s,c,u,f;const d=W(),h=new Map(Ve.get("location").options.map(t=>[t.value,t.label]));let{data:p}=e,{showTitle:g=!0}=e,{currentYear:m}=e,{baseYearOrder:y}=e,{hovered:v}=e,{hoveredColor:b}=e,{colorScale:w=(t=>"#fff")}=e,{valueFormat:$=(t=>t.toLocaleFormat())}=e,x=0,S=0;function k(){const{left:t}=document.getElementById("main-container").getBoundingClientRect(),{left:e}=document.getElementById("top-level-table-div").getBoundingClientRect();n(5,x=e-t)}function M(t){d("locationHover",t)}var _;U(()=>{k(),window.onresize=function(t,e,n){var r,o,i,a,l=0;n||(n={});var s=function(){l=!1===n.leading?0:Date.now(),r=null,a=t.apply(o,i),r||(o=i=null)},c=function(){var c=Date.now();l||!1!==n.leading||(l=c);var u=e-(c-l);return o=this,i=arguments,u<=0||u>e?(r&&(clearTimeout(r),r=null),l=c,a=t.apply(o,i),r||(o=i=null)):r||!1===n.trailing||(r=setTimeout(s,u)),a};return c.cancel=function(){clearTimeout(r),l=0,r=o=i=null},c}(k,100);const t=document.getElementById("header-"+m);t&&t.scrollIntoView({block:"nearest"})}),_=()=>{window.onresize=null},q().$$.on_destroy.push(_);return t.$$set=t=>{"data"in t&&n(0,p=t.data),"showTitle"in t&&n(1,g=t.showTitle),"currentYear"in t&&n(14,m=t.currentYear),"baseYearOrder"in t&&n(15,y=t.baseYearOrder),"hovered"in t&&n(16,v=t.hovered),"hoveredColor"in t&&n(17,b=t.hoveredColor),"colorScale"in t&&n(18,w=t.colorScale),"valueFormat"in t&&n(19,$=t.valueFormat)},t.$$.update=()=>{if(1&t.$$.dirty[0]&&n(4,o=p.params?p.params.reduce((t,e)=>(t[e[0]]=Ve.get(e[0]).options.find(t=>t.value==e[1]).label,t),{}):{}),16&t.$$.dirty[0]&&n(10,r="Medicaid Region"==o.locationType?"13.5em":"8em"),1&t.$$.dirty[0]&&p&&n(2,S=0),1&t.$$.dirty[0]&&p.params&&new Map(p.params.map(t=>[t.name,t])),524289&t.$$.dirty[0]&&n(9,i=function(t){return"percentage"===p.params.find(t=>"calculation"==t[0])[1]?$(t):_n(+p.params.find(t=>"rateOrTotal"==t[0])[1])(t)}),1&t.$$.dirty[0]&&n(21,a=De(p.values,t=>t.location)),2129920&t.$$.dirty[0]&&n(3,l=y.map(t=>a.get(t)).map((function(t){return[h.get(t[0].location),t.sort((t,e)=>Te(t.year,e.year))]}))),475136&t.$$.dirty[0]&&n(8,s=(t,e)=>e.year!=m?"#ffffff":v==e.location?b:w(e.value)),8&t.$$.dirty[0]&&n(7,c=Math.ceil(l.length/10)),8&t.$$.dirty[0]&&n(20,u=De(l,(t,e)=>Math.floor(e/10))),1048580&t.$$.dirty[0]&&n(6,f=u.get(S)),16384&t.$$.dirty[0]&&m){const t=document.getElementById("header-"+m);t&&t.scrollIntoView({behavior:"smooth",block:"nearest"})}},[p,g,S,l,o,x,f,c,s,i,r,function(t){n(2,S=+t.target.innerText-1)},M,function(t){d("locationLeave")},m,y,v,b,w,$,u,a,t=>M(t.location)]}class Ol extends _t{constructor(t){super(),Mt(this,t,jl,Tl,l,{data:0,showTitle:1,currentYear:14,baseYearOrder:15,hovered:16,hoveredColor:17,colorScale:18,valueFormat:19},null,[-1,-1])}}function Ll(t,e,n){const r=t.slice();return r[34]=e[n],r}function Pl(t,e,n){const r=t.slice();return r[37]=e[n],r}function Rl(t,e,n){const r=t.slice();return r[34]=e[n],r}function Hl(e){let n;return{c(){n=k("div"),n.textContent='Choose a combination of selections and click "Show" to see a map of the\r\n      model\'s projections.',j(n,"class","notification")},m(t,e){$(t,n,e)},p:t,i:t,o:t,d(t){t&&x(n)}}}function Dl(t){let e,n,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,T,A,C,R,H,D,z,B,Y,F,I,q,U,W,G,V=t[16].type+"",X=t[16].locationType+"",Z=t[3]>=t[2]?" (Projected)":"",J=Be(t[16],["calculation","setting","education","fteOrHeadcount","rateOrTotal",...t[0].params.filter(Vl).map(Xl)]).join(", ")+"",K=t[3]>=t[2]?" (Projected)":"";g=new gl({props:{mapYearDataArray:t[7],valueExtentAllTime:t[5],locationType:t[16].locationType,rateOrTotal:t[16].rateOrTotal,hovered:t[9],hoveredColor:Ul,tickFormat:t[13],calculation:t[4]}}),g.$on("locationHover",t[28]),g.$on("locationLeave",t[19]);let Q=t[1]&&t[10]&&zl(t);return q=new Ol({props:{data:t[0],showTitle:!1,colorScale:t[6],currentYear:t[3],baseYearOrder:t[8],hovered:t[9],hoveredColor:Ul,valueFormat:t[13]}}),q.$on("locationHover",t[31]),q.$on("locationLeave",t[19]),{c(){e=k("h1"),n=_(V),r=_("s by "),o=_(X),a=_(", North Carolina, "),l=_(t[3]),s=_(Z),c=N(),u=k("h2"),f=_(J),d=N(),h=k("div"),p=k("div"),xt(g.$$.fragment),m=N(),y=k("div"),b=M("svg"),w=M("g"),Q&&Q.c(),S=N(),T=k("div"),A=k("div"),C=_("Year of Selected Projection to Map:\r\n        "),R=k("span"),H=_(t[3]),D=_(K),z=N(),B=k("input"),I=N(),xt(q.$$.fragment),j(e,"class","title is-4"),j(u,"class","subtitle is-6"),j(p,"class","column is-three-fifths"),P(p,"padding","0px 0px 0px 5px"),j(b,"viewBox","0 0 "+Wl+" "+Gl),j(b,"id","map-svg"),j(y,"class","column is-two-fifths"),P(y,"padding","0px 5px 0px 0px"),j(h,"class","columns"),j(R,"class","range-output"),j(A,"class","range-title"),j(B,"class","slider"),j(B,"name","input"),j(B,"type","range"),j(B,"min",Y=t[15][0]),j(B,"max",F=t[15][1]),j(B,"step","1"),j(T,"class","range")},m(i,x){$(i,e,x),v(e,n),v(e,r),v(e,o),v(e,a),v(e,l),v(e,s),$(i,c,x),$(i,u,x),v(u,f),$(i,d,x),$(i,h,x),v(h,p),St(g,p,null),v(h,m),v(h,y),v(y,b),v(b,w),Q&&Q.m(w,null),$(i,S,x),$(i,T,x),v(T,A),v(A,C),v(A,R),v(R,H),v(R,D),v(T,z),v(T,B),L(B,t[3]),v(T,I),St(q,T,null),U=!0,W||(G=[E(B,"change",t[30]),E(B,"input",t[30])],W=!0)},p(t,e){(!U||65536&e[0])&&V!==(V=t[16].type+"")&&O(n,V),(!U||65536&e[0])&&X!==(X=t[16].locationType+"")&&O(o,X),(!U||8&e[0])&&O(l,t[3]),(!U||12&e[0])&&Z!==(Z=t[3]>=t[2]?" (Projected)":"")&&O(s,Z),(!U||65537&e[0])&&J!==(J=Be(t[16],["calculation","setting","education","fteOrHeadcount","rateOrTotal",...t[0].params.filter(Vl).map(Xl)]).join(", ")+"")&&O(f,J);const r={};128&e[0]&&(r.mapYearDataArray=t[7]),32&e[0]&&(r.valueExtentAllTime=t[5]),65536&e[0]&&(r.locationType=t[16].locationType),65536&e[0]&&(r.rateOrTotal=t[16].rateOrTotal),512&e[0]&&(r.hovered=t[9]),8192&e[0]&&(r.tickFormat=t[13]),16&e[0]&&(r.calculation=t[4]),g.$set(r),t[1]&&t[10]?Q?Q.p(t,e):(Q=zl(t),Q.c(),Q.m(w,null)):Q&&(Q.d(1),Q=null),(!U||8&e[0])&&O(H,t[3]),(!U||12&e[0])&&K!==(K=t[3]>=t[2]?" (Projected)":"")&&O(D,K),(!U||32768&e[0]&&Y!==(Y=t[15][0]))&&j(B,"min",Y),(!U||32768&e[0]&&F!==(F=t[15][1]))&&j(B,"max",F),8&e[0]&&L(B,t[3]);const i={};1&e[0]&&(i.data=t[0]),64&e[0]&&(i.colorScale=t[6]),8&e[0]&&(i.currentYear=t[3]),256&e[0]&&(i.baseYearOrder=t[8]),512&e[0]&&(i.hovered=t[9]),8192&e[0]&&(i.valueFormat=t[13]),q.$set(i)},i(t){U||(ht(g.$$.fragment,t),ht(q.$$.fragment,t),U=!0)},o(t){pt(g.$$.fragment,t),pt(q.$$.fragment,t),U=!1},d(t){t&&x(e),t&&x(c),t&&x(u),t&&x(d),t&&x(h),kt(g),Q&&Q.d(),t&&x(S),t&&x(T),kt(q),W=!1,i(G)}}}function zl(t){let e,n=t[1],r=[];for(let e=0;e<n.length;e+=1)r[e]=Fl(Pl(t,n,e));let o=t[12].get(t[11]).geo.features,i=[];for(let e=0;e<o.length;e+=1)i[e]=Il(Ll(t,o,e));return{c(){for(let t=0;t<r.length;t+=1)r[t].c();e=M("g");for(let t=0;t<i.length;t+=1)i[t].c();j(e,"class","parent-overlay")},m(t,n){for(let e=0;e<r.length;e+=1)r[e].m(t,n);$(t,e,n);for(let t=0;t<i.length;t+=1)i[t].m(e,null)},p(t,a){if(943618&a[0]){let o;for(n=t[1],o=0;o<n.length;o+=1){const i=Pl(t,n,o);r[o]?r[o].p(i,a):(r[o]=Fl(i),r[o].c(),r[o].m(e.parentNode,e))}for(;o<r.length;o+=1)r[o].d(1);r.length=n.length}if(7168&a[0]){let n;for(o=t[12].get(t[11]).geo.features,n=0;n<o.length;n+=1){const r=Ll(t,o,n);i[n]?i[n].p(r,a):(i[n]=Il(r),i[n].c(),i[n].m(e,null))}for(;n<i.length;n+=1)i[n].d(1);i.length=o.length}},d(t){S(r,t),t&&x(e),S(i,t)}}}function Bl(t){let e,n,r,o,i=t[14].get(+t[34].properties.id).name+"",a=t[13](t[14].get(+t[34].properties.id).value)+"";return{c(){e=M("title"),n=_(i),r=_(": "),o=_(a)},m(t,i){$(t,e,i),v(e,n),v(e,r),v(e,o)},p(t,e){16386&e[0]&&i!==(i=t[14].get(+t[34].properties.id).name+"")&&O(n,i),24578&e[0]&&a!==(a=t[13](t[14].get(+t[34].properties.id).value)+"")&&O(o,a)},d(t){t&&x(e)}}}function Yl(t){let e,n,r,o,a,l,s=t[14].has(+t[34].properties.id),c=s&&Bl(t);function u(){return t[29](t[34])}return{c(){e=M("path"),c&&c.c(),j(e,"class","feature"),j(e,"fill",n=t[9]==+t[34].properties.id?Ul:t[14].has(+t[34].properties.id)?t[14].get(+t[34].properties.id).fill:"none"),j(e,"stroke",r="county"===t[37].name?t[17](t[34],t[9],t[14]):"none"),P(e,"pointer-events",t[14].has(+t[34].properties.id)?"all":"none"),j(e,"d",o=t[10](t[34]))},m(n,r){$(n,e,r),c&&c.m(e,null),a||(l=[E(e,"mouseenter",u),E(e,"mouseleave",t[19])],a=!0)},p(i,a){t=i,16386&a[0]&&(s=t[14].has(+t[34].properties.id)),s?c?c.p(t,a):(c=Bl(t),c.c(),c.m(e,null)):c&&(c.d(1),c=null),16898&a[0]&&n!==(n=t[9]==+t[34].properties.id?Ul:t[14].has(+t[34].properties.id)?t[14].get(+t[34].properties.id).fill:"none")&&j(e,"fill",n),16898&a[0]&&r!==(r="county"===t[37].name?t[17](t[34],t[9],t[14]):"none")&&j(e,"stroke",r),16386&a[0]&&P(e,"pointer-events",t[14].has(+t[34].properties.id)?"all":"none"),1026&a[0]&&o!==(o=t[10](t[34]))&&j(e,"d",o)},d(t){t&&x(e),c&&c.d(),a=!1,i(l)}}}function Fl(t){let e,n,r=t[37].geo.features,o=[];for(let e=0;e<r.length;e+=1)o[e]=Yl(Rl(t,r,e));return{c(){e=M("g");for(let t=0;t<o.length;t+=1)o[t].c();j(e,"class",n=t[37].name)},m(t,n){$(t,e,n);for(let t=0;t<o.length;t+=1)o[t].m(e,null)},p(t,i){if(943618&i[0]){let n;for(r=t[37].geo.features,n=0;n<r.length;n+=1){const a=Rl(t,r,n);o[n]?o[n].p(a,i):(o[n]=Yl(a),o[n].c(),o[n].m(e,null))}for(;n<o.length;n+=1)o[n].d(1);o.length=r.length}2&i[0]&&n!==(n=t[37].name)&&j(e,"class",n)},d(t){t&&x(e),S(o,t)}}}function Il(t){let e,n;return{c(){e=M("path"),j(e,"class","feature"),j(e,"fill","none"),j(e,"stroke-width","2"),j(e,"stroke","#333"),j(e,"d",n=t[10](t[34]))},m(t,n){$(t,e,n)},p(t,r){7168&r[0]&&n!==(n=t[10](t[34]))&&j(e,"d",n)},d(t){t&&x(e)}}}function ql(t){let e,n,r,o;const i=[Dl,Hl],a=[];function l(t,e){return t[0].values?0:1}return n=l(t),r=a[n]=i[n](t),{c(){e=k("div"),r.c(),j(e,"id","simple-map-container")},m(t,r){$(t,e,r),a[n].m(e,null),o=!0},p(t,o){let s=n;n=l(t),n===s?a[n].p(t,o):(ft(),pt(a[s],1,1,()=>{a[s]=null}),dt(),r=a[n],r?r.p(t,o):(r=a[n]=i[n](t),r.c()),ht(r,1),r.m(e,null))},i(t){o||(ht(r),o=!0)},o(t){pt(r),o=!1},d(t){t&&x(e),a[n].d()}}}const Ul="#898989",Wl=320,Gl=160,Vl=t=>t[0].includes("Scenario"),Xl=t=>t[0];function Zl(t,e,n){let r,o,i,a,l,s,c,u,f,d,h,p,g,m,y,v,b,w,{data:$}=e,{geoJSON:x}=e,{projectionStartYear:S}=e,k=2033,M=void 0;const _=new Map(Ve.get("location").options.map(t=>[t.value,t.label])),N=new Map([[8,"medicaid"],[5,"ahec"],[7,"metro"]]);let T,E;function A(t){n(9,M=t)}return t.$$set=t=>{"data"in t&&n(0,$=t.data),"geoJSON"in t&&n(1,x=t.geoJSON),"projectionStartYear"in t&&n(2,S=t.projectionStartYear)},t.$$.update=()=>{1&t.$$.dirty[0]&&n(16,r=$.params?$.params.reduce((t,e)=>(t[e[0]]=Ve.get(e[0]).options.find(t=>t.value==e[1]).label,t),{}):{}),1&t.$$.dirty[0]&&n(15,o=Oe($.values||[{year:2019},{year:2032}],t=>t.year)),1&t.$$.dirty[0]&&n(27,i=new Set($.values.map(t=>t.location))),134217728&t.$$.dirty[0]&&n(8,a=Ve.get("location").options.filter(t=>i.has(t.value)).map(t=>t.value)),1&t.$$.dirty[0]&&n(4,m=$.params.find(t=>"calculation"===t[0])[1]),1&t.$$.dirty[0]&&n(5,u=Oe($.values||[],t=>t.value)),32&t.$$.dirty[0]&&n(25,d=Math.max(...u.map(t=>Math.abs(t)))),33554432&t.$$.dirty[0]&&n(24,h=function t(){var e=vr(xr()(Xn));return e.copy=function(){return $r(e,t())},qn.apply(e,arguments)}(al).domain([-d,0,d])),32&t.$$.dirty[0]&&n(23,f=function t(){var e=vr(wr()(Xn));return e.copy=function(){return $r(e,t())},qn.apply(e,arguments)}(ll).domain(u)),25165872&t.$$.dirty[0]&&n(6,p=("difference"===m||"percentage"===m)&u[0]<0?h:f),73&t.$$.dirty[0]&&n(26,l=new Map($.values.filter(t=>t.year==k).map(t=>[t.location,{fill:p(t.value),fontFill:kn(p(t.value)),value:t.value,name:_.get(t.location)}]))),67109120&t.$$.dirty[0]&&n(7,s=a.map(t=>[t,l.get(t)])),128&t.$$.dirty[0]&&n(14,c=new Map(s)),1&t.$$.dirty[0]&&n(22,y=$.params.find(t=>"rateOrTotal"===t[0])[1]),4194320&t.$$.dirty[0]&&n(13,g=t=>"percentage"===m?t.toLocaleString(void 0,{style:"percent",signDisplay:"exceptZero"}):1===y?t.toLocaleString(void 0,{notation:"compact"}):t.toLocaleString()),1&t.$$.dirty[0]&&n(21,v=$.params.find(t=>"locationType"===t[0])[1]),2&t.$$.dirty[0]&&n(12,b=new Map(x.map(t=>[t.name,t]))),2097152&t.$$.dirty[0]&&n(11,w=N.get(v)),1048578&t.$$.dirty[0]&&x&&(n(20,E=rl().parallels([29.5,45.5]).scale(1070).translate([480,250]).rotate([96,0]).center([-.6,38.7]).rotate([0,62,0]).fitSize([Wl,Gl],x[0].geo)),n(10,T=function(t,e){var n,r,o=4.5;function i(t){return t&&("function"==typeof o&&r.pointRadius(+o.apply(this,arguments)),pi(t,n(r))),r.result()}return i.area=function(t){return pi(t,n(ra)),ra.result()},i.measure=function(t){return pi(t,n(Ia)),Ia.result()},i.bounds=function(t){return pi(t,n(da)),da.result()},i.centroid=function(t){return pi(t,n(ja)),ja.result()},i.projection=function(e){return arguments.length?(n=null==e?(t=null,Ui):(t=e).stream,i):t},i.context=function(t){return arguments.length?(r=null==t?(e=null,new qa):new Oa(e=t),"function"!=typeof o&&r.pointRadius(o),i):e},i.pointRadius=function(t){return arguments.length?(o="function"==typeof t?t:(r.pointRadius(+t),+t),i):o},i.projection(t).context(e)}(E)))},[$,x,S,k,m,u,p,s,a,M,T,w,b,g,c,o,r,function(t,e,n){const r=t.properties[w+"_code"];return Mn(e==+r?Ul:n.has(+r)?n.get(+r).fill:"none")},A,function(){n(9,M=void 0)},E,v,y,f,h,d,l,i,t=>A(t.detail),t=>A(+t.properties.id),function(){var t;t=this.value,k=""===t?null:+t,n(3,k)},t=>A(t.detail)]}class Jl extends _t{constructor(t){super(),Mt(this,t,Zl,ql,l,{data:0,geoJSON:1,projectionStartYear:2},null,[-1,-1])}}function Kl(t,e,n){const r=t.slice();return r[10]=e[n],r}function Ql(t){let e,n,r,o,i,a,l,s,c,u,d;const h=t[8].default,p=function(t,e,n,r){if(t){const o=f(t,e,n,r);return t[0](o)}}(h,t,t[7],null);let g=t[3],m=[];for(let e=0;e<g.length;e+=1)m[e]=ts(Kl(t,g,e));return{c(){e=k("div"),n=k("label"),r=_(t[2]),o=N(),p&&p.c(),i=N(),a=k("div"),l=k("div"),s=k("select");for(let t=0;t<m.length;t+=1)m[t].c();j(n,"for",t[6]),j(n,"class","label"),P(n,"display","inline-flex"),j(s,"id",t[6]),j(s,"name",t[1]),s.disabled=t[5],j(l,"class","select "),j(a,"class","control"),j(e,"class","field")},m(f,h){$(f,e,h),v(e,n),v(n,r),v(e,o),p&&p.m(e,null),v(e,i),v(e,a),v(a,l),v(l,s);for(let t=0;t<m.length;t+=1)m[t].m(s,null);c=!0,u||(d=E(s,"change",t[9]),u=!0)},p(t,e){if((!c||4&e)&&O(r,t[2]),(!c||64&e)&&j(n,"for",t[6]),p&&p.p&&(!c||128&e)&&function(t,e,n,r,o,i){if(o){const a=f(e,n,r,i);t.p(a,o)}}(p,h,t,t[7],c?function(t,e,n,r){if(t[2]&&r){const o=t[2](r(n));if(void 0===e.dirty)return o;if("object"==typeof o){const t=[],n=Math.max(e.dirty.length,o.length);for(let r=0;r<n;r+=1)t[r]=e.dirty[r]|o[r];return t}return e.dirty|o}return e.dirty}(h,t[7],e,null):function(t){if(t.ctx.length>32){const e=[],n=t.ctx.length/32;for(let t=0;t<n;t++)e[t]=-1;return e}return-1}(t[7]),null),24&e){let n;for(g=t[3],n=0;n<g.length;n+=1){const r=Kl(t,g,n);m[n]?m[n].p(r,e):(m[n]=ts(r),m[n].c(),m[n].m(s,null))}for(;n<m.length;n+=1)m[n].d(1);m.length=g.length}(!c||64&e)&&j(s,"id",t[6]),(!c||2&e)&&j(s,"name",t[1]),(!c||32&e)&&(s.disabled=t[5])},i(t){c||(ht(p,t),c=!0)},o(t){pt(p,t),c=!1},d(t){t&&x(e),p&&p.d(t),S(m,t),u=!1,d()}}}function ts(t){let e,n,r,o,i,a=t[10].label+"";return{c(){e=k("option"),n=_(a),r=N(),e.__value=o=t[10].value,e.value=e.__value,e.selected=i=t[10].value==t[4]},m(t,o){$(t,e,o),v(e,n),v(e,r)},p(t,r){8&r&&a!==(a=t[10].label+"")&&O(n,a),8&r&&o!==(o=t[10].value)&&(e.__value=o,e.value=e.__value),24&r&&i!==(i=t[10].value==t[4])&&(e.selected=i)},d(t){t&&x(e)}}}function es(t){let e,n,r=t[0]&&Ql(t);return{c(){r&&r.c(),e=T()},m(t,o){r&&r.m(t,o),$(t,e,o),n=!0},p(t,[n]){t[0]?r?(r.p(t,n),1&n&&ht(r,1)):(r=Ql(t),r.c(),ht(r,1),r.m(e.parentNode,e)):r&&(ft(),pt(r,1,1,()=>{r=null}),dt())},i(t){n||(ht(r),n=!0)},o(t){pt(r),n=!1},d(t){r&&r.d(t),t&&x(e)}}}function ns(t,e,n){let r,{$$slots:o={},$$scope:i}=e,{display:a=!0}=e,{name:l}=e,{label:s}=e,{options:c}=e,{value:u=""}=e,{disabled:f=!1}=e;return t.$$set=t=>{"display"in t&&n(0,a=t.display),"name"in t&&n(1,l=t.name),"label"in t&&n(2,s=t.label),"options"in t&&n(3,c=t.options),"value"in t&&n(4,u=t.value),"disabled"in t&&n(5,f=t.disabled),"$$scope"in t&&n(7,i=t.$$scope)},t.$$.update=()=>{2&t.$$.dirty&&n(6,r=l.toLowerCase()+"-select")},[a,l,s,c,u,f,r,i,o,function(e){G.call(this,t,e)}]}class rs extends _t{constructor(t){super(),Mt(this,t,ns,es,l,{display:0,name:1,label:2,options:3,value:4,disabled:5})}}function os(t){let e,n,r,o,a,l,s,c,u,f,d,h,p;return{c(){e=k("article"),n=k("div"),r=k("p"),o=_(t[0]),a=N(),l=k("button"),s=N(),c=k("div"),u=_(t[1]),j(l,"class","delete"),j(l,"aria-label","close"),j(n,"class","message-header close-on-window-click"),j(c,"class","message-body close-on-window-click"),j(e,"id",t[4]),j(e,"class","message is-small is-primary close-on-window-click svelte-l93yrg"),j(e,"tabindex","0")},m(i,f){$(i,e,f),v(e,n),v(n,r),v(r,o),v(n,a),v(n,l),v(e,s),v(e,c),v(c,u),d=!0,h||(p=[E(l,"click",C(A(t[9]))),E(l,"keydown",C(t[10])),E(e,"keydown",t[6])],h=!0)},p(t,e){(!d||1&e)&&O(o,t[0]),(!d||2&e)&&O(u,t[1])},i(t){d||(nt(()=>{f||(f=mt(e,ke,{},!0)),f.run(1)}),d=!0)},o(t){f||(f=mt(e,ke,{},!1)),f.run(0),d=!1},d(t){t&&x(e),t&&f&&f.end(),h=!1,i(p)}}}function is(t){let e,n,r,o,a,l,s,c,u,f=t[3]&&os(t);return{c(){var i,s;e=k("div"),n=M("svg"),r=M("title"),o=_("Select to get more information about this option."),a=M("use"),l=N(),f&&f.c(),i="xlink:href",s="#fa-info-circle",a.setAttributeNS("http://www.w3.org/1999/xlink",i,s),j(a,"class","svelte-l93yrg"),R(a,"has-fill-white",t[2]),j(n,"tabindex","0"),j(n,"class","icon-svg has-fill-primary svelte-l93yrg"),j(n,"role","button"),j(e,"class","info-icon-wrapper  svelte-l93yrg")},m(i,d){$(i,e,d),v(e,n),v(n,r),v(r,o),v(n,a),v(e,l),f&&f.m(e,null),s=!0,c||(u=[E(window,"click",C(t[5])),E(n,"click",C(t[8])),E(n,"keydown",C(t[7]))],c=!0)},p(t,[n]){4&n&&R(a,"has-fill-white",t[2]),t[3]?f?(f.p(t,n),8&n&&ht(f,1)):(f=os(t),f.c(),ht(f,1),f.m(e,null)):f&&(ft(),pt(f,1,1,()=>{f=null}),dt())},i(t){s||(ht(f),s=!0)},o(t){pt(f),s=!1},d(t){t&&x(e),f&&f.d(),c=!1,i(u)}}}function as(t,e,n){let{title:r="Title"}=e,{info:o="Information"}=e,{invert:i=!1}=e,a=!1;const l=r.toLowerCase().replace(/^[^a-z]+|[^\w:.-]+/gi,"-")+"-info-box";return t.$$set=t=>{"title"in t&&n(0,r=t.title),"info"in t&&n(1,o=t.info),"invert"in t&&n(2,i=t.invert)},[r,o,i,a,l,function(t){!Array.from(t.target.classList).includes("close-on-window-click")&a&&n(3,a=!1)},function(t){"Escape"===t.key&&n(3,a=!1)},async function(t){"Enter"===t.key&&(n(3,a=!0),await et(),document.getElementById(l).focus()),"Escape"===t.key&&n(3,a=!1)},async function(){n(3,a=!0),await et(),document.getElementById(l).focus()},()=>n(3,a=!1),t=>{"Enter"===t.key&&n(3,a=!1)}]}class ls extends _t{constructor(t){super(),Mt(this,t,as,is,l,{title:0,info:1,invert:2})}}var ss=new Map([["type","Select either Licensed Practical Nurses (LPNs) or Registered Nurses (RNs)."],["education","This refers to the basic education for licensure. For registered nurses, you can select either those nurses who entered with an associate degree/diploma or with a BS or MS. For licensed practical nurses, this option is unavailable. You cannot select both an education subgroup and a setting subgroup for the same projection (e.g., BS & MS for Education and Hospital for Setting)."],["rateOrTotal","Select whether you want to see the nurse workforce as a total number or as a rate per 10,000 population. The latter is more useful for comparing different geographic areas."],["fteOrHeadcount","The model can display the projections for nurses as either full time equivalents (FTEs) or as headcounts. FTEs account for nurses who may be working less than full-time. 1 FTE = 40 hours/week, and no nurse has greater than 1 FTE."],["locationType","Select a geographic category or type. This selection changes the available options for location."],["location","Select a geography or location. These options change based on the selection of Location Type."],["setting","See the nurse workforce by practice setting, e.g., hospital or ambulatory care. You cannot select both an education subgroup and a setting subgroup for the same projection (e.g., BS & MS for Education and Hospital for Setting)."],["scenario","Select a scenario to see how it changes the projections."],["calculation","Select 'Supply' or 'Demand' to see those projections alone. Selecting 'Supply / Demand' will show both projections as a ratio. Selecting 'Supply - Demand' will show both the absolute difference between the two projections."],["difference","The absolute difference between the supply and demand forecasts, calculated as supply minus demand for a give year. This calculation provides an estimate of the absolute number of nurses in surplus or shortage. It is important to note the overall numbers of nurses for a given projection when interpreting these values, e.g., a shortage of 1,000 nurses is much more concerning if you are looking at an underlying supply of 10,000 vs 100,000."],["ratio","The ratio between the supply and demand forecasts. When this is less than 1, it means demand is greater than supply. The calculation is useful for understanding the relative surplus or shortage for a projection."],["supply","The supply model projects the future headcount and FTE of RNs and LPNs from 2018-2030. The basic principle of supply modeling is to take the current workforce, subtract leavers and add joiners for each year to generate a forecast for the next year."],["demand","Demand was modeled at the county-level for each setting. Different approaches for calculating forecast demand were used as a result of the variation in data measuring existing demand. The demand forecast for public and community health, nursing education, and correctional facilities was solely dependent on population change (which means a 10% growth in population would generate a 10% growth in demand). For the remaining settings, separate regression models were developed to predict demand based on model predictors (e.g. gender, age, race) specific to that setting."],["percentage","The percentage shortage or surplus of supply relative to the demand forecasts. When this percentage is negative, it means demand is greater than supply. The calculation is useful for understanding the relative surplus or shortage for a projection."]]);function cs(t){let e,n,r,o,a,l,s,c,u,f,d,h,p;return{c(){e=k("label"),n=k("input"),r=_("\r\n          All Education"),o=N(),a=k("label"),l=k("input"),s=_("\r\n          BS & MS"),c=N(),u=k("label"),f=k("input"),d=_("\r\n          ADN & Diploma"),j(n,"type","radio"),j(n,"name","education"),n.__value="0",n.value=n.__value,n.checked=!0,t[15][1].push(n),j(e,"class","radio"),j(l,"type","radio"),j(l,"name","education"),l.__value="4",l.value=l.__value,t[15][1].push(l),j(a,"class","radio"),j(f,"type","radio"),j(f,"name","education"),f.__value="5",f.value=f.__value,t[15][1].push(f),j(u,"class","radio")},m(i,g){$(i,e,g),v(e,n),n.checked=n.__value===t[5],v(e,r),$(i,o,g),$(i,a,g),v(a,l),l.checked=l.__value===t[5],v(a,s),$(i,c,g),$(i,u,g),v(u,f),f.checked=f.__value===t[5],v(u,d),h||(p=[E(n,"change",t[17]),E(l,"change",t[18]),E(f,"change",t[19])],h=!0)},p(t,e){32&e&&(n.checked=n.__value===t[5]),32&e&&(l.checked=l.__value===t[5]),32&e&&(f.checked=f.__value===t[5])},d(r){r&&x(e),t[15][1].splice(t[15][1].indexOf(n),1),r&&x(o),r&&x(a),t[15][1].splice(t[15][1].indexOf(l),1),r&&x(c),r&&x(u),t[15][1].splice(t[15][1].indexOf(f),1),h=!1,i(p)}}}function us(e){let n;return{c(){n=k("label"),n.innerHTML='<input type="radio" name="education" value="0" checked="" disabled=""/>\n          All Education',j(n,"class","radio"),j(n,"disabled","")},m(t,e){$(t,n,e)},p:t,d(t){t&&x(n)}}}function fs(t){let e,n,r,o,i,a,l,s,c;return{c(){e=k("label"),n=k("input"),o=_("\r\n          Total"),i=N(),a=k("label"),l=k("input"),c=_("\r\n          Rate per 10k population"),j(n,"type","radio"),j(n,"name","rateOrTotal"),n.value="1",n.checked=r="line"==t[1],j(e,"class","radio"),j(l,"type","radio"),j(l,"name","rateOrTotal"),l.value="0",l.checked=s="map"===t[1],j(a,"class","radio")},m(t,r){$(t,e,r),v(e,n),v(e,o),$(t,i,r),$(t,a,r),v(a,l),v(a,c)},p(t,e){2&e&&r!==(r="line"==t[1])&&(n.checked=r),2&e&&s!==(s="map"===t[1])&&(l.checked=s)},d(t){t&&x(e),t&&x(i),t&&x(a)}}}function ds(e){let n;return{c(){n=k("label"),n.innerHTML='<input type="radio" name="rateOrTotal" value="1" checked="" disabled=""/>\n          Total',j(n,"class","radio"),j(n,"disabled","")},m(t,e){$(t,n,e)},p:t,d(t){t&&x(n)}}}function hs(e){let n,r;return n=new ls({props:{title:"Location Type",info:ss.get("locationType")}}),{c(){xt(n.$$.fragment)},m(t,e){St(n,t,e),r=!0},p:t,i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){kt(n,t)}}}function ps(e){let n,r;return n=new ls({props:{title:"Location",info:ss.get("location")}}),{c(){xt(n.$$.fragment)},m(t,e){St(n,t,e),r=!0},p:t,i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){kt(n,t)}}}function gs(t){let e,n;return e=new rs({props:{options:Ve.get("setting").options.filter(t[20]).filter(t[21]),name:Ve.get("setting").name,label:Ve.get("setting").label,disabled:"0"!=t[5],$$slots:{default:[ms]},$$scope:{ctx:t}}}),e.$on("change",t[13]),{c(){xt(e.$$.fragment)},m(t,r){St(e,t,r),n=!0},p(t,n){const r={};18&n&&(r.options=Ve.get("setting").options.filter(t[20]).filter(t[21])),32&n&&(r.disabled="0"!=t[5]),134217728&n&&(r.$$scope={dirty:n,ctx:t}),e.$set(r)},i(t){n||(ht(e.$$.fragment,t),n=!0)},o(t){pt(e.$$.fragment,t),n=!1},d(t){kt(e,t)}}}function ms(e){let n,r;return n=new ls({props:{title:"Setting",info:ss.get("setting")}}),{c(){xt(n.$$.fragment)},m(t,e){St(n,t,e),r=!0},p:t,i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){kt(n,t)}}}function ys(t){let e,r;const o=[Ve.get("supplyScenario")];let i={$$slots:{default:[vs]},$$scope:{ctx:t}};for(let t=0;t<o.length;t+=1)i=n(i,o[t]);return e=new rs({props:i}),{c(){xt(e.$$.fragment)},m(t,n){St(e,t,n),r=!0},p(t,n){const r=0&n?wt(o,[$t(Ve.get("supplyScenario"))]):{};134217728&n&&(r.$$scope={dirty:n,ctx:t}),e.$set(r)},i(t){r||(ht(e.$$.fragment,t),r=!0)},o(t){pt(e.$$.fragment,t),r=!1},d(t){kt(e,t)}}}function vs(e){let n,r;return n=new ls({props:{title:"Supply Scenario",info:ss.get("scenario")}}),{c(){xt(n.$$.fragment)},m(t,e){St(n,t,e),r=!0},p:t,i(t){r||(ht(n.$$.fragment,t),r=!0)},o(t){pt(n.$$.fragment,t),r=!1},d(t){kt(n,t)}}}function bs(t){let e;return{c(){e=k("progress"),j(e,"class","progress is-small is-primary"),j(e,"max","100")},m(t,n){$(t,e,n)},d(t){t&&x(e)}}}function ws(t){let e,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,M,T,C,O,L,P,H,D,z,B,Y,F,I,q,U,W,G,V,X,Z,J,K,Q,tt,et,nt,rt,ot,it,at,lt;function st(t,e){return"1"==t[4]||"0"!=t[6]||"supply"!=t[0]||"table"==t[1]?us:cs}p=new ls({props:{title:"Type of Nurse",info:ss.get("type")}});let ct=st(t),ut=ct(t);function gt(t,e){return"percentage"===t[0]?ds:fs}w=new ls({props:{title:"Basic Education Degree for Licensure",info:ss.get("education")}});let mt=gt(t),yt=mt(t);O=new ls({props:{title:"Rate per 10,000 Population or Total",info:ss.get("rateOrTotal")}}),F=new ls({props:{title:"Full Time Equivalents (FTE) or Headcount",info:ss.get("fteOrHeadcount")}});const vt=[{value:t[3]},t[9]];let bt={$$slots:{default:[hs]},$$scope:{ctx:t}};for(let t=0;t<vt.length;t+=1)bt=n(bt,vt[t]);q=new rs({props:bt}),q.$on("change",t[12]);const Mt=[{display:"line"==t[1]||"table"==t[1]},t[8]];let _t={$$slots:{default:[ps]},$$scope:{ctx:t}};for(let t=0;t<Mt.length;t+=1)_t=n(_t,Mt[t]);W=new rs({props:_t});let Nt="table"!=t[1]&&gs(t),Tt=("supply"==t[0]||"difference"==t[0]||"percentage"==t[0])&&ys(t),Et=t[2]&&bs();return{c(){e=k("form"),r=k("div"),o=k("div"),a=k("label"),l=k("input"),s=_("\r\n        RN"),c=N(),u=k("label"),f=k("input"),d=_("\r\n        LPN"),h=N(),xt(p.$$.fragment),g=N(),m=k("div"),y=k("div"),ut.c(),b=N(),xt(w.$$.fragment),S=N(),M=k("div"),T=k("div"),yt.c(),C=N(),xt(O.$$.fragment),L=N(),P=k("div"),H=k("div"),D=k("label"),D.innerHTML='<input type="radio" name="fteOrHeadcount" value="0" checked=""/>\n        Headcount',z=N(),B=k("label"),B.innerHTML='<input type="radio" name="fteOrHeadcount" value="1"/>\n        FTE',Y=N(),xt(F.$$.fragment),I=N(),xt(q.$$.fragment),U=N(),xt(W.$$.fragment),G=N(),Nt&&Nt.c(),V=N(),Tt&&Tt.c(),X=N(),Z=k("div"),J=k("div"),K=k("button"),K.textContent="Show",Q=N(),tt=k("div"),et=k("button"),et.textContent="Clear",nt=N(),Et&&Et.c(),rt=N(),ot=k("p"),ot.innerHTML="You can add multiple projections for comparison!<br/><br/>\n    To cite, please include the following:\nThe Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model/",j(l,"type","radio"),j(l,"name","type"),l.__value="2",l.value=l.__value,l.checked=!0,t[15][0].push(l),j(a,"class","radio"),j(f,"type","radio"),j(f,"name","type"),f.__value="1",f.value=f.__value,t[15][0].push(f),j(u,"class","radio"),j(o,"class","control"),j(r,"class","field"),j(y,"class","control"),j(m,"class","field"),j(T,"class","control"),j(M,"class","field"),j(D,"class","radio"),j(B,"class","radio"),j(H,"class","control"),j(P,"class","field"),j(K,"class","button"),j(K,"type","submit"),R(K,"is-yellowish",t[7]),j(J,"class","control"),j(et,"class","button"),j(et,"type","button"),j(tt,"class","control"),j(Z,"class","field is-grouped"),j(ot,"class","help is-primary")},m(n,i){$(n,e,i),v(e,r),v(r,o),v(o,a),v(a,l),l.checked=l.__value===t[4],v(a,s),v(o,c),v(o,u),v(u,f),f.checked=f.__value===t[4],v(u,d),v(o,h),St(p,o,null),v(e,g),v(e,m),v(m,y),ut.m(y,null),v(y,b),St(w,y,null),v(e,S),v(e,M),v(M,T),yt.m(T,null),v(T,C),St(O,T,null),v(e,L),v(e,P),v(P,H),v(H,D),v(H,z),v(H,B),v(H,Y),St(F,H,null),v(e,I),St(q,e,null),v(e,U),St(W,e,null),v(e,G),Nt&&Nt.m(e,null),v(e,V),Tt&&Tt.m(e,null),v(e,X),v(e,Z),v(Z,J),v(J,K),v(Z,Q),v(Z,tt),v(tt,et),v(Z,nt),Et&&Et.m(Z,null),v(e,rt),v(e,ot),it=!0,at||(lt=[E(l,"change",t[14]),E(f,"change",t[16]),E(et,"click",t[11]),E(e,"submit",A(t[10])),E(e,"change",t[22])],at=!0)},p(t,[n]){16&n&&(l.checked=l.__value===t[4]),16&n&&(f.checked=f.__value===t[4]),ct===(ct=st(t))&&ut?ut.p(t,n):(ut.d(1),ut=ct(t),ut&&(ut.c(),ut.m(y,b))),mt===(mt=gt(t))&&yt?yt.p(t,n):(yt.d(1),yt=mt(t),yt&&(yt.c(),yt.m(T,C)));const r=520&n?wt(vt,[8&n&&{value:t[3]},512&n&&$t(t[9])]):{};134217728&n&&(r.$$scope={dirty:n,ctx:t}),q.$set(r);const o=258&n?wt(Mt,[2&n&&{display:"line"==t[1]||"table"==t[1]},256&n&&$t(t[8])]):{};134217728&n&&(o.$$scope={dirty:n,ctx:t}),W.$set(o),"table"!=t[1]?Nt?(Nt.p(t,n),2&n&&ht(Nt,1)):(Nt=gs(t),Nt.c(),ht(Nt,1),Nt.m(e,V)):Nt&&(ft(),pt(Nt,1,1,()=>{Nt=null}),dt()),"supply"==t[0]||"difference"==t[0]||"percentage"==t[0]?Tt?(Tt.p(t,n),1&n&&ht(Tt,1)):(Tt=ys(t),Tt.c(),ht(Tt,1),Tt.m(e,X)):Tt&&(ft(),pt(Tt,1,1,()=>{Tt=null}),dt()),128&n&&R(K,"is-yellowish",t[7]),t[2]?Et||(Et=bs(),Et.c(),Et.m(Z,null)):Et&&(Et.d(1),Et=null)},i(t){it||(ht(p.$$.fragment,t),ht(w.$$.fragment,t),ht(O.$$.fragment,t),ht(F.$$.fragment,t),ht(q.$$.fragment,t),ht(W.$$.fragment,t),ht(Nt),ht(Tt),it=!0)},o(t){pt(p.$$.fragment,t),pt(w.$$.fragment,t),pt(O.$$.fragment,t),pt(F.$$.fragment,t),pt(q.$$.fragment,t),pt(W.$$.fragment,t),pt(Nt),pt(Tt),it=!1},d(n){n&&x(e),t[15][0].splice(t[15][0].indexOf(l),1),t[15][0].splice(t[15][0].indexOf(f),1),kt(p),ut.d(),kt(w),yt.d(),kt(O),kt(F),kt(q),kt(W),Nt&&Nt.d(),Tt&&Tt.d(),Et&&Et.d(),at=!1,i(lt)}}}function $s(t,e,n){let r,o;const i=W();let{chartType:a}=e,{calculation:l}=e,{isLoading:s}=e,c="2",u=0,f="0",d="0",h=!0;const p=new Map(Array.from(De(Ve.get("location").options.map(t=>({key:+t.value.toString().slice(0,1),value:t.value,label:t.label})),t=>t.key)).map(t=>[t[0],{name:Ve.get("location").name,label:Ve.get("location").label,options:t[1].map(t=>({label:t.label,value:t.value}))}]));return t.$$set=t=>{"chartType"in t&&n(1,a=t.chartType),"calculation"in t&&n(0,l=t.calculation),"isLoading"in t&&n(2,s=t.isLoading)},t.$$.update=()=>{2&t.$$.dirty&&n(9,r={name:"locationType",label:"Location Type",options:Ve.get("locationType").options.filter(t=>!("map"==a&&0==+t.value))}),8&t.$$.dirty&&n(8,o=p.get(u))},[l,a,s,u,c,f,d,h,o,r,function(t){let e=[];for(let n of t.target)!n.name||"select-one"!=n.type&&1!=n.checked||e.push({name:n.name,value:n.value,display:"select-one"==n.type?n.selectedOptions[0].innerText:n.parentElement.innerText.trim()});n(7,h=!1),i("showProjection",e)},function(){i("clearProjections")},function(t){n(3,u=+t.target.value)},function(t){n(6,d=t.target.value)},function(){c=this.__value,n(4,c)},[[],[]],function(){c=this.__value,n(4,c)},function(){f=this.__value,n(5,f)},function(){f=this.__value,n(5,f)},function(){f=this.__value,n(5,f)},t=>2==c||1==c&6!=t.value&5!=t.value,t=>!("map"===a&t.value<0),()=>n(7,h=!0)]}class xs extends _t{constructor(t){super(),Mt(this,t,$s,ws,l,{chartType:1,calculation:0,isLoading:2})}}var Ss={},ks={};function Ms(t){return new Function("d","return {"+t.map((function(t,e){return JSON.stringify(t)+": d["+e+'] || ""'})).join(",")+"}")}function _s(t){var e=Object.create(null),n=[];return t.forEach((function(t){for(var r in t)r in e||n.push(e[r]=r)})),n}function Ns(t,e){var n=t+"",r=n.length;return r<e?new Array(e-r+1).join(0)+n:n}function Ts(t){var e,n=t.getUTCHours(),r=t.getUTCMinutes(),o=t.getUTCSeconds(),i=t.getUTCMilliseconds();return isNaN(t)?"Invalid Date":((e=t.getUTCFullYear())<0?"-"+Ns(-e,6):e>9999?"+"+Ns(e,6):Ns(e,4))+"-"+Ns(t.getUTCMonth()+1,2)+"-"+Ns(t.getUTCDate(),2)+(i?"T"+Ns(n,2)+":"+Ns(r,2)+":"+Ns(o,2)+"."+Ns(i,3)+"Z":o?"T"+Ns(n,2)+":"+Ns(r,2)+":"+Ns(o,2)+"Z":r||n?"T"+Ns(n,2)+":"+Ns(r,2)+"Z":"")}var Es=function(t){var e=new RegExp('["'+t+"\n\r]"),n=t.charCodeAt(0);function r(t,e){var r,o=[],i=t.length,a=0,l=0,s=i<=0,c=!1;function u(){if(s)return ks;if(c)return c=!1,Ss;var e,r,o=a;if(34===t.charCodeAt(o)){for(;a++<i&&34!==t.charCodeAt(a)||34===t.charCodeAt(++a););return(e=a)>=i?s=!0:10===(r=t.charCodeAt(a++))?c=!0:13===r&&(c=!0,10===t.charCodeAt(a)&&++a),t.slice(o+1,e-1).replace(/""/g,'"')}for(;a<i;){if(10===(r=t.charCodeAt(e=a++)))c=!0;else if(13===r)c=!0,10===t.charCodeAt(a)&&++a;else if(r!==n)continue;return t.slice(o,e)}return s=!0,t.slice(o,i)}for(10===t.charCodeAt(i-1)&&--i,13===t.charCodeAt(i-1)&&--i;(r=u())!==ks;){for(var f=[];r!==Ss&&r!==ks;)f.push(r),r=u();e&&null==(f=e(f,l++))||o.push(f)}return o}function o(e,n){return e.map((function(e){return n.map((function(t){return a(e[t])})).join(t)}))}function i(e){return e.map(a).join(t)}function a(t){return null==t?"":t instanceof Date?Ts(t):e.test(t+="")?'"'+t.replace(/"/g,'""')+'"':t}return{parse:function(t,e){var n,o,i=r(t,(function(t,r){if(n)return n(t,r-1);o=t,n=e?function(t,e){var n=Ms(t);return function(r,o){return e(n(r),o,t)}}(t,e):Ms(t)}));return i.columns=o||[],i},parseRows:r,format:function(e,n){return null==n&&(n=_s(e)),[n.map(a).join(t)].concat(o(e,n)).join("\n")},formatBody:function(t,e){return null==e&&(e=_s(t)),o(t,e).join("\n")},formatRows:function(t){return t.map(i).join("\n")},formatRow:i,formatValue:a}}(",").formatRows;function As(e){let n,r,o;return{c(){n=k("button"),n.innerHTML='<svg class="button-icon-svg has-fill-primary"><use xlink:href="#fa-file-csv"></use></svg>',j(n,"title","Download Data"),j(n,"class","button"),j(n,"aria-label","Download Data as a CSV file")},m(t,i){$(t,n,i),r||(o=E(n,"click",e[0]),r=!0)},p:t,i:t,o:t,d(t){t&&x(n),r=!1,o()}}}function Cs(t,e,n){let{data:r}=e,{chartType:o}=e,{projectionStartYear:i}=e;const a=new Map(Array.from(Ve).map(t=>[t[0],new Map(t[1].options.map(t=>[t.value,t.label]))])),l=`NOTE: Values after ${i-1} are projected based on model parameters. Values from ${i-1} and earlier are based on licensure data.\nTo cite please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. NC Nursecast: A Supply and Demand Model for Nurses in North Carolina. November 1 2021. https://ncnursecast.unc.edu/model/\n`;function s(t){const e="map"==t?"location":"setting",n=new Map(Ve.get(e).options.map(t=>[t.value,t.label])),o=function(t,...e){return ze(t,Array.from,He,e)}(r.flatMap(t=>t.values),t=>t[e]).map((function(t){return[n.get(t[0]),...t[1].map(t=>t.value)]})).filter(t=>null!=t[0]),i=Oe(r[0].values,t=>t.year),s=Ge(i[0],i[1]+1),c=r[0].params.map(t=>`${Ve.get(t[0]).label}: ${a.get(t[0]).get(t[1])}`).join("  |  ")+"\n",u=Ve.get(e).label;return l+c+Es([[u,...s]].concat(o))}return t.$$set=t=>{"data"in t&&n(1,r=t.data),"chartType"in t&&n(2,o=t.chartType),"projectionStartYear"in t&&n(3,i=t.projectionStartYear)},[function(){let t=[];if(t="map"==o||"table"==o?s(o):function(){const t=Oe(r.flatMap(t=>Oe(t.values,t=>t.year))),e=[...r[0].params.map(t=>Ve.get(t[0]).label),...Ge(t[0],t[1]+1)],n=r.map((function(t){const e=t.values.map(t=>[t.year,t.value]),n=t.params.map(t=>[Ve.get(t[0]).label,a.get(t[0]).get(t[1])]);return new Map([...n,...e])})).map((function(t){return e.map(e=>t.get(e)||"")}));return l+Es([e,...n])}(),navigator.msSaveBlob)navigator.msSaveBlob(new Blob([t],{type:"text/csv;charset=utf-8;"}),"nurseprojection.csv");else{var e="data:attachment/csv;charset=utf-8,"+encodeURI(t),n=document.createElement("a");n.href=e,n.download="nurseprojection.csv",document.body.appendChild(n),n.click(),document.body.removeChild(n)}},r,o,i]}class js extends _t{constructor(t){super(),Mt(this,t,Cs,As,l,{data:1,chartType:2,projectionStartYear:3})}}var Os,Ls,Ps=(function(t,e){!function(){var t=e||this||window;t.default=t;var n="http://www.w3.org/2000/xmlns/",r="http://www.w3.org/2000/svg",o=/url\(["']?(.+?)["']?\)/,i={woff2:"font/woff2",woff:"font/woff",otf:"application/x-font-opentype",ttf:"application/x-font-ttf",eot:"application/vnd.ms-fontobject",sfnt:"application/font-sfnt",svg:"image/svg+xml"},a=function(t){return t instanceof HTMLElement||t instanceof SVGElement},l=function(t){if(!a(t))throw new Error("an HTMLElement or SVGElement is required; got "+t)},s=function(t){return new Promise((function(e,n){a(t)?e(t):n(new Error("an HTMLElement or SVGElement is required; got "+t))}))},c=function(t,e,n){var r=t.viewBox&&t.viewBox.baseVal&&t.viewBox.baseVal[n]||null!==e.getAttribute(n)&&!e.getAttribute(n).match(/%$/)&&parseInt(e.getAttribute(n))||t.getBoundingClientRect()[n]||parseInt(e.style[n])||parseInt(window.getComputedStyle(t).getPropertyValue(n));return null==r||isNaN(parseFloat(r))?0:r},u=function(t){for(var e=window.atob(t.split(",")[1]),n=t.split(",")[0].split(":")[1].split(";")[0],r=new ArrayBuffer(e.length),o=new Uint8Array(r),i=0;i<e.length;i++)o[i]=e.charCodeAt(i);return new Blob([r],{type:n})},f=function(t){return Promise.all(Array.from(t.querySelectorAll("image")).map((function(t){var e,n=t.getAttributeNS("http://www.w3.org/1999/xlink","href")||t.getAttribute("href");return n?((e=n)&&0===e.lastIndexOf("http",0)&&-1===e.lastIndexOf(window.location.host)&&(n+=(-1===n.indexOf("?")?"?":"&")+"t="+(new Date).valueOf()),new Promise((function(e,r){var o=document.createElement("canvas"),i=new Image;i.crossOrigin="anonymous",i.src=n,i.onerror=function(){return r(new Error("Could not load "+n))},i.onload=function(){o.width=i.width,o.height=i.height,o.getContext("2d").drawImage(i,0,0),t.setAttributeNS("http://www.w3.org/1999/xlink","href",o.toDataURL("image/png")),e(!0)}}))):Promise.resolve(null)})))},d={},h=function(t){return Promise.all(t.map((function(t){return new Promise((function(e,n){if(d[t.url])return e(d[t.url]);var r=new XMLHttpRequest;r.addEventListener("load",(function(){var n=function(t){for(var e="",n=new Uint8Array(t),r=0;r<n.byteLength;r++)e+=String.fromCharCode(n[r]);return window.btoa(e)}(r.response),i=t.text.replace(o,'url("data:'+t.format+";base64,"+n+'")')+"\n";d[t.url]=i,e(i)})),r.addEventListener("error",(function(n){console.warn("Failed to load font from: "+t.url,n),d[t.url]=null,e(null)})),r.addEventListener("abort",(function(n){console.warn("Aborted loading font from: "+t.url,n),e(null)})),r.open("GET",t.url),r.responseType="arraybuffer",r.send()}))}))).then((function(t){return t.filter((function(t){return t})).join("")}))},p=null,g=function(t,e){var n=e||{},r=n.selectorRemap,a=n.modifyStyle,l=n.modifyCss,s=n.fonts,c=n.excludeUnusedCss,u=l||function(t,e){return(r?r(t):t)+"{"+(a?a(e):e)+"}\n"},f=[],d=void 0===s,g=s||[];return(p||(p=Array.from(document.styleSheets).map((function(t){try{return{rules:t.cssRules,href:t.href}}catch(e){return console.warn("Stylesheet could not be loaded: "+t.href,e),{}}})))).forEach((function(e){var n=e.rules,r=e.href;n&&Array.from(n).forEach((function(e){if(void 0!==e.style)if(function(t,e){if(e)try{return t.querySelector(e)||t.parentNode&&t.parentNode.querySelector(e)}catch(t){console.warn('Invalid CSS selector "'+e+'"',t)}}(t,e.selectorText))f.push(u(e.selectorText,e.style.cssText));else if(d&&e.cssText.match(/^@font-face/)){var n=function(t,e){var n=t.cssText.match(o),r=n&&n[1]||"";if(r&&!r.match(/^data:/)&&"about:blank"!==r){var a,l,s=r.startsWith("../")?e+"/../"+r:r.startsWith("./")?e+"/."+r:r;return{text:t.cssText,format:(a=s,l=Object.keys(i).filter((function(t){return a.indexOf("."+t)>0})).map((function(t){return i[t]})),l?l[0]:(console.error("Unknown font format for "+a+". Fonts may not be working correctly."),"application/octet-stream")),url:s}}}(e,r);n&&g.push(n)}else c||f.push(e.cssText)}))})),h(g).then((function(t){return f.join("\n")+t}))},m=function(){if(!navigator.msSaveOrOpenBlob&&!("download"in document.createElement("a")))return{popup:window.open()}};t.prepareSvg=function(t,e,o){l(t);var i=e||{},a=i.left,s=void 0===a?0:a,u=i.top,d=void 0===u?0:u,h=i.width,p=i.height,m=i.scale,y=void 0===m?1:m,v=i.responsive,b=void 0!==v&&v,w=i.excludeCss,$=void 0!==w&&w;return f(t).then((function(){var i=t.cloneNode(!0);i.style.backgroundColor=(e||{}).backgroundColor||t.style.backgroundColor;var a=function(t,e,n,r){if("svg"===t.tagName)return{width:n||c(t,e,"width"),height:r||c(t,e,"height")};if(t.getBBox){var o=t.getBBox(),i=o.x,a=o.y;return{width:i+o.width,height:a+o.height}}}(t,i,h,p),l=a.width,u=a.height;if("svg"!==t.tagName){if(!t.getBBox)return void console.error("Attempted to render non-SVG element",t);null!=i.getAttribute("transform")&&i.setAttribute("transform",i.getAttribute("transform").replace(/translate\(.*?\)/,""));var f=document.createElementNS("http://www.w3.org/2000/svg","svg");f.appendChild(i),i=f}if(i.setAttribute("version","1.1"),i.setAttribute("viewBox",[s,d,l,u].join(" ")),i.getAttribute("xmlns")||i.setAttributeNS(n,"xmlns",r),i.getAttribute("xmlns:xlink")||i.setAttributeNS(n,"xmlns:xlink","http://www.w3.org/1999/xlink"),b?(i.removeAttribute("width"),i.removeAttribute("height"),i.setAttribute("preserveAspectRatio","xMinYMin meet")):(i.setAttribute("width",l*y),i.setAttribute("height",u*y)),Array.from(i.querySelectorAll("foreignObject > *")).forEach((function(t){t.setAttributeNS(n,"xmlns","svg"===t.tagName?r:"http://www.w3.org/1999/xhtml")})),!$)return g(t,e).then((function(t){var e=document.createElement("style");e.setAttribute("type","text/css"),e.innerHTML="<![CDATA[\n"+t+"\n]]>";var n=document.createElement("defs");n.appendChild(e),i.insertBefore(n,i.firstChild);var r=document.createElement("div");r.appendChild(i);var a=r.innerHTML.replace(/NS\d+:href/gi,'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');if("function"!=typeof o)return{src:a,width:l,height:u};o(a,l,u)}));var m=document.createElement("div");m.appendChild(i);var v=m.innerHTML;if("function"!=typeof o)return{src:v,width:l,height:u};o(v,l,u)}))},t.svgAsDataUri=function(e,n,r){return l(e),t.prepareSvg(e,n).then((function(t){var e=t.src,n=t.width,o=t.height,i="data:image/svg+xml;base64,"+window.btoa(decodeURIComponent(encodeURIComponent('<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [<!ENTITY nbsp "&#160;">]>'+e).replace(/%([0-9A-F]{2})/g,(function(t,e){var n=String.fromCharCode("0x"+e);return"%"===n?"%25":n}))));return"function"==typeof r&&r(i,n,o),i}))},t.svgAsPngUri=function(e,n,r){l(e);var o=n||{},i=o.encoderType,a=void 0===i?"image/png":i,s=o.encoderOptions,c=void 0===s?.8:s,u=o.canvg,f=function(t){var e=t.src,n=t.width,o=t.height,i=document.createElement("canvas"),l=i.getContext("2d"),s=window.devicePixelRatio||1;i.width=n*s,i.height=o*s,i.style.width=i.width+"px",i.style.height=i.height+"px",l.setTransform(s,0,0,s,0,0),u?u(i,e):l.drawImage(e,0,0);var f=void 0;try{f=i.toDataURL(a,c)}catch(t){if("undefined"!=typeof SecurityError&&t instanceof SecurityError||"SecurityError"===t.name)return void console.error("Rendered SVG images cannot be downloaded in this browser.");throw t}return"function"==typeof r&&r(f,i.width,i.height),Promise.resolve(f)};return u?t.prepareSvg(e,n).then(f):t.svgAsDataUri(e,n).then((function(t){return new Promise((function(e,n){var r=new Image;r.onload=function(){return e(f({src:r,width:r.width,height:r.height}))},r.onerror=function(){n("There was an error loading the data URI as an image on the following SVG\n"+window.atob(t.slice(26))+"Open the following link to see browser's diagnosis\n"+t)},r.src=t}))}))},t.download=function(t,e,n){if(navigator.msSaveOrOpenBlob)navigator.msSaveOrOpenBlob(u(e),t);else{var r=document.createElement("a");if("download"in r){r.download=t,r.style.display="none",document.body.appendChild(r);try{var o=u(e),i=URL.createObjectURL(o);r.href=i,r.onclick=function(){return requestAnimationFrame((function(){return URL.revokeObjectURL(i)}))}}catch(t){console.error(t),console.warn("Error while getting object URL. Falling back to string URL."),r.href=e}r.click(),document.body.removeChild(r)}else n&&n.popup&&(n.popup.document.title=t,n.popup.location.replace(e))}},t.saveSvg=function(e,n,r){var o=m();return s(e).then((function(e){return t.svgAsDataUri(e,r||{})})).then((function(e){return t.download(n,e,o)}))},t.saveSvgAsPng=function(e,n,r){var o=m();return s(e).then((function(e){return t.svgAsPngUri(e,r||{})})).then((function(e){return t.download(n,e,o)}))}}()}(Ls={path:Os,exports:{},require:function(t,e){return function(){throw new Error("Dynamic requires are not currently supported by @rollup/plugin-commonjs")}(null==e&&Ls.path)}},Ls.exports),Ls.exports);function Rs(e){let n,r,o;return{c(){n=k("button"),n.innerHTML='<svg class="button-icon-svg has-fill-primary"><use xlink:href="#fa-image"></use></svg>',j(n,"title","Save Image"),j(n,"class","button"),j(n,"aria-label","Download Image of Current Chart")},m(t,i){$(t,n,i),r||(o=E(n,"click",e[0]),r=!0)},p:t,i:t,o:t,d(t){t&&x(n),r=!1,o()}}}const Hs="To cite, please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model";function Ds(t,e,n){let{chartType:r}=e;return t.$$set=t=>{"chartType"in t&&n(1,r=t.chartType)},[function(){"line"==r?function(){const t=document.getElementById("line-chart-div"),e=t.querySelector(".title").innerText,n=t.querySelector(".subtitle").innerText,r=document.getElementById("line-chart-table"),o={cells:Array.from(r.querySelector("thead").querySelectorAll("th"),(function(t){const e=Tn({text:t.innerText,fill:"#6C7480",maxCharsPerLine:14});return{text:t.innerText,isBold:!0,svgText:e}})).slice(1),type:"header",color:"none"},i=Array.from(r.querySelector("tbody").querySelectorAll("tr"),(function(t){const e=Array.from(t.children,(function(t,e){if(0==e)return t.style.backgroundColor;const n=Tn({text:t.innerText,fill:"#6C7480",maxCharsPerLine:14});return{text:t.innerText,isBold:t.classList.value.indexOf("has-text-weight-bold")>=0,svgText:n}}));return{cells:e.slice(1),color:e[0],type:"body"}})),a=[o,...i],l=document.createElementNS("http://www.w3.org/2000/svg","g");l.setAttributeNS(null,"transform","translate(20, 620)"),l.setAttributeNS(null,"fill","#6C7480");const s=17*Ue(i,t=>Ue(t.cells,t=>t.svgText.childElementCount)),c=17*Ue(o.cells,t=>t.svgText.childElementCount),u=920/a[0].cells.length-15;a.forEach((function(t,e){const n=document.createElementNS("http://www.w3.org/2000/svg","g");n.setAttributeNS(null,"transform",`translate(0, ${0==e?0:c+s*(e-1)})`);const r=document.createElementNS("http://www.w3.org/2000/svg","rect");r.setAttributeNS(null,"width",15),r.setAttributeNS(null,"height",s),r.setAttributeNS(null,"fill",t.color),r.setAttributeNS(null,"transform","translate(-18, -12)"),n.append(r),t.cells.forEach((function(t,e){t.svgText.setAttributeNS(null,"font-size","12px"),t.svgText.setAttributeNS(null,"transform",`translate(${e*u},0)`),t.isBold&&t.svgText.setAttributeNS(null,"font-weight",600),n.appendChild(t.svgText)}));const o=document.createElementNS("http://www.w3.org/2000/svg","line");o.setAttributeNS(null,"x2",u*t.cells.length),o.setAttributeNS(null,"transform",`translate(0, ${0==e?c-12:s-12})`),o.setAttributeNS(null,"stroke","#6C7480"),0==e&&o.setAttributeNS(null,"stroke-width",2),n.appendChild(o),l.appendChild(n)}));const f=580+a.length*s+80,d=document.getElementById("line-chart-svg").cloneNode(!0);d.setAttribute("viewBox","0 0 960 "+f),d.style.fontFamily="Helvetica, Arial, sans-serif",d.querySelector(".chart-container").setAttribute("transform","translate(20, 100)");const h=document.createElementNS("http://www.w3.org/2000/svg","text");h.setAttributeNS(null,"font-size","30px"),h.setAttributeNS(null,"transform","translate(40,50)"),h.innerHTML=e;const p=document.createElementNS("http://www.w3.org/2000/svg","text");p.setAttributeNS(null,"font-size","20px"),p.setAttributeNS(null,"transform","translate(40,80)"),p.innerHTML=n;const g=Tn({text:Hs,x:20,y:f-20,fontSize:12,maxCharsPerLine:150});d.appendChild(h),d.appendChild(p),d.appendChild(l),d.appendChild(g),Ps.saveSvgAsPng(d,"nurse_line_chart.png",{backgroundColor:"#fff",scale:2})}():"map"==r&&function(){const t=document.getElementById("simple-map-container"),e=t.querySelector(".title").innerText,n=t.querySelector(".subtitle").innerText,r=document.getElementById("map-svg").cloneNode(!0),o=document.getElementById("row-chart-svg").firstChild.cloneNode(!0),i=o.querySelectorAll("rect").length,a=Math.max(450,200+50*i);r.setAttribute("viewBox","0 0 1100 "+a),r.style.fontFamily="Helvetica, Arial, sans-serif",r.firstChild.setAttributeNS(null,"transform","translate(630,200) scale(1.4)"),o.setAttributeNS(null,"transform","translate(0, 140) scale(2)"),o.setAttributeNS(null,"font-size","10px"),r.appendChild(o);const l=document.createElementNS("http://www.w3.org/2000/svg","text");l.setAttributeNS(null,"font-size","42px"),l.setAttributeNS(null,"transform","translate(20,60)"),l.innerHTML=e;const s=Tn({text:n,x:20,y:90,fontSize:20,maxCharsPerLine:100}),c=Tn({text:Hs,x:20,y:a-20,fontSize:12,maxCharsPerLine:150});r.appendChild(l),r.appendChild(s),r.appendChild(c),Ps.saveSvgAsPng(r,"nurse_projection_map.png",{backgroundColor:"#fff"})}()},r]}class zs extends _t{constructor(t){super(),Mt(this,t,Ds,Rs,l,{chartType:1})}}function Bs(e){let n,r,o,i,a;return{c(){n=k("h2"),r=_("Select a chart type and projection options, or launch our tutorial to\r\n      learn more!\r\n      "),o=k("button"),o.textContent="Launch User Guide",j(o,"class","button is-primary is-outlined is-center is-rounded"),j(o,"id","btn"),j(n,"class","subtitle is-size-5 has-text-grey-dark")},m(t,l){$(t,n,l),v(n,r),v(n,o),i||(a=E(o,"click",e[2]),i=!0)},p:t,d(t){t&&x(n),i=!1,a()}}}function Ys(e){let n,r,o,i,a,l;return{c(){n=k("h2"),n.textContent="You can create a table.",r=N(),o=k("p"),o.innerHTML='<span class="has-text-weight-semibold">You can also view projections in a table.</span>\n      The colors represent the change relative to the baseline (the first year, in\n      this case, 2008).\n      <span style="color:red;">Red</span>\n      indicates a decrease from the baseline.\n      <span style="color:blue;">Blue</span>\n      indicates an increase from the baseline. The table can be downloaded as a CSV\n      file.',i=N(),a=k("img"),j(a,"class","image svelte-1fy8ljy"),j(a,"alt","How to use the table."),c(a.src,l="public/images/tutorial/06_table.png")||j(a,"src","public/images/tutorial/06_table.png")},m(t,e){$(t,n,e),$(t,r,e),$(t,o,e),$(t,i,e),$(t,a,e)},p:t,d(t){t&&x(n),t&&x(r),t&&x(o),t&&x(i),t&&x(a)}}}function Fs(e){let n,r,o,i,a,l;return{c(){n=k("h2"),n.textContent="You can create a map.",r=N(),o=k("p"),o.innerHTML='<span class="has-text-weight-semibold">You can also view projections as a map.</span>\n      Use the slider below the map to change the year of data. The row chart displays\n      the projected values for the selected year. The colors in the map also indicate\n      the projected value. You can see the projected values in the table at the bottom.\n      Hovering over any chart/map/table element highlights the same geography in\n      the other elements.',i=N(),a=k("img"),j(a,"class","image svelte-1fy8ljy"),j(a,"alt","How to use the map."),c(a.src,l="public/images/tutorial/map_instructions.png")||j(a,"src","public/images/tutorial/map_instructions.png")},m(t,e){$(t,n,e),$(t,r,e),$(t,o,e),$(t,i,e),$(t,a,e)},p:t,d(t){t&&x(n),t&&x(r),t&&x(o),t&&x(i),t&&x(a)}}}function Is(t){let e,n,r,o,i,a,l,s;function c(t,e){return"difference"===t[1]?Gs:"percentage"===t[1]?Ws:"supply"===t[1]?Us:"demand"===t[1]?qs:void 0}let u=c(t),f=u&&u(t);return{c(){e=k("h2"),e.textContent="You can create a line chart.",n=N(),r=k("p"),r.innerHTML='<span class="has-text-weight-semibold">If you are using the line chart option,</span>\n      you can display multiple lines at once to compare. Just change your options\n      and select\n      <span class="has-text-weight-semibold">Show</span>\n      again. To remove a line, hit the\n      <span class="has-text-weight-semibold">X</span>\n      button in the top left of its corresponding box. Once you have displayed the\n      projections* in which you are interested, you can download the image (as a\n      .png) or the data (as a .csv file).',o=N(),f&&f.c(),i=N(),a=k("hr"),l=N(),s=k("p"),s.innerHTML='<span class="has-text-weight-semibold">Please note:</span>\n      the model won’t allow you to display the projections for specific education\n      categories combined with specific settings at the same time. For instance,\n      the projection for RN, with BS for education, and hospital for setting is not\n      available. This is because the numbers are small.'},m(t,c){$(t,e,c),$(t,n,c),$(t,r,c),$(t,o,c),f&&f.m(t,c),$(t,i,c),$(t,a,c),$(t,l,c),$(t,s,c)},p(t,e){u!==(u=c(t))&&(f&&f.d(1),f=u&&u(t),f&&(f.c(),f.m(i.parentNode,i)))},d(t){t&&x(e),t&&x(n),t&&x(r),t&&x(o),f&&f.d(t),t&&x(i),t&&x(a),t&&x(l),t&&x(s)}}}function qs(t){let e,n;return{c(){e=k("img"),j(e,"class","image svelte-1fy8ljy"),j(e,"alt","How to use the line chart the shows the demand projections."),c(e.src,n="public/images/tutorial/demand_instruction.png")||j(e,"src","public/images/tutorial/demand_instruction.png")},m(t,n){$(t,e,n)},d(t){t&&x(e)}}}function Us(t){let e,n;return{c(){e=k("img"),j(e,"class","image svelte-1fy8ljy"),j(e,"alt","How to use the line chart the shows supply projections and uncertainty for those projections."),c(e.src,n="public/images/tutorial/supply_instruction.png")||j(e,"src","public/images/tutorial/supply_instruction.png")},m(t,n){$(t,e,n)},d(t){t&&x(e)}}}function Ws(t){let e,n;return{c(){e=k("img"),j(e,"class","image svelte-1fy8ljy"),j(e,"alt","How to use the line chart the shows the percentage difference in supply and demand."),c(e.src,n="public/images/tutorial/percentage_supply_demand_instruction.png")||j(e,"src","public/images/tutorial/percentage_supply_demand_instruction.png")},m(t,n){$(t,e,n)},d(t){t&&x(e)}}}function Gs(t){let e,n;return{c(){e=k("img"),j(e,"class","image svelte-1fy8ljy"),j(e,"alt","How to use the line chart the shows the numerical difference in supply and demand."),c(e.src,n="public/images/tutorial/supply-demand-instruction.png")||j(e,"src","public/images/tutorial/supply-demand-instruction.png")},m(t,n){$(t,e,n)},d(t){t&&x(e)}}}function Vs(e){let n;function r(t,e){return"line"==t[0]?Is:"map"==t[0]?Fs:"table"==t[0]?Ys:Bs}let o=r(e),i=o(e);return{c(){n=k("div"),i.c(),j(n,"class","content has-background-light svelte-1fy8ljy")},m(t,e){$(t,n,e),i.m(n,null)},p(t,[e]){o===(o=r(t))&&i?i.p(t,e):(i.d(1),i=o(t),i&&(i.c(),i.m(n,null)))},i:t,o:t,d(t){t&&x(n),i.d()}}}function Xs(t,e,n){const r=W();let{chartType:o}=e,{calculation:i}=e;return t.$$set=t=>{"chartType"in t&&n(0,o=t.chartType),"calculation"in t&&n(1,i=t.calculation)},[o,i,function(){r("launchTutorial")}]}class Zs extends _t{constructor(t){super(),Mt(this,t,Xs,Vs,l,{chartType:0,calculation:1})}}function Js(t,e,n){const r=t.slice();return r[6]=e[n].value,r[7]=e[n].label,r[9]=n,r}function Ks(t){let e,n,r,o,a,l,s,c,u,f=t[7]+"";return{c(){e=k("button"),n=_(f),j(e,"id",r=t[6]),j(e,"role","radio"),j(e,"data-index",o=t[9]),j(e,"aria-checked",a=t[2]==t[6]),j(e,"tabindex",l=t[2]===t[6]?0:-1),j(e,"class",s=t[2]===t[6]?"button is-selected is-primary":"button")},m(r,o){$(r,e,o),v(e,n),c||(u=[E(e,"click",t[3]),E(e,"keydown",t[4])],c=!0)},p(t,o){2&o&&f!==(f=t[7]+"")&&O(n,f),2&o&&r!==(r=t[6])&&j(e,"id",r),6&o&&a!==(a=t[2]==t[6])&&j(e,"aria-checked",a),6&o&&l!==(l=t[2]===t[6]?0:-1)&&j(e,"tabindex",l),6&o&&s!==(s=t[2]===t[6]?"button is-selected is-primary":"button")&&j(e,"class",s)},d(t){t&&x(e),c=!1,i(u)}}}function Qs(e){let n,r=e[1],o=[];for(let t=0;t<r.length;t+=1)o[t]=Ks(Js(e,r,t));return{c(){n=k("div");for(let t=0;t<o.length;t+=1)o[t].c();j(n,"class","buttons has-addons"),j(n,"role","radiogroup"),j(n,"aria-label",e[0])},m(t,e){$(t,n,e);for(let t=0;t<o.length;t+=1)o[t].m(n,null)},p(t,[e]){if(30&e){let i;for(r=t[1],i=0;i<r.length;i+=1){const a=Js(t,r,i);o[i]?o[i].p(a,e):(o[i]=Ks(a),o[i].c(),o[i].m(n,null))}for(;i<o.length;i+=1)o[i].d(1);o.length=r.length}1&e&&j(n,"aria-label",t[0])},i:t,o:t,d(t){t&&x(n),S(o,t)}}}function tc(t,e,n){const r=W();let{groupLabel:o="Button Radio Group"}=e,{options:i}=e,{chartType:a}=e;return t.$$set=t=>{"groupLabel"in t&&n(0,o=t.groupLabel),"options"in t&&n(1,i=t.options),"chartType"in t&&n(2,a=t.chartType)},[o,i,a,function(t){a!=t.target.id&&r("changeChartType",t.target.id)},function(t){if("ArrowLeft"===t.key||"ArrowRight"===t.key){let e=+t.target.getAttribute("data-index")+("ArrowLeft"===t.key?-1:1);e>=i.length?e=0:e<0&&(e=i.length-1),document.getElementById(i[e].value).focus(),r("changeChartType",i[e].value)}}]}class ec extends _t{constructor(t){super(),Mt(this,t,tc,Qs,l,{groupLabel:0,options:1,chartType:2})}}function nc(e){let n;return{c(){n=k("div"),n.innerHTML='<article class="content column is-two-thirds-tablet is-two-thirds-desktop is-two-thirds-widescreen is-half-fullhd"><h2 id="how-to-use" class="title">How to Use the NC Nursecast Visualization</h2> \n        <ol><li class="notification"><p>By clicking on these boxes in the visualization, you can\n                    compare supply and demand directly and see shortages or\n                    surpluses as a percentage or numerical difference. Or you\n                    can view supply or demand separately.</p> \n                <img class="image" alt="Select one of the boxes to compare supply and demand or show them separately." src="public/images/tutorial/tutorial_00.png"/></li> \n            <li class="notification"><p>You can view the projections as either a line chart,\n                    comparing multiple projections over time across settings,\n                    geographies, and other parameters. Or you can view the\n                    projections in a map, comparing across a set of geographies\n                    (like AHEC regions.)</p> \n                <img class="image" alt="Select line for line chart or map for a map of North Carolina broken into a selected geography type." src="public/images/tutorial/tutorial_01.png"/></li> \n            <li class="notification"><p>Use the radio buttons or dropdowns to select parameters for\n                    the projection you want to view. Select a <svg class="icon-svg has-fill-primary" width="20" height="20" role="img"><title>Example of information icon button.</title><use xlink:href="#fa-info-circle"></use></svg>\n                    to learn more about each option. Select\n                    <span class="has-text-weight-semibold">Show</span> to display\n                    the line chart or map for your selections. Note that some combinations\n                    of selections are not possible.</p> \n                <img class="image" alt="Example options form for choosing specific projections." src="public/images/tutorial/tutorial_02.png"/></li></ol></article>',j(n,"class","columns is-centered")},m(t,e){$(t,n,e)},p:t,i:t,o:t,d(t){t&&x(n)}}}class rc extends _t{constructor(t){super(),Mt(this,t,null,nc,l,{})}}function oc(t,e,n){const r=t.slice();return r[6]=e[n].name,r[7]=e[n].title,r[8]=e[n].subtitle,r[9]=e[n].info,r[11]=n,r}function ic(t){let e,n,r,o,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,M,T,A=t[7]+"",C=t[8]+"";function L(){return t[5](t[6])}return h=new ls({props:{title:t[7],info:t[9],invert:t[6]===t[0]}}),{c(){e=k("div"),n=k("div"),r=k("p"),o=_(A),l=N(),s=k("p"),c=_(C),f=N(),d=k("div"),xt(h.$$.fragment),p=N(),j(r,"class","is-size-3"),j(r,"id",a=t[6]+"-card-radio-title"),j(s,"class","is-size-4"),j(s,"id",u=t[6]+"-card-radio-subtitle"),j(n,"class","card-content"),j(d,"class","is-pulled-right"),j(e,"class","card column svelte-5etsnl"),j(e,"id",g=t[6]),j(e,"role","radio"),j(e,"data-index",m=t[11]),j(e,"aria-checked",y=t[6]===t[0]),j(e,"tabindex",b=t[6]===t[0]?0:-1),j(e,"aria-labelledby",w=`${t[6]}-card-radio-title ${t[6]}-card-radio-subtitle`),R(e,"has-background-primary",t[6]===t[0]),R(e,"has-text-white",t[6]===t[0])},m(i,a){$(i,e,a),v(e,n),v(n,r),v(r,o),v(n,l),v(n,s),v(s,c),v(e,f),v(e,d),St(h,d,null),v(e,p),S=!0,M||(T=[E(e,"click",L),E(e,"keydown",t[4])],M=!0)},p(n,i){t=n,(!S||2&i)&&A!==(A=t[7]+"")&&O(o,A),(!S||2&i&&a!==(a=t[6]+"-card-radio-title"))&&j(r,"id",a),(!S||2&i)&&C!==(C=t[8]+"")&&O(c,C),(!S||2&i&&u!==(u=t[6]+"-card-radio-subtitle"))&&j(s,"id",u);const l={};2&i&&(l.title=t[7]),2&i&&(l.info=t[9]),3&i&&(l.invert=t[6]===t[0]),h.$set(l),(!S||2&i&&g!==(g=t[6]))&&j(e,"id",g),(!S||3&i&&y!==(y=t[6]===t[0]))&&j(e,"aria-checked",y),(!S||3&i&&b!==(b=t[6]===t[0]?0:-1))&&j(e,"tabindex",b),(!S||2&i&&w!==(w=`${t[6]}-card-radio-title ${t[6]}-card-radio-subtitle`))&&j(e,"aria-labelledby",w),3&i&&R(e,"has-background-primary",t[6]===t[0]),3&i&&R(e,"has-text-white",t[6]===t[0])},i(t){S||(ht(h.$$.fragment,t),S=!0)},o(t){pt(h.$$.fragment,t),S=!1},d(t){t&&x(e),kt(h),M=!1,i(T)}}}function ac(t){let e,n,r=t[1],o=[];for(let e=0;e<r.length;e+=1)o[e]=ic(oc(t,r,e));const i=t=>pt(o[t],1,1,()=>{o[t]=null});return{c(){e=k("div");for(let t=0;t<o.length;t+=1)o[t].c();j(e,"class","columns"),j(e,"role","radiogroup"),j(e,"aria-label",t[2]),P(e,"margin-bottom","2rem")},m(t,r){$(t,e,r);for(let t=0;t<o.length;t+=1)o[t].m(e,null);n=!0},p(t,[a]){if(27&a){let n;for(r=t[1],n=0;n<r.length;n+=1){const i=oc(t,r,n);o[n]?(o[n].p(i,a),ht(o[n],1)):(o[n]=ic(i),o[n].c(),ht(o[n],1),o[n].m(e,null))}for(ft(),n=r.length;n<o.length;n+=1)i(n);dt()}(!n||4&a)&&j(e,"aria-label",t[2])},i(t){if(!n){for(let t=0;t<r.length;t+=1)ht(o[t]);n=!0}},o(t){o=o.filter(Boolean);for(let t=0;t<o.length;t+=1)pt(o[t]);n=!1},d(t){t&&x(e),S(o,t)}}}function lc(t,e,n){const r=W();let{calculation:o}=e,{options:i}=e,{groupLabel:a}=e;return t.$$set=t=>{"calculation"in t&&n(0,o=t.calculation),"options"in t&&n(1,i=t.options),"groupLabel"in t&&n(2,a=t.groupLabel)},[o,i,a,r,function(t){if("ArrowLeft"===t.key||"ArrowRight"===t.key){let e=+t.target.getAttribute("data-index")+("ArrowLeft"===t.key?-1:1);e>=i.length?e=0:e<0&&(e=i.length-1),document.getElementById(i[e].name).focus(),r("calculationClicked",i[e].name)}},t=>r("calculationClicked",t)]}class sc extends _t{constructor(t){super(),Mt(this,t,lc,ac,l,{calculation:0,options:1,groupLabel:2})}}const cc=new Map([["difference","Will there be a shortage or surplus?"],["percentage","What is the relative shortage or surplus?"],["supply","How many nurses are projected in the future?"],["demand","What will be the demand for services?"]]);var uc=Ve.get("calculation").options.map((function({value:t,label:e}){const n=t,r=e,o=ss.get(t);return{name:n,title:r,subtitle:cc.get(t),info:o}}));function fc(t){let e,n;return e=new Zs({props:{chartType:t[2],calculation:t[3]}}),{c(){xt(e.$$.fragment)},m(t,r){St(e,t,r),n=!0},p(t,n){const r={};4&n&&(r.chartType=t[2]),8&n&&(r.calculation=t[3]),e.$set(r)},i(t){n||(ht(e.$$.fragment,t),n=!0)},o(t){pt(e.$$.fragment,t),n=!1},d(t){kt(e,t)}}}function dc(t){let e,n,r,o,i,a,l,s,c,u,f,d;i=new zs({props:{chartType:t[2]}}),l=new js({props:{data:t[0].get(t[3]).get(t[2]),chartType:t[2],projectionStartYear:bc}});const h=[gc,pc,hc],p=[];function g(t,e){return"line"==t[2]?0:"map"==t[2]?1:2}return c=g(t),u=p[c]=h[c](t),{c(){e=k("div"),n=k("div"),r=N(),o=k("div"),xt(i.$$.fragment),a=N(),xt(l.$$.fragment),s=N(),u.c(),f=T(),j(n,"class","column is-hidden-mobile is-paddingless"),j(o,"class","column is-narrow is-paddingless"),j(e,"class","columns is-marginless")},m(t,u){$(t,e,u),v(e,n),v(e,r),v(e,o),St(i,o,null),v(o,a),St(l,o,null),$(t,s,u),p[c].m(t,u),$(t,f,u),d=!0},p(t,e){const n={};4&e&&(n.chartType=t[2]),i.$set(n);const r={};13&e&&(r.data=t[0].get(t[3]).get(t[2])),4&e&&(r.chartType=t[2]),l.$set(r);let o=c;c=g(t),c===o?p[c].p(t,e):(ft(),pt(p[o],1,1,()=>{p[o]=null}),dt(),u=p[c],u?u.p(t,e):(u=p[c]=h[c](t),u.c()),ht(u,1),u.m(f.parentNode,f))},i(t){d||(ht(i.$$.fragment,t),ht(l.$$.fragment,t),ht(u),d=!0)},o(t){pt(i.$$.fragment,t),pt(l.$$.fragment,t),pt(u),d=!1},d(t){t&&x(e),kt(i),kt(l),t&&x(s),p[c].d(t),t&&x(f)}}}function hc(e){let n;return{c(){n=k("div"),n.textContent="An error has occurred.",j(n,"class","notification")},m(t,e){$(t,n,e)},p:t,i:t,o:t,d(t){t&&x(n)}}}function pc(t){let e,n;return e=new Jl({props:{data:t[0].get(t[3]).get(t[2])[0],geoJSON:t[1],projectionStartYear:bc}}),{c(){xt(e.$$.fragment)},m(t,r){St(e,t,r),n=!0},p(t,n){const r={};13&n&&(r.data=t[0].get(t[3]).get(t[2])[0]),2&n&&(r.geoJSON=t[1]),e.$set(r)},i(t){n||(ht(e.$$.fragment,t),n=!0)},o(t){pt(e.$$.fragment,t),n=!1},d(t){kt(e,t)}}}function gc(t){let e,n,r,o;const i=[yc,mc],a=[];function l(t,e){return"difference"==t[3]?0:1}return e=l(t),n=a[e]=i[e](t),{c(){n.c(),r=T()},m(t,n){a[e].m(t,n),$(t,r,n),o=!0},p(t,o){let s=e;e=l(t),e===s?a[e].p(t,o):(ft(),pt(a[s],1,1,()=>{a[s]=null}),dt(),n=a[e],n?n.p(t,o):(n=a[e]=i[e](t),n.c()),ht(n,1),n.m(r.parentNode,r))},i(t){o||(ht(n),o=!0)},o(t){pt(n),o=!1},d(t){a[e].d(t),t&&x(r)}}}function mc(t){let e,n;return e=new mo({props:{data:t[0].get(t[3]).get(t[2]),projectionStartYear:bc,calculation:t[3]}}),e.$on("deleteProjection",t[6]),{c(){xt(e.$$.fragment)},m(t,r){St(e,t,r),n=!0},p(t,n){const r={};13&n&&(r.data=t[0].get(t[3]).get(t[2])),8&n&&(r.calculation=t[3]),e.$set(r)},i(t){n||(ht(e.$$.fragment,t),n=!0)},o(t){pt(e.$$.fragment,t),n=!1},d(t){kt(e,t)}}}function yc(t){let e,n;return e=new Fo({props:{data:t[0].get(t[3]).get(t[2]),projectionStartYear:bc}}),e.$on("deleteProjection",t[6]),{c(){xt(e.$$.fragment)},m(t,r){St(e,t,r),n=!0},p(t,n){const r={};13&n&&(r.data=t[0].get(t[3]).get(t[2])),e.$set(r)},i(t){n||(ht(e.$$.fragment,t),n=!0)},o(t){pt(e.$$.fragment,t),n=!1},d(t){kt(e,t)}}}function vc(t){let e,n,r,o,i,a,l,s,c,u,f,d,h,p,g,m,y,b,w,S,M,_;r=new sc({props:{calculation:t[3],groupLabel:"Radio for Selecting a Calculation Type",options:uc}}),r.$on("calculationClicked",t[8]),l=new ec({props:{groupLabel:"Line chart or Map",chartType:t[2],options:[{value:"line",label:"Line Chart"},{value:"map",label:"Map"}]}}),l.$on("changeChartType",t[9]),f=new xs({props:{isLoading:t[4],calculation:t[3],chartType:t[2]}}),f.$on("showProjection",t[5]),f.$on("clearProjections",t[7]);const T=[dc,fc],E=[];function A(t,e){return(null==p||13&e)&&(p=!!(t[0].get(t[3]).get(t[2]).length>0)),p?0:1}return g=A(t,-1),m=E[g]=T[g](t),M=new rc({}),{c(){e=k("section"),n=k("div"),xt(r.$$.fragment),o=N(),i=k("div"),a=k("div"),xt(l.$$.fragment),s=N(),c=k("hr"),u=N(),xt(f.$$.fragment),d=N(),h=k("div"),m.c(),y=N(),b=k("hr"),w=N(),S=k("section"),xt(M.$$.fragment),j(a,"class","column is-4"),j(h,"class","column is-8 box"),j(i,"class","columns"),j(n,"class","container"),j(n,"id","main-container"),j(e,"class","section"),j(S,"class","section")},m(t,p){$(t,e,p),v(e,n),St(r,n,null),v(n,o),v(n,i),v(i,a),St(l,a,null),v(a,s),v(a,c),v(a,u),St(f,a,null),v(i,d),v(i,h),E[g].m(h,null),$(t,y,p),$(t,b,p),$(t,w,p),$(t,S,p),St(M,S,null),_=!0},p(t,[e]){const n={};8&e&&(n.calculation=t[3]),r.$set(n);const o={};4&e&&(o.chartType=t[2]),l.$set(o);const i={};16&e&&(i.isLoading=t[4]),8&e&&(i.calculation=t[3]),4&e&&(i.chartType=t[2]),f.$set(i);let a=g;g=A(t,e),g===a?E[g].p(t,e):(ft(),pt(E[a],1,1,()=>{E[a]=null}),dt(),m=E[g],m?m.p(t,e):(m=E[g]=T[g](t),m.c()),ht(m,1),m.m(h,null))},i(t){_||(ht(r.$$.fragment,t),ht(l.$$.fragment,t),ht(f.$$.fragment,t),ht(m),ht(M.$$.fragment,t),_=!0)},o(t){pt(r.$$.fragment,t),pt(l.$$.fragment,t),pt(f.$$.fragment,t),pt(m),pt(M.$$.fragment,t),_=!1},d(t){t&&x(e),kt(r),kt(l),kt(f),E[g].d(),t&&x(y),t&&x(b),t&&x(w),t&&x(S),kt(M)}}}let bc=2019;function wc(t,e,n){let r,o=new Map(["supply","demand","percentage","difference"].map(t=>[t,new Map(["line","map"].map(t=>[t,[]]))])),i="line",a="difference",l=!1;return U(()=>{Nn("/model/public/maps/ncLayers.json").then(t=>{n(1,r=t)}).catch(t=>{console.error(t)})}),t.$$.update=()=>{1&t.$$.dirty&&console.log(o)},[o,r,i,a,l,function({detail:t}){n(4,l=!0),async function(t,e,r){Nn(function(t,e="https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/"){return`${e}?${t.map(t=>`${t.name}=${t.value}`).join("&")}`}(r)).then((function(r){if("line"==t){const n=o.get(e).get(t);o.get(e).set(t,[...n,...r])}else o.get(e).set(t,r);n(0,o)})).catch(t=>{console.error(t)}).finally(()=>{n(4,l=!1)})}(i,a,[{name:"calculation",value:a},...t])},function(t){const e=o.get(a).get(i);o.get(a).set(i,e.filter(e=>e.id!=+t.detail)),n(0,o)},function(){o.get(a).set(i,[]),n(0,o)},function({detail:t}){n(3,a=t)},function({detail:t}){n(2,i=t)}]}return new class extends _t{constructor(t){super(),Mt(this,t,wc,vc,l,{})}}({target:document.getElementById("app"),props:{}})}();
+var app = (function () {
+    'use strict';
+
+    function noop$1() { }
+    const identity$4 = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    let src_url_equal_anchor;
+    function src_url_equal(element_src, url) {
+        if (!src_url_equal_anchor) {
+            src_url_equal_anchor = document.createElement('a');
+        }
+        src_url_equal_anchor.href = url;
+        return element_src === src_url_equal_anchor.href;
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop$1;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function get_all_dirty_from_scope($$scope) {
+        if ($$scope.ctx.length > 32) {
+            const dirty = [];
+            const length = $$scope.ctx.length / 32;
+            for (let i = 0; i < length; i++) {
+                dirty[i] = -1;
+            }
+            return dirty;
+        }
+        return -1;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop$1;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function get_root_for_style(node) {
+        if (!node)
+            return document;
+        const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+        if (root && root.host) {
+            return root;
+        }
+        return node.ownerDocument;
+    }
+    function append_empty_stylesheet(node) {
+        const style_element = element('style');
+        append_stylesheet(get_root_for_style(node), style_element);
+        return style_element;
+    }
+    function append_stylesheet(node, style) {
+        append(node.head || node, style);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function stop_propagation(fn) {
+        return function (event) {
+            event.stopPropagation();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function xlink_attr(node, attribute, value) {
+        node.setAttributeNS('http://www.w3.org/1999/xlink', attribute, value);
+    }
+    function to_number(value) {
+        return value === '' ? null : +value;
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail, bubbles = false) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, false, detail);
+        return e;
+    }
+
+    const active_docs = new Set();
+    let active = 0;
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        const doc = get_root_for_style(node);
+        active_docs.add(doc);
+        const stylesheet = doc.__svelte_stylesheet || (doc.__svelte_stylesheet = append_empty_stylesheet(node).sheet);
+        const current_rules = doc.__svelte_rules || (doc.__svelte_rules = {});
+        if (!current_rules[name]) {
+            current_rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ''}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        const previous = (node.style.animation || '').split(', ');
+        const next = previous.filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        );
+        const deleted = previous.length - next.length;
+        if (deleted) {
+            node.style.animation = next.join(', ');
+            active -= deleted;
+            if (!active)
+                clear_rules();
+        }
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            active_docs.forEach(doc => {
+                const stylesheet = doc.__svelte_stylesheet;
+                let i = stylesheet.cssRules.length;
+                while (i--)
+                    stylesheet.deleteRule(i);
+                doc.__svelte_rules = {};
+            });
+            active_docs.clear();
+        });
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
+    }
+    // TODO figure out if we still want to support
+    // shorthand events, or if we want to implement
+    // a real bubbling mechanism
+    function bubble(component, event) {
+        const callbacks = component.$$.callbacks[event.type];
+        if (callbacks) {
+            // @ts-ignore
+            callbacks.slice().forEach(fn => fn.call(this, event));
+        }
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function tick() {
+        schedule_update();
+        return resolved_promise;
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+
+    let promise;
+    function wait() {
+        if (!promise) {
+            promise = Promise.resolve();
+            promise.then(() => {
+                promise = null;
+            });
+        }
+        return promise;
+    }
+    function dispatch(node, direction, kind) {
+        node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+    const null_transition = { duration: 0 };
+    function create_bidirectional_transition(node, fn, params, intro) {
+        let config = fn(node, params);
+        let t = intro ? 0 : 1;
+        let running_program = null;
+        let pending_program = null;
+        let animation_name = null;
+        function clear_animation() {
+            if (animation_name)
+                delete_rule(node, animation_name);
+        }
+        function init(program, duration) {
+            const d = (program.b - t);
+            duration *= Math.abs(d);
+            return {
+                a: t,
+                b: program.b,
+                d,
+                duration,
+                start: program.start,
+                end: program.start + duration,
+                group: program.group
+            };
+        }
+        function go(b) {
+            const { delay = 0, duration = 300, easing = identity$4, tick = noop$1, css } = config || null_transition;
+            const program = {
+                start: now() + delay,
+                b
+            };
+            if (!b) {
+                // @ts-ignore todo: improve typings
+                program.group = outros;
+                outros.r += 1;
+            }
+            if (running_program || pending_program) {
+                pending_program = program;
+            }
+            else {
+                // if this is an intro, and there's a delay, we need to do
+                // an initial tick and/or apply CSS animation immediately
+                if (css) {
+                    clear_animation();
+                    animation_name = create_rule(node, t, b, duration, delay, easing, css);
+                }
+                if (b)
+                    tick(0, 1);
+                running_program = init(program, duration);
+                add_render_callback(() => dispatch(node, b, 'start'));
+                loop(now => {
+                    if (pending_program && now > pending_program.start) {
+                        running_program = init(pending_program, duration);
+                        pending_program = null;
+                        dispatch(node, running_program.b, 'start');
+                        if (css) {
+                            clear_animation();
+                            animation_name = create_rule(node, t, running_program.b, running_program.duration, 0, easing, config.css);
+                        }
+                    }
+                    if (running_program) {
+                        if (now >= running_program.end) {
+                            tick(t = running_program.b, 1 - t);
+                            dispatch(node, running_program.b, 'end');
+                            if (!pending_program) {
+                                // we're done
+                                if (running_program.b) {
+                                    // intro — we can tidy up immediately
+                                    clear_animation();
+                                }
+                                else {
+                                    // outro — needs to be coordinated
+                                    if (!--running_program.group.r)
+                                        run_all(running_program.group.c);
+                                }
+                            }
+                            running_program = null;
+                        }
+                        else if (now >= running_program.start) {
+                            const p = now - running_program.start;
+                            t = running_program.a + running_program.d * easing(p / running_program.duration);
+                            tick(t, 1 - t);
+                        }
+                    }
+                    return !!(running_program || pending_program);
+                });
+            }
+        }
+        return {
+            run(b) {
+                if (is_function(config)) {
+                    wait().then(() => {
+                        // @ts-ignore
+                        config = config();
+                        go(b);
+                    });
+                }
+                else {
+                    go(b);
+                }
+            },
+            end() {
+                clear_animation();
+                running_program = pending_program = null;
+            }
+        };
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                block.p(child_ctx, dirty);
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        return new_blocks;
+    }
+    function validate_each_keys(ctx, list, get_context, get_key) {
+        const keys = new Set();
+        for (let i = 0; i < list.length; i++) {
+            const key = get_key(get_context(ctx, list, i));
+            if (keys.has(key)) {
+                throw new Error('Cannot have duplicate keys in a keyed each');
+            }
+            keys.add(key);
+        }
+    }
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
+    }
+    function get_spread_object(spread_props) {
+        return typeof spread_props === 'object' && spread_props !== null ? spread_props : {};
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = on_mount.map(run).filter(is_function);
+                if (on_destroy) {
+                    on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop$1,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop$1;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.44.0' }, detail), true));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function prop_dev(node, property, value) {
+        node[property] = value;
+        dispatch_dev('SvelteDOMSetProperty', { node, property, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop$1) {
+        let stop;
+        const subscribers = new Set();
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (const subscriber of subscribers) {
+                        subscriber[1]();
+                        subscriber_queue.push(subscriber, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop$1) {
+            const subscriber = [run, invalidate];
+            subscribers.add(subscriber);
+            if (subscribers.size === 1) {
+                stop = start(set) || noop$1;
+            }
+            run(value);
+            return () => {
+                subscribers.delete(subscriber);
+                if (subscribers.size === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    function cubicInOut(t) {
+        return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
+    }
+    function cubicOut(t) {
+        const f = t - 1.0;
+        return f * f * f + 1.0;
+    }
+
+    function is_date(obj) {
+        return Object.prototype.toString.call(obj) === '[object Date]';
+    }
+
+    function get_interpolator(a, b) {
+        if (a === b || a !== a)
+            return () => a;
+        const type = typeof a;
+        if (type !== typeof b || Array.isArray(a) !== Array.isArray(b)) {
+            throw new Error('Cannot interpolate values of different type');
+        }
+        if (Array.isArray(a)) {
+            const arr = b.map((bi, i) => {
+                return get_interpolator(a[i], bi);
+            });
+            return t => arr.map(fn => fn(t));
+        }
+        if (type === 'object') {
+            if (!a || !b)
+                throw new Error('Object cannot be null');
+            if (is_date(a) && is_date(b)) {
+                a = a.getTime();
+                b = b.getTime();
+                const delta = b - a;
+                return t => new Date(a + t * delta);
+            }
+            const keys = Object.keys(b);
+            const interpolators = {};
+            keys.forEach(key => {
+                interpolators[key] = get_interpolator(a[key], b[key]);
+            });
+            return t => {
+                const result = {};
+                keys.forEach(key => {
+                    result[key] = interpolators[key](t);
+                });
+                return result;
+            };
+        }
+        if (type === 'number') {
+            const delta = b - a;
+            return t => a + t * delta;
+        }
+        throw new Error(`Cannot interpolate ${type} values`);
+    }
+    function tweened(value, defaults = {}) {
+        const store = writable(value);
+        let task;
+        let target_value = value;
+        function set(new_value, opts) {
+            if (value == null) {
+                store.set(value = new_value);
+                return Promise.resolve();
+            }
+            target_value = new_value;
+            let previous_task = task;
+            let started = false;
+            let { delay = 0, duration = 400, easing = identity$4, interpolate = get_interpolator } = assign(assign({}, defaults), opts);
+            if (duration === 0) {
+                if (previous_task) {
+                    previous_task.abort();
+                    previous_task = null;
+                }
+                store.set(value = target_value);
+                return Promise.resolve();
+            }
+            const start = now() + delay;
+            let fn;
+            task = loop(now => {
+                if (now < start)
+                    return true;
+                if (!started) {
+                    fn = interpolate(value, new_value);
+                    if (typeof duration === 'function')
+                        duration = duration(value, new_value);
+                    started = true;
+                }
+                if (previous_task) {
+                    previous_task.abort();
+                    previous_task = null;
+                }
+                const elapsed = now - start;
+                if (elapsed > duration) {
+                    store.set(value = new_value);
+                    return false;
+                }
+                // @ts-ignore
+                store.set(value = fn(easing(elapsed / duration)));
+                return true;
+            });
+            return task.promise;
+        }
+        return {
+            set,
+            update: (fn, opts) => set(fn(target_value, value), opts),
+            subscribe: store.subscribe
+        };
+    }
+
+    function define$1(constructor, factory, prototype) {
+      constructor.prototype = factory.prototype = prototype;
+      prototype.constructor = constructor;
+    }
+
+    function extend$1(parent, definition) {
+      var prototype = Object.create(parent.prototype);
+      for (var key in definition) prototype[key] = definition[key];
+      return prototype;
+    }
+
+    function Color$1() {}
+
+    var darker$1 = 0.7;
+    var brighter$1 = 1 / darker$1;
+
+    var reI$1 = "\\s*([+-]?\\d+)\\s*",
+        reN$1 = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",
+        reP$1 = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",
+        reHex$1 = /^#([0-9a-f]{3,8})$/,
+        reRgbInteger$1 = new RegExp("^rgb\\(" + [reI$1, reI$1, reI$1] + "\\)$"),
+        reRgbPercent$1 = new RegExp("^rgb\\(" + [reP$1, reP$1, reP$1] + "\\)$"),
+        reRgbaInteger$1 = new RegExp("^rgba\\(" + [reI$1, reI$1, reI$1, reN$1] + "\\)$"),
+        reRgbaPercent$1 = new RegExp("^rgba\\(" + [reP$1, reP$1, reP$1, reN$1] + "\\)$"),
+        reHslPercent$1 = new RegExp("^hsl\\(" + [reN$1, reP$1, reP$1] + "\\)$"),
+        reHslaPercent$1 = new RegExp("^hsla\\(" + [reN$1, reP$1, reP$1, reN$1] + "\\)$");
+
+    var named$1 = {
+      aliceblue: 0xf0f8ff,
+      antiquewhite: 0xfaebd7,
+      aqua: 0x00ffff,
+      aquamarine: 0x7fffd4,
+      azure: 0xf0ffff,
+      beige: 0xf5f5dc,
+      bisque: 0xffe4c4,
+      black: 0x000000,
+      blanchedalmond: 0xffebcd,
+      blue: 0x0000ff,
+      blueviolet: 0x8a2be2,
+      brown: 0xa52a2a,
+      burlywood: 0xdeb887,
+      cadetblue: 0x5f9ea0,
+      chartreuse: 0x7fff00,
+      chocolate: 0xd2691e,
+      coral: 0xff7f50,
+      cornflowerblue: 0x6495ed,
+      cornsilk: 0xfff8dc,
+      crimson: 0xdc143c,
+      cyan: 0x00ffff,
+      darkblue: 0x00008b,
+      darkcyan: 0x008b8b,
+      darkgoldenrod: 0xb8860b,
+      darkgray: 0xa9a9a9,
+      darkgreen: 0x006400,
+      darkgrey: 0xa9a9a9,
+      darkkhaki: 0xbdb76b,
+      darkmagenta: 0x8b008b,
+      darkolivegreen: 0x556b2f,
+      darkorange: 0xff8c00,
+      darkorchid: 0x9932cc,
+      darkred: 0x8b0000,
+      darksalmon: 0xe9967a,
+      darkseagreen: 0x8fbc8f,
+      darkslateblue: 0x483d8b,
+      darkslategray: 0x2f4f4f,
+      darkslategrey: 0x2f4f4f,
+      darkturquoise: 0x00ced1,
+      darkviolet: 0x9400d3,
+      deeppink: 0xff1493,
+      deepskyblue: 0x00bfff,
+      dimgray: 0x696969,
+      dimgrey: 0x696969,
+      dodgerblue: 0x1e90ff,
+      firebrick: 0xb22222,
+      floralwhite: 0xfffaf0,
+      forestgreen: 0x228b22,
+      fuchsia: 0xff00ff,
+      gainsboro: 0xdcdcdc,
+      ghostwhite: 0xf8f8ff,
+      gold: 0xffd700,
+      goldenrod: 0xdaa520,
+      gray: 0x808080,
+      green: 0x008000,
+      greenyellow: 0xadff2f,
+      grey: 0x808080,
+      honeydew: 0xf0fff0,
+      hotpink: 0xff69b4,
+      indianred: 0xcd5c5c,
+      indigo: 0x4b0082,
+      ivory: 0xfffff0,
+      khaki: 0xf0e68c,
+      lavender: 0xe6e6fa,
+      lavenderblush: 0xfff0f5,
+      lawngreen: 0x7cfc00,
+      lemonchiffon: 0xfffacd,
+      lightblue: 0xadd8e6,
+      lightcoral: 0xf08080,
+      lightcyan: 0xe0ffff,
+      lightgoldenrodyellow: 0xfafad2,
+      lightgray: 0xd3d3d3,
+      lightgreen: 0x90ee90,
+      lightgrey: 0xd3d3d3,
+      lightpink: 0xffb6c1,
+      lightsalmon: 0xffa07a,
+      lightseagreen: 0x20b2aa,
+      lightskyblue: 0x87cefa,
+      lightslategray: 0x778899,
+      lightslategrey: 0x778899,
+      lightsteelblue: 0xb0c4de,
+      lightyellow: 0xffffe0,
+      lime: 0x00ff00,
+      limegreen: 0x32cd32,
+      linen: 0xfaf0e6,
+      magenta: 0xff00ff,
+      maroon: 0x800000,
+      mediumaquamarine: 0x66cdaa,
+      mediumblue: 0x0000cd,
+      mediumorchid: 0xba55d3,
+      mediumpurple: 0x9370db,
+      mediumseagreen: 0x3cb371,
+      mediumslateblue: 0x7b68ee,
+      mediumspringgreen: 0x00fa9a,
+      mediumturquoise: 0x48d1cc,
+      mediumvioletred: 0xc71585,
+      midnightblue: 0x191970,
+      mintcream: 0xf5fffa,
+      mistyrose: 0xffe4e1,
+      moccasin: 0xffe4b5,
+      navajowhite: 0xffdead,
+      navy: 0x000080,
+      oldlace: 0xfdf5e6,
+      olive: 0x808000,
+      olivedrab: 0x6b8e23,
+      orange: 0xffa500,
+      orangered: 0xff4500,
+      orchid: 0xda70d6,
+      palegoldenrod: 0xeee8aa,
+      palegreen: 0x98fb98,
+      paleturquoise: 0xafeeee,
+      palevioletred: 0xdb7093,
+      papayawhip: 0xffefd5,
+      peachpuff: 0xffdab9,
+      peru: 0xcd853f,
+      pink: 0xffc0cb,
+      plum: 0xdda0dd,
+      powderblue: 0xb0e0e6,
+      purple: 0x800080,
+      rebeccapurple: 0x663399,
+      red: 0xff0000,
+      rosybrown: 0xbc8f8f,
+      royalblue: 0x4169e1,
+      saddlebrown: 0x8b4513,
+      salmon: 0xfa8072,
+      sandybrown: 0xf4a460,
+      seagreen: 0x2e8b57,
+      seashell: 0xfff5ee,
+      sienna: 0xa0522d,
+      silver: 0xc0c0c0,
+      skyblue: 0x87ceeb,
+      slateblue: 0x6a5acd,
+      slategray: 0x708090,
+      slategrey: 0x708090,
+      snow: 0xfffafa,
+      springgreen: 0x00ff7f,
+      steelblue: 0x4682b4,
+      tan: 0xd2b48c,
+      teal: 0x008080,
+      thistle: 0xd8bfd8,
+      tomato: 0xff6347,
+      turquoise: 0x40e0d0,
+      violet: 0xee82ee,
+      wheat: 0xf5deb3,
+      white: 0xffffff,
+      whitesmoke: 0xf5f5f5,
+      yellow: 0xffff00,
+      yellowgreen: 0x9acd32
+    };
+
+    define$1(Color$1, color$1, {
+      copy: function(channels) {
+        return Object.assign(new this.constructor, this, channels);
+      },
+      displayable: function() {
+        return this.rgb().displayable();
+      },
+      hex: color_formatHex$1, // Deprecated! Use color.formatHex.
+      formatHex: color_formatHex$1,
+      formatHsl: color_formatHsl$1,
+      formatRgb: color_formatRgb$1,
+      toString: color_formatRgb$1
+    });
+
+    function color_formatHex$1() {
+      return this.rgb().formatHex();
+    }
+
+    function color_formatHsl$1() {
+      return hslConvert$1(this).formatHsl();
+    }
+
+    function color_formatRgb$1() {
+      return this.rgb().formatRgb();
+    }
+
+    function color$1(format) {
+      var m, l;
+      format = (format + "").trim().toLowerCase();
+      return (m = reHex$1.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn$1(m) // #ff0000
+          : l === 3 ? new Rgb$1((m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
+          : l === 8 ? rgba$1(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
+          : l === 4 ? rgba$1((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
+          : null) // invalid hex
+          : (m = reRgbInteger$1.exec(format)) ? new Rgb$1(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+          : (m = reRgbPercent$1.exec(format)) ? new Rgb$1(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+          : (m = reRgbaInteger$1.exec(format)) ? rgba$1(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+          : (m = reRgbaPercent$1.exec(format)) ? rgba$1(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+          : (m = reHslPercent$1.exec(format)) ? hsla$1(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+          : (m = reHslaPercent$1.exec(format)) ? hsla$1(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+          : named$1.hasOwnProperty(format) ? rgbn$1(named$1[format]) // eslint-disable-line no-prototype-builtins
+          : format === "transparent" ? new Rgb$1(NaN, NaN, NaN, 0)
+          : null;
+    }
+
+    function rgbn$1(n) {
+      return new Rgb$1(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+    }
+
+    function rgba$1(r, g, b, a) {
+      if (a <= 0) r = g = b = NaN;
+      return new Rgb$1(r, g, b, a);
+    }
+
+    function rgbConvert$1(o) {
+      if (!(o instanceof Color$1)) o = color$1(o);
+      if (!o) return new Rgb$1;
+      o = o.rgb();
+      return new Rgb$1(o.r, o.g, o.b, o.opacity);
+    }
+
+    function rgb$2(r, g, b, opacity) {
+      return arguments.length === 1 ? rgbConvert$1(r) : new Rgb$1(r, g, b, opacity == null ? 1 : opacity);
+    }
+
+    function Rgb$1(r, g, b, opacity) {
+      this.r = +r;
+      this.g = +g;
+      this.b = +b;
+      this.opacity = +opacity;
+    }
+
+    define$1(Rgb$1, rgb$2, extend$1(Color$1, {
+      brighter: function(k) {
+        k = k == null ? brighter$1 : Math.pow(brighter$1, k);
+        return new Rgb$1(this.r * k, this.g * k, this.b * k, this.opacity);
+      },
+      darker: function(k) {
+        k = k == null ? darker$1 : Math.pow(darker$1, k);
+        return new Rgb$1(this.r * k, this.g * k, this.b * k, this.opacity);
+      },
+      rgb: function() {
+        return this;
+      },
+      displayable: function() {
+        return (-0.5 <= this.r && this.r < 255.5)
+            && (-0.5 <= this.g && this.g < 255.5)
+            && (-0.5 <= this.b && this.b < 255.5)
+            && (0 <= this.opacity && this.opacity <= 1);
+      },
+      hex: rgb_formatHex$1, // Deprecated! Use color.formatHex.
+      formatHex: rgb_formatHex$1,
+      formatRgb: rgb_formatRgb$1,
+      toString: rgb_formatRgb$1
+    }));
+
+    function rgb_formatHex$1() {
+      return "#" + hex$1(this.r) + hex$1(this.g) + hex$1(this.b);
+    }
+
+    function rgb_formatRgb$1() {
+      var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+      return (a === 1 ? "rgb(" : "rgba(")
+          + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
+          + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", "
+          + Math.max(0, Math.min(255, Math.round(this.b) || 0))
+          + (a === 1 ? ")" : ", " + a + ")");
+    }
+
+    function hex$1(value) {
+      value = Math.max(0, Math.min(255, Math.round(value) || 0));
+      return (value < 16 ? "0" : "") + value.toString(16);
+    }
+
+    function hsla$1(h, s, l, a) {
+      if (a <= 0) h = s = l = NaN;
+      else if (l <= 0 || l >= 1) h = s = NaN;
+      else if (s <= 0) h = NaN;
+      return new Hsl$1(h, s, l, a);
+    }
+
+    function hslConvert$1(o) {
+      if (o instanceof Hsl$1) return new Hsl$1(o.h, o.s, o.l, o.opacity);
+      if (!(o instanceof Color$1)) o = color$1(o);
+      if (!o) return new Hsl$1;
+      if (o instanceof Hsl$1) return o;
+      o = o.rgb();
+      var r = o.r / 255,
+          g = o.g / 255,
+          b = o.b / 255,
+          min = Math.min(r, g, b),
+          max = Math.max(r, g, b),
+          h = NaN,
+          s = max - min,
+          l = (max + min) / 2;
+      if (s) {
+        if (r === max) h = (g - b) / s + (g < b) * 6;
+        else if (g === max) h = (b - r) / s + 2;
+        else h = (r - g) / s + 4;
+        s /= l < 0.5 ? max + min : 2 - max - min;
+        h *= 60;
+      } else {
+        s = l > 0 && l < 1 ? 0 : h;
+      }
+      return new Hsl$1(h, s, l, o.opacity);
+    }
+
+    function hsl$1(h, s, l, opacity) {
+      return arguments.length === 1 ? hslConvert$1(h) : new Hsl$1(h, s, l, opacity == null ? 1 : opacity);
+    }
+
+    function Hsl$1(h, s, l, opacity) {
+      this.h = +h;
+      this.s = +s;
+      this.l = +l;
+      this.opacity = +opacity;
+    }
+
+    define$1(Hsl$1, hsl$1, extend$1(Color$1, {
+      brighter: function(k) {
+        k = k == null ? brighter$1 : Math.pow(brighter$1, k);
+        return new Hsl$1(this.h, this.s, this.l * k, this.opacity);
+      },
+      darker: function(k) {
+        k = k == null ? darker$1 : Math.pow(darker$1, k);
+        return new Hsl$1(this.h, this.s, this.l * k, this.opacity);
+      },
+      rgb: function() {
+        var h = this.h % 360 + (this.h < 0) * 360,
+            s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
+            l = this.l,
+            m2 = l + (l < 0.5 ? l : 1 - l) * s,
+            m1 = 2 * l - m2;
+        return new Rgb$1(
+          hsl2rgb$1(h >= 240 ? h - 240 : h + 120, m1, m2),
+          hsl2rgb$1(h, m1, m2),
+          hsl2rgb$1(h < 120 ? h + 240 : h - 120, m1, m2),
+          this.opacity
+        );
+      },
+      displayable: function() {
+        return (0 <= this.s && this.s <= 1 || isNaN(this.s))
+            && (0 <= this.l && this.l <= 1)
+            && (0 <= this.opacity && this.opacity <= 1);
+      },
+      formatHsl: function() {
+        var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+        return (a === 1 ? "hsl(" : "hsla(")
+            + (this.h || 0) + ", "
+            + (this.s || 0) * 100 + "%, "
+            + (this.l || 0) * 100 + "%"
+            + (a === 1 ? ")" : ", " + a + ")");
+      }
+    }));
+
+    /* From FvD 13.37, CSS Color Module Level 3 */
+    function hsl2rgb$1(h, m1, m2) {
+      return (h < 60 ? m1 + (m2 - m1) * h / 60
+          : h < 180 ? m2
+          : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
+          : m1) * 255;
+    }
+
+    function basis(t1, v0, v1, v2, v3) {
+      var t2 = t1 * t1, t3 = t2 * t1;
+      return ((1 - 3 * t1 + 3 * t2 - t3) * v0
+          + (4 - 6 * t2 + 3 * t3) * v1
+          + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2
+          + t3 * v3) / 6;
+    }
+
+    function basis$1(values) {
+      var n = values.length - 1;
+      return function(t) {
+        var i = t <= 0 ? (t = 0) : t >= 1 ? (t = 1, n - 1) : Math.floor(t * n),
+            v1 = values[i],
+            v2 = values[i + 1],
+            v0 = i > 0 ? values[i - 1] : 2 * v1 - v2,
+            v3 = i < n - 1 ? values[i + 2] : 2 * v2 - v1;
+        return basis((t - i / n) * n, v0, v1, v2, v3);
+      };
+    }
+
+    function constant$1(x) {
+      return function() {
+        return x;
+      };
+    }
+
+    function linear$1(a, d) {
+      return function(t) {
+        return a + t * d;
+      };
+    }
+
+    function exponential(a, b, y) {
+      return a = Math.pow(a, y), b = Math.pow(b, y) - a, y = 1 / y, function(t) {
+        return Math.pow(a + t * b, y);
+      };
+    }
+
+    function gamma(y) {
+      return (y = +y) === 1 ? nogamma : function(a, b) {
+        return b - a ? exponential(a, b, y) : constant$1(isNaN(a) ? b : a);
+      };
+    }
+
+    function nogamma(a, b) {
+      var d = b - a;
+      return d ? linear$1(a, d) : constant$1(isNaN(a) ? b : a);
+    }
+
+    var rgb$1 = (function rgbGamma(y) {
+      var color = gamma(y);
+
+      function rgb(start, end) {
+        var r = color((start = rgb$2(start)).r, (end = rgb$2(end)).r),
+            g = color(start.g, end.g),
+            b = color(start.b, end.b),
+            opacity = nogamma(start.opacity, end.opacity);
+        return function(t) {
+          start.r = r(t);
+          start.g = g(t);
+          start.b = b(t);
+          start.opacity = opacity(t);
+          return start + "";
+        };
+      }
+
+      rgb.gamma = rgbGamma;
+
+      return rgb;
+    })(1);
+
+    function rgbSpline(spline) {
+      return function(colors) {
+        var n = colors.length,
+            r = new Array(n),
+            g = new Array(n),
+            b = new Array(n),
+            i, color;
+        for (i = 0; i < n; ++i) {
+          color = rgb$2(colors[i]);
+          r[i] = color.r || 0;
+          g[i] = color.g || 0;
+          b[i] = color.b || 0;
+        }
+        r = spline(r);
+        g = spline(g);
+        b = spline(b);
+        color.opacity = 1;
+        return function(t) {
+          color.r = r(t);
+          color.g = g(t);
+          color.b = b(t);
+          return color + "";
+        };
+      };
+    }
+
+    var rgbBasis = rgbSpline(basis$1);
+
+    function numberArray(a, b) {
+      if (!b) b = [];
+      var n = a ? Math.min(b.length, a.length) : 0,
+          c = b.slice(),
+          i;
+      return function(t) {
+        for (i = 0; i < n; ++i) c[i] = a[i] * (1 - t) + b[i] * t;
+        return c;
+      };
+    }
+
+    function isNumberArray(x) {
+      return ArrayBuffer.isView(x) && !(x instanceof DataView);
+    }
+
+    function genericArray(a, b) {
+      var nb = b ? b.length : 0,
+          na = a ? Math.min(nb, a.length) : 0,
+          x = new Array(na),
+          c = new Array(nb),
+          i;
+
+      for (i = 0; i < na; ++i) x[i] = interpolate(a[i], b[i]);
+      for (; i < nb; ++i) c[i] = b[i];
+
+      return function(t) {
+        for (i = 0; i < na; ++i) c[i] = x[i](t);
+        return c;
+      };
+    }
+
+    function date(a, b) {
+      var d = new Date;
+      return a = +a, b = +b, function(t) {
+        return d.setTime(a * (1 - t) + b * t), d;
+      };
+    }
+
+    function interpolateNumber(a, b) {
+      return a = +a, b = +b, function(t) {
+        return a * (1 - t) + b * t;
+      };
+    }
+
+    function object(a, b) {
+      var i = {},
+          c = {},
+          k;
+
+      if (a === null || typeof a !== "object") a = {};
+      if (b === null || typeof b !== "object") b = {};
+
+      for (k in b) {
+        if (k in a) {
+          i[k] = interpolate(a[k], b[k]);
+        } else {
+          c[k] = b[k];
+        }
+      }
+
+      return function(t) {
+        for (k in i) c[k] = i[k](t);
+        return c;
+      };
+    }
+
+    var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g,
+        reB = new RegExp(reA.source, "g");
+
+    function zero(b) {
+      return function() {
+        return b;
+      };
+    }
+
+    function one(b) {
+      return function(t) {
+        return b(t) + "";
+      };
+    }
+
+    function interpolateString(a, b) {
+      var bi = reA.lastIndex = reB.lastIndex = 0, // scan index for next number in b
+          am, // current match in a
+          bm, // current match in b
+          bs, // string preceding current number in b, if any
+          i = -1, // index in s
+          s = [], // string constants and placeholders
+          q = []; // number interpolators
+
+      // Coerce inputs to strings.
+      a = a + "", b = b + "";
+
+      // Interpolate pairs of numbers in a & b.
+      while ((am = reA.exec(a))
+          && (bm = reB.exec(b))) {
+        if ((bs = bm.index) > bi) { // a string precedes the next number in b
+          bs = b.slice(bi, bs);
+          if (s[i]) s[i] += bs; // coalesce with previous string
+          else s[++i] = bs;
+        }
+        if ((am = am[0]) === (bm = bm[0])) { // numbers in a & b match
+          if (s[i]) s[i] += bm; // coalesce with previous string
+          else s[++i] = bm;
+        } else { // interpolate non-matching numbers
+          s[++i] = null;
+          q.push({i: i, x: interpolateNumber(am, bm)});
+        }
+        bi = reB.lastIndex;
+      }
+
+      // Add remains of b.
+      if (bi < b.length) {
+        bs = b.slice(bi);
+        if (s[i]) s[i] += bs; // coalesce with previous string
+        else s[++i] = bs;
+      }
+
+      // Special optimization for only a single match.
+      // Otherwise, interpolate each of the numbers and rejoin the string.
+      return s.length < 2 ? (q[0]
+          ? one(q[0].x)
+          : zero(b))
+          : (b = q.length, function(t) {
+              for (var i = 0, o; i < b; ++i) s[(o = q[i]).i] = o.x(t);
+              return s.join("");
+            });
+    }
+
+    function interpolate(a, b) {
+      var t = typeof b, c;
+      return b == null || t === "boolean" ? constant$1(b)
+          : (t === "number" ? interpolateNumber
+          : t === "string" ? ((c = color$1(b)) ? (b = c, rgb$1) : interpolateString)
+          : b instanceof color$1 ? rgb$1
+          : b instanceof Date ? date
+          : isNumberArray(b) ? numberArray
+          : Array.isArray(b) ? genericArray
+          : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object
+          : interpolateNumber)(a, b);
+    }
+
+    function interpolateRound(a, b) {
+      return a = +a, b = +b, function(t) {
+        return Math.round(a * (1 - t) + b * t);
+      };
+    }
+
+    function piecewise(interpolate, values) {
+      var i = 0, n = values.length - 1, v = values[0], I = new Array(n < 0 ? 0 : n);
+      while (i < n) I[i] = interpolate(v, v = values[++i]);
+      return function(t) {
+        var i = Math.max(0, Math.min(n - 1, Math.floor(t *= n)));
+        return I[i](t - i);
+      };
+    }
+
+    function fade(node, { delay = 0, duration = 400, easing = identity$4 } = {}) {
+        const o = +getComputedStyle(node).opacity;
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => `opacity: ${t * o}`
+        };
+    }
+    function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0, opacity = 0 } = {}) {
+        const style = getComputedStyle(node);
+        const target_opacity = +style.opacity;
+        const transform = style.transform === 'none' ? '' : style.transform;
+        const od = target_opacity * (1 - opacity);
+        return {
+            delay,
+            duration,
+            easing,
+            css: (t, u) => `
+			transform: ${transform} translate(${(1 - t) * x}px, ${(1 - t) * y}px);
+			opacity: ${target_opacity - (od * u)}`
+        };
+    }
+
+    /* src\Line.svelte generated by Svelte v3.44.0 */
+    const file$l = "src\\Line.svelte";
+
+    function create_fragment$l(ctx) {
+    	let g;
+    	let path0;
+    	let path1;
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			path0 = svg_element("path");
+    			path1 = svg_element("path");
+    			attr_dev(path0, "class", "lines");
+    			attr_dev(path0, "fill", "none");
+    			attr_dev(path0, "stroke", /*color*/ ctx[0]);
+    			attr_dev(path0, "stroke-width", /*strokeWidth*/ ctx[3]);
+    			attr_dev(path0, "stroke-dasharray", /*dashArray*/ ctx[2]);
+    			attr_dev(path0, "d", /*$lineStore*/ ctx[4]);
+    			add_location(path0, file$l, 28, 2, 692);
+    			attr_dev(path1, "class", "areas");
+    			attr_dev(path1, "fill", /*color*/ ctx[0]);
+    			attr_dev(path1, "opacity", /*areaOpacity*/ ctx[1]);
+    			attr_dev(path1, "d", /*$areaStore*/ ctx[5]);
+    			add_location(path1, file$l, 37, 2, 851);
+    			add_location(g, file$l, 27, 0, 685);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, path0);
+    			append_dev(g, path1);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*color*/ 1) {
+    				attr_dev(path0, "stroke", /*color*/ ctx[0]);
+    			}
+
+    			if (dirty & /*strokeWidth*/ 8) {
+    				attr_dev(path0, "stroke-width", /*strokeWidth*/ ctx[3]);
+    			}
+
+    			if (dirty & /*dashArray*/ 4) {
+    				attr_dev(path0, "stroke-dasharray", /*dashArray*/ ctx[2]);
+    			}
+
+    			if (dirty & /*$lineStore*/ 16) {
+    				attr_dev(path0, "d", /*$lineStore*/ ctx[4]);
+    			}
+
+    			if (dirty & /*color*/ 1) {
+    				attr_dev(path1, "fill", /*color*/ ctx[0]);
+    			}
+
+    			if (dirty & /*areaOpacity*/ 2) {
+    				attr_dev(path1, "opacity", /*areaOpacity*/ ctx[1]);
+    			}
+
+    			if (dirty & /*$areaStore*/ 32) {
+    				attr_dev(path1, "d", /*$areaStore*/ ctx[5]);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$l.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$l($$self, $$props, $$invalidate) {
+    	let $lineStore;
+    	let $areaStore;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Line', slots, []);
+    	let { color } = $$props;
+    	let { linePath } = $$props;
+    	let { areaPath } = $$props;
+    	let { areaOpacity = 0.7 } = $$props;
+    	let { duration } = $$props;
+    	let { dashArray = "" } = $$props;
+    	let { strokeWidth = 2 } = $$props;
+
+    	const options = {
+    		duration,
+    		easing: cubicInOut,
+    		interpolate: interpolateString
+    	};
+
+    	const lineStore = tweened(undefined, options);
+    	validate_store(lineStore, 'lineStore');
+    	component_subscribe($$self, lineStore, value => $$invalidate(4, $lineStore = value));
+    	const areaStore = tweened(undefined, options);
+    	validate_store(areaStore, 'areaStore');
+    	component_subscribe($$self, areaStore, value => $$invalidate(5, $areaStore = value));
+
+    	const writable_props = [
+    		'color',
+    		'linePath',
+    		'areaPath',
+    		'areaOpacity',
+    		'duration',
+    		'dashArray',
+    		'strokeWidth'
+    	];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Line> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('color' in $$props) $$invalidate(0, color = $$props.color);
+    		if ('linePath' in $$props) $$invalidate(8, linePath = $$props.linePath);
+    		if ('areaPath' in $$props) $$invalidate(9, areaPath = $$props.areaPath);
+    		if ('areaOpacity' in $$props) $$invalidate(1, areaOpacity = $$props.areaOpacity);
+    		if ('duration' in $$props) $$invalidate(10, duration = $$props.duration);
+    		if ('dashArray' in $$props) $$invalidate(2, dashArray = $$props.dashArray);
+    		if ('strokeWidth' in $$props) $$invalidate(3, strokeWidth = $$props.strokeWidth);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		tweened,
+    		cubicInOut,
+    		interpolateString,
+    		fade,
+    		color,
+    		linePath,
+    		areaPath,
+    		areaOpacity,
+    		duration,
+    		dashArray,
+    		strokeWidth,
+    		options,
+    		lineStore,
+    		areaStore,
+    		$lineStore,
+    		$areaStore
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('color' in $$props) $$invalidate(0, color = $$props.color);
+    		if ('linePath' in $$props) $$invalidate(8, linePath = $$props.linePath);
+    		if ('areaPath' in $$props) $$invalidate(9, areaPath = $$props.areaPath);
+    		if ('areaOpacity' in $$props) $$invalidate(1, areaOpacity = $$props.areaOpacity);
+    		if ('duration' in $$props) $$invalidate(10, duration = $$props.duration);
+    		if ('dashArray' in $$props) $$invalidate(2, dashArray = $$props.dashArray);
+    		if ('strokeWidth' in $$props) $$invalidate(3, strokeWidth = $$props.strokeWidth);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*linePath*/ 256) {
+    			lineStore.set(linePath);
+    		}
+
+    		if ($$self.$$.dirty & /*areaPath*/ 512) {
+    			areaStore.set(areaPath);
+    		}
+    	};
+
+    	return [
+    		color,
+    		areaOpacity,
+    		dashArray,
+    		strokeWidth,
+    		$lineStore,
+    		$areaStore,
+    		lineStore,
+    		areaStore,
+    		linePath,
+    		areaPath,
+    		duration
+    	];
+    }
+
+    class Line extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$l, create_fragment$l, safe_not_equal, {
+    			color: 0,
+    			linePath: 8,
+    			areaPath: 9,
+    			areaOpacity: 1,
+    			duration: 10,
+    			dashArray: 2,
+    			strokeWidth: 3
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Line",
+    			options,
+    			id: create_fragment$l.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*color*/ ctx[0] === undefined && !('color' in props)) {
+    			console.warn("<Line> was created without expected prop 'color'");
+    		}
+
+    		if (/*linePath*/ ctx[8] === undefined && !('linePath' in props)) {
+    			console.warn("<Line> was created without expected prop 'linePath'");
+    		}
+
+    		if (/*areaPath*/ ctx[9] === undefined && !('areaPath' in props)) {
+    			console.warn("<Line> was created without expected prop 'areaPath'");
+    		}
+
+    		if (/*duration*/ ctx[10] === undefined && !('duration' in props)) {
+    			console.warn("<Line> was created without expected prop 'duration'");
+    		}
+    	}
+
+    	get color() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set color(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get linePath() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set linePath(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get areaPath() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set areaPath(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get areaOpacity() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set areaOpacity(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get duration() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set duration(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get dashArray() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set dashArray(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get strokeWidth() {
+    		throw new Error("<Line>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set strokeWidth(value) {
+    		throw new Error("<Line>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function ascending$1(a, b) {
+      return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+    }
+
+    function bisector$1(f) {
+      let delta = f;
+      let compare = f;
+
+      if (f.length === 1) {
+        delta = (d, x) => f(d) - x;
+        compare = ascendingComparator$1(f);
+      }
+
+      function left(a, x, lo, hi) {
+        if (lo == null) lo = 0;
+        if (hi == null) hi = a.length;
+        while (lo < hi) {
+          const mid = (lo + hi) >>> 1;
+          if (compare(a[mid], x) < 0) lo = mid + 1;
+          else hi = mid;
+        }
+        return lo;
+      }
+
+      function right(a, x, lo, hi) {
+        if (lo == null) lo = 0;
+        if (hi == null) hi = a.length;
+        while (lo < hi) {
+          const mid = (lo + hi) >>> 1;
+          if (compare(a[mid], x) > 0) hi = mid;
+          else lo = mid + 1;
+        }
+        return lo;
+      }
+
+      function center(a, x, lo, hi) {
+        if (lo == null) lo = 0;
+        if (hi == null) hi = a.length;
+        const i = left(a, x, lo, hi - 1);
+        return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
+      }
+
+      return {left, center, right};
+    }
+
+    function ascendingComparator$1(f) {
+      return (d, x) => ascending$1(f(d), x);
+    }
+
+    function number$1(x) {
+      return x === null ? NaN : +x;
+    }
+
+    const ascendingBisect = bisector$1(ascending$1);
+    const bisectRight = ascendingBisect.right;
+    bisector$1(number$1).center;
+    var bisect = bisectRight;
+
+    function descending(a, b) {
+      return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+    }
+
+    function extent(values, valueof) {
+      let min;
+      let max;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null) {
+            if (min === undefined) {
+              if (value >= value) min = max = value;
+            } else {
+              if (min > value) min = value;
+              if (max < value) max = value;
+            }
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null) {
+            if (min === undefined) {
+              if (value >= value) min = max = value;
+            } else {
+              if (min > value) min = value;
+              if (max < value) max = value;
+            }
+          }
+        }
+      }
+      return [min, max];
+    }
+
+    class InternMap extends Map {
+      constructor(entries, key = keyof) {
+        super();
+        Object.defineProperties(this, {_intern: {value: new Map()}, _key: {value: key}});
+        if (entries != null) for (const [key, value] of entries) this.set(key, value);
+      }
+      get(key) {
+        return super.get(intern_get(this, key));
+      }
+      has(key) {
+        return super.has(intern_get(this, key));
+      }
+      set(key, value) {
+        return super.set(intern_set(this, key), value);
+      }
+      delete(key) {
+        return super.delete(intern_delete(this, key));
+      }
+    }
+
+    function intern_get({_intern, _key}, value) {
+      const key = _key(value);
+      return _intern.has(key) ? _intern.get(key) : value;
+    }
+
+    function intern_set({_intern, _key}, value) {
+      const key = _key(value);
+      if (_intern.has(key)) return _intern.get(key);
+      _intern.set(key, value);
+      return value;
+    }
+
+    function intern_delete({_intern, _key}, value) {
+      const key = _key(value);
+      if (_intern.has(key)) {
+        value = _intern.get(value);
+        _intern.delete(key);
+      }
+      return value;
+    }
+
+    function keyof(value) {
+      return value !== null && typeof value === "object" ? value.valueOf() : value;
+    }
+
+    function identity$3(x) {
+      return x;
+    }
+
+    function group(values, ...keys) {
+      return nest(values, identity$3, identity$3, keys);
+    }
+
+    function groups(values, ...keys) {
+      return nest(values, Array.from, identity$3, keys);
+    }
+
+    function rollup(values, reduce, ...keys) {
+      return nest(values, identity$3, reduce, keys);
+    }
+
+    function nest(values, map, reduce, keys) {
+      return (function regroup(values, i) {
+        if (i >= keys.length) return reduce(values);
+        const groups = new InternMap();
+        const keyof = keys[i++];
+        let index = -1;
+        for (const value of values) {
+          const key = keyof(value, ++index, values);
+          const group = groups.get(key);
+          if (group) group.push(value);
+          else groups.set(key, [value]);
+        }
+        for (const [key, values] of groups) {
+          groups.set(key, regroup(values, i));
+        }
+        return map(groups);
+      })(values, 0);
+    }
+
+    function permute(source, keys) {
+      return Array.from(keys, key => source[key]);
+    }
+
+    var e10 = Math.sqrt(50),
+        e5 = Math.sqrt(10),
+        e2 = Math.sqrt(2);
+
+    function ticks(start, stop, count) {
+      var reverse,
+          i = -1,
+          n,
+          ticks,
+          step;
+
+      stop = +stop, start = +start, count = +count;
+      if (start === stop && count > 0) return [start];
+      if (reverse = stop < start) n = start, start = stop, stop = n;
+      if ((step = tickIncrement(start, stop, count)) === 0 || !isFinite(step)) return [];
+
+      if (step > 0) {
+        let r0 = Math.round(start / step), r1 = Math.round(stop / step);
+        if (r0 * step < start) ++r0;
+        if (r1 * step > stop) --r1;
+        ticks = new Array(n = r1 - r0 + 1);
+        while (++i < n) ticks[i] = (r0 + i) * step;
+      } else {
+        step = -step;
+        let r0 = Math.round(start * step), r1 = Math.round(stop * step);
+        if (r0 / step < start) ++r0;
+        if (r1 / step > stop) --r1;
+        ticks = new Array(n = r1 - r0 + 1);
+        while (++i < n) ticks[i] = (r0 + i) / step;
+      }
+
+      if (reverse) ticks.reverse();
+
+      return ticks;
+    }
+
+    function tickIncrement(start, stop, count) {
+      var step = (stop - start) / Math.max(0, count),
+          power = Math.floor(Math.log(step) / Math.LN10),
+          error = step / Math.pow(10, power);
+      return power >= 0
+          ? (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1) * Math.pow(10, power)
+          : -Math.pow(10, -power) / (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1);
+    }
+
+    function tickStep(start, stop, count) {
+      var step0 = Math.abs(stop - start) / Math.max(0, count),
+          step1 = Math.pow(10, Math.floor(Math.log(step0) / Math.LN10)),
+          error = step0 / step1;
+      if (error >= e10) step1 *= 10;
+      else if (error >= e5) step1 *= 5;
+      else if (error >= e2) step1 *= 2;
+      return stop < start ? -step1 : step1;
+    }
+
+    function max(values, valueof) {
+      let max;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null
+              && (max < value || (max === undefined && value >= value))) {
+            max = value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null
+              && (max < value || (max === undefined && value >= value))) {
+            max = value;
+          }
+        }
+      }
+      return max;
+    }
+
+    function min(values, valueof) {
+      let min;
+      if (valueof === undefined) {
+        for (const value of values) {
+          if (value != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null
+              && (min > value || (min === undefined && value >= value))) {
+            min = value;
+          }
+        }
+      }
+      return min;
+    }
+
+    function mean(values, valueof) {
+      let count = 0;
+      let sum = 0;
+      if (valueof === undefined) {
+        for (let value of values) {
+          if (value != null && (value = +value) >= value) {
+            ++count, sum += value;
+          }
+        }
+      } else {
+        let index = -1;
+        for (let value of values) {
+          if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+            ++count, sum += value;
+          }
+        }
+      }
+      if (count) return sum / count;
+    }
+
+    function range(start, stop, step) {
+      start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
+
+      var i = -1,
+          n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
+          range = new Array(n);
+
+      while (++i < n) {
+        range[i] = start + i * step;
+      }
+
+      return range;
+    }
+
+    function least(values, compare = ascending$1) {
+      let min;
+      let defined = false;
+      if (compare.length === 1) {
+        let minValue;
+        for (const element of values) {
+          const value = compare(element);
+          if (defined
+              ? ascending$1(value, minValue) < 0
+              : ascending$1(value, value) === 0) {
+            min = element;
+            minValue = value;
+            defined = true;
+          }
+        }
+      } else {
+        for (const value of values) {
+          if (defined
+              ? compare(value, min) < 0
+              : compare(value, value) === 0) {
+            min = value;
+            defined = true;
+          }
+        }
+      }
+      return min;
+    }
+
+    var options = new Map([
+        {
+            "options": [
+                {
+                    "label": "All Settings (Combined)",
+                    "value": 0
+                },
+                {
+                    "label": "All Settings (Separately)",
+                    "value": -9
+                },
+                {
+                    "label": "Ambulatory Care",
+                    "value": 2
+                },
+                {
+                    "label": "Correctional Facility",
+                    "value": 8
+                },
+                {
+                    "label": "Home Health/Hospice",
+                    "value": 4
+                },
+                {
+                    "label": "Hospital",
+                    "value": 1
+                },
+                {
+                    "label": "Mental Health Hospital/Facility",
+                    "value": 7
+                },
+                {
+                    "label": "Nursing Education",
+                    "value": 6
+                },
+                {
+                    "label": "Nursing Home/Extended Care/Assisted Living",
+                    "value": 3
+                },
+                {
+                    "label": "Community and Population Health",
+                    "value": 5
+                }
+            ],
+            "label": "Setting",
+            "name": "setting"
+        },
+        {
+            "options": [
+                { "value": 0, "label": "State" },
+                { "value": 8, "label": "Medicaid Region" },
+                { "value": 5, "label": "AHEC" },
+                { "value": 7, "label": "Metro/Nonmetro" },
+            ], "label": "Location Type", "name": "locationType"
+        },
+        {
+            "options": [
+                { "value": "difference", "label": "Supply - Demand" },
+                { "value": "percentage", "label": "% Surplus or Shortage" },
+                { "value": "supply", "label": "Supply" },
+                { "value": "demand", "label": "Demand" },
+            ], "label": "Calculation", "name": "calculation"
+        },
+        {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "All NC"
+                },
+                {
+                    "value": 800,
+                    "label": "Western NC (1)"
+                },
+                {
+                    "value": 801,
+                    "label": "Northwest / Triad (2)"
+                },
+                {
+                    "value": 802,
+                    "label": "Southcentral / Charlotte (3)"
+                },
+                {
+                    "value": 803,
+                    "label": "Piedmont / Triangle (4)"
+                },
+                {
+                    "value": 804,
+                    "label": "Southeast / Wilmington (5)"
+                },
+                {
+                    "value": 805,
+                    "label": "Eastern NC (6)"
+                },
+                {
+                    "value": 500,
+                    "label": "Area L"
+                },
+                {
+                    "value": 501,
+                    "label": "Charlotte AHEC"
+                },
+                {
+                    "value": 503,
+                    "label": "Eastern"
+                },
+                {
+                    "value": 504,
+                    "label": "Greensboro"
+                },
+                {
+                    "value": 505,
+                    "label": "Mountain"
+                },
+                {
+                    "value": 506,
+                    "label": "Northwest"
+                },
+                {
+                    "value": 502,
+                    "label": "South East"
+                },
+                {
+                    "value": 507,
+                    "label": "Southern Regional"
+                },
+                {
+                    "value": 508,
+                    "label": "Wake AHEC"
+                },
+                {
+                    "value": 700,
+                    "label": "Metropolitan"
+                },
+                {
+                    "value": 701,
+                    "label": "Nonmetropolitan"
+                }
+            ],
+            "label": "Location",
+            "name": "location"
+        },
+        {
+            "options": [
+                {
+                    "value": 52,
+                    "label": "Baseline Supply"
+                },
+                {
+                    "value": 56,
+                    "label": "Early Exit (2 years early, so everyone leaves by 68)"
+                },
+                {
+                    "value": 57,
+                    "label": "Early Exit (5 years early, so everyone leaves by 65)"
+                },
+                {
+                    "value": 58,
+                    "label": "Delayed Exit (delayed by 2 years, but everyone leaves by 70)"
+                },
+                {
+                    "value": 59,
+                    "label": "Reduction in Out-of-State Supply by 2.5%"
+                },
+                {
+                    "value": 62,
+                    "label": "10% Increase in Graduate Supply"
+                },
+                {
+                    "value": 71,
+                    "label": "Early Exit (5 years) & 10% Increase in Graduates & 2.5% Reduction in Out-of-State"
+                },
+            ],
+            "label": "Supply Scenario",
+            "name": "supplyScenario"
+        },
+        {
+            "options": [
+                {
+                    "value": 1,
+                    "label": "Baseline Demand"
+                }
+            ],
+            "label": "Demand Scenario",
+            "name": "demandScenario"
+        },
+        {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "LPN & RN"
+                },
+                {
+                    "value": 1,
+                    "label": "LPN"
+                },
+                {
+                    "value": 2,
+                    "label": "RN"
+                },
+            ],
+            "name": "type",
+            "label": "Nurse Type"
+        }, {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "All Education"
+                },
+                {
+                    "value": 4,
+                    "label": "BS & MS"
+                },
+                {
+                    "value": 5,
+                    "label": "ADN & Diploma"
+                },
+            ],
+            "name": "education",
+            "label": "Education"
+        }, {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "Rate per 10K population"
+                },
+                {
+                    "value": 1,
+                    "label": "Total"
+                }
+            ],
+            "name": "rateOrTotal",
+            "label": "Rate Or Total"
+        },
+        {
+            "options": [
+                {
+                    "value": 0,
+                    "label": "Headcount"
+                },
+                {
+                    "value": 1,
+                    "label": "FTE"
+                }
+            ],
+            "name": "fteOrHeadcount",
+            "label": "FTE or Headcount"
+        }
+    ].map(d => [d.name, Object.assign({ optionsMap: new Map(d.options.map(e => [e.value, e.label])) }, d)]));
+
+    function define(constructor, factory, prototype) {
+      constructor.prototype = factory.prototype = prototype;
+      prototype.constructor = constructor;
+    }
+
+    function extend(parent, definition) {
+      var prototype = Object.create(parent.prototype);
+      for (var key in definition) prototype[key] = definition[key];
+      return prototype;
+    }
+
+    function Color() {}
+
+    var darker = 0.7;
+    var brighter = 1 / darker;
+
+    var reI = "\\s*([+-]?\\d+)\\s*",
+        reN = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",
+        reP = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",
+        reHex = /^#([0-9a-f]{3,8})$/,
+        reRgbInteger = new RegExp("^rgb\\(" + [reI, reI, reI] + "\\)$"),
+        reRgbPercent = new RegExp("^rgb\\(" + [reP, reP, reP] + "\\)$"),
+        reRgbaInteger = new RegExp("^rgba\\(" + [reI, reI, reI, reN] + "\\)$"),
+        reRgbaPercent = new RegExp("^rgba\\(" + [reP, reP, reP, reN] + "\\)$"),
+        reHslPercent = new RegExp("^hsl\\(" + [reN, reP, reP] + "\\)$"),
+        reHslaPercent = new RegExp("^hsla\\(" + [reN, reP, reP, reN] + "\\)$");
+
+    var named = {
+      aliceblue: 0xf0f8ff,
+      antiquewhite: 0xfaebd7,
+      aqua: 0x00ffff,
+      aquamarine: 0x7fffd4,
+      azure: 0xf0ffff,
+      beige: 0xf5f5dc,
+      bisque: 0xffe4c4,
+      black: 0x000000,
+      blanchedalmond: 0xffebcd,
+      blue: 0x0000ff,
+      blueviolet: 0x8a2be2,
+      brown: 0xa52a2a,
+      burlywood: 0xdeb887,
+      cadetblue: 0x5f9ea0,
+      chartreuse: 0x7fff00,
+      chocolate: 0xd2691e,
+      coral: 0xff7f50,
+      cornflowerblue: 0x6495ed,
+      cornsilk: 0xfff8dc,
+      crimson: 0xdc143c,
+      cyan: 0x00ffff,
+      darkblue: 0x00008b,
+      darkcyan: 0x008b8b,
+      darkgoldenrod: 0xb8860b,
+      darkgray: 0xa9a9a9,
+      darkgreen: 0x006400,
+      darkgrey: 0xa9a9a9,
+      darkkhaki: 0xbdb76b,
+      darkmagenta: 0x8b008b,
+      darkolivegreen: 0x556b2f,
+      darkorange: 0xff8c00,
+      darkorchid: 0x9932cc,
+      darkred: 0x8b0000,
+      darksalmon: 0xe9967a,
+      darkseagreen: 0x8fbc8f,
+      darkslateblue: 0x483d8b,
+      darkslategray: 0x2f4f4f,
+      darkslategrey: 0x2f4f4f,
+      darkturquoise: 0x00ced1,
+      darkviolet: 0x9400d3,
+      deeppink: 0xff1493,
+      deepskyblue: 0x00bfff,
+      dimgray: 0x696969,
+      dimgrey: 0x696969,
+      dodgerblue: 0x1e90ff,
+      firebrick: 0xb22222,
+      floralwhite: 0xfffaf0,
+      forestgreen: 0x228b22,
+      fuchsia: 0xff00ff,
+      gainsboro: 0xdcdcdc,
+      ghostwhite: 0xf8f8ff,
+      gold: 0xffd700,
+      goldenrod: 0xdaa520,
+      gray: 0x808080,
+      green: 0x008000,
+      greenyellow: 0xadff2f,
+      grey: 0x808080,
+      honeydew: 0xf0fff0,
+      hotpink: 0xff69b4,
+      indianred: 0xcd5c5c,
+      indigo: 0x4b0082,
+      ivory: 0xfffff0,
+      khaki: 0xf0e68c,
+      lavender: 0xe6e6fa,
+      lavenderblush: 0xfff0f5,
+      lawngreen: 0x7cfc00,
+      lemonchiffon: 0xfffacd,
+      lightblue: 0xadd8e6,
+      lightcoral: 0xf08080,
+      lightcyan: 0xe0ffff,
+      lightgoldenrodyellow: 0xfafad2,
+      lightgray: 0xd3d3d3,
+      lightgreen: 0x90ee90,
+      lightgrey: 0xd3d3d3,
+      lightpink: 0xffb6c1,
+      lightsalmon: 0xffa07a,
+      lightseagreen: 0x20b2aa,
+      lightskyblue: 0x87cefa,
+      lightslategray: 0x778899,
+      lightslategrey: 0x778899,
+      lightsteelblue: 0xb0c4de,
+      lightyellow: 0xffffe0,
+      lime: 0x00ff00,
+      limegreen: 0x32cd32,
+      linen: 0xfaf0e6,
+      magenta: 0xff00ff,
+      maroon: 0x800000,
+      mediumaquamarine: 0x66cdaa,
+      mediumblue: 0x0000cd,
+      mediumorchid: 0xba55d3,
+      mediumpurple: 0x9370db,
+      mediumseagreen: 0x3cb371,
+      mediumslateblue: 0x7b68ee,
+      mediumspringgreen: 0x00fa9a,
+      mediumturquoise: 0x48d1cc,
+      mediumvioletred: 0xc71585,
+      midnightblue: 0x191970,
+      mintcream: 0xf5fffa,
+      mistyrose: 0xffe4e1,
+      moccasin: 0xffe4b5,
+      navajowhite: 0xffdead,
+      navy: 0x000080,
+      oldlace: 0xfdf5e6,
+      olive: 0x808000,
+      olivedrab: 0x6b8e23,
+      orange: 0xffa500,
+      orangered: 0xff4500,
+      orchid: 0xda70d6,
+      palegoldenrod: 0xeee8aa,
+      palegreen: 0x98fb98,
+      paleturquoise: 0xafeeee,
+      palevioletred: 0xdb7093,
+      papayawhip: 0xffefd5,
+      peachpuff: 0xffdab9,
+      peru: 0xcd853f,
+      pink: 0xffc0cb,
+      plum: 0xdda0dd,
+      powderblue: 0xb0e0e6,
+      purple: 0x800080,
+      rebeccapurple: 0x663399,
+      red: 0xff0000,
+      rosybrown: 0xbc8f8f,
+      royalblue: 0x4169e1,
+      saddlebrown: 0x8b4513,
+      salmon: 0xfa8072,
+      sandybrown: 0xf4a460,
+      seagreen: 0x2e8b57,
+      seashell: 0xfff5ee,
+      sienna: 0xa0522d,
+      silver: 0xc0c0c0,
+      skyblue: 0x87ceeb,
+      slateblue: 0x6a5acd,
+      slategray: 0x708090,
+      slategrey: 0x708090,
+      snow: 0xfffafa,
+      springgreen: 0x00ff7f,
+      steelblue: 0x4682b4,
+      tan: 0xd2b48c,
+      teal: 0x008080,
+      thistle: 0xd8bfd8,
+      tomato: 0xff6347,
+      turquoise: 0x40e0d0,
+      violet: 0xee82ee,
+      wheat: 0xf5deb3,
+      white: 0xffffff,
+      whitesmoke: 0xf5f5f5,
+      yellow: 0xffff00,
+      yellowgreen: 0x9acd32
+    };
+
+    define(Color, color, {
+      copy: function(channels) {
+        return Object.assign(new this.constructor, this, channels);
+      },
+      displayable: function() {
+        return this.rgb().displayable();
+      },
+      hex: color_formatHex, // Deprecated! Use color.formatHex.
+      formatHex: color_formatHex,
+      formatHsl: color_formatHsl,
+      formatRgb: color_formatRgb,
+      toString: color_formatRgb
+    });
+
+    function color_formatHex() {
+      return this.rgb().formatHex();
+    }
+
+    function color_formatHsl() {
+      return hslConvert(this).formatHsl();
+    }
+
+    function color_formatRgb() {
+      return this.rgb().formatRgb();
+    }
+
+    function color(format) {
+      var m, l;
+      format = (format + "").trim().toLowerCase();
+      return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
+          : l === 3 ? new Rgb((m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
+          : l === 8 ? rgba(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
+          : l === 4 ? rgba((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
+          : null) // invalid hex
+          : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+          : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+          : (m = reRgbaInteger.exec(format)) ? rgba(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+          : (m = reRgbaPercent.exec(format)) ? rgba(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+          : (m = reHslPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+          : (m = reHslaPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+          : named.hasOwnProperty(format) ? rgbn(named[format]) // eslint-disable-line no-prototype-builtins
+          : format === "transparent" ? new Rgb(NaN, NaN, NaN, 0)
+          : null;
+    }
+
+    function rgbn(n) {
+      return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+    }
+
+    function rgba(r, g, b, a) {
+      if (a <= 0) r = g = b = NaN;
+      return new Rgb(r, g, b, a);
+    }
+
+    function rgbConvert(o) {
+      if (!(o instanceof Color)) o = color(o);
+      if (!o) return new Rgb;
+      o = o.rgb();
+      return new Rgb(o.r, o.g, o.b, o.opacity);
+    }
+
+    function rgb(r, g, b, opacity) {
+      return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
+    }
+
+    function Rgb(r, g, b, opacity) {
+      this.r = +r;
+      this.g = +g;
+      this.b = +b;
+      this.opacity = +opacity;
+    }
+
+    define(Rgb, rgb, extend(Color, {
+      brighter: function(k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+      },
+      darker: function(k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+      },
+      rgb: function() {
+        return this;
+      },
+      displayable: function() {
+        return (-0.5 <= this.r && this.r < 255.5)
+            && (-0.5 <= this.g && this.g < 255.5)
+            && (-0.5 <= this.b && this.b < 255.5)
+            && (0 <= this.opacity && this.opacity <= 1);
+      },
+      hex: rgb_formatHex, // Deprecated! Use color.formatHex.
+      formatHex: rgb_formatHex,
+      formatRgb: rgb_formatRgb,
+      toString: rgb_formatRgb
+    }));
+
+    function rgb_formatHex() {
+      return "#" + hex(this.r) + hex(this.g) + hex(this.b);
+    }
+
+    function rgb_formatRgb() {
+      var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+      return (a === 1 ? "rgb(" : "rgba(")
+          + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
+          + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", "
+          + Math.max(0, Math.min(255, Math.round(this.b) || 0))
+          + (a === 1 ? ")" : ", " + a + ")");
+    }
+
+    function hex(value) {
+      value = Math.max(0, Math.min(255, Math.round(value) || 0));
+      return (value < 16 ? "0" : "") + value.toString(16);
+    }
+
+    function hsla(h, s, l, a) {
+      if (a <= 0) h = s = l = NaN;
+      else if (l <= 0 || l >= 1) h = s = NaN;
+      else if (s <= 0) h = NaN;
+      return new Hsl(h, s, l, a);
+    }
+
+    function hslConvert(o) {
+      if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
+      if (!(o instanceof Color)) o = color(o);
+      if (!o) return new Hsl;
+      if (o instanceof Hsl) return o;
+      o = o.rgb();
+      var r = o.r / 255,
+          g = o.g / 255,
+          b = o.b / 255,
+          min = Math.min(r, g, b),
+          max = Math.max(r, g, b),
+          h = NaN,
+          s = max - min,
+          l = (max + min) / 2;
+      if (s) {
+        if (r === max) h = (g - b) / s + (g < b) * 6;
+        else if (g === max) h = (b - r) / s + 2;
+        else h = (r - g) / s + 4;
+        s /= l < 0.5 ? max + min : 2 - max - min;
+        h *= 60;
+      } else {
+        s = l > 0 && l < 1 ? 0 : h;
+      }
+      return new Hsl(h, s, l, o.opacity);
+    }
+
+    function hsl(h, s, l, opacity) {
+      return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
+    }
+
+    function Hsl(h, s, l, opacity) {
+      this.h = +h;
+      this.s = +s;
+      this.l = +l;
+      this.opacity = +opacity;
+    }
+
+    define(Hsl, hsl, extend(Color, {
+      brighter: function(k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+      },
+      darker: function(k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+      },
+      rgb: function() {
+        var h = this.h % 360 + (this.h < 0) * 360,
+            s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
+            l = this.l,
+            m2 = l + (l < 0.5 ? l : 1 - l) * s,
+            m1 = 2 * l - m2;
+        return new Rgb(
+          hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2),
+          hsl2rgb(h, m1, m2),
+          hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2),
+          this.opacity
+        );
+      },
+      displayable: function() {
+        return (0 <= this.s && this.s <= 1 || isNaN(this.s))
+            && (0 <= this.l && this.l <= 1)
+            && (0 <= this.opacity && this.opacity <= 1);
+      },
+      formatHsl: function() {
+        var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+        return (a === 1 ? "hsl(" : "hsla(")
+            + (this.h || 0) + ", "
+            + (this.s || 0) * 100 + "%, "
+            + (this.l || 0) * 100 + "%"
+            + (a === 1 ? ")" : ", " + a + ")");
+      }
+    }));
+
+    /* From FvD 13.37, CSS Color Module Level 3 */
+    function hsl2rgb(h, m1, m2) {
+      return (h < 60 ? m1 + (m2 - m1) * h / 60
+          : h < 180 ? m2
+          : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
+          : m1) * 255;
+    }
+
+    function fontColor(bgColor) {
+        //https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+        const rgb = color(bgColor).rgb();
+        return rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114 > 186
+            ? "#000000"
+            : "#ffffff";
+    }
+
+    function strokeColorContrast(fill) {
+
+        //https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
+        const rgb = color(fill).rgb();
+        return rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114 > 186
+            ? rgb.darker(2)
+            : rgb.brighter(2);
+    }
+
+    function flat() {
+        return this.reduce(function (acc, curr) {
+            return acc.concat(curr);
+        }, []);
+    }
+
+
+    function numberFormat(total = 1) {
+        return v =>
+            total
+                ? Math.round(v).toLocaleString()
+                : v.toLocaleString(undefined, {
+                    minimumSignificantDigits: 3,
+                    maximumSignificantDigits: 3
+                });
+    }
+
+    function makeQueryURL(params, baseURL = "https://nurseproject-dept-healthworkforce.cloudapps.unc.edu/data/") {
+        return `${baseURL}?${params
+        .map(d => `${d.name}=${d.value}`)
+        .join("&")}`;
+    }
+
+
+    async function dataFetch(queryURL) {
+        const data = await fetch(queryURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(json => {
+                if (json.length == 0) {
+                    throw new Error("No data.");
+                } else {
+                    return json;
+                }
+            })
+            .catch(error => {
+                console.error(
+                    "There has been a problem with your fetch operation:",
+                    error
+                );
+            });
+        return data;
+    }
+
+    // Underscore.js 1.9.2
+    // https://underscorejs.org
+    // (c) 2009-2018 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+    // Underscore may be freely distributed under the MIT license.
+    const restArguments = function (func, startIndex) {
+        startIndex = startIndex == null ? func.length - 1 : +startIndex;
+        return function () {
+            var length = Math.max(arguments.length - startIndex, 0),
+                rest = Array(length),
+                index = 0;
+            for (; index < length; index++) {
+                rest[index] = arguments[index + startIndex];
+            }
+            switch (startIndex) {
+                case 0: return func.call(this, rest);
+                case 1: return func.call(this, arguments[0], rest);
+                case 2: return func.call(this, arguments[0], arguments[1], rest);
+            }
+            var args = Array(startIndex + 1);
+            for (index = 0; index < startIndex; index++) {
+                args[index] = arguments[index];
+            }
+            args[startIndex] = rest;
+            return func.apply(this, args);
+        };
+    };
+
+    restArguments(function (func, wait, args) {
+        return setTimeout(function () {
+            return func.apply(null, args);
+        }, wait);
+    });
+
+    function throttle(func, wait, options) {
+        var timeout, context, args, result;
+        var previous = 0;
+        if (!options) options = {};
+
+        var later = function () {
+            previous = options.leading === false ? 0 : Date.now();
+            timeout = null;
+            result = func.apply(context, args);
+            if (!timeout) context = args = null;
+        };
+
+        var throttled = function () {
+            var now = Date.now();
+            if (!previous && options.leading === false) previous = now;
+            var remaining = wait - (now - previous);
+            context = this;
+            args = arguments;
+            if (remaining <= 0 || remaining > wait) {
+                if (timeout) {
+                    clearTimeout(timeout);
+                    timeout = null;
+                }
+                previous = now;
+                result = func.apply(context, args);
+                if (!timeout) context = args = null;
+            } else if (!timeout && options.trailing !== false) {
+                timeout = setTimeout(later, remaining);
+            }
+            return result;
+        };
+
+        throttled.cancel = function () {
+            clearTimeout(timeout);
+            previous = 0;
+            timeout = context = args = null;
+        };
+
+        return throttled;
+    }
+    // A function to break text into tspans. Adapted from [this Stack Overflow answer](https://stackoverflow.com/questions/475804/svg-word-wrap-show-stopper)
+    //   and [Wrapping Long Labels](https://bl.ocks.org/mbostock/7555321) 
+    //   and the function format of [Inputs](https://beta.observablehq.com/@jashkenas/inputs).`
+
+    function createSVGtext(config = {}) {
+
+        let { text, x = 0, y = 0,
+            fontSize = 14, fill = '#333',
+            textAnchor = "left",
+            maxCharsPerLine = 65,
+            lineHeight = 1.3 } = config;
+
+        if (typeof config == "string") text = config;
+
+        let svgText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        svgText.setAttributeNS(null, 'x', x);
+        svgText.setAttributeNS(null, 'y', y);
+        svgText.setAttributeNS(null, 'font-size', fontSize);
+        svgText.setAttributeNS(null, 'fill', fill);
+        svgText.setAttributeNS(null, 'text-anchor', textAnchor);
+
+        let words = text.trim().split(/\s+/).reverse(),
+            word,
+            dy = 0,
+            line = [];
+
+        while (word = words.pop()) {
+
+            line.push(word);
+            let testLineLength = line.join(" ").length;
+
+            if (testLineLength > maxCharsPerLine) {
+                line.pop();
+
+                let svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+                svgTSpan.setAttributeNS(null, 'x', x);
+                svgTSpan.setAttributeNS(null, 'dy', dy + "em");
+
+                let tSpanTextNode = document.createTextNode(line.join(" "));
+                svgTSpan.appendChild(tSpanTextNode);
+                svgText.appendChild(svgTSpan);
+
+                line = [word];
+                dy = lineHeight;
+            }
+        }
+
+        let svgTSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        svgTSpan.setAttributeNS(null, 'x', x);
+        svgTSpan.setAttributeNS(null, 'dy', dy + "em");
+
+        let tSpanTextNode = document.createTextNode(line.join(" "));
+        svgTSpan.appendChild(tSpanTextNode);
+        svgText.appendChild(svgTSpan);
+
+        return svgText;
+    }
+
+    /* src\LineChartLegendTable.svelte generated by Svelte v3.44.0 */
+
+    const { Object: Object_1$2 } = globals;
+    const file$k = "src\\LineChartLegendTable.svelte";
+
+    function get_each_context$9(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$5(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[9] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[9] = list[i];
+    	return child_ctx;
+    }
+
+    // (49:8) {#each columnOrder as column}
+    function create_each_block_2$4(ctx) {
+    	let th;
+    	let t_value = options.get(/*column*/ ctx[9]).label + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			th = element("th");
+    			t = text(t_value);
+    			add_location(th, file$k, 49, 10, 1403);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, th, anchor);
+    			append_dev(th, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*columnOrder*/ 4 && t_value !== (t_value = options.get(/*column*/ ctx[9]).label + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(th);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2$4.name,
+    		type: "each",
+    		source: "(49:8) {#each columnOrder as column}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (65:10) {#each columnOrder as column}
+    function create_each_block_1$5(ctx) {
+    	let td;
+    	let t_value = options.get(/*column*/ ctx[9]).optionsMap.get(/*row*/ ctx[6].paramsMap.get(/*column*/ ctx[9])) + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			td = element("td");
+    			t = text(t_value);
+    			toggle_class(td, "has-text-weight-bold", /*parametersDifferent*/ ctx[0].get(/*column*/ ctx[9]));
+    			toggle_class(td, "has-text-black-bis", /*parametersDifferent*/ ctx[0].get(/*column*/ ctx[9]));
+    			add_location(td, file$k, 65, 12, 1871);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, td, anchor);
+    			append_dev(td, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*columnOrder, rows*/ 6 && t_value !== (t_value = options.get(/*column*/ ctx[9]).optionsMap.get(/*row*/ ctx[6].paramsMap.get(/*column*/ ctx[9])) + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*parametersDifferent, columnOrder*/ 5) {
+    				toggle_class(td, "has-text-weight-bold", /*parametersDifferent*/ ctx[0].get(/*column*/ ctx[9]));
+    			}
+
+    			if (dirty & /*parametersDifferent, columnOrder*/ 5) {
+    				toggle_class(td, "has-text-black-bis", /*parametersDifferent*/ ctx[0].get(/*column*/ ctx[9]));
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(td);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$5.name,
+    		type: "each",
+    		source: "(65:10) {#each columnOrder as column}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (55:6) {#each rows as row}
+    function create_each_block$9(ctx) {
+    	let tr;
+    	let td;
+    	let button;
+    	let button_data_id_value;
+    	let t0;
+    	let t1;
+    	let mounted;
+    	let dispose;
+    	let each_value_1 = /*columnOrder*/ ctx[2];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$5(get_each_context_1$5(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			td = element("td");
+    			button = element("button");
+    			t0 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t1 = space();
+    			attr_dev(button, "class", "delete");
+    			attr_dev(button, "data-id", button_data_id_value = /*row*/ ctx[6].id);
+    			attr_dev(button, "aria-label", "delete");
+    			add_location(button, file$k, 57, 12, 1630);
+    			set_style(td, "background-color", /*row*/ ctx[6].color);
+    			set_style(td, "vertical-align", "middle");
+    			add_location(td, file$k, 56, 10, 1549);
+    			add_location(tr, file$k, 55, 8, 1533);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td);
+    			append_dev(td, button);
+    			append_dev(tr, t0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tr, null);
+    			}
+
+    			append_dev(tr, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleDeleteProjection*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*rows*/ 2 && button_data_id_value !== (button_data_id_value = /*row*/ ctx[6].id)) {
+    				attr_dev(button, "data-id", button_data_id_value);
+    			}
+
+    			if (dirty & /*rows*/ 2) {
+    				set_style(td, "background-color", /*row*/ ctx[6].color);
+    			}
+
+    			if (dirty & /*parametersDifferent, columnOrder, options, rows*/ 7) {
+    				each_value_1 = /*columnOrder*/ ctx[2];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$5(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1$5(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tr, t1);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$9.name,
+    		type: "each",
+    		source: "(55:6) {#each rows as row}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$k(ctx) {
+    	let div;
+    	let table;
+    	let thead;
+    	let tr;
+    	let th;
+    	let t0;
+    	let t1;
+    	let tbody;
+    	let each_value_2 = /*columnOrder*/ ctx[2];
+    	validate_each_argument(each_value_2);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_2$4(get_each_context_2$4(ctx, each_value_2, i));
+    	}
+
+    	let each_value = /*rows*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$9(get_each_context$9(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr = element("tr");
+    			th = element("th");
+    			t0 = space();
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t1 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(th, file$k, 47, 8, 1346);
+    			add_location(tr, file$k, 46, 6, 1332);
+    			add_location(thead, file$k, 45, 4, 1317);
+    			add_location(tbody, file$k, 53, 4, 1489);
+    			attr_dev(table, "class", "table is-narrow");
+    			attr_dev(table, "id", "line-chart-table");
+    			add_location(table, file$k, 44, 2, 1258);
+    			attr_dev(div, "class", "table-container");
+    			add_location(div, file$k, 43, 0, 1225);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr);
+    			append_dev(tr, th);
+    			append_dev(tr, t0);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(tr, null);
+    			}
+
+    			append_dev(table, t1);
+    			append_dev(table, tbody);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*options, columnOrder*/ 4) {
+    				each_value_2 = /*columnOrder*/ ctx[2];
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2$4(ctx, each_value_2, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_2$4(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(tr, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_2.length;
+    			}
+
+    			if (dirty & /*columnOrder, parametersDifferent, options, rows, handleDeleteProjection*/ 15) {
+    				each_value = /*rows*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$9(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$9(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$k.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$k($$self, $$props, $$invalidate) {
+    	let columnOrder;
+    	let rows;
+    	let parametersDifferent;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('LineChartLegendTable', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { legendData } = $$props;
+
+    	function handleDeleteProjection(e) {
+    		dispatch("deleteProjection", e.target.getAttribute("data-id"));
+    	}
+
+    	const writable_props = ['legendData'];
+
+    	Object_1$2.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<LineChartLegendTable> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('legendData' in $$props) $$invalidate(4, legendData = $$props.legendData);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		permute,
+    		rollup,
+    		group,
+    		createEventDispatcher,
+    		fade,
+    		options,
+    		flat,
+    		dispatch,
+    		legendData,
+    		handleDeleteProjection,
+    		parametersDifferent,
+    		rows,
+    		columnOrder
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('legendData' in $$props) $$invalidate(4, legendData = $$props.legendData);
+    		if ('parametersDifferent' in $$props) $$invalidate(0, parametersDifferent = $$props.parametersDifferent);
+    		if ('rows' in $$props) $$invalidate(1, rows = $$props.rows);
+    		if ('columnOrder' in $$props) $$invalidate(2, columnOrder = $$props.columnOrder);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*legendData*/ 16) {
+    			$$invalidate(2, columnOrder = [
+    				"type",
+    				"education",
+    				"rateOrTotal",
+    				"fteOrHeadcount",
+    				"location",
+    				"setting",
+    				...legendData[0].params.filter(d => d[0].includes("Scenario")).map(d => d[0])
+    			]);
+    		}
+
+    		if ($$self.$$.dirty & /*legendData*/ 16) {
+    			$$invalidate(1, rows = legendData.map(d => Object.assign({ paramsMap: new Map(d.params) }, d)));
+    		}
+
+    		if ($$self.$$.dirty & /*legendData*/ 16) {
+    			//Determine which parameters differ between projections
+    			//Allows highlighting of parameters that differ.
+    			//1. Get flat list of parameters to group
+    			//2. Use a Set to deduplicates values, so if size of Set is > 1
+    			//then there are different values for that parameter
+    			$$invalidate(0, parametersDifferent = rollup(legendData.map(d => d.params).flat(), v => new Set(v.map(e => e[1])).size > 1, d => d[0]));
+    		}
+    	};
+
+    	return [parametersDifferent, rows, columnOrder, handleDeleteProjection, legendData];
+    }
+
+    class LineChartLegendTable extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$k, create_fragment$k, safe_not_equal, { legendData: 4 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LineChartLegendTable",
+    			options,
+    			id: create_fragment$k.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*legendData*/ ctx[4] === undefined && !('legendData' in props)) {
+    			console.warn("<LineChartLegendTable> was created without expected prop 'legendData'");
+    		}
+    	}
+
+    	get legendData() {
+    		throw new Error("<LineChartLegendTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set legendData(value) {
+    		throw new Error("<LineChartLegendTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\DifferenceToolTipTable.svelte generated by Svelte v3.44.0 */
+    const file$j = "src\\DifferenceToolTipTable.svelte";
+
+    function get_each_context$8(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[1] = list[i].supplyMean;
+    	child_ctx[2] = list[i].demandMean;
+    	child_ctx[3] = list[i].value;
+    	child_ctx[4] = list[i].color;
+    	child_ctx[5] = list[i].rateOrTotal;
+    	child_ctx[6] = list[i].percentage;
+    	child_ctx[7] = list[i].difference;
+    	return child_ctx;
+    }
+
+    // (18:6) {#each rows as { supplyMean, demandMean, value, color, rateOrTotal, percentage, difference }}
+    function create_each_block$8(ctx) {
+    	let tr;
+    	let td0;
+    	let t0_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*supplyMean*/ ctx[1]) + "";
+    	let t0;
+    	let t1;
+    	let td1;
+    	let t2_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*demandMean*/ ctx[2]) + "";
+    	let t2;
+    	let t3;
+    	let td2;
+
+    	let t4_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*difference*/ ctx[7] === undefined
+    	? /*value*/ ctx[3]
+    	: /*difference*/ ctx[7]) + "";
+
+    	let t4;
+    	let t5;
+    	let td3;
+
+    	let t6_value = (/*percentage*/ ctx[6] === undefined
+    	? /*value*/ ctx[3]
+    	: /*percentage*/ ctx[6]).toLocaleString(undefined, {
+    		style: "percent",
+    		maximumFractionDigits: 1
+    	}) + "";
+
+    	let t6;
+    	let t7;
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			td0 = element("td");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			td1 = element("td");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			td2 = element("td");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			td3 = element("td");
+    			t6 = text(t6_value);
+    			t7 = space();
+    			set_style(td0, "color", /*color*/ ctx[4]);
+    			set_style(td0, "text-align", "right");
+    			attr_dev(td0, "class", "svelte-1rn85a9");
+    			add_location(td0, file$j, 19, 10, 554);
+    			set_style(td1, "color", /*color*/ ctx[4]);
+    			set_style(td1, "text-align", "right");
+    			attr_dev(td1, "class", "svelte-1rn85a9");
+    			add_location(td1, file$j, 22, 10, 681);
+    			set_style(td2, "color", /*color*/ ctx[4]);
+    			set_style(td2, "text-align", "right");
+    			attr_dev(td2, "class", "svelte-1rn85a9");
+    			add_location(td2, file$j, 25, 10, 808);
+    			set_style(td3, "color", /*color*/ ctx[4]);
+    			set_style(td3, "text-align", "right");
+    			attr_dev(td3, "class", "svelte-1rn85a9");
+    			add_location(td3, file$j, 30, 10, 1000);
+    			add_location(tr, file$j, 18, 8, 538);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td0);
+    			append_dev(td0, t0);
+    			append_dev(tr, t1);
+    			append_dev(tr, td1);
+    			append_dev(td1, t2);
+    			append_dev(tr, t3);
+    			append_dev(tr, td2);
+    			append_dev(td2, t4);
+    			append_dev(tr, t5);
+    			append_dev(tr, td3);
+    			append_dev(td3, t6);
+    			append_dev(tr, t7);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*rows*/ 1 && t0_value !== (t0_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*supplyMean*/ ctx[1]) + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty & /*rows*/ 1) {
+    				set_style(td0, "color", /*color*/ ctx[4]);
+    			}
+
+    			if (dirty & /*rows*/ 1 && t2_value !== (t2_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*demandMean*/ ctx[2]) + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty & /*rows*/ 1) {
+    				set_style(td1, "color", /*color*/ ctx[4]);
+    			}
+
+    			if (dirty & /*rows*/ 1 && t4_value !== (t4_value = numberFormat(/*rateOrTotal*/ ctx[5])(/*difference*/ ctx[7] === undefined
+    			? /*value*/ ctx[3]
+    			: /*difference*/ ctx[7]) + "")) set_data_dev(t4, t4_value);
+
+    			if (dirty & /*rows*/ 1) {
+    				set_style(td2, "color", /*color*/ ctx[4]);
+    			}
+
+    			if (dirty & /*rows*/ 1 && t6_value !== (t6_value = (/*percentage*/ ctx[6] === undefined
+    			? /*value*/ ctx[3]
+    			: /*percentage*/ ctx[6]).toLocaleString(undefined, {
+    				style: "percent",
+    				maximumFractionDigits: 1
+    			}) + "")) set_data_dev(t6, t6_value);
+
+    			if (dirty & /*rows*/ 1) {
+    				set_style(td3, "color", /*color*/ ctx[4]);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$8.name,
+    		type: "each",
+    		source: "(18:6) {#each rows as { supplyMean, demandMean, value, color, rateOrTotal, percentage, difference }}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$j(ctx) {
+    	let div;
+    	let table;
+    	let thead;
+    	let tr;
+    	let th0;
+    	let t1;
+    	let th1;
+    	let t3;
+    	let th2;
+    	let t5;
+    	let th3;
+    	let t7;
+    	let tbody;
+    	let each_value = /*rows*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$8(get_each_context$8(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr = element("tr");
+    			th0 = element("th");
+    			th0.textContent = "Supply";
+    			t1 = space();
+    			th1 = element("th");
+    			th1.textContent = "Demand";
+    			t3 = space();
+    			th2 = element("th");
+    			th2.textContent = "Difference";
+    			t5 = space();
+    			th3 = element("th");
+    			th3.textContent = "%";
+    			t7 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			set_style(th0, "text-align", "right");
+    			add_location(th0, file$j, 10, 8, 194);
+    			set_style(th1, "text-align", "right");
+    			add_location(th1, file$j, 11, 8, 245);
+    			set_style(th2, "text-align", "right");
+    			add_location(th2, file$j, 12, 8, 296);
+    			set_style(th3, "text-align", "right");
+    			add_location(th3, file$j, 13, 8, 351);
+    			add_location(tr, file$j, 9, 6, 180);
+    			add_location(thead, file$j, 8, 4, 165);
+    			add_location(tbody, file$j, 16, 4, 420);
+    			attr_dev(table, "class", "table is-narrow");
+    			add_location(table, file$j, 7, 2, 128);
+    			attr_dev(div, "class", "table-container");
+    			add_location(div, file$j, 6, 0, 95);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr);
+    			append_dev(tr, th0);
+    			append_dev(tr, t1);
+    			append_dev(tr, th1);
+    			append_dev(tr, t3);
+    			append_dev(tr, th2);
+    			append_dev(tr, t5);
+    			append_dev(tr, th3);
+    			append_dev(table, t7);
+    			append_dev(table, tbody);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*rows, undefined, numberFormat*/ 1) {
+    				each_value = /*rows*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$8(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$8(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$j.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$j($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('DifferenceToolTipTable', slots, []);
+    	let { rows } = $$props;
+    	const writable_props = ['rows'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<DifferenceToolTipTable> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('rows' in $$props) $$invalidate(0, rows = $$props.rows);
+    	};
+
+    	$$self.$capture_state = () => ({ numberFormat, rows });
+
+    	$$self.$inject_state = $$props => {
+    		if ('rows' in $$props) $$invalidate(0, rows = $$props.rows);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [rows];
+    }
+
+    class DifferenceToolTipTable extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, { rows: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "DifferenceToolTipTable",
+    			options,
+    			id: create_fragment$j.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*rows*/ ctx[0] === undefined && !('rows' in props)) {
+    			console.warn("<DifferenceToolTipTable> was created without expected prop 'rows'");
+    		}
+    	}
+
+    	get rows() {
+    		throw new Error("<DifferenceToolTipTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set rows(value) {
+    		throw new Error("<DifferenceToolTipTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function initRange(domain, range) {
+      switch (arguments.length) {
+        case 0: break;
+        case 1: this.range(domain); break;
+        default: this.range(range).domain(domain); break;
+      }
+      return this;
+    }
+
+    function initInterpolator(domain, interpolator) {
+      switch (arguments.length) {
+        case 0: break;
+        case 1: {
+          if (typeof domain === "function") this.interpolator(domain);
+          else this.range(domain);
+          break;
+        }
+        default: {
+          this.domain(domain);
+          if (typeof interpolator === "function") this.interpolator(interpolator);
+          else this.range(interpolator);
+          break;
+        }
+      }
+      return this;
+    }
+
+    const implicit = Symbol("implicit");
+
+    function ordinal() {
+      var index = new Map(),
+          domain = [],
+          range = [],
+          unknown = implicit;
+
+      function scale(d) {
+        var key = d + "", i = index.get(key);
+        if (!i) {
+          if (unknown !== implicit) return unknown;
+          index.set(key, i = domain.push(d));
+        }
+        return range[(i - 1) % range.length];
+      }
+
+      scale.domain = function(_) {
+        if (!arguments.length) return domain.slice();
+        domain = [], index = new Map();
+        for (const value of _) {
+          const key = value + "";
+          if (index.has(key)) continue;
+          index.set(key, domain.push(value));
+        }
+        return scale;
+      };
+
+      scale.range = function(_) {
+        return arguments.length ? (range = Array.from(_), scale) : range.slice();
+      };
+
+      scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+      };
+
+      scale.copy = function() {
+        return ordinal(domain, range).unknown(unknown);
+      };
+
+      initRange.apply(scale, arguments);
+
+      return scale;
+    }
+
+    function band() {
+      var scale = ordinal().unknown(undefined),
+          domain = scale.domain,
+          ordinalRange = scale.range,
+          r0 = 0,
+          r1 = 1,
+          step,
+          bandwidth,
+          round = false,
+          paddingInner = 0,
+          paddingOuter = 0,
+          align = 0.5;
+
+      delete scale.unknown;
+
+      function rescale() {
+        var n = domain().length,
+            reverse = r1 < r0,
+            start = reverse ? r1 : r0,
+            stop = reverse ? r0 : r1;
+        step = (stop - start) / Math.max(1, n - paddingInner + paddingOuter * 2);
+        if (round) step = Math.floor(step);
+        start += (stop - start - step * (n - paddingInner)) * align;
+        bandwidth = step * (1 - paddingInner);
+        if (round) start = Math.round(start), bandwidth = Math.round(bandwidth);
+        var values = range(n).map(function(i) { return start + step * i; });
+        return ordinalRange(reverse ? values.reverse() : values);
+      }
+
+      scale.domain = function(_) {
+        return arguments.length ? (domain(_), rescale()) : domain();
+      };
+
+      scale.range = function(_) {
+        return arguments.length ? ([r0, r1] = _, r0 = +r0, r1 = +r1, rescale()) : [r0, r1];
+      };
+
+      scale.rangeRound = function(_) {
+        return [r0, r1] = _, r0 = +r0, r1 = +r1, round = true, rescale();
+      };
+
+      scale.bandwidth = function() {
+        return bandwidth;
+      };
+
+      scale.step = function() {
+        return step;
+      };
+
+      scale.round = function(_) {
+        return arguments.length ? (round = !!_, rescale()) : round;
+      };
+
+      scale.padding = function(_) {
+        return arguments.length ? (paddingInner = Math.min(1, paddingOuter = +_), rescale()) : paddingInner;
+      };
+
+      scale.paddingInner = function(_) {
+        return arguments.length ? (paddingInner = Math.min(1, _), rescale()) : paddingInner;
+      };
+
+      scale.paddingOuter = function(_) {
+        return arguments.length ? (paddingOuter = +_, rescale()) : paddingOuter;
+      };
+
+      scale.align = function(_) {
+        return arguments.length ? (align = Math.max(0, Math.min(1, _)), rescale()) : align;
+      };
+
+      scale.copy = function() {
+        return band(domain(), [r0, r1])
+            .round(round)
+            .paddingInner(paddingInner)
+            .paddingOuter(paddingOuter)
+            .align(align);
+      };
+
+      return initRange.apply(rescale(), arguments);
+    }
+
+    function constants(x) {
+      return function() {
+        return x;
+      };
+    }
+
+    function number(x) {
+      return +x;
+    }
+
+    var unit = [0, 1];
+
+    function identity$2(x) {
+      return x;
+    }
+
+    function normalize(a, b) {
+      return (b -= (a = +a))
+          ? function(x) { return (x - a) / b; }
+          : constants(isNaN(b) ? NaN : 0.5);
+    }
+
+    function clamper(a, b) {
+      var t;
+      if (a > b) t = a, a = b, b = t;
+      return function(x) { return Math.max(a, Math.min(b, x)); };
+    }
+
+    // normalize(a, b)(x) takes a domain value x in [a,b] and returns the corresponding parameter t in [0,1].
+    // interpolate(a, b)(t) takes a parameter t in [0,1] and returns the corresponding range value x in [a,b].
+    function bimap(domain, range, interpolate) {
+      var d0 = domain[0], d1 = domain[1], r0 = range[0], r1 = range[1];
+      if (d1 < d0) d0 = normalize(d1, d0), r0 = interpolate(r1, r0);
+      else d0 = normalize(d0, d1), r0 = interpolate(r0, r1);
+      return function(x) { return r0(d0(x)); };
+    }
+
+    function polymap(domain, range, interpolate) {
+      var j = Math.min(domain.length, range.length) - 1,
+          d = new Array(j),
+          r = new Array(j),
+          i = -1;
+
+      // Reverse descending domains.
+      if (domain[j] < domain[0]) {
+        domain = domain.slice().reverse();
+        range = range.slice().reverse();
+      }
+
+      while (++i < j) {
+        d[i] = normalize(domain[i], domain[i + 1]);
+        r[i] = interpolate(range[i], range[i + 1]);
+      }
+
+      return function(x) {
+        var i = bisect(domain, x, 1, j) - 1;
+        return r[i](d[i](x));
+      };
+    }
+
+    function copy$1(source, target) {
+      return target
+          .domain(source.domain())
+          .range(source.range())
+          .interpolate(source.interpolate())
+          .clamp(source.clamp())
+          .unknown(source.unknown());
+    }
+
+    function transformer$3() {
+      var domain = unit,
+          range = unit,
+          interpolate$1 = interpolate,
+          transform,
+          untransform,
+          unknown,
+          clamp = identity$2,
+          piecewise,
+          output,
+          input;
+
+      function rescale() {
+        var n = Math.min(domain.length, range.length);
+        if (clamp !== identity$2) clamp = clamper(domain[0], domain[n - 1]);
+        piecewise = n > 2 ? polymap : bimap;
+        output = input = null;
+        return scale;
+      }
+
+      function scale(x) {
+        return x == null || isNaN(x = +x) ? unknown : (output || (output = piecewise(domain.map(transform), range, interpolate$1)))(transform(clamp(x)));
+      }
+
+      scale.invert = function(y) {
+        return clamp(untransform((input || (input = piecewise(range, domain.map(transform), interpolateNumber)))(y)));
+      };
+
+      scale.domain = function(_) {
+        return arguments.length ? (domain = Array.from(_, number), rescale()) : domain.slice();
+      };
+
+      scale.range = function(_) {
+        return arguments.length ? (range = Array.from(_), rescale()) : range.slice();
+      };
+
+      scale.rangeRound = function(_) {
+        return range = Array.from(_), interpolate$1 = interpolateRound, rescale();
+      };
+
+      scale.clamp = function(_) {
+        return arguments.length ? (clamp = _ ? true : identity$2, rescale()) : clamp !== identity$2;
+      };
+
+      scale.interpolate = function(_) {
+        return arguments.length ? (interpolate$1 = _, rescale()) : interpolate$1;
+      };
+
+      scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+      };
+
+      return function(t, u) {
+        transform = t, untransform = u;
+        return rescale();
+      };
+    }
+
+    function continuous() {
+      return transformer$3()(identity$2, identity$2);
+    }
+
+    function formatDecimal(x) {
+      return Math.abs(x = Math.round(x)) >= 1e21
+          ? x.toLocaleString("en").replace(/,/g, "")
+          : x.toString(10);
+    }
+
+    // Computes the decimal coefficient and exponent of the specified number x with
+    // significant digits p, where x is positive and p is in [1, 21] or undefined.
+    // For example, formatDecimalParts(1.23) returns ["123", 0].
+    function formatDecimalParts(x, p) {
+      if ((i = (x = p ? x.toExponential(p - 1) : x.toExponential()).indexOf("e")) < 0) return null; // NaN, ±Infinity
+      var i, coefficient = x.slice(0, i);
+
+      // The string returned by toExponential either has the form \d\.\d+e[-+]\d+
+      // (e.g., 1.2e+3) or the form \de[-+]\d+ (e.g., 1e+3).
+      return [
+        coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient,
+        +x.slice(i + 1)
+      ];
+    }
+
+    function exponent(x) {
+      return x = formatDecimalParts(Math.abs(x)), x ? x[1] : NaN;
+    }
+
+    function formatGroup(grouping, thousands) {
+      return function(value, width) {
+        var i = value.length,
+            t = [],
+            j = 0,
+            g = grouping[0],
+            length = 0;
+
+        while (i > 0 && g > 0) {
+          if (length + g + 1 > width) g = Math.max(1, width - length);
+          t.push(value.substring(i -= g, i + g));
+          if ((length += g + 1) > width) break;
+          g = grouping[j = (j + 1) % grouping.length];
+        }
+
+        return t.reverse().join(thousands);
+      };
+    }
+
+    function formatNumerals(numerals) {
+      return function(value) {
+        return value.replace(/[0-9]/g, function(i) {
+          return numerals[+i];
+        });
+      };
+    }
+
+    // [[fill]align][sign][symbol][0][width][,][.precision][~][type]
+    var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
+
+    function formatSpecifier(specifier) {
+      if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
+      var match;
+      return new FormatSpecifier({
+        fill: match[1],
+        align: match[2],
+        sign: match[3],
+        symbol: match[4],
+        zero: match[5],
+        width: match[6],
+        comma: match[7],
+        precision: match[8] && match[8].slice(1),
+        trim: match[9],
+        type: match[10]
+      });
+    }
+
+    formatSpecifier.prototype = FormatSpecifier.prototype; // instanceof
+
+    function FormatSpecifier(specifier) {
+      this.fill = specifier.fill === undefined ? " " : specifier.fill + "";
+      this.align = specifier.align === undefined ? ">" : specifier.align + "";
+      this.sign = specifier.sign === undefined ? "-" : specifier.sign + "";
+      this.symbol = specifier.symbol === undefined ? "" : specifier.symbol + "";
+      this.zero = !!specifier.zero;
+      this.width = specifier.width === undefined ? undefined : +specifier.width;
+      this.comma = !!specifier.comma;
+      this.precision = specifier.precision === undefined ? undefined : +specifier.precision;
+      this.trim = !!specifier.trim;
+      this.type = specifier.type === undefined ? "" : specifier.type + "";
+    }
+
+    FormatSpecifier.prototype.toString = function() {
+      return this.fill
+          + this.align
+          + this.sign
+          + this.symbol
+          + (this.zero ? "0" : "")
+          + (this.width === undefined ? "" : Math.max(1, this.width | 0))
+          + (this.comma ? "," : "")
+          + (this.precision === undefined ? "" : "." + Math.max(0, this.precision | 0))
+          + (this.trim ? "~" : "")
+          + this.type;
+    };
+
+    // Trims insignificant zeros, e.g., replaces 1.2000k with 1.2k.
+    function formatTrim(s) {
+      out: for (var n = s.length, i = 1, i0 = -1, i1; i < n; ++i) {
+        switch (s[i]) {
+          case ".": i0 = i1 = i; break;
+          case "0": if (i0 === 0) i0 = i; i1 = i; break;
+          default: if (!+s[i]) break out; if (i0 > 0) i0 = 0; break;
+        }
+      }
+      return i0 > 0 ? s.slice(0, i0) + s.slice(i1 + 1) : s;
+    }
+
+    var prefixExponent;
+
+    function formatPrefixAuto(x, p) {
+      var d = formatDecimalParts(x, p);
+      if (!d) return x + "";
+      var coefficient = d[0],
+          exponent = d[1],
+          i = exponent - (prefixExponent = Math.max(-8, Math.min(8, Math.floor(exponent / 3))) * 3) + 1,
+          n = coefficient.length;
+      return i === n ? coefficient
+          : i > n ? coefficient + new Array(i - n + 1).join("0")
+          : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i)
+          : "0." + new Array(1 - i).join("0") + formatDecimalParts(x, Math.max(0, p + i - 1))[0]; // less than 1y!
+    }
+
+    function formatRounded(x, p) {
+      var d = formatDecimalParts(x, p);
+      if (!d) return x + "";
+      var coefficient = d[0],
+          exponent = d[1];
+      return exponent < 0 ? "0." + new Array(-exponent).join("0") + coefficient
+          : coefficient.length > exponent + 1 ? coefficient.slice(0, exponent + 1) + "." + coefficient.slice(exponent + 1)
+          : coefficient + new Array(exponent - coefficient.length + 2).join("0");
+    }
+
+    var formatTypes = {
+      "%": function(x, p) { return (x * 100).toFixed(p); },
+      "b": function(x) { return Math.round(x).toString(2); },
+      "c": function(x) { return x + ""; },
+      "d": formatDecimal,
+      "e": function(x, p) { return x.toExponential(p); },
+      "f": function(x, p) { return x.toFixed(p); },
+      "g": function(x, p) { return x.toPrecision(p); },
+      "o": function(x) { return Math.round(x).toString(8); },
+      "p": function(x, p) { return formatRounded(x * 100, p); },
+      "r": formatRounded,
+      "s": formatPrefixAuto,
+      "X": function(x) { return Math.round(x).toString(16).toUpperCase(); },
+      "x": function(x) { return Math.round(x).toString(16); }
+    };
+
+    function identity$1(x) {
+      return x;
+    }
+
+    var map = Array.prototype.map,
+        prefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"];
+
+    function formatLocale(locale) {
+      var group = locale.grouping === undefined || locale.thousands === undefined ? identity$1 : formatGroup(map.call(locale.grouping, Number), locale.thousands + ""),
+          currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "",
+          currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "",
+          decimal = locale.decimal === undefined ? "." : locale.decimal + "",
+          numerals = locale.numerals === undefined ? identity$1 : formatNumerals(map.call(locale.numerals, String)),
+          percent = locale.percent === undefined ? "%" : locale.percent + "",
+          minus = locale.minus === undefined ? "-" : locale.minus + "",
+          nan = locale.nan === undefined ? "NaN" : locale.nan + "";
+
+      function newFormat(specifier) {
+        specifier = formatSpecifier(specifier);
+
+        var fill = specifier.fill,
+            align = specifier.align,
+            sign = specifier.sign,
+            symbol = specifier.symbol,
+            zero = specifier.zero,
+            width = specifier.width,
+            comma = specifier.comma,
+            precision = specifier.precision,
+            trim = specifier.trim,
+            type = specifier.type;
+
+        // The "n" type is an alias for ",g".
+        if (type === "n") comma = true, type = "g";
+
+        // The "" type, and any invalid type, is an alias for ".12~g".
+        else if (!formatTypes[type]) precision === undefined && (precision = 12), trim = true, type = "g";
+
+        // If zero fill is specified, padding goes after sign and before digits.
+        if (zero || (fill === "0" && align === "=")) zero = true, fill = "0", align = "=";
+
+        // Compute the prefix and suffix.
+        // For SI-prefix, the suffix is lazily computed.
+        var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
+            suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
+
+        // What format function should we use?
+        // Is this an integer type?
+        // Can this type generate exponential notation?
+        var formatType = formatTypes[type],
+            maybeSuffix = /[defgprs%]/.test(type);
+
+        // Set the default precision if not specified,
+        // or clamp the specified precision to the supported range.
+        // For significant precision, it must be in [1, 21].
+        // For fixed precision, it must be in [0, 20].
+        precision = precision === undefined ? 6
+            : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision))
+            : Math.max(0, Math.min(20, precision));
+
+        function format(value) {
+          var valuePrefix = prefix,
+              valueSuffix = suffix,
+              i, n, c;
+
+          if (type === "c") {
+            valueSuffix = formatType(value) + valueSuffix;
+            value = "";
+          } else {
+            value = +value;
+
+            // Determine the sign. -0 is not less than 0, but 1 / -0 is!
+            var valueNegative = value < 0 || 1 / value < 0;
+
+            // Perform the initial formatting.
+            value = isNaN(value) ? nan : formatType(Math.abs(value), precision);
+
+            // Trim insignificant zeros.
+            if (trim) value = formatTrim(value);
+
+            // If a negative value rounds to zero after formatting, and no explicit positive sign is requested, hide the sign.
+            if (valueNegative && +value === 0 && sign !== "+") valueNegative = false;
+
+            // Compute the prefix and suffix.
+            valuePrefix = (valueNegative ? (sign === "(" ? sign : minus) : sign === "-" || sign === "(" ? "" : sign) + valuePrefix;
+            valueSuffix = (type === "s" ? prefixes[8 + prefixExponent / 3] : "") + valueSuffix + (valueNegative && sign === "(" ? ")" : "");
+
+            // Break the formatted value into the integer “value” part that can be
+            // grouped, and fractional or exponential “suffix” part that is not.
+            if (maybeSuffix) {
+              i = -1, n = value.length;
+              while (++i < n) {
+                if (c = value.charCodeAt(i), 48 > c || c > 57) {
+                  valueSuffix = (c === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
+                  value = value.slice(0, i);
+                  break;
+                }
+              }
+            }
+          }
+
+          // If the fill character is not "0", grouping is applied before padding.
+          if (comma && !zero) value = group(value, Infinity);
+
+          // Compute the padding.
+          var length = valuePrefix.length + value.length + valueSuffix.length,
+              padding = length < width ? new Array(width - length + 1).join(fill) : "";
+
+          // If the fill character is "0", grouping is applied after padding.
+          if (comma && zero) value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
+
+          // Reconstruct the final output based on the desired alignment.
+          switch (align) {
+            case "<": value = valuePrefix + value + valueSuffix + padding; break;
+            case "=": value = valuePrefix + padding + value + valueSuffix; break;
+            case "^": value = padding.slice(0, length = padding.length >> 1) + valuePrefix + value + valueSuffix + padding.slice(length); break;
+            default: value = padding + valuePrefix + value + valueSuffix; break;
+          }
+
+          return numerals(value);
+        }
+
+        format.toString = function() {
+          return specifier + "";
+        };
+
+        return format;
+      }
+
+      function formatPrefix(specifier, value) {
+        var f = newFormat((specifier = formatSpecifier(specifier), specifier.type = "f", specifier)),
+            e = Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3,
+            k = Math.pow(10, -e),
+            prefix = prefixes[8 + e / 3];
+        return function(value) {
+          return f(k * value) + prefix;
+        };
+      }
+
+      return {
+        format: newFormat,
+        formatPrefix: formatPrefix
+      };
+    }
+
+    var locale;
+    var format;
+    var formatPrefix;
+
+    defaultLocale({
+      decimal: ".",
+      thousands: ",",
+      grouping: [3],
+      currency: ["$", ""],
+      minus: "-"
+    });
+
+    function defaultLocale(definition) {
+      locale = formatLocale(definition);
+      format = locale.format;
+      formatPrefix = locale.formatPrefix;
+      return locale;
+    }
+
+    function precisionFixed(step) {
+      return Math.max(0, -exponent(Math.abs(step)));
+    }
+
+    function precisionPrefix(step, value) {
+      return Math.max(0, Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3 - exponent(Math.abs(step)));
+    }
+
+    function precisionRound(step, max) {
+      step = Math.abs(step), max = Math.abs(max) - step;
+      return Math.max(0, exponent(max) - exponent(step)) + 1;
+    }
+
+    function tickFormat(start, stop, count, specifier) {
+      var step = tickStep(start, stop, count),
+          precision;
+      specifier = formatSpecifier(specifier == null ? ",f" : specifier);
+      switch (specifier.type) {
+        case "s": {
+          var value = Math.max(Math.abs(start), Math.abs(stop));
+          if (specifier.precision == null && !isNaN(precision = precisionPrefix(step, value))) specifier.precision = precision;
+          return formatPrefix(specifier, value);
+        }
+        case "":
+        case "e":
+        case "g":
+        case "p":
+        case "r": {
+          if (specifier.precision == null && !isNaN(precision = precisionRound(step, Math.max(Math.abs(start), Math.abs(stop))))) specifier.precision = precision - (specifier.type === "e");
+          break;
+        }
+        case "f":
+        case "%": {
+          if (specifier.precision == null && !isNaN(precision = precisionFixed(step))) specifier.precision = precision - (specifier.type === "%") * 2;
+          break;
+        }
+      }
+      return format(specifier);
+    }
+
+    function linearish(scale) {
+      var domain = scale.domain;
+
+      scale.ticks = function(count) {
+        var d = domain();
+        return ticks(d[0], d[d.length - 1], count == null ? 10 : count);
+      };
+
+      scale.tickFormat = function(count, specifier) {
+        var d = domain();
+        return tickFormat(d[0], d[d.length - 1], count == null ? 10 : count, specifier);
+      };
+
+      scale.nice = function(count) {
+        if (count == null) count = 10;
+
+        var d = domain();
+        var i0 = 0;
+        var i1 = d.length - 1;
+        var start = d[i0];
+        var stop = d[i1];
+        var prestep;
+        var step;
+        var maxIter = 10;
+
+        if (stop < start) {
+          step = start, start = stop, stop = step;
+          step = i0, i0 = i1, i1 = step;
+        }
+        
+        while (maxIter-- > 0) {
+          step = tickIncrement(start, stop, count);
+          if (step === prestep) {
+            d[i0] = start;
+            d[i1] = stop;
+            return domain(d);
+          } else if (step > 0) {
+            start = Math.floor(start / step) * step;
+            stop = Math.ceil(stop / step) * step;
+          } else if (step < 0) {
+            start = Math.ceil(start * step) / step;
+            stop = Math.floor(stop * step) / step;
+          } else {
+            break;
+          }
+          prestep = step;
+        }
+
+        return scale;
+      };
+
+      return scale;
+    }
+
+    function linear() {
+      var scale = continuous();
+
+      scale.copy = function() {
+        return copy$1(scale, linear());
+      };
+
+      initRange.apply(scale, arguments);
+
+      return linearish(scale);
+    }
+
+    function transformer$2() {
+      var x0 = 0,
+          x1 = 1,
+          t0,
+          t1,
+          k10,
+          transform,
+          interpolator = identity$2,
+          clamp = false,
+          unknown;
+
+      function scale(x) {
+        return x == null || isNaN(x = +x) ? unknown : interpolator(k10 === 0 ? 0.5 : (x = (transform(x) - t0) * k10, clamp ? Math.max(0, Math.min(1, x)) : x));
+      }
+
+      scale.domain = function(_) {
+        return arguments.length ? ([x0, x1] = _, t0 = transform(x0 = +x0), t1 = transform(x1 = +x1), k10 = t0 === t1 ? 0 : 1 / (t1 - t0), scale) : [x0, x1];
+      };
+
+      scale.clamp = function(_) {
+        return arguments.length ? (clamp = !!_, scale) : clamp;
+      };
+
+      scale.interpolator = function(_) {
+        return arguments.length ? (interpolator = _, scale) : interpolator;
+      };
+
+      function range(interpolate) {
+        return function(_) {
+          var r0, r1;
+          return arguments.length ? ([r0, r1] = _, interpolator = interpolate(r0, r1), scale) : [interpolator(0), interpolator(1)];
+        };
+      }
+
+      scale.range = range(interpolate);
+
+      scale.rangeRound = range(interpolateRound);
+
+      scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+      };
+
+      return function(t) {
+        transform = t, t0 = t(x0), t1 = t(x1), k10 = t0 === t1 ? 0 : 1 / (t1 - t0);
+        return scale;
+      };
+    }
+
+    function copy(source, target) {
+      return target
+          .domain(source.domain())
+          .interpolator(source.interpolator())
+          .clamp(source.clamp())
+          .unknown(source.unknown());
+    }
+
+    function sequential() {
+      var scale = linearish(transformer$2()(identity$2));
+
+      scale.copy = function() {
+        return copy(scale, sequential());
+      };
+
+      return initInterpolator.apply(scale, arguments);
+    }
+
+    function transformer$1() {
+      var x0 = 0,
+          x1 = 0.5,
+          x2 = 1,
+          s = 1,
+          t0,
+          t1,
+          t2,
+          k10,
+          k21,
+          interpolator = identity$2,
+          transform,
+          clamp = false,
+          unknown;
+
+      function scale(x) {
+        return isNaN(x = +x) ? unknown : (x = 0.5 + ((x = +transform(x)) - t1) * (s * x < s * t1 ? k10 : k21), interpolator(clamp ? Math.max(0, Math.min(1, x)) : x));
+      }
+
+      scale.domain = function(_) {
+        return arguments.length ? ([x0, x1, x2] = _, t0 = transform(x0 = +x0), t1 = transform(x1 = +x1), t2 = transform(x2 = +x2), k10 = t0 === t1 ? 0 : 0.5 / (t1 - t0), k21 = t1 === t2 ? 0 : 0.5 / (t2 - t1), s = t1 < t0 ? -1 : 1, scale) : [x0, x1, x2];
+      };
+
+      scale.clamp = function(_) {
+        return arguments.length ? (clamp = !!_, scale) : clamp;
+      };
+
+      scale.interpolator = function(_) {
+        return arguments.length ? (interpolator = _, scale) : interpolator;
+      };
+
+      function range(interpolate) {
+        return function(_) {
+          var r0, r1, r2;
+          return arguments.length ? ([r0, r1, r2] = _, interpolator = piecewise(interpolate, [r0, r1, r2]), scale) : [interpolator(0), interpolator(0.5), interpolator(1)];
+        };
+      }
+
+      scale.range = range(interpolate);
+
+      scale.rangeRound = range(interpolateRound);
+
+      scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+      };
+
+      return function(t) {
+        transform = t, t0 = t(x0), t1 = t(x1), t2 = t(x2), k10 = t0 === t1 ? 0 : 0.5 / (t1 - t0), k21 = t1 === t2 ? 0 : 0.5 / (t2 - t1), s = t1 < t0 ? -1 : 1;
+        return scale;
+      };
+    }
+
+    function diverging() {
+      var scale = linearish(transformer$1()(identity$2));
+
+      scale.copy = function() {
+        return copy(scale, diverging());
+      };
+
+      return initInterpolator.apply(scale, arguments);
+    }
+
+    var pi$1 = Math.PI,
+        tau$1 = 2 * pi$1,
+        epsilon$1 = 1e-6,
+        tauEpsilon = tau$1 - epsilon$1;
+
+    function Path() {
+      this._x0 = this._y0 = // start of current subpath
+      this._x1 = this._y1 = null; // end of current subpath
+      this._ = "";
+    }
+
+    function path() {
+      return new Path;
+    }
+
+    Path.prototype = path.prototype = {
+      constructor: Path,
+      moveTo: function(x, y) {
+        this._ += "M" + (this._x0 = this._x1 = +x) + "," + (this._y0 = this._y1 = +y);
+      },
+      closePath: function() {
+        if (this._x1 !== null) {
+          this._x1 = this._x0, this._y1 = this._y0;
+          this._ += "Z";
+        }
+      },
+      lineTo: function(x, y) {
+        this._ += "L" + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      quadraticCurveTo: function(x1, y1, x, y) {
+        this._ += "Q" + (+x1) + "," + (+y1) + "," + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      bezierCurveTo: function(x1, y1, x2, y2, x, y) {
+        this._ += "C" + (+x1) + "," + (+y1) + "," + (+x2) + "," + (+y2) + "," + (this._x1 = +x) + "," + (this._y1 = +y);
+      },
+      arcTo: function(x1, y1, x2, y2, r) {
+        x1 = +x1, y1 = +y1, x2 = +x2, y2 = +y2, r = +r;
+        var x0 = this._x1,
+            y0 = this._y1,
+            x21 = x2 - x1,
+            y21 = y2 - y1,
+            x01 = x0 - x1,
+            y01 = y0 - y1,
+            l01_2 = x01 * x01 + y01 * y01;
+
+        // Is the radius negative? Error.
+        if (r < 0) throw new Error("negative radius: " + r);
+
+        // Is this path empty? Move to (x1,y1).
+        if (this._x1 === null) {
+          this._ += "M" + (this._x1 = x1) + "," + (this._y1 = y1);
+        }
+
+        // Or, is (x1,y1) coincident with (x0,y0)? Do nothing.
+        else if (!(l01_2 > epsilon$1));
+
+        // Or, are (x0,y0), (x1,y1) and (x2,y2) collinear?
+        // Equivalently, is (x1,y1) coincident with (x2,y2)?
+        // Or, is the radius zero? Line to (x1,y1).
+        else if (!(Math.abs(y01 * x21 - y21 * x01) > epsilon$1) || !r) {
+          this._ += "L" + (this._x1 = x1) + "," + (this._y1 = y1);
+        }
+
+        // Otherwise, draw an arc!
+        else {
+          var x20 = x2 - x0,
+              y20 = y2 - y0,
+              l21_2 = x21 * x21 + y21 * y21,
+              l20_2 = x20 * x20 + y20 * y20,
+              l21 = Math.sqrt(l21_2),
+              l01 = Math.sqrt(l01_2),
+              l = r * Math.tan((pi$1 - Math.acos((l21_2 + l01_2 - l20_2) / (2 * l21 * l01))) / 2),
+              t01 = l / l01,
+              t21 = l / l21;
+
+          // If the start tangent is not coincident with (x0,y0), line to.
+          if (Math.abs(t01 - 1) > epsilon$1) {
+            this._ += "L" + (x1 + t01 * x01) + "," + (y1 + t01 * y01);
+          }
+
+          this._ += "A" + r + "," + r + ",0,0," + (+(y01 * x20 > x01 * y20)) + "," + (this._x1 = x1 + t21 * x21) + "," + (this._y1 = y1 + t21 * y21);
+        }
+      },
+      arc: function(x, y, r, a0, a1, ccw) {
+        x = +x, y = +y, r = +r, ccw = !!ccw;
+        var dx = r * Math.cos(a0),
+            dy = r * Math.sin(a0),
+            x0 = x + dx,
+            y0 = y + dy,
+            cw = 1 ^ ccw,
+            da = ccw ? a0 - a1 : a1 - a0;
+
+        // Is the radius negative? Error.
+        if (r < 0) throw new Error("negative radius: " + r);
+
+        // Is this path empty? Move to (x0,y0).
+        if (this._x1 === null) {
+          this._ += "M" + x0 + "," + y0;
+        }
+
+        // Or, is (x0,y0) not coincident with the previous point? Line to (x0,y0).
+        else if (Math.abs(this._x1 - x0) > epsilon$1 || Math.abs(this._y1 - y0) > epsilon$1) {
+          this._ += "L" + x0 + "," + y0;
+        }
+
+        // Is this arc empty? We’re done.
+        if (!r) return;
+
+        // Does the angle go the wrong way? Flip the direction.
+        if (da < 0) da = da % tau$1 + tau$1;
+
+        // Is this a complete circle? Draw two arcs to complete the circle.
+        if (da > tauEpsilon) {
+          this._ += "A" + r + "," + r + ",0,1," + cw + "," + (x - dx) + "," + (y - dy) + "A" + r + "," + r + ",0,1," + cw + "," + (this._x1 = x0) + "," + (this._y1 = y0);
+        }
+
+        // Is this arc non-empty? Draw an arc!
+        else if (da > epsilon$1) {
+          this._ += "A" + r + "," + r + ",0," + (+(da >= pi$1)) + "," + cw + "," + (this._x1 = x + r * Math.cos(a1)) + "," + (this._y1 = y + r * Math.sin(a1));
+        }
+      },
+      rect: function(x, y, w, h) {
+        this._ += "M" + (this._x0 = this._x1 = +x) + "," + (this._y0 = this._y1 = +y) + "h" + (+w) + "v" + (+h) + "h" + (-w) + "Z";
+      },
+      toString: function() {
+        return this._;
+      }
+    };
+
+    function constant(x) {
+      return function constant() {
+        return x;
+      };
+    }
+
+    function Linear(context) {
+      this._context = context;
+    }
+
+    Linear.prototype = {
+      areaStart: function() {
+        this._line = 0;
+      },
+      areaEnd: function() {
+        this._line = NaN;
+      },
+      lineStart: function() {
+        this._point = 0;
+      },
+      lineEnd: function() {
+        if (this._line || (this._line !== 0 && this._point === 1)) this._context.closePath();
+        this._line = 1 - this._line;
+      },
+      point: function(x, y) {
+        x = +x, y = +y;
+        switch (this._point) {
+          case 0: this._point = 1; this._line ? this._context.lineTo(x, y) : this._context.moveTo(x, y); break;
+          case 1: this._point = 2; // proceed
+          default: this._context.lineTo(x, y); break;
+        }
+      }
+    };
+
+    function curveLinear(context) {
+      return new Linear(context);
+    }
+
+    function x(p) {
+      return p[0];
+    }
+
+    function y(p) {
+      return p[1];
+    }
+
+    function d3line() {
+      var x$1 = x,
+          y$1 = y,
+          defined = constant(true),
+          context = null,
+          curve = curveLinear,
+          output = null;
+
+      function line(data) {
+        var i,
+            n = data.length,
+            d,
+            defined0 = false,
+            buffer;
+
+        if (context == null) output = curve(buffer = path());
+
+        for (i = 0; i <= n; ++i) {
+          if (!(i < n && defined(d = data[i], i, data)) === defined0) {
+            if (defined0 = !defined0) output.lineStart();
+            else output.lineEnd();
+          }
+          if (defined0) output.point(+x$1(d, i, data), +y$1(d, i, data));
+        }
+
+        if (buffer) return output = null, buffer + "" || null;
+      }
+
+      line.x = function(_) {
+        return arguments.length ? (x$1 = typeof _ === "function" ? _ : constant(+_), line) : x$1;
+      };
+
+      line.y = function(_) {
+        return arguments.length ? (y$1 = typeof _ === "function" ? _ : constant(+_), line) : y$1;
+      };
+
+      line.defined = function(_) {
+        return arguments.length ? (defined = typeof _ === "function" ? _ : constant(!!_), line) : defined;
+      };
+
+      line.curve = function(_) {
+        return arguments.length ? (curve = _, context != null && (output = curve(context)), line) : curve;
+      };
+
+      line.context = function(_) {
+        return arguments.length ? (_ == null ? context = output = null : output = curve(context = _), line) : context;
+      };
+
+      return line;
+    }
+
+    function d3area() {
+      var x0 = x,
+          x1 = null,
+          y0 = constant(0),
+          y1 = y,
+          defined = constant(true),
+          context = null,
+          curve = curveLinear,
+          output = null;
+
+      function area(data) {
+        var i,
+            j,
+            k,
+            n = data.length,
+            d,
+            defined0 = false,
+            buffer,
+            x0z = new Array(n),
+            y0z = new Array(n);
+
+        if (context == null) output = curve(buffer = path());
+
+        for (i = 0; i <= n; ++i) {
+          if (!(i < n && defined(d = data[i], i, data)) === defined0) {
+            if (defined0 = !defined0) {
+              j = i;
+              output.areaStart();
+              output.lineStart();
+            } else {
+              output.lineEnd();
+              output.lineStart();
+              for (k = i - 1; k >= j; --k) {
+                output.point(x0z[k], y0z[k]);
+              }
+              output.lineEnd();
+              output.areaEnd();
+            }
+          }
+          if (defined0) {
+            x0z[i] = +x0(d, i, data), y0z[i] = +y0(d, i, data);
+            output.point(x1 ? +x1(d, i, data) : x0z[i], y1 ? +y1(d, i, data) : y0z[i]);
+          }
+        }
+
+        if (buffer) return output = null, buffer + "" || null;
+      }
+
+      function arealine() {
+        return d3line().defined(defined).curve(curve).context(context);
+      }
+
+      area.x = function(_) {
+        return arguments.length ? (x0 = typeof _ === "function" ? _ : constant(+_), x1 = null, area) : x0;
+      };
+
+      area.x0 = function(_) {
+        return arguments.length ? (x0 = typeof _ === "function" ? _ : constant(+_), area) : x0;
+      };
+
+      area.x1 = function(_) {
+        return arguments.length ? (x1 = _ == null ? null : typeof _ === "function" ? _ : constant(+_), area) : x1;
+      };
+
+      area.y = function(_) {
+        return arguments.length ? (y0 = typeof _ === "function" ? _ : constant(+_), y1 = null, area) : y0;
+      };
+
+      area.y0 = function(_) {
+        return arguments.length ? (y0 = typeof _ === "function" ? _ : constant(+_), area) : y0;
+      };
+
+      area.y1 = function(_) {
+        return arguments.length ? (y1 = _ == null ? null : typeof _ === "function" ? _ : constant(+_), area) : y1;
+      };
+
+      area.lineX0 =
+      area.lineY0 = function() {
+        return arealine().x(x0).y(y0);
+      };
+
+      area.lineY1 = function() {
+        return arealine().x(x0).y(y1);
+      };
+
+      area.lineX1 = function() {
+        return arealine().x(x1).y(y0);
+      };
+
+      area.defined = function(_) {
+        return arguments.length ? (defined = typeof _ === "function" ? _ : constant(!!_), area) : defined;
+      };
+
+      area.curve = function(_) {
+        return arguments.length ? (curve = _, context != null && (output = curve(context)), area) : curve;
+      };
+
+      area.context = function(_) {
+        return arguments.length ? (_ == null ? context = output = null : output = curve(context = _), area) : context;
+      };
+
+      return area;
+    }
+
+    function sign$1(x) {
+      return x < 0 ? -1 : 1;
+    }
+
+    // Calculate the slopes of the tangents (Hermite-type interpolation) based on
+    // the following paper: Steffen, M. 1990. A Simple Method for Monotonic
+    // Interpolation in One Dimension. Astronomy and Astrophysics, Vol. 239, NO.
+    // NOV(II), P. 443, 1990.
+    function slope3(that, x2, y2) {
+      var h0 = that._x1 - that._x0,
+          h1 = x2 - that._x1,
+          s0 = (that._y1 - that._y0) / (h0 || h1 < 0 && -0),
+          s1 = (y2 - that._y1) / (h1 || h0 < 0 && -0),
+          p = (s0 * h1 + s1 * h0) / (h0 + h1);
+      return (sign$1(s0) + sign$1(s1)) * Math.min(Math.abs(s0), Math.abs(s1), 0.5 * Math.abs(p)) || 0;
+    }
+
+    // Calculate a one-sided slope.
+    function slope2(that, t) {
+      var h = that._x1 - that._x0;
+      return h ? (3 * (that._y1 - that._y0) / h - t) / 2 : t;
+    }
+
+    // According to https://en.wikipedia.org/wiki/Cubic_Hermite_spline#Representations
+    // "you can express cubic Hermite interpolation in terms of cubic Bézier curves
+    // with respect to the four values p0, p0 + m0 / 3, p1 - m1 / 3, p1".
+    function point(that, t0, t1) {
+      var x0 = that._x0,
+          y0 = that._y0,
+          x1 = that._x1,
+          y1 = that._y1,
+          dx = (x1 - x0) / 3;
+      that._context.bezierCurveTo(x0 + dx, y0 + dx * t0, x1 - dx, y1 - dx * t1, x1, y1);
+    }
+
+    function MonotoneX(context) {
+      this._context = context;
+    }
+
+    MonotoneX.prototype = {
+      areaStart: function() {
+        this._line = 0;
+      },
+      areaEnd: function() {
+        this._line = NaN;
+      },
+      lineStart: function() {
+        this._x0 = this._x1 =
+        this._y0 = this._y1 =
+        this._t0 = NaN;
+        this._point = 0;
+      },
+      lineEnd: function() {
+        switch (this._point) {
+          case 2: this._context.lineTo(this._x1, this._y1); break;
+          case 3: point(this, this._t0, slope2(this, this._t0)); break;
+        }
+        if (this._line || (this._line !== 0 && this._point === 1)) this._context.closePath();
+        this._line = 1 - this._line;
+      },
+      point: function(x, y) {
+        var t1 = NaN;
+
+        x = +x, y = +y;
+        if (x === this._x1 && y === this._y1) return; // Ignore coincident points.
+        switch (this._point) {
+          case 0: this._point = 1; this._line ? this._context.lineTo(x, y) : this._context.moveTo(x, y); break;
+          case 1: this._point = 2; break;
+          case 2: this._point = 3; point(this, slope2(this, t1 = slope3(this, x, y)), t1); break;
+          default: point(this, this._t0, t1 = slope3(this, x, y)); break;
+        }
+
+        this._x0 = this._x1, this._x1 = x;
+        this._y0 = this._y1, this._y1 = y;
+        this._t0 = t1;
+      }
+    };
+
+    (Object.create(MonotoneX.prototype)).point = function(x, y) {
+      MonotoneX.prototype.point.call(this, y, x);
+    };
+
+    function monotoneX(context) {
+      return new MonotoneX(context);
+    }
+
+    /* src\XTick.svelte generated by Svelte v3.44.0 */
+    const file$i = "src\\XTick.svelte";
+
+    function create_fragment$i(ctx) {
+    	let g;
+    	let line;
+    	let text_1;
+    	let t;
+    	let g_transform_value;
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			line = svg_element("line");
+    			text_1 = svg_element("text");
+    			t = text(/*value*/ ctx[0]);
+    			attr_dev(line, "y2", "6");
+    			add_location(line, file$i, 20, 2, 439);
+    			attr_dev(text_1, "y", "9");
+    			attr_dev(text_1, "dy", ".9em");
+    			add_location(text_1, file$i, 21, 2, 458);
+    			attr_dev(g, "class", "tick");
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*$lineStore*/ ctx[1] + ")");
+    			add_location(g, file$i, 19, 0, 383);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, line);
+    			append_dev(g, text_1);
+    			append_dev(text_1, t);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*value*/ 1) set_data_dev(t, /*value*/ ctx[0]);
+
+    			if (dirty & /*$lineStore*/ 2 && g_transform_value !== (g_transform_value = "translate(" + /*$lineStore*/ ctx[1] + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$i.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$i($$self, $$props, $$invalidate) {
+    	let $lineStore;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('XTick', slots, []);
+    	let { duration } = $$props;
+    	let { position } = $$props;
+    	let { value } = $$props;
+    	const options = { duration, easing: cubicInOut };
+    	const lineStore = tweened(undefined, options);
+    	validate_store(lineStore, 'lineStore');
+    	component_subscribe($$self, lineStore, value => $$invalidate(1, $lineStore = value));
+    	const writable_props = ['duration', 'position', 'value'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<XTick> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('duration' in $$props) $$invalidate(3, duration = $$props.duration);
+    		if ('position' in $$props) $$invalidate(4, position = $$props.position);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		tweened,
+    		cubicInOut,
+    		fade,
+    		duration,
+    		position,
+    		value,
+    		options,
+    		lineStore,
+    		$lineStore
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('duration' in $$props) $$invalidate(3, duration = $$props.duration);
+    		if ('position' in $$props) $$invalidate(4, position = $$props.position);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*position*/ 16) {
+    			lineStore.set(position);
+    		}
+    	};
+
+    	return [value, $lineStore, lineStore, duration, position];
+    }
+
+    class XTick extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$i, create_fragment$i, safe_not_equal, { duration: 3, position: 4, value: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "XTick",
+    			options,
+    			id: create_fragment$i.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*duration*/ ctx[3] === undefined && !('duration' in props)) {
+    			console.warn("<XTick> was created without expected prop 'duration'");
+    		}
+
+    		if (/*position*/ ctx[4] === undefined && !('position' in props)) {
+    			console.warn("<XTick> was created without expected prop 'position'");
+    		}
+
+    		if (/*value*/ ctx[0] === undefined && !('value' in props)) {
+    			console.warn("<XTick> was created without expected prop 'value'");
+    		}
+    	}
+
+    	get duration() {
+    		throw new Error("<XTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set duration(value) {
+    		throw new Error("<XTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get position() {
+    		throw new Error("<XTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set position(value) {
+    		throw new Error("<XTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<XTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<XTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\YTick.svelte generated by Svelte v3.44.0 */
+    const file$h = "src\\YTick.svelte";
+
+    function create_fragment$h(ctx) {
+    	let g;
+    	let line;
+    	let text_1;
+    	let t_value = /*format*/ ctx[2](/*value*/ ctx[0]) + "";
+    	let t;
+    	let g_transform_value;
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			line = svg_element("line");
+    			text_1 = svg_element("text");
+    			t = text(t_value);
+    			attr_dev(line, "x2", /*chartWidth*/ ctx[1]);
+    			add_location(line, file$h, 32, 2, 764);
+    			attr_dev(text_1, "x", "-5");
+    			attr_dev(text_1, "dy", "0.32em");
+    			add_location(text_1, file$h, 33, 2, 792);
+    			attr_dev(g, "class", "tick");
+    			attr_dev(g, "opacity", "1");
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*$lineStore*/ ctx[3] + ")");
+    			add_location(g, file$h, 31, 0, 696);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, line);
+    			append_dev(g, text_1);
+    			append_dev(text_1, t);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*chartWidth*/ 2) {
+    				attr_dev(line, "x2", /*chartWidth*/ ctx[1]);
+    			}
+
+    			if (dirty & /*format, value*/ 5 && t_value !== (t_value = /*format*/ ctx[2](/*value*/ ctx[0]) + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*$lineStore*/ 8 && g_transform_value !== (g_transform_value = "translate(" + /*$lineStore*/ ctx[3] + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$h.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$h($$self, $$props, $$invalidate) {
+    	let $lineStore;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('YTick', slots, []);
+    	let { duration } = $$props;
+    	let { y } = $$props;
+    	let { value } = $$props;
+    	let { chartWidth } = $$props;
+    	let { format = val => val.toLocaleString() } = $$props;
+    	const options = { duration, easing: cubicInOut };
+    	const lineStore = tweened(undefined, options);
+    	validate_store(lineStore, 'lineStore');
+    	component_subscribe($$self, lineStore, value => $$invalidate(3, $lineStore = value));
+    	const writable_props = ['duration', 'y', 'value', 'chartWidth', 'format'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<YTick> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('duration' in $$props) $$invalidate(5, duration = $$props.duration);
+    		if ('y' in $$props) $$invalidate(6, y = $$props.y);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('chartWidth' in $$props) $$invalidate(1, chartWidth = $$props.chartWidth);
+    		if ('format' in $$props) $$invalidate(2, format = $$props.format);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		tweened,
+    		cubicInOut,
+    		fly,
+    		duration,
+    		y,
+    		value,
+    		chartWidth,
+    		format,
+    		options,
+    		lineStore,
+    		$lineStore
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('duration' in $$props) $$invalidate(5, duration = $$props.duration);
+    		if ('y' in $$props) $$invalidate(6, y = $$props.y);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('chartWidth' in $$props) $$invalidate(1, chartWidth = $$props.chartWidth);
+    		if ('format' in $$props) $$invalidate(2, format = $$props.format);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*y, value*/ 65) {
+    			lineStore.set([0, y(value)]);
+    		}
+    	};
+
+    	return [value, chartWidth, format, $lineStore, lineStore, duration, y];
+    }
+
+    class YTick extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$h, create_fragment$h, safe_not_equal, {
+    			duration: 5,
+    			y: 6,
+    			value: 0,
+    			chartWidth: 1,
+    			format: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "YTick",
+    			options,
+    			id: create_fragment$h.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*duration*/ ctx[5] === undefined && !('duration' in props)) {
+    			console.warn("<YTick> was created without expected prop 'duration'");
+    		}
+
+    		if (/*y*/ ctx[6] === undefined && !('y' in props)) {
+    			console.warn("<YTick> was created without expected prop 'y'");
+    		}
+
+    		if (/*value*/ ctx[0] === undefined && !('value' in props)) {
+    			console.warn("<YTick> was created without expected prop 'value'");
+    		}
+
+    		if (/*chartWidth*/ ctx[1] === undefined && !('chartWidth' in props)) {
+    			console.warn("<YTick> was created without expected prop 'chartWidth'");
+    		}
+    	}
+
+    	get duration() {
+    		throw new Error("<YTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set duration(value) {
+    		throw new Error("<YTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get y() {
+    		throw new Error("<YTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set y(value) {
+    		throw new Error("<YTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<YTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<YTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get chartWidth() {
+    		throw new Error("<YTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartWidth(value) {
+    		throw new Error("<YTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get format() {
+    		throw new Error("<YTick>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set format(value) {
+    		throw new Error("<YTick>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,value:function r(){var t=isNaN(arguments[0])?1:Number(arguments[0]);return t?Array.prototype.reduce.call(this,function(a,e){return Array.isArray(e)?a.push.apply(a,r.call(e,t-1)):a.push(e),a},[]):Array.prototype.slice.call(this)},writable:!0}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,value:function(r){return Array.prototype.map.apply(this,arguments).flat()},writable:!0});
+
+    /* src\LineChart.svelte generated by Svelte v3.44.0 */
+
+    const { Map: Map_1$1, Object: Object_1$1, console: console_1$1 } = globals;
+    const file$g = "src\\LineChart.svelte";
+
+    function get_each_context$7(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[23] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[23] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[28] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_3$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[31] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[31] = list[i];
+    	return child_ctx;
+    }
+
+    // (309:2) {:else}
+    function create_else_block_1$2(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Select model options and click \"Show\".";
+    			attr_dev(div, "class", "notification");
+    			add_location(div, file$g, 309, 4, 9638);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1$2.name,
+    		type: "else",
+    		source: "(309:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (172:2) {#if data.length > 0}
+    function create_if_block$8(ctx) {
+    	let h1;
+    	let t0;
+
+    	let t1_value = (/*calculation*/ ctx[1] == "percentage"
+    	? "% Surplus or Shortage"
+    	: /*calculation*/ ctx[1].slice(0, 1).toUpperCase() + /*calculation*/ ctx[1].slice(1)) + "";
+
+    	let t1;
+    	let t2;
+    	let h2;
+    	let t3;
+    	let t4_value = /*xExtent*/ ctx[2][0] + "";
+    	let t4;
+    	let t5;
+    	let t6_value = /*xExtent*/ ctx[2][1] + "";
+    	let t6;
+    	let t7;
+    	let svg;
+    	let g2;
+    	let g0;
+    	let each_blocks_2 = [];
+    	let each0_lookup = new Map_1$1();
+    	let g1;
+    	let each_blocks_1 = [];
+    	let each1_lookup = new Map_1$1();
+    	let each_blocks = [];
+    	let each2_lookup = new Map_1$1();
+    	let text0;
+    	let t8;
+    	let text1;
+    	let t9;
+    	let rect;
+    	let t10;
+    	let if_block1_anchor;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let each_value_4 = /*xTicks*/ ctx[9];
+    	validate_each_argument(each_value_4);
+    	const get_key = ctx => /*tick*/ ctx[31];
+    	validate_each_keys(ctx, each_value_4, get_each_context_4, get_key);
+
+    	for (let i = 0; i < each_value_4.length; i += 1) {
+    		let child_ctx = get_each_context_4(ctx, each_value_4, i);
+    		let key = get_key(child_ctx);
+    		each0_lookup.set(key, each_blocks_2[i] = create_each_block_4(key, child_ctx));
+    	}
+
+    	let each_value_3 = /*yTicks*/ ctx[8];
+    	validate_each_argument(each_value_3);
+    	const get_key_1 = ctx => /*tick*/ ctx[31];
+    	validate_each_keys(ctx, each_value_3, get_each_context_3$2, get_key_1);
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		let child_ctx = get_each_context_3$2(ctx, each_value_3, i);
+    		let key = get_key_1(child_ctx);
+    		each1_lookup.set(key, each_blocks_1[i] = create_each_block_3$2(key, child_ctx));
+    	}
+
+    	let each_value_2 = /*data*/ ctx[0];
+    	validate_each_argument(each_value_2);
+    	const get_key_2 = ctx => /*lineElement*/ ctx[28].id;
+    	validate_each_keys(ctx, each_value_2, get_each_context_2$3, get_key_2);
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		let child_ctx = get_each_context_2$3(ctx, each_value_2, i);
+    		let key = get_key_2(child_ctx);
+    		each2_lookup.set(key, each_blocks[i] = create_each_block_2$3(key, child_ctx));
+    	}
+
+    	let if_block0 = /*hoverData*/ ctx[5] && /*data*/ ctx[0].length > 0 && create_if_block_3$3(ctx);
+    	let if_block1 = /*hoverData*/ ctx[5] && create_if_block_1$6(ctx);
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			t0 = text("Projection of Nurse Workforce, ");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			h2 = element("h2");
+    			t3 = text("North Carolina, ");
+    			t4 = text(t4_value);
+    			t5 = text(" - ");
+    			t6 = text(t6_value);
+    			t7 = space();
+    			svg = svg_element("svg");
+    			g2 = svg_element("g");
+    			g0 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			g1 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			text0 = svg_element("text");
+    			t8 = text("Nurse FTE or Head Count\r\n        ");
+    			text1 = svg_element("text");
+    			t9 = text("Year\r\n        ");
+    			if (if_block0) if_block0.c();
+    			rect = svg_element("rect");
+    			t10 = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$g, 172, 4, 4890);
+    			attr_dev(h2, "class", "subtitle");
+    			add_location(h2, file$g, 177, 4, 5100);
+    			attr_dev(g0, "class", "xAxis is-size-6 svelte-ynia07");
+    			attr_dev(g0, "transform", "translate(0," + (height$2 - /*margin*/ ctx[13].bottom) + ")");
+    			add_location(g0, file$g, 191, 8, 5685);
+    			attr_dev(g1, "class", "yAxis is-size-6 svelte-ynia07");
+    			attr_dev(g1, "transform", "translate(" + /*margin*/ ctx[13].left + ",0)");
+    			add_location(g1, file$g, 203, 8, 6026);
+    			attr_dev(text0, "class", "is-size-5 svelte-ynia07");
+    			attr_dev(text0, "transform", "translate(" + (/*margin*/ ctx[13].left - 70) + "," + height$2 / 1.5 + ") rotate(270)");
+    			add_location(text0, file$g, 222, 8, 6692);
+    			attr_dev(text1, "class", "is-size-5 svelte-ynia07");
+    			attr_dev(text1, "text-anchor", "middle");
+    			attr_dev(text1, "transform", "translate(" + ((width$3 - /*margin*/ ctx[13].left - /*margin*/ ctx[13].right) / 2 + /*margin*/ ctx[13].left) + "," + (height$2 - 10) + ")");
+    			add_location(text1, file$g, 228, 8, 6879);
+    			attr_dev(rect, "width", width$3);
+    			attr_dev(rect, "height", height$2);
+    			attr_dev(rect, "fill", "none");
+    			set_style(rect, "pointer-events", "all");
+    			add_location(rect, file$g, 251, 8, 7633);
+    			attr_dev(g2, "class", "chart-container");
+    			add_location(g2, file$g, 179, 6, 5239);
+    			attr_dev(svg, "id", "line-chart-svg");
+    			attr_dev(svg, "viewBox", "0 0 " + width$3 + " " + height$2);
+    			add_location(svg, file$g, 178, 4, 5175);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			append_dev(h1, t0);
+    			append_dev(h1, t1);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t3);
+    			append_dev(h2, t4);
+    			append_dev(h2, t5);
+    			append_dev(h2, t6);
+    			insert_dev(target, t7, anchor);
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, g2);
+    			append_dev(g2, g0);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(g0, null);
+    			}
+
+    			append_dev(g2, g1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(g1, null);
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g2, null);
+    			}
+
+    			append_dev(g2, text0);
+    			append_dev(text0, t8);
+    			append_dev(g2, text1);
+    			append_dev(text1, t9);
+    			if (if_block0) if_block0.m(g2, null);
+    			append_dev(g2, rect);
+    			insert_dev(target, t10, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(rect, "mousemove", /*handleHover*/ ctx[15], false, false, false),
+    					listen_dev(rect, "mouseleave", /*handleMouseLeave*/ ctx[16], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if ((!current || dirty[0] & /*calculation*/ 2) && t1_value !== (t1_value = (/*calculation*/ ctx[1] == "percentage"
+    			? "% Surplus or Shortage"
+    			: /*calculation*/ ctx[1].slice(0, 1).toUpperCase() + /*calculation*/ ctx[1].slice(1)) + "")) set_data_dev(t1, t1_value);
+
+    			if ((!current || dirty[0] & /*xExtent*/ 4) && t4_value !== (t4_value = /*xExtent*/ ctx[2][0] + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*xExtent*/ 4) && t6_value !== (t6_value = /*xExtent*/ ctx[2][1] + "")) set_data_dev(t6, t6_value);
+
+    			if (dirty[0] & /*x, xTicks*/ 520) {
+    				each_value_4 = /*xTicks*/ ctx[9];
+    				validate_each_argument(each_value_4);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_4, get_each_context_4, get_key);
+    				each_blocks_2 = update_keyed_each(each_blocks_2, dirty, get_key, 1, ctx, each_value_4, each0_lookup, g0, outro_and_destroy_block, create_each_block_4, null, get_each_context_4);
+    				check_outros();
+    			}
+
+    			if (dirty[0] & /*y, yTicks, margin, yFormat*/ 8592) {
+    				each_value_3 = /*yTicks*/ ctx[8];
+    				validate_each_argument(each_value_3);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_3, get_each_context_3$2, get_key_1);
+    				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key_1, 1, ctx, each_value_3, each1_lookup, g1, outro_and_destroy_block, create_each_block_3$2, null, get_each_context_3$2);
+    				check_outros();
+    			}
+
+    			if (dirty[0] & /*area, data, line, colorMap*/ 22529) {
+    				each_value_2 = /*data*/ ctx[0];
+    				validate_each_argument(each_value_2);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_2, get_each_context_2$3, get_key_2);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key_2, 1, ctx, each_value_2, each2_lookup, g2, outro_and_destroy_block, create_each_block_2$3, text0, get_each_context_2$3);
+    				check_outros();
+    			}
+
+    			if (/*hoverData*/ ctx[5] && /*data*/ ctx[0].length > 0) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_3$3(ctx);
+    					if_block0.c();
+    					if_block0.m(g2, rect);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*hoverData*/ ctx[5]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*hoverData*/ 32) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_1$6(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value_4.length; i += 1) {
+    				transition_in(each_blocks_2[i]);
+    			}
+
+    			for (let i = 0; i < each_value_3.length; i += 1) {
+    				transition_in(each_blocks_1[i]);
+    			}
+
+    			for (let i = 0; i < each_value_2.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(if_block1);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				transition_out(each_blocks_2[i]);
+    			}
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				transition_out(each_blocks_1[i]);
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(if_block1);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(svg);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (if_block0) if_block0.d();
+    			if (detaching) detach_dev(t10);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$8.name,
+    		type: "if",
+    		source: "(172:2) {#if data.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (196:10) {#each xTicks as tick (tick)}
+    function create_each_block_4(key_1, ctx) {
+    	let first;
+    	let xtick;
+    	let current;
+
+    	xtick = new XTick({
+    			props: {
+    				position: [/*x*/ ctx[3](/*tick*/ ctx[31]), 0],
+    				value: /*tick*/ ctx[31],
+    				duration: transitionDuration$1
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(xtick.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(xtick, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const xtick_changes = {};
+    			if (dirty[0] & /*x, xTicks*/ 520) xtick_changes.position = [/*x*/ ctx[3](/*tick*/ ctx[31]), 0];
+    			if (dirty[0] & /*xTicks*/ 512) xtick_changes.value = /*tick*/ ctx[31];
+    			xtick.$set(xtick_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(xtick.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(xtick.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(xtick, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_4.name,
+    		type: "each",
+    		source: "(196:10) {#each xTicks as tick (tick)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (205:10) {#each yTicks as tick (tick)}
+    function create_each_block_3$2(key_1, ctx) {
+    	let first;
+    	let ytick;
+    	let current;
+
+    	ytick = new YTick({
+    			props: {
+    				y: /*y*/ ctx[4],
+    				value: /*tick*/ ctx[31],
+    				duration: transitionDuration$1,
+    				chartWidth: width$3 - /*margin*/ ctx[13].right - /*margin*/ ctx[13].left,
+    				format: /*yFormat*/ ctx[7]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ytick.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ytick, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const ytick_changes = {};
+    			if (dirty[0] & /*y*/ 16) ytick_changes.y = /*y*/ ctx[4];
+    			if (dirty[0] & /*yTicks*/ 256) ytick_changes.value = /*tick*/ ctx[31];
+    			if (dirty[0] & /*yFormat*/ 128) ytick_changes.format = /*yFormat*/ ctx[7];
+    			ytick.$set(ytick_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ytick.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ytick.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(ytick, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3$2.name,
+    		type: "each",
+    		source: "(205:10) {#each yTicks as tick (tick)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (215:8) {#each data as lineElement (lineElement.id)}
+    function create_each_block_2$3(key_1, ctx) {
+    	let first;
+    	let line_1;
+    	let current;
+
+    	line_1 = new Line({
+    			props: {
+    				areaPath: /*area*/ ctx[11](/*lineElement*/ ctx[28].values),
+    				linePath: /*line*/ ctx[12](/*lineElement*/ ctx[28].values),
+    				color: /*colorMap*/ ctx[14].get(/*lineElement*/ ctx[28].id),
+    				duration: transitionDuration$1
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(line_1.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(line_1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const line_1_changes = {};
+    			if (dirty[0] & /*area, data*/ 2049) line_1_changes.areaPath = /*area*/ ctx[11](/*lineElement*/ ctx[28].values);
+    			if (dirty[0] & /*line, data*/ 4097) line_1_changes.linePath = /*line*/ ctx[12](/*lineElement*/ ctx[28].values);
+    			if (dirty[0] & /*data*/ 1) line_1_changes.color = /*colorMap*/ ctx[14].get(/*lineElement*/ ctx[28].id);
+    			line_1.$set(line_1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(line_1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(line_1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(line_1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2$3.name,
+    		type: "each",
+    		source: "(215:8) {#each data as lineElement (lineElement.id)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (237:8) {#if hoverData && data.length > 0}
+    function create_if_block_3$3(ctx) {
+    	let line_1;
+    	let line_1_x__value;
+    	let line_1_x__value_1;
+    	let each_1_anchor;
+    	let each_value_1 = /*hoverData*/ ctx[5].values;
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$4(get_each_context_1$4(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			line_1 = svg_element("line");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			attr_dev(line_1, "x1", line_1_x__value = /*x*/ ctx[3](/*hoverData*/ ctx[5].year));
+    			attr_dev(line_1, "x2", line_1_x__value_1 = /*x*/ ctx[3](/*hoverData*/ ctx[5].year));
+    			attr_dev(line_1, "y1", /*margin*/ ctx[13].top);
+    			attr_dev(line_1, "y2", height$2 - /*margin*/ ctx[13].bottom);
+    			attr_dev(line_1, "stroke", "#333");
+    			attr_dev(line_1, "stroke-width", "2");
+    			add_location(line_1, file$g, 237, 10, 7163);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line_1, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x, hoverData*/ 40 && line_1_x__value !== (line_1_x__value = /*x*/ ctx[3](/*hoverData*/ ctx[5].year))) {
+    				attr_dev(line_1, "x1", line_1_x__value);
+    			}
+
+    			if (dirty[0] & /*x, hoverData*/ 40 && line_1_x__value_1 !== (line_1_x__value_1 = /*x*/ ctx[3](/*hoverData*/ ctx[5].year))) {
+    				attr_dev(line_1, "x2", line_1_x__value_1);
+    			}
+
+    			if (dirty[0] & /*x, hoverData, y*/ 56) {
+    				each_value_1 = /*hoverData*/ ctx[5].values;
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$4(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1$4(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(line_1);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$3.name,
+    		type: "if",
+    		source: "(237:8) {#if hoverData && data.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (246:10) {#each hoverData.values as row}
+    function create_each_block_1$4(ctx) {
+    	let g;
+    	let circle;
+    	let g_transform_value;
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			circle = svg_element("circle");
+    			attr_dev(circle, "cx", "0");
+    			attr_dev(circle, "cy", "0");
+    			attr_dev(circle, "r", "5");
+    			attr_dev(circle, "stroke", "#333");
+    			attr_dev(circle, "fill", "none");
+    			add_location(circle, file$g, 247, 14, 7515);
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*x*/ ctx[3](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[4](/*row*/ ctx[23].value) + ")");
+    			add_location(g, file$g, 246, 12, 7438);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, circle);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x, hoverData, y*/ 56 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[3](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[4](/*row*/ ctx[23].value) + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$4.name,
+    		type: "each",
+    		source: "(246:10) {#each hoverData.values as row}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (262:4) {#if hoverData}
+    function create_if_block_1$6(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_2$6, create_else_block$6];
+    	const if_blocks = [];
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*calculation*/ ctx[1] === "percentage") return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type_1(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_1(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$6.name,
+    		type: "if",
+    		source: "(262:4) {#if hoverData}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (280:6) {:else}
+    function create_else_block$6(ctx) {
+    	let div1;
+    	let div0;
+    	let table;
+    	let thead;
+    	let tr;
+    	let th;
+    	let t0_value = /*hoverData*/ ctx[5].year + "";
+    	let t0;
+    	let t1;
+    	let tbody;
+    	let each_value = /*hoverData*/ ctx[5].values;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$7(get_each_context$7(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr = element("tr");
+    			th = element("th");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(th, file$g, 291, 18, 9124);
+    			add_location(tr, file$g, 290, 16, 9100);
+    			add_location(thead, file$g, 289, 14, 9075);
+    			add_location(tbody, file$g, 294, 14, 9212);
+    			attr_dev(table, "class", "table is-narrow");
+    			add_location(table, file$g, 288, 12, 9028);
+    			attr_dev(div0, "class", "table-container");
+    			add_location(div0, file$g, 287, 10, 8985);
+    			set_style(div1, "position", "fixed");
+    			set_style(div1, "top", /*lineChartPosition*/ ctx[6].clientY + "px");
+    			set_style(div1, "left", /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * (/*x*/ ctx[3](/*hoverData*/ ctx[5].year) + 8) + "px");
+    			set_style(div1, "background", "rgba(255, 255, 255, 0.9)");
+    			set_style(div1, "border-radius", "5px");
+    			set_style(div1, "border", "1px solid #333333");
+    			set_style(div1, "padding", "3px 3px");
+    			set_style(div1, "z-index", "200");
+    			set_style(div1, "font-weight", "600");
+    			set_style(div1, "pointer-events", "none");
+    			add_location(div1, file$g, 280, 8, 8614);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr);
+    			append_dev(tr, th);
+    			append_dev(th, t0);
+    			append_dev(table, t1);
+    			append_dev(table, tbody);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*hoverData*/ 32 && t0_value !== (t0_value = /*hoverData*/ ctx[5].year + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty[0] & /*colorMap, hoverData*/ 16416) {
+    				each_value = /*hoverData*/ ctx[5].values;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$7(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$7(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty[0] & /*lineChartPosition*/ 64) {
+    				set_style(div1, "top", /*lineChartPosition*/ ctx[6].clientY + "px");
+    			}
+
+    			if (dirty[0] & /*lineChartPosition, x, hoverData*/ 104) {
+    				set_style(div1, "left", /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * (/*x*/ ctx[3](/*hoverData*/ ctx[5].year) + 8) + "px");
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$6.name,
+    		type: "else",
+    		source: "(280:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (263:6) {#if calculation === "percentage"}
+    function create_if_block_2$6(ctx) {
+    	let div;
+    	let differencetooltiptable;
+    	let current;
+
+    	differencetooltiptable = new DifferenceToolTipTable({
+    			props: { rows: /*hoverData*/ ctx[5].values },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(differencetooltiptable.$$.fragment);
+    			attr_dev(div, "class", "tooltip");
+    			set_style(div, "position", "fixed");
+    			set_style(div, "top", /*lineChartPosition*/ ctx[6].clientY + "px");
+
+    			set_style(div, "left", (/*hoverData*/ ctx[5].year < /*xHalfway*/ ctx[10]
+    			? /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * /*x*/ ctx[3](/*hoverData*/ ctx[5].year) + 8
+    			: /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * /*x*/ ctx[3](/*hoverData*/ ctx[5].year) - 318) + "px");
+
+    			set_style(div, "background", "rgba(255, 255, 255, 0.9)");
+    			set_style(div, "border-radius", "5px");
+    			set_style(div, "border", "1px solid #333333");
+    			set_style(div, "padding", "3px 3px");
+    			set_style(div, "z-index", "200");
+    			set_style(div, "font-weight", "600");
+    			set_style(div, "width", "310px");
+    			set_style(div, "pointer-events", "none");
+    			add_location(div, file$g, 263, 8, 7930);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(differencetooltiptable, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const differencetooltiptable_changes = {};
+    			if (dirty[0] & /*hoverData*/ 32) differencetooltiptable_changes.rows = /*hoverData*/ ctx[5].values;
+    			differencetooltiptable.$set(differencetooltiptable_changes);
+
+    			if (!current || dirty[0] & /*lineChartPosition*/ 64) {
+    				set_style(div, "top", /*lineChartPosition*/ ctx[6].clientY + "px");
+    			}
+
+    			if (!current || dirty[0] & /*hoverData, xHalfway, lineChartPosition, x*/ 1128) {
+    				set_style(div, "left", (/*hoverData*/ ctx[5].year < /*xHalfway*/ ctx[10]
+    				? /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * /*x*/ ctx[3](/*hoverData*/ ctx[5].year) + 8
+    				: /*lineChartPosition*/ ctx[6].left + /*lineChartPosition*/ ctx[6].scaling * /*x*/ ctx[3](/*hoverData*/ ctx[5].year) - 318) + "px");
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(differencetooltiptable.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(differencetooltiptable.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(differencetooltiptable);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$6.name,
+    		type: "if",
+    		source: "(263:6) {#if calculation === \\\"percentage\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (296:16) {#each hoverData.values as row}
+    function create_each_block$7(ctx) {
+    	let tr;
+    	let td;
+    	let t0_value = numberFormat(/*row*/ ctx[23].rateOrTotal)(/*row*/ ctx[23].value) + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			td = element("td");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			set_style(td, "color", /*colorMap*/ ctx[14].get(/*row*/ ctx[23].id));
+    			set_style(td, "text-align", "right");
+    			add_location(td, file$g, 297, 20, 9314);
+    			add_location(tr, file$g, 296, 18, 9288);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td);
+    			append_dev(td, t0);
+    			append_dev(tr, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*hoverData*/ 32 && t0_value !== (t0_value = numberFormat(/*row*/ ctx[23].rateOrTotal)(/*row*/ ctx[23].value) + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty[0] & /*hoverData*/ 32) {
+    				set_style(td, "color", /*colorMap*/ ctx[14].get(/*row*/ ctx[23].id));
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$7.name,
+    		type: "each",
+    		source: "(296:16) {#each hoverData.values as row}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$g(ctx) {
+    	let div;
+    	let current_block_type_index;
+    	let if_block;
+    	let t;
+    	let linechartlegendtable;
+    	let current;
+    	const if_block_creators = [create_if_block$8, create_else_block_1$2];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[0].length > 0) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	linechartlegendtable = new LineChartLegendTable({
+    			props: {
+    				legendData: /*data*/ ctx[0].map(/*func*/ ctx[19])
+    			},
+    			$$inline: true
+    		});
+
+    	linechartlegendtable.$on("deleteProjection", /*deleteProjection_handler*/ ctx[20]);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if_block.c();
+    			t = space();
+    			create_component(linechartlegendtable.$$.fragment);
+    			attr_dev(div, "id", "line-chart-div");
+    			add_location(div, file$g, 170, 0, 4834);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if_blocks[current_block_type_index].m(div, null);
+    			append_dev(div, t);
+    			mount_component(linechartlegendtable, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(div, t);
+    			}
+
+    			const linechartlegendtable_changes = {};
+    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func*/ ctx[19]);
+    			linechartlegendtable.$set(linechartlegendtable_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			transition_in(linechartlegendtable.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			transition_out(linechartlegendtable.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if_blocks[current_block_type_index].d();
+    			destroy_component(linechartlegendtable);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$g.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const width$3 = 800;
+    const height$2 = 475;
+    const transitionDuration$1 = 400;
+
+    function getContainerCoords$1(node, event) {
+    	//From d3
+    	//https://github.com/d3/d3-selection/blob/master/src/point.js
+    	var svg = node.ownerSVGElement || node;
+
+    	if (svg.createSVGPoint) {
+    		var point = svg.createSVGPoint();
+    		(point.x = event.clientX, point.y = event.clientY);
+    		point = point.matrixTransform(node.getScreenCTM().inverse());
+    		return [point.x, point.y];
+    	}
+
+    	var rect = node.getBoundingClientRect();
+
+    	return [
+    		event.clientX - rect.left - node.clientLeft,
+    		event.clientY - rect.top - node.clientTop
+    	];
+    }
+
+    function instance$g($$self, $$props, $$invalidate) {
+    	let line;
+    	let area;
+    	let flatData;
+    	let byYearData;
+    	let xExtent;
+    	let xHalfway;
+    	let yExtent;
+    	let x;
+    	let xTicks;
+    	let y;
+    	let yTicks;
+    	let yFormat;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('LineChart', slots, []);
+    	let { data } = $$props;
+    	let { calculation } = $$props;
+    	const margin = { top: 20, right: 60, bottom: 65, left: 90 };
+
+    	const colors = [
+    		"rgb(31, 119, 180)",
+    		"rgb(255, 127, 14)",
+    		"rgb(44, 160, 44)",
+    		"rgb(214, 39, 40)",
+    		"rgb(148, 103, 189)",
+    		"rgb(140, 86, 75)",
+    		"rgb(227, 119, 194)",
+    		"rgb(127, 127, 127)",
+    		"rgb(188, 189, 34)",
+    		"rgb(23, 190, 207)",
+    		"rgb(174, 199, 232)",
+    		"rgb(255, 187, 120)",
+    		"rgb(152, 223, 138)",
+    		"rgb(255, 152, 150)",
+    		"rgb(197, 176, 213)",
+    		"rgb(196, 156, 148)",
+    		"rgb(247, 182, 210)",
+    		"rgb(199, 199, 199)",
+    		"rgb(219, 219, 141)",
+    		"rgb(158, 218, 229)"
+    	];
+
+    	let colorMap = new Map();
+    	let hoverData;
+    	let lineChartPosition = [];
+
+    	function handleHover(e) {
+    		const { clientY } = e;
+    		let hoverYear = Math.round(x.invert(getContainerCoords$1(this, e)[0]));
+    		const boundingRect = e.target.getBoundingClientRect();
+    		const scaling = boundingRect.width / width$3;
+
+    		$$invalidate(6, lineChartPosition = {
+    			left: boundingRect.left,
+    			top: boundingRect.top,
+    			scaling,
+    			clientY
+    		});
+
+    		if (hoverYear < xExtent[0]) {
+    			hoverYear = xExtent[0];
+    		} else if (hoverYear > xExtent[1]) {
+    			hoverYear = xExtent[1];
+    		}
+
+    		$$invalidate(5, hoverData = {
+    			year: hoverYear,
+    			values: byYearData.get(hoverYear).sort(function (a, b) {
+    				return descending(a.value, b.value);
+    			})
+    		});
+    	}
+
+    	function handleMouseLeave() {
+    		$$invalidate(5, hoverData = undefined);
+    	}
+
+    	const writable_props = ['data', 'calculation'];
+
+    	Object_1$1.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$1.warn(`<LineChart> was created with unknown prop '${key}'`);
+    	});
+
+    	const func = (d, i) => ({
+    		params: d.params,
+    		color: colorMap.get(d.id),
+    		id: d.id
+    	});
+
+    	function deleteProjection_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('calculation' in $$props) $$invalidate(1, calculation = $$props.calculation);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Line,
+    		LineChartLegendTable,
+    		DifferenceToolTipTable,
+    		scaleLinear: linear,
+    		extent,
+    		max,
+    		group,
+    		mean,
+    		descending,
+    		d3line,
+    		d3area,
+    		curveMonotoneX: monotoneX,
+    		XTick,
+    		YTick,
+    		fade,
+    		numberFormat,
+    		data,
+    		calculation,
+    		width: width$3,
+    		height: height$2,
+    		margin,
+    		colors,
+    		colorMap,
+    		transitionDuration: transitionDuration$1,
+    		hoverData,
+    		lineChartPosition,
+    		handleHover,
+    		handleMouseLeave,
+    		getContainerCoords: getContainerCoords$1,
+    		byYearData,
+    		xExtent,
+    		x,
+    		yFormat,
+    		y,
+    		yTicks,
+    		yExtent,
+    		xTicks,
+    		flatData,
+    		xHalfway,
+    		area,
+    		line
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('calculation' in $$props) $$invalidate(1, calculation = $$props.calculation);
+    		if ('colorMap' in $$props) $$invalidate(14, colorMap = $$props.colorMap);
+    		if ('hoverData' in $$props) $$invalidate(5, hoverData = $$props.hoverData);
+    		if ('lineChartPosition' in $$props) $$invalidate(6, lineChartPosition = $$props.lineChartPosition);
+    		if ('byYearData' in $$props) byYearData = $$props.byYearData;
+    		if ('xExtent' in $$props) $$invalidate(2, xExtent = $$props.xExtent);
+    		if ('x' in $$props) $$invalidate(3, x = $$props.x);
+    		if ('yFormat' in $$props) $$invalidate(7, yFormat = $$props.yFormat);
+    		if ('y' in $$props) $$invalidate(4, y = $$props.y);
+    		if ('yTicks' in $$props) $$invalidate(8, yTicks = $$props.yTicks);
+    		if ('yExtent' in $$props) $$invalidate(17, yExtent = $$props.yExtent);
+    		if ('xTicks' in $$props) $$invalidate(9, xTicks = $$props.xTicks);
+    		if ('flatData' in $$props) $$invalidate(18, flatData = $$props.flatData);
+    		if ('xHalfway' in $$props) $$invalidate(10, xHalfway = $$props.xHalfway);
+    		if ('area' in $$props) $$invalidate(11, area = $$props.area);
+    		if ('line' in $$props) $$invalidate(12, line = $$props.line);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Could this be cleaner?
+    			{
+    				//Remove unused colors
+    				colorMap.forEach(function (value, key) {
+    					if (!data.map(d => d.id).includes(+key)) {
+    						colorMap.delete(key);
+    					}
+    				});
+
+    				//Assign color to new data
+    				data.forEach(function (d) {
+    					if (!colorMap.has(d.id)) {
+    						const availableColors = colors.filter(d => !Array.from(colorMap.values()).includes(d));
+    						colorMap.set(d.id, availableColors[0]);
+    					}
+    				});
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Scale
+    			$$invalidate(18, flatData = data.map(d => d.values.map(e => Object.assign(
+    				{
+    					id: d.id,
+    					rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1],
+    					color: colorMap.get(d.id)
+    				},
+    				e
+    			))).flat());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 262144) {
+    			$$invalidate(2, xExtent = flatData.length > 0
+    			? extent(flatData, d => d.year)
+    			: [2015, 2032]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*xExtent*/ 4) {
+    			$$invalidate(3, x = linear().domain(xExtent).range([margin.left, width$3 - margin.right]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 262144) {
+    			$$invalidate(17, yExtent = flatData.length > 0
+    			? extent(flatData, d => d.value)
+    			: [0, 50]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*yExtent*/ 131072) {
+    			$$invalidate(4, y = linear().domain([yExtent[0] >= 0 ? 0 : yExtent[0], yExtent[1]]).nice().range([height$2 - margin.bottom, margin.top]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x, y*/ 24) {
+    			//Shape generators
+    			$$invalidate(12, line = d3line().curve(monotoneX).defined(d => !isNaN(d.value)).x(d => x(d.year)).y(d => y(d.value)));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x, y*/ 24) {
+    			$$invalidate(11, area = d3area().x(d => x(d.year)).y0(d => y(d.uci)).y1(d => y(d.lci)).curve(monotoneX));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 262144) {
+    			console.log(flatData);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 262144) {
+    			byYearData = group(flatData, d => d.year);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*xExtent*/ 4) {
+    			$$invalidate(10, xHalfway = Math.round((xExtent[1] - xExtent[0]) / 2 + xExtent[0]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x*/ 8) {
+    			$$invalidate(9, xTicks = x.ticks());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*y*/ 16) {
+    			$$invalidate(8, yTicks = y.ticks());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*calculation*/ 2) {
+    			$$invalidate(7, yFormat = val => calculation === "percentage"
+    			? val.toLocaleString(undefined, {
+    					style: "percent",
+    					signDisplay: "exceptZero",
+    					maximumFractionDigits: 2
+    				})
+    			: val.toLocaleString());
+    		}
+    	};
+
+    	return [
+    		data,
+    		calculation,
+    		xExtent,
+    		x,
+    		y,
+    		hoverData,
+    		lineChartPosition,
+    		yFormat,
+    		yTicks,
+    		xTicks,
+    		xHalfway,
+    		area,
+    		line,
+    		margin,
+    		colorMap,
+    		handleHover,
+    		handleMouseLeave,
+    		yExtent,
+    		flatData,
+    		func,
+    		deleteProjection_handler
+    	];
+    }
+
+    class LineChart extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { data: 0, calculation: 1 }, null, [-1, -1]);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LineChart",
+    			options,
+    			id: create_fragment$g.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*data*/ ctx[0] === undefined && !('data' in props)) {
+    			console_1$1.warn("<LineChart> was created without expected prop 'data'");
+    		}
+
+    		if (/*calculation*/ ctx[1] === undefined && !('calculation' in props)) {
+    			console_1$1.warn("<LineChart> was created without expected prop 'calculation'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<LineChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<LineChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get calculation() {
+    		throw new Error("<LineChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set calculation(value) {
+    		throw new Error("<LineChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\LineLegend.svelte generated by Svelte v3.44.0 */
+
+    const file$f = "src\\LineLegend.svelte";
+
+    function create_fragment$f(ctx) {
+    	let g2;
+    	let g0;
+    	let text0;
+    	let t0;
+    	let line0;
+    	let g1;
+    	let text1;
+    	let t1;
+    	let line1;
+
+    	const block = {
+    		c: function create() {
+    			g2 = svg_element("g");
+    			g0 = svg_element("g");
+    			text0 = svg_element("text");
+    			t0 = text("Supply");
+    			line0 = svg_element("line");
+    			g1 = svg_element("g");
+    			text1 = svg_element("text");
+    			t1 = text("Demand");
+    			line1 = svg_element("line");
+    			attr_dev(text0, "class", "is-size-5 svelte-c0cuwi");
+    			add_location(text0, file$f, 15, 4, 227);
+    			attr_dev(line0, "x1", "-75");
+    			attr_dev(line0, "stroke-width", /*strokeWidth*/ ctx[1]);
+    			attr_dev(line0, "x2", "-5");
+    			attr_dev(line0, "y1", "-7");
+    			attr_dev(line0, "y2", "-7");
+    			attr_dev(line0, "stroke", "black");
+    			add_location(line0, file$f, 16, 4, 270);
+    			add_location(g0, file$f, 14, 2, 218);
+    			attr_dev(text1, "class", "is-size-5 svelte-c0cuwi");
+    			add_location(text1, file$f, 25, 4, 443);
+    			attr_dev(line1, "x1", "-75");
+    			attr_dev(line1, "stroke-dasharray", /*dashArray*/ ctx[0]);
+    			attr_dev(line1, "stroke-width", /*strokeWidth*/ ctx[1]);
+    			attr_dev(line1, "x2", "-5");
+    			attr_dev(line1, "y1", "-7");
+    			attr_dev(line1, "y2", "-7");
+    			attr_dev(line1, "stroke", "black");
+    			add_location(line1, file$f, 26, 4, 486);
+    			attr_dev(g1, "transform", "translate(150)");
+    			add_location(g1, file$f, 24, 2, 407);
+    			attr_dev(g2, "transform", /*transform*/ ctx[2]);
+    			add_location(g2, file$f, 13, 0, 199);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g2, anchor);
+    			append_dev(g2, g0);
+    			append_dev(g0, text0);
+    			append_dev(text0, t0);
+    			append_dev(g0, line0);
+    			append_dev(g2, g1);
+    			append_dev(g1, text1);
+    			append_dev(text1, t1);
+    			append_dev(g1, line1);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*strokeWidth*/ 2) {
+    				attr_dev(line0, "stroke-width", /*strokeWidth*/ ctx[1]);
+    			}
+
+    			if (dirty & /*dashArray*/ 1) {
+    				attr_dev(line1, "stroke-dasharray", /*dashArray*/ ctx[0]);
+    			}
+
+    			if (dirty & /*strokeWidth*/ 2) {
+    				attr_dev(line1, "stroke-width", /*strokeWidth*/ ctx[1]);
+    			}
+
+    			if (dirty & /*transform*/ 4) {
+    				attr_dev(g2, "transform", /*transform*/ ctx[2]);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$f.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$f($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('LineLegend', slots, []);
+    	let { dashArray = "" } = $$props;
+    	let { strokeWidth } = $$props;
+    	let { transform } = $$props;
+    	const writable_props = ['dashArray', 'strokeWidth', 'transform'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<LineLegend> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('dashArray' in $$props) $$invalidate(0, dashArray = $$props.dashArray);
+    		if ('strokeWidth' in $$props) $$invalidate(1, strokeWidth = $$props.strokeWidth);
+    		if ('transform' in $$props) $$invalidate(2, transform = $$props.transform);
+    	};
+
+    	$$self.$capture_state = () => ({ dashArray, strokeWidth, transform });
+
+    	$$self.$inject_state = $$props => {
+    		if ('dashArray' in $$props) $$invalidate(0, dashArray = $$props.dashArray);
+    		if ('strokeWidth' in $$props) $$invalidate(1, strokeWidth = $$props.strokeWidth);
+    		if ('transform' in $$props) $$invalidate(2, transform = $$props.transform);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [dashArray, strokeWidth, transform];
+    }
+
+    class LineLegend extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$f, create_fragment$f, safe_not_equal, {
+    			dashArray: 0,
+    			strokeWidth: 1,
+    			transform: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LineLegend",
+    			options,
+    			id: create_fragment$f.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*strokeWidth*/ ctx[1] === undefined && !('strokeWidth' in props)) {
+    			console.warn("<LineLegend> was created without expected prop 'strokeWidth'");
+    		}
+
+    		if (/*transform*/ ctx[2] === undefined && !('transform' in props)) {
+    			console.warn("<LineLegend> was created without expected prop 'transform'");
+    		}
+    	}
+
+    	get dashArray() {
+    		throw new Error("<LineLegend>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set dashArray(value) {
+    		throw new Error("<LineLegend>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get strokeWidth() {
+    		throw new Error("<LineLegend>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set strokeWidth(value) {
+    		throw new Error("<LineLegend>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get transform() {
+    		throw new Error("<LineLegend>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set transform(value) {
+    		throw new Error("<LineLegend>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\LineChartDifference2.svelte generated by Svelte v3.44.0 */
+
+    const { Map: Map_1, Object: Object_1 } = globals;
+    const file$e = "src\\LineChartDifference2.svelte";
+
+    function get_each_context$6(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[23] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[26] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[29] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_3$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[29] = list[i];
+    	return child_ctx;
+    }
+
+    // (349:4) {:else}
+    function create_else_block$5(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Select model options and click \"Show\".";
+    			attr_dev(div, "class", "notification");
+    			add_location(div, file$e, 349, 8, 12480);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$5.name,
+    		type: "else",
+    		source: "(349:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (185:4) {#if data.length > 0}
+    function create_if_block$7(ctx) {
+    	let h1;
+    	let t1;
+    	let h2;
+    	let t2;
+    	let t3_value = /*xExtent*/ ctx[1][0] + "";
+    	let t3;
+    	let t4;
+    	let t5_value = /*xExtent*/ ctx[1][1] + "";
+    	let t5;
+    	let t6;
+    	let svg;
+    	let g2;
+    	let linelegend;
+    	let g0;
+    	let each_blocks_2 = [];
+    	let each0_lookup = new Map_1();
+    	let g1;
+    	let each_blocks_1 = [];
+    	let each1_lookup = new Map_1();
+    	let each_blocks = [];
+    	let each2_lookup = new Map_1();
+    	let text0;
+    	let t7;
+    	let text1;
+    	let t8;
+    	let rect;
+    	let t9;
+    	let if_block1_anchor;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	linelegend = new LineLegend({
+    			props: {
+    				dashArray,
+    				strokeWidth,
+    				transform: "translate(" + (width$2 - 285) + "," + (/*margin*/ ctx[11].top - 10) + ")"
+    			},
+    			$$inline: true
+    		});
+
+    	let each_value_3 = /*xTicks*/ ctx[7];
+    	validate_each_argument(each_value_3);
+    	const get_key = ctx => /*tick*/ ctx[29];
+    	validate_each_keys(ctx, each_value_3, get_each_context_3$1, get_key);
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		let child_ctx = get_each_context_3$1(ctx, each_value_3, i);
+    		let key = get_key(child_ctx);
+    		each0_lookup.set(key, each_blocks_2[i] = create_each_block_3$1(key, child_ctx));
+    	}
+
+    	let each_value_2 = /*yTicks*/ ctx[6];
+    	validate_each_argument(each_value_2);
+    	const get_key_1 = ctx => /*tick*/ ctx[29];
+    	validate_each_keys(ctx, each_value_2, get_each_context_2$2, get_key_1);
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		let child_ctx = get_each_context_2$2(ctx, each_value_2, i);
+    		let key = get_key_1(child_ctx);
+    		each1_lookup.set(key, each_blocks_1[i] = create_each_block_2$2(key, child_ctx));
+    	}
+
+    	let each_value_1 = /*data*/ ctx[0];
+    	validate_each_argument(each_value_1);
+    	const get_key_2 = ctx => /*lineElement*/ ctx[26].id;
+    	validate_each_keys(ctx, each_value_1, get_each_context_1$3, get_key_2);
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		let child_ctx = get_each_context_1$3(ctx, each_value_1, i);
+    		let key = get_key_2(child_ctx);
+    		each2_lookup.set(key, each_blocks[i] = create_each_block_1$3(key, child_ctx));
+    	}
+
+    	let if_block0 = /*hoverData*/ ctx[5] && /*data*/ ctx[0].length > 0 && create_if_block_2$5(ctx);
+    	let if_block1 = /*hoverData*/ ctx[5] && create_if_block_1$5(ctx);
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Projection of Nurse Workforce, Supply - Demand";
+    			t1 = space();
+    			h2 = element("h2");
+    			t2 = text("North Carolina, ");
+    			t3 = text(t3_value);
+    			t4 = text(" - ");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			svg = svg_element("svg");
+    			g2 = svg_element("g");
+    			create_component(linelegend.$$.fragment);
+    			g0 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			g1 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			text0 = svg_element("text");
+    			t7 = text("Nurse FTE or Head Count\r\n                ");
+    			text1 = svg_element("text");
+    			t8 = text("Year\r\n                ");
+    			if (if_block0) if_block0.c();
+    			rect = svg_element("rect");
+    			t9 = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    			attr_dev(h1, "class", "title");
+    			add_location(h1, file$e, 185, 8, 5901);
+    			attr_dev(h2, "class", "subtitle");
+    			add_location(h2, file$e, 186, 8, 5980);
+    			attr_dev(g0, "class", "xAxis is-size-6 svelte-j6aox3");
+    			attr_dev(g0, "transform", "translate(0," + (height$1 - /*margin*/ ctx[11].bottom) + ")");
+    			add_location(g0, file$e, 207, 16, 6828);
+    			attr_dev(g1, "class", "yAxis is-size-6 svelte-j6aox3");
+    			attr_dev(g1, "transform", "translate(" + /*margin*/ ctx[11].left + ",0)");
+    			add_location(g1, file$e, 219, 16, 7299);
+    			attr_dev(text0, "class", "is-size-5 svelte-j6aox3");
+    			attr_dev(text0, "transform", "translate(" + (/*margin*/ ctx[11].left - 70) + "," + height$1 / 1.5 + ") rotate(270)");
+    			add_location(text0, file$e, 265, 16, 9222);
+    			attr_dev(text1, "class", "is-size-5 svelte-j6aox3");
+    			attr_dev(text1, "text-anchor", "middle");
+    			attr_dev(text1, "transform", "translate(" + ((width$2 - /*margin*/ ctx[11].left - /*margin*/ ctx[11].right) / 2 + /*margin*/ ctx[11].left) + "," + (height$1 - 10) + ")");
+    			add_location(text1, file$e, 272, 16, 9488);
+    			attr_dev(rect, "width", width$2);
+    			attr_dev(rect, "height", height$1);
+    			attr_dev(rect, "fill", "none");
+    			set_style(rect, "pointer-events", "all");
+    			add_location(rect, file$e, 320, 16, 11350);
+    			attr_dev(g2, "class", "chart-container");
+    			add_location(g2, file$e, 188, 12, 6129);
+    			attr_dev(svg, "id", "line-chart-svg");
+    			attr_dev(svg, "viewBox", "0 0 " + width$2 + " " + height$1);
+    			add_location(svg, file$e, 187, 8, 6059);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t2);
+    			append_dev(h2, t3);
+    			append_dev(h2, t4);
+    			append_dev(h2, t5);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, g2);
+    			mount_component(linelegend, g2, null);
+    			append_dev(g2, g0);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(g0, null);
+    			}
+
+    			append_dev(g2, g1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(g1, null);
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g2, null);
+    			}
+
+    			append_dev(g2, text0);
+    			append_dev(text0, t7);
+    			append_dev(g2, text1);
+    			append_dev(text1, t8);
+    			if (if_block0) if_block0.m(g2, null);
+    			append_dev(g2, rect);
+    			insert_dev(target, t9, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(rect, "mousemove", /*handleHover*/ ctx[13], false, false, false),
+    					listen_dev(rect, "mouseleave", /*handleMouseLeave*/ ctx[14], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if ((!current || dirty[0] & /*xExtent*/ 2) && t3_value !== (t3_value = /*xExtent*/ ctx[1][0] + "")) set_data_dev(t3, t3_value);
+    			if ((!current || dirty[0] & /*xExtent*/ 2) && t5_value !== (t5_value = /*xExtent*/ ctx[1][1] + "")) set_data_dev(t5, t5_value);
+
+    			if (dirty[0] & /*x, xTicks*/ 132) {
+    				each_value_3 = /*xTicks*/ ctx[7];
+    				validate_each_argument(each_value_3);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_3, get_each_context_3$1, get_key);
+    				each_blocks_2 = update_keyed_each(each_blocks_2, dirty, get_key, 1, ctx, each_value_3, each0_lookup, g0, outro_and_destroy_block, create_each_block_3$1, null, get_each_context_3$1);
+    				check_outros();
+    			}
+
+    			if (dirty[0] & /*y, yTicks, margin*/ 2120) {
+    				each_value_2 = /*yTicks*/ ctx[6];
+    				validate_each_argument(each_value_2);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_2, get_each_context_2$2, get_key_1);
+    				each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key_1, 1, ctx, each_value_2, each1_lookup, g1, outro_and_destroy_block, create_each_block_2$2, null, get_each_context_2$2);
+    				check_outros();
+    			}
+
+    			if (dirty[0] & /*line, data, colorMap, area*/ 5633) {
+    				each_value_1 = /*data*/ ctx[0];
+    				validate_each_argument(each_value_1);
+    				group_outros();
+    				validate_each_keys(ctx, each_value_1, get_each_context_1$3, get_key_2);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key_2, 1, ctx, each_value_1, each2_lookup, g2, outro_and_destroy_block, create_each_block_1$3, text0, get_each_context_1$3);
+    				check_outros();
+    			}
+
+    			if (/*hoverData*/ ctx[5] && /*data*/ ctx[0].length > 0) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_2$5(ctx);
+    					if_block0.c();
+    					if_block0.m(g2, rect);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (/*hoverData*/ ctx[5]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*hoverData*/ 32) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block_1$5(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(linelegend.$$.fragment, local);
+
+    			for (let i = 0; i < each_value_3.length; i += 1) {
+    				transition_in(each_blocks_2[i]);
+    			}
+
+    			for (let i = 0; i < each_value_2.length; i += 1) {
+    				transition_in(each_blocks_1[i]);
+    			}
+
+    			for (let i = 0; i < each_value_1.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(if_block1);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(linelegend.$$.fragment, local);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				transition_out(each_blocks_2[i]);
+    			}
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				transition_out(each_blocks_1[i]);
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(if_block1);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(svg);
+    			destroy_component(linelegend);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].d();
+    			}
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			if (if_block0) if_block0.d();
+    			if (detaching) detach_dev(t9);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$7.name,
+    		type: "if",
+    		source: "(185:4) {#if data.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (212:20) {#each xTicks as tick (tick)}
+    function create_each_block_3$1(key_1, ctx) {
+    	let first;
+    	let xtick;
+    	let current;
+
+    	xtick = new XTick({
+    			props: {
+    				position: [/*x*/ ctx[2](/*tick*/ ctx[29]), 0],
+    				value: /*tick*/ ctx[29],
+    				duration: transitionDuration
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(xtick.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(xtick, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const xtick_changes = {};
+    			if (dirty[0] & /*x, xTicks*/ 132) xtick_changes.position = [/*x*/ ctx[2](/*tick*/ ctx[29]), 0];
+    			if (dirty[0] & /*xTicks*/ 128) xtick_changes.value = /*tick*/ ctx[29];
+    			xtick.$set(xtick_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(xtick.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(xtick.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(xtick, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3$1.name,
+    		type: "each",
+    		source: "(212:20) {#each xTicks as tick (tick)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (224:20) {#each yTicks as tick (tick)}
+    function create_each_block_2$2(key_1, ctx) {
+    	let first;
+    	let ytick;
+    	let current;
+
+    	ytick = new YTick({
+    			props: {
+    				y: /*y*/ ctx[3],
+    				value: /*tick*/ ctx[29],
+    				duration: transitionDuration,
+    				chartWidth: width$2 - /*margin*/ ctx[11].right - /*margin*/ ctx[11].left
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(ytick.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(ytick, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const ytick_changes = {};
+    			if (dirty[0] & /*y*/ 8) ytick_changes.y = /*y*/ ctx[3];
+    			if (dirty[0] & /*yTicks*/ 64) ytick_changes.value = /*tick*/ ctx[29];
+    			ytick.$set(ytick_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(ytick.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(ytick.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(ytick, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2$2.name,
+    		type: "each",
+    		source: "(224:20) {#each yTicks as tick (tick)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (233:16) {#each data as lineElement (lineElement.id)}
+    function create_each_block_1$3(key_1, ctx) {
+    	let first;
+    	let line0;
+    	let line1;
+    	let current;
+
+    	line0 = new Line({
+    			props: {
+    				linePath: /*line*/ ctx[10](/*lineElement*/ ctx[26].values.map(func$2)),
+    				color: /*colorMap*/ ctx[12].get(/*lineElement*/ ctx[26].id),
+    				duration: transitionDuration,
+    				strokeWidth,
+    				areaPath: /*area*/ ctx[9](/*lineElement*/ ctx[26].values),
+    				areaOpacity: 0.2
+    			},
+    			$$inline: true
+    		});
+
+    	line1 = new Line({
+    			props: {
+    				linePath: /*line*/ ctx[10](/*lineElement*/ ctx[26].values.map(func_1$2)),
+    				dashArray,
+    				color: /*colorMap*/ ctx[12].get(/*lineElement*/ ctx[26].id),
+    				duration: transitionDuration,
+    				strokeWidth
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(line0.$$.fragment);
+    			create_component(line1.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(line0, target, anchor);
+    			mount_component(line1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const line0_changes = {};
+    			if (dirty[0] & /*line, data*/ 1025) line0_changes.linePath = /*line*/ ctx[10](/*lineElement*/ ctx[26].values.map(func$2));
+    			if (dirty[0] & /*data*/ 1) line0_changes.color = /*colorMap*/ ctx[12].get(/*lineElement*/ ctx[26].id);
+    			if (dirty[0] & /*area, data*/ 513) line0_changes.areaPath = /*area*/ ctx[9](/*lineElement*/ ctx[26].values);
+    			line0.$set(line0_changes);
+    			const line1_changes = {};
+    			if (dirty[0] & /*line, data*/ 1025) line1_changes.linePath = /*line*/ ctx[10](/*lineElement*/ ctx[26].values.map(func_1$2));
+    			if (dirty[0] & /*data*/ 1) line1_changes.color = /*colorMap*/ ctx[12].get(/*lineElement*/ ctx[26].id);
+    			line1.$set(line1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(line0.$$.fragment, local);
+    			transition_in(line1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(line0.$$.fragment, local);
+    			transition_out(line1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(line0, detaching);
+    			destroy_component(line1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$3.name,
+    		type: "each",
+    		source: "(233:16) {#each data as lineElement (lineElement.id)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (283:16) {#if hoverData && data.length > 0}
+    function create_if_block_2$5(ctx) {
+    	let line_1;
+    	let line_1_x__value;
+    	let line_1_x__value_1;
+    	let each_1_anchor;
+    	let each_value = /*hoverData*/ ctx[5].values;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$6(get_each_context$6(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			line_1 = svg_element("line");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			attr_dev(line_1, "x1", line_1_x__value = /*x*/ ctx[2](/*hoverData*/ ctx[5].year));
+    			attr_dev(line_1, "x2", line_1_x__value_1 = /*x*/ ctx[2](/*hoverData*/ ctx[5].year));
+    			attr_dev(line_1, "y1", /*margin*/ ctx[11].top);
+    			attr_dev(line_1, "y2", height$1 - /*margin*/ ctx[11].bottom);
+    			attr_dev(line_1, "stroke", "#333");
+    			attr_dev(line_1, "stroke-width", "2");
+    			add_location(line_1, file$e, 283, 20, 9885);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line_1, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x, hoverData*/ 36 && line_1_x__value !== (line_1_x__value = /*x*/ ctx[2](/*hoverData*/ ctx[5].year))) {
+    				attr_dev(line_1, "x1", line_1_x__value);
+    			}
+
+    			if (dirty[0] & /*x, hoverData*/ 36 && line_1_x__value_1 !== (line_1_x__value_1 = /*x*/ ctx[2](/*hoverData*/ ctx[5].year))) {
+    				attr_dev(line_1, "x2", line_1_x__value_1);
+    			}
+
+    			if (dirty[0] & /*x, hoverData, y*/ 44) {
+    				each_value = /*hoverData*/ ctx[5].values;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$6(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$6(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(line_1);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$5.name,
+    		type: "if",
+    		source: "(283:16) {#if hoverData && data.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (292:20) {#each hoverData.values as row}
+    function create_each_block$6(ctx) {
+    	let g0;
+    	let circle0;
+    	let g0_transform_value;
+    	let g1;
+    	let circle1;
+    	let g1_transform_value;
+
+    	const block = {
+    		c: function create() {
+    			g0 = svg_element("g");
+    			circle0 = svg_element("circle");
+    			g1 = svg_element("g");
+    			circle1 = svg_element("circle");
+    			attr_dev(circle0, "cx", "0");
+    			attr_dev(circle0, "cy", "0");
+    			attr_dev(circle0, "r", "5");
+    			attr_dev(circle0, "stroke", "#333");
+    			attr_dev(circle0, "fill", "none");
+    			add_location(circle0, file$e, 297, 28, 10479);
+    			attr_dev(g0, "transform", g0_transform_value = "translate(" + /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[3](/*row*/ ctx[23].demandMean) + ")");
+    			add_location(g0, file$e, 292, 24, 10264);
+    			attr_dev(circle1, "cx", "0");
+    			attr_dev(circle1, "cy", "0");
+    			attr_dev(circle1, "r", "5");
+    			attr_dev(circle1, "stroke", "#333");
+    			attr_dev(circle1, "fill", "none");
+    			add_location(circle1, file$e, 310, 28, 11000);
+    			attr_dev(g1, "transform", g1_transform_value = "translate(" + /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[3](/*row*/ ctx[23].supplyMean) + ")");
+    			add_location(g1, file$e, 305, 24, 10785);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g0, anchor);
+    			append_dev(g0, circle0);
+    			insert_dev(target, g1, anchor);
+    			append_dev(g1, circle1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*x, hoverData, y*/ 44 && g0_transform_value !== (g0_transform_value = "translate(" + /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[3](/*row*/ ctx[23].demandMean) + ")")) {
+    				attr_dev(g0, "transform", g0_transform_value);
+    			}
+
+    			if (dirty[0] & /*x, hoverData, y*/ 44 && g1_transform_value !== (g1_transform_value = "translate(" + /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + " " + /*y*/ ctx[3](/*row*/ ctx[23].supplyMean) + ")")) {
+    				attr_dev(g1, "transform", g1_transform_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g0);
+    			if (detaching) detach_dev(g1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$6.name,
+    		type: "each",
+    		source: "(292:20) {#each hoverData.values as row}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (331:8) {#if hoverData}
+    function create_if_block_1$5(ctx) {
+    	let div;
+    	let differencetooltiptable;
+    	let current;
+
+    	differencetooltiptable = new DifferenceToolTipTable({
+    			props: { rows: /*hoverData*/ ctx[5].values },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(differencetooltiptable.$$.fragment);
+    			attr_dev(div, "class", "tooltip");
+    			set_style(div, "position", "fixed");
+    			set_style(div, "top", /*lineChartPosition*/ ctx[4].clientY + "px");
+
+    			set_style(div, "left", (/*hoverData*/ ctx[5].year < /*xHalfway*/ ctx[8]
+    			? /*lineChartPosition*/ ctx[4].left + /*lineChartPosition*/ ctx[4].scaling * /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + 4
+    			: /*lineChartPosition*/ ctx[4].left + /*lineChartPosition*/ ctx[4].scaling * /*x*/ ctx[2](/*hoverData*/ ctx[5].year) - 324) + "px");
+
+    			set_style(div, "background", "rgba(255, 255, 255, 0.9)");
+    			set_style(div, "border-radius", "5px");
+    			set_style(div, "border", "1px solid #333333");
+    			set_style(div, "padding", "3px 3px");
+    			set_style(div, "z-index", "200");
+    			set_style(div, "font-weight", "600");
+    			set_style(div, "width", "320px");
+    			set_style(div, "pointer-events", "none");
+    			add_location(div, file$e, 331, 12, 11691);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(differencetooltiptable, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const differencetooltiptable_changes = {};
+    			if (dirty[0] & /*hoverData*/ 32) differencetooltiptable_changes.rows = /*hoverData*/ ctx[5].values;
+    			differencetooltiptable.$set(differencetooltiptable_changes);
+
+    			if (!current || dirty[0] & /*lineChartPosition*/ 16) {
+    				set_style(div, "top", /*lineChartPosition*/ ctx[4].clientY + "px");
+    			}
+
+    			if (!current || dirty[0] & /*hoverData, xHalfway, lineChartPosition, x*/ 308) {
+    				set_style(div, "left", (/*hoverData*/ ctx[5].year < /*xHalfway*/ ctx[8]
+    				? /*lineChartPosition*/ ctx[4].left + /*lineChartPosition*/ ctx[4].scaling * /*x*/ ctx[2](/*hoverData*/ ctx[5].year) + 4
+    				: /*lineChartPosition*/ ctx[4].left + /*lineChartPosition*/ ctx[4].scaling * /*x*/ ctx[2](/*hoverData*/ ctx[5].year) - 324) + "px");
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(differencetooltiptable.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(differencetooltiptable.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(differencetooltiptable);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$5.name,
+    		type: "if",
+    		source: "(331:8) {#if hoverData}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$e(ctx) {
+    	let div;
+    	let current_block_type_index;
+    	let if_block;
+    	let t;
+    	let linechartlegendtable;
+    	let current;
+    	const if_block_creators = [create_if_block$7, create_else_block$5];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[0].length > 0) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	linechartlegendtable = new LineChartLegendTable({
+    			props: {
+    				legendData: /*data*/ ctx[0].map(/*func_2*/ ctx[17])
+    			},
+    			$$inline: true
+    		});
+
+    	linechartlegendtable.$on("deleteProjection", /*deleteProjection_handler*/ ctx[18]);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if_block.c();
+    			t = space();
+    			create_component(linechartlegendtable.$$.fragment);
+    			attr_dev(div, "id", "line-chart-div");
+    			add_location(div, file$e, 183, 0, 5839);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if_blocks[current_block_type_index].m(div, null);
+    			append_dev(div, t);
+    			mount_component(linechartlegendtable, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(div, t);
+    			}
+
+    			const linechartlegendtable_changes = {};
+    			if (dirty[0] & /*data*/ 1) linechartlegendtable_changes.legendData = /*data*/ ctx[0].map(/*func_2*/ ctx[17]);
+    			linechartlegendtable.$set(linechartlegendtable_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			transition_in(linechartlegendtable.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			transition_out(linechartlegendtable.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if_blocks[current_block_type_index].d();
+    			destroy_component(linechartlegendtable);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$e.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const width$2 = 800;
+    const height$1 = 475;
+
+    //Setting for actual line elements
+    const transitionDuration = 400;
+
+    const dashArray = "4";
+    const strokeWidth = 2;
+
+    function getContainerCoords(node, event) {
+    	//From d3
+    	//https://github.com/d3/d3-selection/blob/master/src/point.js
+    	var svg = node.ownerSVGElement || node;
+
+    	if (svg.createSVGPoint) {
+    		var point = svg.createSVGPoint();
+    		(point.x = event.clientX, point.y = event.clientY);
+    		point = point.matrixTransform(node.getScreenCTM().inverse());
+    		return [point.x, point.y];
+    	}
+
+    	var rect = node.getBoundingClientRect();
+
+    	return [
+    		event.clientX - rect.left - node.clientLeft,
+    		event.clientY - rect.top - node.clientTop
+    	];
+    }
+
+    const func$2 = ({ year, supplyMean }) => ({ year, value: supplyMean });
+    const func_1$2 = ({ year, demandMean }) => ({ year, value: demandMean });
+
+    function instance$e($$self, $$props, $$invalidate) {
+    	let line;
+    	let area;
+    	let flatData;
+    	let byYearData;
+    	let xExtent;
+    	let xHalfway;
+    	let yMax;
+    	let x;
+    	let xTicks;
+    	let y;
+    	let yTicks;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('LineChartDifference2', slots, []);
+    	let { data } = $$props;
+    	const margin = { top: 30, right: 60, bottom: 65, left: 90 };
+
+    	const colors = [
+    		"rgb(31, 119, 180)",
+    		"rgb(255, 127, 14)",
+    		"rgb(44, 160, 44)",
+    		"rgb(214, 39, 40)",
+    		"rgb(148, 103, 189)",
+    		"rgb(140, 86, 75)",
+    		"rgb(227, 119, 194)",
+    		"rgb(127, 127, 127)",
+    		"rgb(188, 189, 34)",
+    		"rgb(23, 190, 207)",
+    		"rgb(174, 199, 232)",
+    		"rgb(255, 187, 120)",
+    		"rgb(152, 223, 138)",
+    		"rgb(255, 152, 150)",
+    		"rgb(197, 176, 213)",
+    		"rgb(196, 156, 148)",
+    		"rgb(247, 182, 210)",
+    		"rgb(199, 199, 199)",
+    		"rgb(219, 219, 141)",
+    		"rgb(158, 218, 229)"
+    	];
+
+    	let colorMap = new Map();
+    	const curve = monotoneX;
+    	let lineChartPosition = [];
+    	let hoverData;
+
+    	function handleHover(e) {
+    		const { clientY } = e;
+    		let hoverYear = Math.round(x.invert(getContainerCoords(this, e)[0]));
+    		const boundingRect = e.target.getBoundingClientRect();
+    		const scaling = boundingRect.width / width$2;
+
+    		$$invalidate(4, lineChartPosition = {
+    			left: boundingRect.left,
+    			right: boundingRect.right,
+    			top: boundingRect.top,
+    			scaling,
+    			clientY
+    		});
+
+    		if (hoverYear < xExtent[0]) {
+    			hoverYear = xExtent[0];
+    		} else if (hoverYear > xExtent[1]) {
+    			hoverYear = xExtent[1];
+    		}
+
+    		$$invalidate(5, hoverData = {
+    			year: hoverYear,
+    			values: byYearData.get(hoverYear).sort(function (a, b) {
+    				return descending(mean([a.supplyMean, a.demandMean]), mean([b.supplyMean, b.demandMean]));
+    			})
+    		});
+    	}
+
+    	function handleMouseLeave() {
+    		$$invalidate(5, hoverData = undefined);
+    	}
+
+    	function addExtentToValues(values) {
+    		const [min, max] = extent(values.flatMap(d => [d.supplyMean, d.demandMean]));
+    		return values.map(d => Object.assign({ min, max }, d));
+    	}
+
+    	const writable_props = ['data'];
+
+    	Object_1.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<LineChartDifference2> was created with unknown prop '${key}'`);
+    	});
+
+    	const func_2 = (d, i) => ({
+    		params: d.params,
+    		color: colorMap.get(d.id),
+    		id: d.id
+    	});
+
+    	function deleteProjection_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		Line,
+    		LineChartLegendTable,
+    		scaleLinear: linear,
+    		extent,
+    		max,
+    		group,
+    		descending,
+    		mean,
+    		d3line,
+    		d3area,
+    		curveMonotoneX: monotoneX,
+    		XTick,
+    		YTick,
+    		fade,
+    		DifferenceToolTipTable,
+    		LineLegend,
+    		data,
+    		width: width$2,
+    		height: height$1,
+    		margin,
+    		colors,
+    		colorMap,
+    		transitionDuration,
+    		dashArray,
+    		strokeWidth,
+    		curve,
+    		lineChartPosition,
+    		hoverData,
+    		handleHover,
+    		handleMouseLeave,
+    		addExtentToValues,
+    		getContainerCoords,
+    		byYearData,
+    		xExtent,
+    		x,
+    		y,
+    		yTicks,
+    		yMax,
+    		xTicks,
+    		flatData,
+    		xHalfway,
+    		area,
+    		line
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('colorMap' in $$props) $$invalidate(12, colorMap = $$props.colorMap);
+    		if ('lineChartPosition' in $$props) $$invalidate(4, lineChartPosition = $$props.lineChartPosition);
+    		if ('hoverData' in $$props) $$invalidate(5, hoverData = $$props.hoverData);
+    		if ('byYearData' in $$props) byYearData = $$props.byYearData;
+    		if ('xExtent' in $$props) $$invalidate(1, xExtent = $$props.xExtent);
+    		if ('x' in $$props) $$invalidate(2, x = $$props.x);
+    		if ('y' in $$props) $$invalidate(3, y = $$props.y);
+    		if ('yTicks' in $$props) $$invalidate(6, yTicks = $$props.yTicks);
+    		if ('yMax' in $$props) $$invalidate(15, yMax = $$props.yMax);
+    		if ('xTicks' in $$props) $$invalidate(7, xTicks = $$props.xTicks);
+    		if ('flatData' in $$props) $$invalidate(16, flatData = $$props.flatData);
+    		if ('xHalfway' in $$props) $$invalidate(8, xHalfway = $$props.xHalfway);
+    		if ('area' in $$props) $$invalidate(9, area = $$props.area);
+    		if ('line' in $$props) $$invalidate(10, line = $$props.line);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Could this be cleaner?
+    			{
+    				//Remove unused colors
+    				colorMap.forEach(function (value, key) {
+    					if (!data.map(d => d.id).includes(+key)) {
+    						colorMap.delete(key);
+    					}
+    				});
+
+    				//Assign color to new data
+    				data.forEach(function (d) {
+    					if (!colorMap.has(d.id)) {
+    						const availableColors = colors.filter(d => !Array.from(colorMap.values()).includes(d));
+    						colorMap.set(d.id, availableColors[0]);
+    					}
+    				});
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//clipAbove and clipBelow generators
+    			//Then use clip component to create clipPaths and
+    			//https://observablehq.com/@d3/difference-chart
+    			$$invalidate(16, flatData = data.map(d => d.values.map(e => Object.assign(
+    				{
+    					id: d.id,
+    					rateOrTotal: d.params.find(d => d[0] == "rateOrTotal")[1],
+    					color: colorMap.get(d.id)
+    				},
+    				e
+    			))).flat());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 65536) {
+    			$$invalidate(1, xExtent = flatData.length > 0
+    			? extent(flatData, d => d.year)
+    			: [2015, 2032]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*xExtent*/ 2) {
+    			$$invalidate(2, x = linear().domain(xExtent).range([margin.left, width$2 - margin.right]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 65536) {
+    			$$invalidate(15, yMax = flatData.length > 0
+    			? max(flatData.flatMap(d => [d.supplyMean, d.demandMean]))
+    			: 50);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*yMax*/ 32768) {
+    			$$invalidate(3, y = linear().domain([0, yMax]).nice().range([height$1 - margin.bottom, margin.top]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x, y*/ 12) {
+    			//Shape generators
+    			$$invalidate(10, line = d3line().curve(curve).defined(d => !isNaN(d.value)).x(d => x(d.year)).y(d => y(d.value)));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x, y*/ 12) {
+    			$$invalidate(9, area = d3area().curve(curve).x(d => x(d.year)).y0(d => y(d.supplyMean)).y1(d => y(d.demandMean)));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*flatData*/ 65536) {
+    			byYearData = group(flatData, d => d.year);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*xExtent*/ 2) {
+    			$$invalidate(8, xHalfway = Math.round((xExtent[1] + xExtent[0]) / 2));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*x*/ 4) {
+    			$$invalidate(7, xTicks = x.ticks());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*y*/ 8) {
+    			$$invalidate(6, yTicks = y.ticks());
+    		}
+    	};
+
+    	return [
+    		data,
+    		xExtent,
+    		x,
+    		y,
+    		lineChartPosition,
+    		hoverData,
+    		yTicks,
+    		xTicks,
+    		xHalfway,
+    		area,
+    		line,
+    		margin,
+    		colorMap,
+    		handleHover,
+    		handleMouseLeave,
+    		yMax,
+    		flatData,
+    		func_2,
+    		deleteProjection_handler
+    	];
+    }
+
+    class LineChartDifference2 extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$e, create_fragment$e, safe_not_equal, { data: 0 }, null, [-1, -1]);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LineChartDifference2",
+    			options,
+    			id: create_fragment$e.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*data*/ ctx[0] === undefined && !('data' in props)) {
+    			console.warn("<LineChartDifference2> was created without expected prop 'data'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<LineChartDifference2>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<LineChartDifference2>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    // Adds floating point numbers with twice the normal precision.
+    // Reference: J. R. Shewchuk, Adaptive Precision Floating-Point Arithmetic and
+    // Fast Robust Geometric Predicates, Discrete & Computational Geometry 18(3)
+    // 305–363 (1997).
+    // Code adapted from GeographicLib by Charles F. F. Karney,
+    // http://geographiclib.sourceforge.net/
+
+    function adder() {
+      return new Adder;
+    }
+
+    function Adder() {
+      this.reset();
+    }
+
+    Adder.prototype = {
+      constructor: Adder,
+      reset: function() {
+        this.s = // rounded value
+        this.t = 0; // exact error
+      },
+      add: function(y) {
+        add(temp, y, this.t);
+        add(this, temp.s, this.s);
+        if (this.s) this.t += temp.t;
+        else this.s = temp.t;
+      },
+      valueOf: function() {
+        return this.s;
+      }
+    };
+
+    var temp = new Adder;
+
+    function add(adder, a, b) {
+      var x = adder.s = a + b,
+          bv = x - a,
+          av = x - bv;
+      adder.t = (a - av) + (b - bv);
+    }
+
+    var epsilon = 1e-6;
+    var pi = Math.PI;
+    var halfPi = pi / 2;
+    var quarterPi = pi / 4;
+    var tau = pi * 2;
+
+    var degrees = 180 / pi;
+    var radians = pi / 180;
+
+    var abs = Math.abs;
+    var atan = Math.atan;
+    var atan2 = Math.atan2;
+    var cos = Math.cos;
+    var sin = Math.sin;
+    var sign = Math.sign || function(x) { return x > 0 ? 1 : x < 0 ? -1 : 0; };
+    var sqrt = Math.sqrt;
+
+    function acos(x) {
+      return x > 1 ? 0 : x < -1 ? pi : Math.acos(x);
+    }
+
+    function asin(x) {
+      return x > 1 ? halfPi : x < -1 ? -halfPi : Math.asin(x);
+    }
+
+    function noop() {}
+
+    function streamGeometry(geometry, stream) {
+      if (geometry && streamGeometryType.hasOwnProperty(geometry.type)) {
+        streamGeometryType[geometry.type](geometry, stream);
+      }
+    }
+
+    var streamObjectType = {
+      Feature: function(object, stream) {
+        streamGeometry(object.geometry, stream);
+      },
+      FeatureCollection: function(object, stream) {
+        var features = object.features, i = -1, n = features.length;
+        while (++i < n) streamGeometry(features[i].geometry, stream);
+      }
+    };
+
+    var streamGeometryType = {
+      Sphere: function(object, stream) {
+        stream.sphere();
+      },
+      Point: function(object, stream) {
+        object = object.coordinates;
+        stream.point(object[0], object[1], object[2]);
+      },
+      MultiPoint: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while (++i < n) object = coordinates[i], stream.point(object[0], object[1], object[2]);
+      },
+      LineString: function(object, stream) {
+        streamLine(object.coordinates, stream, 0);
+      },
+      MultiLineString: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while (++i < n) streamLine(coordinates[i], stream, 0);
+      },
+      Polygon: function(object, stream) {
+        streamPolygon(object.coordinates, stream);
+      },
+      MultiPolygon: function(object, stream) {
+        var coordinates = object.coordinates, i = -1, n = coordinates.length;
+        while (++i < n) streamPolygon(coordinates[i], stream);
+      },
+      GeometryCollection: function(object, stream) {
+        var geometries = object.geometries, i = -1, n = geometries.length;
+        while (++i < n) streamGeometry(geometries[i], stream);
+      }
+    };
+
+    function streamLine(coordinates, stream, closed) {
+      var i = -1, n = coordinates.length - closed, coordinate;
+      stream.lineStart();
+      while (++i < n) coordinate = coordinates[i], stream.point(coordinate[0], coordinate[1], coordinate[2]);
+      stream.lineEnd();
+    }
+
+    function streamPolygon(coordinates, stream) {
+      var i = -1, n = coordinates.length;
+      stream.polygonStart();
+      while (++i < n) streamLine(coordinates[i], stream, 1);
+      stream.polygonEnd();
+    }
+
+    function geoStream(object, stream) {
+      if (object && streamObjectType.hasOwnProperty(object.type)) {
+        streamObjectType[object.type](object, stream);
+      } else {
+        streamGeometry(object, stream);
+      }
+    }
+
+    function spherical(cartesian) {
+      return [atan2(cartesian[1], cartesian[0]), asin(cartesian[2])];
+    }
+
+    function cartesian(spherical) {
+      var lambda = spherical[0], phi = spherical[1], cosPhi = cos(phi);
+      return [cosPhi * cos(lambda), cosPhi * sin(lambda), sin(phi)];
+    }
+
+    function cartesianDot(a, b) {
+      return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    }
+
+    function cartesianCross(a, b) {
+      return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    }
+
+    // TODO return a
+    function cartesianAddInPlace(a, b) {
+      a[0] += b[0], a[1] += b[1], a[2] += b[2];
+    }
+
+    function cartesianScale(vector, k) {
+      return [vector[0] * k, vector[1] * k, vector[2] * k];
+    }
+
+    // TODO return d
+    function cartesianNormalizeInPlace(d) {
+      var l = sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+      d[0] /= l, d[1] /= l, d[2] /= l;
+    }
+
+    function compose(a, b) {
+
+      function compose(x, y) {
+        return x = a(x, y), b(x[0], x[1]);
+      }
+
+      if (a.invert && b.invert) compose.invert = function(x, y) {
+        return x = b.invert(x, y), x && a.invert(x[0], x[1]);
+      };
+
+      return compose;
+    }
+
+    function rotationIdentity(lambda, phi) {
+      return [abs(lambda) > pi ? lambda + Math.round(-lambda / tau) * tau : lambda, phi];
+    }
+
+    rotationIdentity.invert = rotationIdentity;
+
+    function rotateRadians(deltaLambda, deltaPhi, deltaGamma) {
+      return (deltaLambda %= tau) ? (deltaPhi || deltaGamma ? compose(rotationLambda(deltaLambda), rotationPhiGamma(deltaPhi, deltaGamma))
+        : rotationLambda(deltaLambda))
+        : (deltaPhi || deltaGamma ? rotationPhiGamma(deltaPhi, deltaGamma)
+        : rotationIdentity);
+    }
+
+    function forwardRotationLambda(deltaLambda) {
+      return function(lambda, phi) {
+        return lambda += deltaLambda, [lambda > pi ? lambda - tau : lambda < -pi ? lambda + tau : lambda, phi];
+      };
+    }
+
+    function rotationLambda(deltaLambda) {
+      var rotation = forwardRotationLambda(deltaLambda);
+      rotation.invert = forwardRotationLambda(-deltaLambda);
+      return rotation;
+    }
+
+    function rotationPhiGamma(deltaPhi, deltaGamma) {
+      var cosDeltaPhi = cos(deltaPhi),
+          sinDeltaPhi = sin(deltaPhi),
+          cosDeltaGamma = cos(deltaGamma),
+          sinDeltaGamma = sin(deltaGamma);
+
+      function rotation(lambda, phi) {
+        var cosPhi = cos(phi),
+            x = cos(lambda) * cosPhi,
+            y = sin(lambda) * cosPhi,
+            z = sin(phi),
+            k = z * cosDeltaPhi + x * sinDeltaPhi;
+        return [
+          atan2(y * cosDeltaGamma - k * sinDeltaGamma, x * cosDeltaPhi - z * sinDeltaPhi),
+          asin(k * cosDeltaGamma + y * sinDeltaGamma)
+        ];
+      }
+
+      rotation.invert = function(lambda, phi) {
+        var cosPhi = cos(phi),
+            x = cos(lambda) * cosPhi,
+            y = sin(lambda) * cosPhi,
+            z = sin(phi),
+            k = z * cosDeltaGamma - y * sinDeltaGamma;
+        return [
+          atan2(y * cosDeltaGamma + z * sinDeltaGamma, x * cosDeltaPhi + k * sinDeltaPhi),
+          asin(k * cosDeltaPhi - x * sinDeltaPhi)
+        ];
+      };
+
+      return rotation;
+    }
+
+    // Generates a circle centered at [0°, 0°], with a given radius and precision.
+    function circleStream(stream, radius, delta, direction, t0, t1) {
+      if (!delta) return;
+      var cosRadius = cos(radius),
+          sinRadius = sin(radius),
+          step = direction * delta;
+      if (t0 == null) {
+        t0 = radius + direction * tau;
+        t1 = radius - step / 2;
+      } else {
+        t0 = circleRadius(cosRadius, t0);
+        t1 = circleRadius(cosRadius, t1);
+        if (direction > 0 ? t0 < t1 : t0 > t1) t0 += direction * tau;
+      }
+      for (var point, t = t0; direction > 0 ? t > t1 : t < t1; t -= step) {
+        point = spherical([cosRadius, -sinRadius * cos(t), -sinRadius * sin(t)]);
+        stream.point(point[0], point[1]);
+      }
+    }
+
+    // Returns the signed angle of a cartesian point relative to [cosRadius, 0, 0].
+    function circleRadius(cosRadius, point) {
+      point = cartesian(point), point[0] -= cosRadius;
+      cartesianNormalizeInPlace(point);
+      var radius = acos(-point[1]);
+      return ((-point[2] < 0 ? -radius : radius) + tau - epsilon) % tau;
+    }
+
+    function clipBuffer() {
+      var lines = [],
+          line;
+      return {
+        point: function(x, y, m) {
+          line.push([x, y, m]);
+        },
+        lineStart: function() {
+          lines.push(line = []);
+        },
+        lineEnd: noop,
+        rejoin: function() {
+          if (lines.length > 1) lines.push(lines.pop().concat(lines.shift()));
+        },
+        result: function() {
+          var result = lines;
+          lines = [];
+          line = null;
+          return result;
+        }
+      };
+    }
+
+    function pointEqual(a, b) {
+      return abs(a[0] - b[0]) < epsilon && abs(a[1] - b[1]) < epsilon;
+    }
+
+    function Intersection(point, points, other, entry) {
+      this.x = point;
+      this.z = points;
+      this.o = other; // another intersection
+      this.e = entry; // is an entry?
+      this.v = false; // visited
+      this.n = this.p = null; // next & previous
+    }
+
+    // A generalized polygon clipping algorithm: given a polygon that has been cut
+    // into its visible line segments, and rejoins the segments by interpolating
+    // along the clip edge.
+    function clipRejoin(segments, compareIntersection, startInside, interpolate, stream) {
+      var subject = [],
+          clip = [],
+          i,
+          n;
+
+      segments.forEach(function(segment) {
+        if ((n = segment.length - 1) <= 0) return;
+        var n, p0 = segment[0], p1 = segment[n], x;
+
+        if (pointEqual(p0, p1)) {
+          if (!p0[2] && !p1[2]) {
+            stream.lineStart();
+            for (i = 0; i < n; ++i) stream.point((p0 = segment[i])[0], p0[1]);
+            stream.lineEnd();
+            return;
+          }
+          // handle degenerate cases by moving the point
+          p1[0] += 2 * epsilon;
+        }
+
+        subject.push(x = new Intersection(p0, segment, null, true));
+        clip.push(x.o = new Intersection(p0, null, x, false));
+        subject.push(x = new Intersection(p1, segment, null, false));
+        clip.push(x.o = new Intersection(p1, null, x, true));
+      });
+
+      if (!subject.length) return;
+
+      clip.sort(compareIntersection);
+      link(subject);
+      link(clip);
+
+      for (i = 0, n = clip.length; i < n; ++i) {
+        clip[i].e = startInside = !startInside;
+      }
+
+      var start = subject[0],
+          points,
+          point;
+
+      while (1) {
+        // Find first unvisited intersection.
+        var current = start,
+            isSubject = true;
+        while (current.v) if ((current = current.n) === start) return;
+        points = current.z;
+        stream.lineStart();
+        do {
+          current.v = current.o.v = true;
+          if (current.e) {
+            if (isSubject) {
+              for (i = 0, n = points.length; i < n; ++i) stream.point((point = points[i])[0], point[1]);
+            } else {
+              interpolate(current.x, current.n.x, 1, stream);
+            }
+            current = current.n;
+          } else {
+            if (isSubject) {
+              points = current.p.z;
+              for (i = points.length - 1; i >= 0; --i) stream.point((point = points[i])[0], point[1]);
+            } else {
+              interpolate(current.x, current.p.x, -1, stream);
+            }
+            current = current.p;
+          }
+          current = current.o;
+          points = current.z;
+          isSubject = !isSubject;
+        } while (!current.v);
+        stream.lineEnd();
+      }
+    }
+
+    function link(array) {
+      if (!(n = array.length)) return;
+      var n,
+          i = 0,
+          a = array[0],
+          b;
+      while (++i < n) {
+        a.n = b = array[i];
+        b.p = a;
+        a = b;
+      }
+      a.n = b = array[0];
+      b.p = a;
+    }
+
+    var sum = adder();
+
+    function longitude(point) {
+      if (abs(point[0]) <= pi)
+        return point[0];
+      else
+        return sign(point[0]) * ((abs(point[0]) + pi) % tau - pi);
+    }
+
+    function polygonContains(polygon, point) {
+      var lambda = longitude(point),
+          phi = point[1],
+          sinPhi = sin(phi),
+          normal = [sin(lambda), -cos(lambda), 0],
+          angle = 0,
+          winding = 0;
+
+      sum.reset();
+
+      if (sinPhi === 1) phi = halfPi + epsilon;
+      else if (sinPhi === -1) phi = -halfPi - epsilon;
+
+      for (var i = 0, n = polygon.length; i < n; ++i) {
+        if (!(m = (ring = polygon[i]).length)) continue;
+        var ring,
+            m,
+            point0 = ring[m - 1],
+            lambda0 = longitude(point0),
+            phi0 = point0[1] / 2 + quarterPi,
+            sinPhi0 = sin(phi0),
+            cosPhi0 = cos(phi0);
+
+        for (var j = 0; j < m; ++j, lambda0 = lambda1, sinPhi0 = sinPhi1, cosPhi0 = cosPhi1, point0 = point1) {
+          var point1 = ring[j],
+              lambda1 = longitude(point1),
+              phi1 = point1[1] / 2 + quarterPi,
+              sinPhi1 = sin(phi1),
+              cosPhi1 = cos(phi1),
+              delta = lambda1 - lambda0,
+              sign = delta >= 0 ? 1 : -1,
+              absDelta = sign * delta,
+              antimeridian = absDelta > pi,
+              k = sinPhi0 * sinPhi1;
+
+          sum.add(atan2(k * sign * sin(absDelta), cosPhi0 * cosPhi1 + k * cos(absDelta)));
+          angle += antimeridian ? delta + sign * tau : delta;
+
+          // Are the longitudes either side of the point’s meridian (lambda),
+          // and are the latitudes smaller than the parallel (phi)?
+          if (antimeridian ^ lambda0 >= lambda ^ lambda1 >= lambda) {
+            var arc = cartesianCross(cartesian(point0), cartesian(point1));
+            cartesianNormalizeInPlace(arc);
+            var intersection = cartesianCross(normal, arc);
+            cartesianNormalizeInPlace(intersection);
+            var phiArc = (antimeridian ^ delta >= 0 ? -1 : 1) * asin(intersection[2]);
+            if (phi > phiArc || phi === phiArc && (arc[0] || arc[1])) {
+              winding += antimeridian ^ delta >= 0 ? 1 : -1;
+            }
+          }
+        }
+      }
+
+      // First, determine whether the South pole is inside or outside:
+      //
+      // It is inside if:
+      // * the polygon winds around it in a clockwise direction.
+      // * the polygon does not (cumulatively) wind around it, but has a negative
+      //   (counter-clockwise) area.
+      //
+      // Second, count the (signed) number of times a segment crosses a lambda
+      // from the point to the South pole.  If it is zero, then the point is the
+      // same side as the South pole.
+
+      return (angle < -epsilon || angle < epsilon && sum < -epsilon) ^ (winding & 1);
+    }
+
+    function ascending(a, b) {
+      return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+    }
+
+    function bisector(compare) {
+      if (compare.length === 1) compare = ascendingComparator(compare);
+      return {
+        left: function(a, x, lo, hi) {
+          if (lo == null) lo = 0;
+          if (hi == null) hi = a.length;
+          while (lo < hi) {
+            var mid = lo + hi >>> 1;
+            if (compare(a[mid], x) < 0) lo = mid + 1;
+            else hi = mid;
+          }
+          return lo;
+        },
+        right: function(a, x, lo, hi) {
+          if (lo == null) lo = 0;
+          if (hi == null) hi = a.length;
+          while (lo < hi) {
+            var mid = lo + hi >>> 1;
+            if (compare(a[mid], x) > 0) hi = mid;
+            else lo = mid + 1;
+          }
+          return lo;
+        }
+      };
+    }
+
+    function ascendingComparator(f) {
+      return function(d, x) {
+        return ascending(f(d), x);
+      };
+    }
+
+    bisector(ascending);
+
+    function merge(arrays) {
+      var n = arrays.length,
+          m,
+          i = -1,
+          j = 0,
+          merged,
+          array;
+
+      while (++i < n) j += arrays[i].length;
+      merged = new Array(j);
+
+      while (--n >= 0) {
+        array = arrays[n];
+        m = array.length;
+        while (--m >= 0) {
+          merged[--j] = array[m];
+        }
+      }
+
+      return merged;
+    }
+
+    function clip(pointVisible, clipLine, interpolate, start) {
+      return function(sink) {
+        var line = clipLine(sink),
+            ringBuffer = clipBuffer(),
+            ringSink = clipLine(ringBuffer),
+            polygonStarted = false,
+            polygon,
+            segments,
+            ring;
+
+        var clip = {
+          point: point,
+          lineStart: lineStart,
+          lineEnd: lineEnd,
+          polygonStart: function() {
+            clip.point = pointRing;
+            clip.lineStart = ringStart;
+            clip.lineEnd = ringEnd;
+            segments = [];
+            polygon = [];
+          },
+          polygonEnd: function() {
+            clip.point = point;
+            clip.lineStart = lineStart;
+            clip.lineEnd = lineEnd;
+            segments = merge(segments);
+            var startInside = polygonContains(polygon, start);
+            if (segments.length) {
+              if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+              clipRejoin(segments, compareIntersection, startInside, interpolate, sink);
+            } else if (startInside) {
+              if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+              sink.lineStart();
+              interpolate(null, null, 1, sink);
+              sink.lineEnd();
+            }
+            if (polygonStarted) sink.polygonEnd(), polygonStarted = false;
+            segments = polygon = null;
+          },
+          sphere: function() {
+            sink.polygonStart();
+            sink.lineStart();
+            interpolate(null, null, 1, sink);
+            sink.lineEnd();
+            sink.polygonEnd();
+          }
+        };
+
+        function point(lambda, phi) {
+          if (pointVisible(lambda, phi)) sink.point(lambda, phi);
+        }
+
+        function pointLine(lambda, phi) {
+          line.point(lambda, phi);
+        }
+
+        function lineStart() {
+          clip.point = pointLine;
+          line.lineStart();
+        }
+
+        function lineEnd() {
+          clip.point = point;
+          line.lineEnd();
+        }
+
+        function pointRing(lambda, phi) {
+          ring.push([lambda, phi]);
+          ringSink.point(lambda, phi);
+        }
+
+        function ringStart() {
+          ringSink.lineStart();
+          ring = [];
+        }
+
+        function ringEnd() {
+          pointRing(ring[0][0], ring[0][1]);
+          ringSink.lineEnd();
+
+          var clean = ringSink.clean(),
+              ringSegments = ringBuffer.result(),
+              i, n = ringSegments.length, m,
+              segment,
+              point;
+
+          ring.pop();
+          polygon.push(ring);
+          ring = null;
+
+          if (!n) return;
+
+          // No intersections.
+          if (clean & 1) {
+            segment = ringSegments[0];
+            if ((m = segment.length - 1) > 0) {
+              if (!polygonStarted) sink.polygonStart(), polygonStarted = true;
+              sink.lineStart();
+              for (i = 0; i < m; ++i) sink.point((point = segment[i])[0], point[1]);
+              sink.lineEnd();
+            }
+            return;
+          }
+
+          // Rejoin connected segments.
+          // TODO reuse ringBuffer.rejoin()?
+          if (n > 1 && clean & 2) ringSegments.push(ringSegments.pop().concat(ringSegments.shift()));
+
+          segments.push(ringSegments.filter(validSegment));
+        }
+
+        return clip;
+      };
+    }
+
+    function validSegment(segment) {
+      return segment.length > 1;
+    }
+
+    // Intersections are sorted along the clip edge. For both antimeridian cutting
+    // and circle clipping, the same comparison is used.
+    function compareIntersection(a, b) {
+      return ((a = a.x)[0] < 0 ? a[1] - halfPi - epsilon : halfPi - a[1])
+           - ((b = b.x)[0] < 0 ? b[1] - halfPi - epsilon : halfPi - b[1]);
+    }
+
+    var clipAntimeridian = clip(
+      function() { return true; },
+      clipAntimeridianLine,
+      clipAntimeridianInterpolate,
+      [-pi, -halfPi]
+    );
+
+    // Takes a line and cuts into visible segments. Return values: 0 - there were
+    // intersections or the line was empty; 1 - no intersections; 2 - there were
+    // intersections, and the first and last segments should be rejoined.
+    function clipAntimeridianLine(stream) {
+      var lambda0 = NaN,
+          phi0 = NaN,
+          sign0 = NaN,
+          clean; // no intersections
+
+      return {
+        lineStart: function() {
+          stream.lineStart();
+          clean = 1;
+        },
+        point: function(lambda1, phi1) {
+          var sign1 = lambda1 > 0 ? pi : -pi,
+              delta = abs(lambda1 - lambda0);
+          if (abs(delta - pi) < epsilon) { // line crosses a pole
+            stream.point(lambda0, phi0 = (phi0 + phi1) / 2 > 0 ? halfPi : -halfPi);
+            stream.point(sign0, phi0);
+            stream.lineEnd();
+            stream.lineStart();
+            stream.point(sign1, phi0);
+            stream.point(lambda1, phi0);
+            clean = 0;
+          } else if (sign0 !== sign1 && delta >= pi) { // line crosses antimeridian
+            if (abs(lambda0 - sign0) < epsilon) lambda0 -= sign0 * epsilon; // handle degeneracies
+            if (abs(lambda1 - sign1) < epsilon) lambda1 -= sign1 * epsilon;
+            phi0 = clipAntimeridianIntersect(lambda0, phi0, lambda1, phi1);
+            stream.point(sign0, phi0);
+            stream.lineEnd();
+            stream.lineStart();
+            stream.point(sign1, phi0);
+            clean = 0;
+          }
+          stream.point(lambda0 = lambda1, phi0 = phi1);
+          sign0 = sign1;
+        },
+        lineEnd: function() {
+          stream.lineEnd();
+          lambda0 = phi0 = NaN;
+        },
+        clean: function() {
+          return 2 - clean; // if intersections, rejoin first and last segments
+        }
+      };
+    }
+
+    function clipAntimeridianIntersect(lambda0, phi0, lambda1, phi1) {
+      var cosPhi0,
+          cosPhi1,
+          sinLambda0Lambda1 = sin(lambda0 - lambda1);
+      return abs(sinLambda0Lambda1) > epsilon
+          ? atan((sin(phi0) * (cosPhi1 = cos(phi1)) * sin(lambda1)
+              - sin(phi1) * (cosPhi0 = cos(phi0)) * sin(lambda0))
+              / (cosPhi0 * cosPhi1 * sinLambda0Lambda1))
+          : (phi0 + phi1) / 2;
+    }
+
+    function clipAntimeridianInterpolate(from, to, direction, stream) {
+      var phi;
+      if (from == null) {
+        phi = direction * halfPi;
+        stream.point(-pi, phi);
+        stream.point(0, phi);
+        stream.point(pi, phi);
+        stream.point(pi, 0);
+        stream.point(pi, -phi);
+        stream.point(0, -phi);
+        stream.point(-pi, -phi);
+        stream.point(-pi, 0);
+        stream.point(-pi, phi);
+      } else if (abs(from[0] - to[0]) > epsilon) {
+        var lambda = from[0] < to[0] ? pi : -pi;
+        phi = direction * lambda / 2;
+        stream.point(-lambda, phi);
+        stream.point(0, phi);
+        stream.point(lambda, phi);
+      } else {
+        stream.point(to[0], to[1]);
+      }
+    }
+
+    function clipCircle(radius) {
+      var cr = cos(radius),
+          delta = 6 * radians,
+          smallRadius = cr > 0,
+          notHemisphere = abs(cr) > epsilon; // TODO optimise for this common case
+
+      function interpolate(from, to, direction, stream) {
+        circleStream(stream, radius, delta, direction, from, to);
+      }
+
+      function visible(lambda, phi) {
+        return cos(lambda) * cos(phi) > cr;
+      }
+
+      // Takes a line and cuts into visible segments. Return values used for polygon
+      // clipping: 0 - there were intersections or the line was empty; 1 - no
+      // intersections 2 - there were intersections, and the first and last segments
+      // should be rejoined.
+      function clipLine(stream) {
+        var point0, // previous point
+            c0, // code for previous point
+            v0, // visibility of previous point
+            v00, // visibility of first point
+            clean; // no intersections
+        return {
+          lineStart: function() {
+            v00 = v0 = false;
+            clean = 1;
+          },
+          point: function(lambda, phi) {
+            var point1 = [lambda, phi],
+                point2,
+                v = visible(lambda, phi),
+                c = smallRadius
+                  ? v ? 0 : code(lambda, phi)
+                  : v ? code(lambda + (lambda < 0 ? pi : -pi), phi) : 0;
+            if (!point0 && (v00 = v0 = v)) stream.lineStart();
+            if (v !== v0) {
+              point2 = intersect(point0, point1);
+              if (!point2 || pointEqual(point0, point2) || pointEqual(point1, point2))
+                point1[2] = 1;
+            }
+            if (v !== v0) {
+              clean = 0;
+              if (v) {
+                // outside going in
+                stream.lineStart();
+                point2 = intersect(point1, point0);
+                stream.point(point2[0], point2[1]);
+              } else {
+                // inside going out
+                point2 = intersect(point0, point1);
+                stream.point(point2[0], point2[1], 2);
+                stream.lineEnd();
+              }
+              point0 = point2;
+            } else if (notHemisphere && point0 && smallRadius ^ v) {
+              var t;
+              // If the codes for two points are different, or are both zero,
+              // and there this segment intersects with the small circle.
+              if (!(c & c0) && (t = intersect(point1, point0, true))) {
+                clean = 0;
+                if (smallRadius) {
+                  stream.lineStart();
+                  stream.point(t[0][0], t[0][1]);
+                  stream.point(t[1][0], t[1][1]);
+                  stream.lineEnd();
+                } else {
+                  stream.point(t[1][0], t[1][1]);
+                  stream.lineEnd();
+                  stream.lineStart();
+                  stream.point(t[0][0], t[0][1], 3);
+                }
+              }
+            }
+            if (v && (!point0 || !pointEqual(point0, point1))) {
+              stream.point(point1[0], point1[1]);
+            }
+            point0 = point1, v0 = v, c0 = c;
+          },
+          lineEnd: function() {
+            if (v0) stream.lineEnd();
+            point0 = null;
+          },
+          // Rejoin first and last segments if there were intersections and the first
+          // and last points were visible.
+          clean: function() {
+            return clean | ((v00 && v0) << 1);
+          }
+        };
+      }
+
+      // Intersects the great circle between a and b with the clip circle.
+      function intersect(a, b, two) {
+        var pa = cartesian(a),
+            pb = cartesian(b);
+
+        // We have two planes, n1.p = d1 and n2.p = d2.
+        // Find intersection line p(t) = c1 n1 + c2 n2 + t (n1 ⨯ n2).
+        var n1 = [1, 0, 0], // normal
+            n2 = cartesianCross(pa, pb),
+            n2n2 = cartesianDot(n2, n2),
+            n1n2 = n2[0], // cartesianDot(n1, n2),
+            determinant = n2n2 - n1n2 * n1n2;
+
+        // Two polar points.
+        if (!determinant) return !two && a;
+
+        var c1 =  cr * n2n2 / determinant,
+            c2 = -cr * n1n2 / determinant,
+            n1xn2 = cartesianCross(n1, n2),
+            A = cartesianScale(n1, c1),
+            B = cartesianScale(n2, c2);
+        cartesianAddInPlace(A, B);
+
+        // Solve |p(t)|^2 = 1.
+        var u = n1xn2,
+            w = cartesianDot(A, u),
+            uu = cartesianDot(u, u),
+            t2 = w * w - uu * (cartesianDot(A, A) - 1);
+
+        if (t2 < 0) return;
+
+        var t = sqrt(t2),
+            q = cartesianScale(u, (-w - t) / uu);
+        cartesianAddInPlace(q, A);
+        q = spherical(q);
+
+        if (!two) return q;
+
+        // Two intersection points.
+        var lambda0 = a[0],
+            lambda1 = b[0],
+            phi0 = a[1],
+            phi1 = b[1],
+            z;
+
+        if (lambda1 < lambda0) z = lambda0, lambda0 = lambda1, lambda1 = z;
+
+        var delta = lambda1 - lambda0,
+            polar = abs(delta - pi) < epsilon,
+            meridian = polar || delta < epsilon;
+
+        if (!polar && phi1 < phi0) z = phi0, phi0 = phi1, phi1 = z;
+
+        // Check that the first point is between a and b.
+        if (meridian
+            ? polar
+              ? phi0 + phi1 > 0 ^ q[1] < (abs(q[0] - lambda0) < epsilon ? phi0 : phi1)
+              : phi0 <= q[1] && q[1] <= phi1
+            : delta > pi ^ (lambda0 <= q[0] && q[0] <= lambda1)) {
+          var q1 = cartesianScale(u, (-w + t) / uu);
+          cartesianAddInPlace(q1, A);
+          return [q, spherical(q1)];
+        }
+      }
+
+      // Generates a 4-bit vector representing the location of a point relative to
+      // the small circle's bounding box.
+      function code(lambda, phi) {
+        var r = smallRadius ? radius : pi - radius,
+            code = 0;
+        if (lambda < -r) code |= 1; // left
+        else if (lambda > r) code |= 2; // right
+        if (phi < -r) code |= 4; // below
+        else if (phi > r) code |= 8; // above
+        return code;
+      }
+
+      return clip(visible, clipLine, interpolate, smallRadius ? [0, -radius] : [-pi, radius - pi]);
+    }
+
+    function clipLine(a, b, x0, y0, x1, y1) {
+      var ax = a[0],
+          ay = a[1],
+          bx = b[0],
+          by = b[1],
+          t0 = 0,
+          t1 = 1,
+          dx = bx - ax,
+          dy = by - ay,
+          r;
+
+      r = x0 - ax;
+      if (!dx && r > 0) return;
+      r /= dx;
+      if (dx < 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+      } else if (dx > 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+      }
+
+      r = x1 - ax;
+      if (!dx && r < 0) return;
+      r /= dx;
+      if (dx < 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+      } else if (dx > 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+      }
+
+      r = y0 - ay;
+      if (!dy && r > 0) return;
+      r /= dy;
+      if (dy < 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+      } else if (dy > 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+      }
+
+      r = y1 - ay;
+      if (!dy && r < 0) return;
+      r /= dy;
+      if (dy < 0) {
+        if (r > t1) return;
+        if (r > t0) t0 = r;
+      } else if (dy > 0) {
+        if (r < t0) return;
+        if (r < t1) t1 = r;
+      }
+
+      if (t0 > 0) a[0] = ax + t0 * dx, a[1] = ay + t0 * dy;
+      if (t1 < 1) b[0] = ax + t1 * dx, b[1] = ay + t1 * dy;
+      return true;
+    }
+
+    var clipMax = 1e9, clipMin = -clipMax;
+
+    // TODO Use d3-polygon’s polygonContains here for the ring check?
+    // TODO Eliminate duplicate buffering in clipBuffer and polygon.push?
+
+    function clipRectangle(x0, y0, x1, y1) {
+
+      function visible(x, y) {
+        return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+      }
+
+      function interpolate(from, to, direction, stream) {
+        var a = 0, a1 = 0;
+        if (from == null
+            || (a = corner(from, direction)) !== (a1 = corner(to, direction))
+            || comparePoint(from, to) < 0 ^ direction > 0) {
+          do stream.point(a === 0 || a === 3 ? x0 : x1, a > 1 ? y1 : y0);
+          while ((a = (a + direction + 4) % 4) !== a1);
+        } else {
+          stream.point(to[0], to[1]);
+        }
+      }
+
+      function corner(p, direction) {
+        return abs(p[0] - x0) < epsilon ? direction > 0 ? 0 : 3
+            : abs(p[0] - x1) < epsilon ? direction > 0 ? 2 : 1
+            : abs(p[1] - y0) < epsilon ? direction > 0 ? 1 : 0
+            : direction > 0 ? 3 : 2; // abs(p[1] - y1) < epsilon
+      }
+
+      function compareIntersection(a, b) {
+        return comparePoint(a.x, b.x);
+      }
+
+      function comparePoint(a, b) {
+        var ca = corner(a, 1),
+            cb = corner(b, 1);
+        return ca !== cb ? ca - cb
+            : ca === 0 ? b[1] - a[1]
+            : ca === 1 ? a[0] - b[0]
+            : ca === 2 ? a[1] - b[1]
+            : b[0] - a[0];
+      }
+
+      return function(stream) {
+        var activeStream = stream,
+            bufferStream = clipBuffer(),
+            segments,
+            polygon,
+            ring,
+            x__, y__, v__, // first point
+            x_, y_, v_, // previous point
+            first,
+            clean;
+
+        var clipStream = {
+          point: point,
+          lineStart: lineStart,
+          lineEnd: lineEnd,
+          polygonStart: polygonStart,
+          polygonEnd: polygonEnd
+        };
+
+        function point(x, y) {
+          if (visible(x, y)) activeStream.point(x, y);
+        }
+
+        function polygonInside() {
+          var winding = 0;
+
+          for (var i = 0, n = polygon.length; i < n; ++i) {
+            for (var ring = polygon[i], j = 1, m = ring.length, point = ring[0], a0, a1, b0 = point[0], b1 = point[1]; j < m; ++j) {
+              a0 = b0, a1 = b1, point = ring[j], b0 = point[0], b1 = point[1];
+              if (a1 <= y1) { if (b1 > y1 && (b0 - a0) * (y1 - a1) > (b1 - a1) * (x0 - a0)) ++winding; }
+              else { if (b1 <= y1 && (b0 - a0) * (y1 - a1) < (b1 - a1) * (x0 - a0)) --winding; }
+            }
+          }
+
+          return winding;
+        }
+
+        // Buffer geometry within a polygon and then clip it en masse.
+        function polygonStart() {
+          activeStream = bufferStream, segments = [], polygon = [], clean = true;
+        }
+
+        function polygonEnd() {
+          var startInside = polygonInside(),
+              cleanInside = clean && startInside,
+              visible = (segments = merge(segments)).length;
+          if (cleanInside || visible) {
+            stream.polygonStart();
+            if (cleanInside) {
+              stream.lineStart();
+              interpolate(null, null, 1, stream);
+              stream.lineEnd();
+            }
+            if (visible) {
+              clipRejoin(segments, compareIntersection, startInside, interpolate, stream);
+            }
+            stream.polygonEnd();
+          }
+          activeStream = stream, segments = polygon = ring = null;
+        }
+
+        function lineStart() {
+          clipStream.point = linePoint;
+          if (polygon) polygon.push(ring = []);
+          first = true;
+          v_ = false;
+          x_ = y_ = NaN;
+        }
+
+        // TODO rather than special-case polygons, simply handle them separately.
+        // Ideally, coincident intersection points should be jittered to avoid
+        // clipping issues.
+        function lineEnd() {
+          if (segments) {
+            linePoint(x__, y__);
+            if (v__ && v_) bufferStream.rejoin();
+            segments.push(bufferStream.result());
+          }
+          clipStream.point = point;
+          if (v_) activeStream.lineEnd();
+        }
+
+        function linePoint(x, y) {
+          var v = visible(x, y);
+          if (polygon) ring.push([x, y]);
+          if (first) {
+            x__ = x, y__ = y, v__ = v;
+            first = false;
+            if (v) {
+              activeStream.lineStart();
+              activeStream.point(x, y);
+            }
+          } else {
+            if (v && v_) activeStream.point(x, y);
+            else {
+              var a = [x_ = Math.max(clipMin, Math.min(clipMax, x_)), y_ = Math.max(clipMin, Math.min(clipMax, y_))],
+                  b = [x = Math.max(clipMin, Math.min(clipMax, x)), y = Math.max(clipMin, Math.min(clipMax, y))];
+              if (clipLine(a, b, x0, y0, x1, y1)) {
+                if (!v_) {
+                  activeStream.lineStart();
+                  activeStream.point(a[0], a[1]);
+                }
+                activeStream.point(b[0], b[1]);
+                if (!v) activeStream.lineEnd();
+                clean = false;
+              } else if (v) {
+                activeStream.lineStart();
+                activeStream.point(x, y);
+                clean = false;
+              }
+            }
+          }
+          x_ = x, y_ = y, v_ = v;
+        }
+
+        return clipStream;
+      };
+    }
+
+    function identity(x) {
+      return x;
+    }
+
+    var areaSum = adder(),
+        areaRingSum = adder(),
+        x00$2,
+        y00$2,
+        x0$3,
+        y0$3;
+
+    var areaStream = {
+      point: noop,
+      lineStart: noop,
+      lineEnd: noop,
+      polygonStart: function() {
+        areaStream.lineStart = areaRingStart;
+        areaStream.lineEnd = areaRingEnd;
+      },
+      polygonEnd: function() {
+        areaStream.lineStart = areaStream.lineEnd = areaStream.point = noop;
+        areaSum.add(abs(areaRingSum));
+        areaRingSum.reset();
+      },
+      result: function() {
+        var area = areaSum / 2;
+        areaSum.reset();
+        return area;
+      }
+    };
+
+    function areaRingStart() {
+      areaStream.point = areaPointFirst;
+    }
+
+    function areaPointFirst(x, y) {
+      areaStream.point = areaPoint;
+      x00$2 = x0$3 = x, y00$2 = y0$3 = y;
+    }
+
+    function areaPoint(x, y) {
+      areaRingSum.add(y0$3 * x - x0$3 * y);
+      x0$3 = x, y0$3 = y;
+    }
+
+    function areaRingEnd() {
+      areaPoint(x00$2, y00$2);
+    }
+
+    var pathArea = areaStream;
+
+    var x0$2 = Infinity,
+        y0$2 = x0$2,
+        x1 = -x0$2,
+        y1 = x1;
+
+    var boundsStream = {
+      point: boundsPoint,
+      lineStart: noop,
+      lineEnd: noop,
+      polygonStart: noop,
+      polygonEnd: noop,
+      result: function() {
+        var bounds = [[x0$2, y0$2], [x1, y1]];
+        x1 = y1 = -(y0$2 = x0$2 = Infinity);
+        return bounds;
+      }
+    };
+
+    function boundsPoint(x, y) {
+      if (x < x0$2) x0$2 = x;
+      if (x > x1) x1 = x;
+      if (y < y0$2) y0$2 = y;
+      if (y > y1) y1 = y;
+    }
+
+    var boundsStream$1 = boundsStream;
+
+    // TODO Enforce positive area for exterior, negative area for interior?
+
+    var X0 = 0,
+        Y0 = 0,
+        Z0 = 0,
+        X1 = 0,
+        Y1 = 0,
+        Z1 = 0,
+        X2 = 0,
+        Y2 = 0,
+        Z2 = 0,
+        x00$1,
+        y00$1,
+        x0$1,
+        y0$1;
+
+    var centroidStream = {
+      point: centroidPoint,
+      lineStart: centroidLineStart,
+      lineEnd: centroidLineEnd,
+      polygonStart: function() {
+        centroidStream.lineStart = centroidRingStart;
+        centroidStream.lineEnd = centroidRingEnd;
+      },
+      polygonEnd: function() {
+        centroidStream.point = centroidPoint;
+        centroidStream.lineStart = centroidLineStart;
+        centroidStream.lineEnd = centroidLineEnd;
+      },
+      result: function() {
+        var centroid = Z2 ? [X2 / Z2, Y2 / Z2]
+            : Z1 ? [X1 / Z1, Y1 / Z1]
+            : Z0 ? [X0 / Z0, Y0 / Z0]
+            : [NaN, NaN];
+        X0 = Y0 = Z0 =
+        X1 = Y1 = Z1 =
+        X2 = Y2 = Z2 = 0;
+        return centroid;
+      }
+    };
+
+    function centroidPoint(x, y) {
+      X0 += x;
+      Y0 += y;
+      ++Z0;
+    }
+
+    function centroidLineStart() {
+      centroidStream.point = centroidPointFirstLine;
+    }
+
+    function centroidPointFirstLine(x, y) {
+      centroidStream.point = centroidPointLine;
+      centroidPoint(x0$1 = x, y0$1 = y);
+    }
+
+    function centroidPointLine(x, y) {
+      var dx = x - x0$1, dy = y - y0$1, z = sqrt(dx * dx + dy * dy);
+      X1 += z * (x0$1 + x) / 2;
+      Y1 += z * (y0$1 + y) / 2;
+      Z1 += z;
+      centroidPoint(x0$1 = x, y0$1 = y);
+    }
+
+    function centroidLineEnd() {
+      centroidStream.point = centroidPoint;
+    }
+
+    function centroidRingStart() {
+      centroidStream.point = centroidPointFirstRing;
+    }
+
+    function centroidRingEnd() {
+      centroidPointRing(x00$1, y00$1);
+    }
+
+    function centroidPointFirstRing(x, y) {
+      centroidStream.point = centroidPointRing;
+      centroidPoint(x00$1 = x0$1 = x, y00$1 = y0$1 = y);
+    }
+
+    function centroidPointRing(x, y) {
+      var dx = x - x0$1,
+          dy = y - y0$1,
+          z = sqrt(dx * dx + dy * dy);
+
+      X1 += z * (x0$1 + x) / 2;
+      Y1 += z * (y0$1 + y) / 2;
+      Z1 += z;
+
+      z = y0$1 * x - x0$1 * y;
+      X2 += z * (x0$1 + x);
+      Y2 += z * (y0$1 + y);
+      Z2 += z * 3;
+      centroidPoint(x0$1 = x, y0$1 = y);
+    }
+
+    var pathCentroid = centroidStream;
+
+    function PathContext(context) {
+      this._context = context;
+    }
+
+    PathContext.prototype = {
+      _radius: 4.5,
+      pointRadius: function(_) {
+        return this._radius = _, this;
+      },
+      polygonStart: function() {
+        this._line = 0;
+      },
+      polygonEnd: function() {
+        this._line = NaN;
+      },
+      lineStart: function() {
+        this._point = 0;
+      },
+      lineEnd: function() {
+        if (this._line === 0) this._context.closePath();
+        this._point = NaN;
+      },
+      point: function(x, y) {
+        switch (this._point) {
+          case 0: {
+            this._context.moveTo(x, y);
+            this._point = 1;
+            break;
+          }
+          case 1: {
+            this._context.lineTo(x, y);
+            break;
+          }
+          default: {
+            this._context.moveTo(x + this._radius, y);
+            this._context.arc(x, y, this._radius, 0, tau);
+            break;
+          }
+        }
+      },
+      result: noop
+    };
+
+    var lengthSum = adder(),
+        lengthRing,
+        x00,
+        y00,
+        x0,
+        y0;
+
+    var lengthStream = {
+      point: noop,
+      lineStart: function() {
+        lengthStream.point = lengthPointFirst;
+      },
+      lineEnd: function() {
+        if (lengthRing) lengthPoint(x00, y00);
+        lengthStream.point = noop;
+      },
+      polygonStart: function() {
+        lengthRing = true;
+      },
+      polygonEnd: function() {
+        lengthRing = null;
+      },
+      result: function() {
+        var length = +lengthSum;
+        lengthSum.reset();
+        return length;
+      }
+    };
+
+    function lengthPointFirst(x, y) {
+      lengthStream.point = lengthPoint;
+      x00 = x0 = x, y00 = y0 = y;
+    }
+
+    function lengthPoint(x, y) {
+      x0 -= x, y0 -= y;
+      lengthSum.add(sqrt(x0 * x0 + y0 * y0));
+      x0 = x, y0 = y;
+    }
+
+    var pathMeasure = lengthStream;
+
+    function PathString() {
+      this._string = [];
+    }
+
+    PathString.prototype = {
+      _radius: 4.5,
+      _circle: circle(4.5),
+      pointRadius: function(_) {
+        if ((_ = +_) !== this._radius) this._radius = _, this._circle = null;
+        return this;
+      },
+      polygonStart: function() {
+        this._line = 0;
+      },
+      polygonEnd: function() {
+        this._line = NaN;
+      },
+      lineStart: function() {
+        this._point = 0;
+      },
+      lineEnd: function() {
+        if (this._line === 0) this._string.push("Z");
+        this._point = NaN;
+      },
+      point: function(x, y) {
+        switch (this._point) {
+          case 0: {
+            this._string.push("M", x, ",", y);
+            this._point = 1;
+            break;
+          }
+          case 1: {
+            this._string.push("L", x, ",", y);
+            break;
+          }
+          default: {
+            if (this._circle == null) this._circle = circle(this._radius);
+            this._string.push("M", x, ",", y, this._circle);
+            break;
+          }
+        }
+      },
+      result: function() {
+        if (this._string.length) {
+          var result = this._string.join("");
+          this._string = [];
+          return result;
+        } else {
+          return null;
+        }
+      }
+    };
+
+    function circle(radius) {
+      return "m0," + radius
+          + "a" + radius + "," + radius + " 0 1,1 0," + -2 * radius
+          + "a" + radius + "," + radius + " 0 1,1 0," + 2 * radius
+          + "z";
+    }
+
+    function geoPath(projection, context) {
+      var pointRadius = 4.5,
+          projectionStream,
+          contextStream;
+
+      function path(object) {
+        if (object) {
+          if (typeof pointRadius === "function") contextStream.pointRadius(+pointRadius.apply(this, arguments));
+          geoStream(object, projectionStream(contextStream));
+        }
+        return contextStream.result();
+      }
+
+      path.area = function(object) {
+        geoStream(object, projectionStream(pathArea));
+        return pathArea.result();
+      };
+
+      path.measure = function(object) {
+        geoStream(object, projectionStream(pathMeasure));
+        return pathMeasure.result();
+      };
+
+      path.bounds = function(object) {
+        geoStream(object, projectionStream(boundsStream$1));
+        return boundsStream$1.result();
+      };
+
+      path.centroid = function(object) {
+        geoStream(object, projectionStream(pathCentroid));
+        return pathCentroid.result();
+      };
+
+      path.projection = function(_) {
+        return arguments.length ? (projectionStream = _ == null ? (projection = null, identity) : (projection = _).stream, path) : projection;
+      };
+
+      path.context = function(_) {
+        if (!arguments.length) return context;
+        contextStream = _ == null ? (context = null, new PathString) : new PathContext(context = _);
+        if (typeof pointRadius !== "function") contextStream.pointRadius(pointRadius);
+        return path;
+      };
+
+      path.pointRadius = function(_) {
+        if (!arguments.length) return pointRadius;
+        pointRadius = typeof _ === "function" ? _ : (contextStream.pointRadius(+_), +_);
+        return path;
+      };
+
+      return path.projection(projection).context(context);
+    }
+
+    function transformer(methods) {
+      return function(stream) {
+        var s = new TransformStream;
+        for (var key in methods) s[key] = methods[key];
+        s.stream = stream;
+        return s;
+      };
+    }
+
+    function TransformStream() {}
+
+    TransformStream.prototype = {
+      constructor: TransformStream,
+      point: function(x, y) { this.stream.point(x, y); },
+      sphere: function() { this.stream.sphere(); },
+      lineStart: function() { this.stream.lineStart(); },
+      lineEnd: function() { this.stream.lineEnd(); },
+      polygonStart: function() { this.stream.polygonStart(); },
+      polygonEnd: function() { this.stream.polygonEnd(); }
+    };
+
+    function fit(projection, fitBounds, object) {
+      var clip = projection.clipExtent && projection.clipExtent();
+      projection.scale(150).translate([0, 0]);
+      if (clip != null) projection.clipExtent(null);
+      geoStream(object, projection.stream(boundsStream$1));
+      fitBounds(boundsStream$1.result());
+      if (clip != null) projection.clipExtent(clip);
+      return projection;
+    }
+
+    function fitExtent(projection, extent, object) {
+      return fit(projection, function(b) {
+        var w = extent[1][0] - extent[0][0],
+            h = extent[1][1] - extent[0][1],
+            k = Math.min(w / (b[1][0] - b[0][0]), h / (b[1][1] - b[0][1])),
+            x = +extent[0][0] + (w - k * (b[1][0] + b[0][0])) / 2,
+            y = +extent[0][1] + (h - k * (b[1][1] + b[0][1])) / 2;
+        projection.scale(150 * k).translate([x, y]);
+      }, object);
+    }
+
+    function fitSize(projection, size, object) {
+      return fitExtent(projection, [[0, 0], size], object);
+    }
+
+    function fitWidth(projection, width, object) {
+      return fit(projection, function(b) {
+        var w = +width,
+            k = w / (b[1][0] - b[0][0]),
+            x = (w - k * (b[1][0] + b[0][0])) / 2,
+            y = -k * b[0][1];
+        projection.scale(150 * k).translate([x, y]);
+      }, object);
+    }
+
+    function fitHeight(projection, height, object) {
+      return fit(projection, function(b) {
+        var h = +height,
+            k = h / (b[1][1] - b[0][1]),
+            x = -k * b[0][0],
+            y = (h - k * (b[1][1] + b[0][1])) / 2;
+        projection.scale(150 * k).translate([x, y]);
+      }, object);
+    }
+
+    var maxDepth = 16, // maximum depth of subdivision
+        cosMinDistance = cos(30 * radians); // cos(minimum angular distance)
+
+    function resample(project, delta2) {
+      return +delta2 ? resample$1(project, delta2) : resampleNone(project);
+    }
+
+    function resampleNone(project) {
+      return transformer({
+        point: function(x, y) {
+          x = project(x, y);
+          this.stream.point(x[0], x[1]);
+        }
+      });
+    }
+
+    function resample$1(project, delta2) {
+
+      function resampleLineTo(x0, y0, lambda0, a0, b0, c0, x1, y1, lambda1, a1, b1, c1, depth, stream) {
+        var dx = x1 - x0,
+            dy = y1 - y0,
+            d2 = dx * dx + dy * dy;
+        if (d2 > 4 * delta2 && depth--) {
+          var a = a0 + a1,
+              b = b0 + b1,
+              c = c0 + c1,
+              m = sqrt(a * a + b * b + c * c),
+              phi2 = asin(c /= m),
+              lambda2 = abs(abs(c) - 1) < epsilon || abs(lambda0 - lambda1) < epsilon ? (lambda0 + lambda1) / 2 : atan2(b, a),
+              p = project(lambda2, phi2),
+              x2 = p[0],
+              y2 = p[1],
+              dx2 = x2 - x0,
+              dy2 = y2 - y0,
+              dz = dy * dx2 - dx * dy2;
+          if (dz * dz / d2 > delta2 // perpendicular projected distance
+              || abs((dx * dx2 + dy * dy2) / d2 - 0.5) > 0.3 // midpoint close to an end
+              || a0 * a1 + b0 * b1 + c0 * c1 < cosMinDistance) { // angular distance
+            resampleLineTo(x0, y0, lambda0, a0, b0, c0, x2, y2, lambda2, a /= m, b /= m, c, depth, stream);
+            stream.point(x2, y2);
+            resampleLineTo(x2, y2, lambda2, a, b, c, x1, y1, lambda1, a1, b1, c1, depth, stream);
+          }
+        }
+      }
+      return function(stream) {
+        var lambda00, x00, y00, a00, b00, c00, // first point
+            lambda0, x0, y0, a0, b0, c0; // previous point
+
+        var resampleStream = {
+          point: point,
+          lineStart: lineStart,
+          lineEnd: lineEnd,
+          polygonStart: function() { stream.polygonStart(); resampleStream.lineStart = ringStart; },
+          polygonEnd: function() { stream.polygonEnd(); resampleStream.lineStart = lineStart; }
+        };
+
+        function point(x, y) {
+          x = project(x, y);
+          stream.point(x[0], x[1]);
+        }
+
+        function lineStart() {
+          x0 = NaN;
+          resampleStream.point = linePoint;
+          stream.lineStart();
+        }
+
+        function linePoint(lambda, phi) {
+          var c = cartesian([lambda, phi]), p = project(lambda, phi);
+          resampleLineTo(x0, y0, lambda0, a0, b0, c0, x0 = p[0], y0 = p[1], lambda0 = lambda, a0 = c[0], b0 = c[1], c0 = c[2], maxDepth, stream);
+          stream.point(x0, y0);
+        }
+
+        function lineEnd() {
+          resampleStream.point = point;
+          stream.lineEnd();
+        }
+
+        function ringStart() {
+          lineStart();
+          resampleStream.point = ringPoint;
+          resampleStream.lineEnd = ringEnd;
+        }
+
+        function ringPoint(lambda, phi) {
+          linePoint(lambda00 = lambda, phi), x00 = x0, y00 = y0, a00 = a0, b00 = b0, c00 = c0;
+          resampleStream.point = linePoint;
+        }
+
+        function ringEnd() {
+          resampleLineTo(x0, y0, lambda0, a0, b0, c0, x00, y00, lambda00, a00, b00, c00, maxDepth, stream);
+          resampleStream.lineEnd = lineEnd;
+          lineEnd();
+        }
+
+        return resampleStream;
+      };
+    }
+
+    var transformRadians = transformer({
+      point: function(x, y) {
+        this.stream.point(x * radians, y * radians);
+      }
+    });
+
+    function transformRotate(rotate) {
+      return transformer({
+        point: function(x, y) {
+          var r = rotate(x, y);
+          return this.stream.point(r[0], r[1]);
+        }
+      });
+    }
+
+    function scaleTranslate(k, dx, dy, sx, sy) {
+      function transform(x, y) {
+        x *= sx; y *= sy;
+        return [dx + k * x, dy - k * y];
+      }
+      transform.invert = function(x, y) {
+        return [(x - dx) / k * sx, (dy - y) / k * sy];
+      };
+      return transform;
+    }
+
+    function scaleTranslateRotate(k, dx, dy, sx, sy, alpha) {
+      var cosAlpha = cos(alpha),
+          sinAlpha = sin(alpha),
+          a = cosAlpha * k,
+          b = sinAlpha * k,
+          ai = cosAlpha / k,
+          bi = sinAlpha / k,
+          ci = (sinAlpha * dy - cosAlpha * dx) / k,
+          fi = (sinAlpha * dx + cosAlpha * dy) / k;
+      function transform(x, y) {
+        x *= sx; y *= sy;
+        return [a * x - b * y + dx, dy - b * x - a * y];
+      }
+      transform.invert = function(x, y) {
+        return [sx * (ai * x - bi * y + ci), sy * (fi - bi * x - ai * y)];
+      };
+      return transform;
+    }
+
+    function projectionMutator(projectAt) {
+      var project,
+          k = 150, // scale
+          x = 480, y = 250, // translate
+          lambda = 0, phi = 0, // center
+          deltaLambda = 0, deltaPhi = 0, deltaGamma = 0, rotate, // pre-rotate
+          alpha = 0, // post-rotate angle
+          sx = 1, // reflectX
+          sy = 1, // reflectX
+          theta = null, preclip = clipAntimeridian, // pre-clip angle
+          x0 = null, y0, x1, y1, postclip = identity, // post-clip extent
+          delta2 = 0.5, // precision
+          projectResample,
+          projectTransform,
+          projectRotateTransform,
+          cache,
+          cacheStream;
+
+      function projection(point) {
+        return projectRotateTransform(point[0] * radians, point[1] * radians);
+      }
+
+      function invert(point) {
+        point = projectRotateTransform.invert(point[0], point[1]);
+        return point && [point[0] * degrees, point[1] * degrees];
+      }
+
+      projection.stream = function(stream) {
+        return cache && cacheStream === stream ? cache : cache = transformRadians(transformRotate(rotate)(preclip(projectResample(postclip(cacheStream = stream)))));
+      };
+
+      projection.preclip = function(_) {
+        return arguments.length ? (preclip = _, theta = undefined, reset()) : preclip;
+      };
+
+      projection.postclip = function(_) {
+        return arguments.length ? (postclip = _, x0 = y0 = x1 = y1 = null, reset()) : postclip;
+      };
+
+      projection.clipAngle = function(_) {
+        return arguments.length ? (preclip = +_ ? clipCircle(theta = _ * radians) : (theta = null, clipAntimeridian), reset()) : theta * degrees;
+      };
+
+      projection.clipExtent = function(_) {
+        return arguments.length ? (postclip = _ == null ? (x0 = y0 = x1 = y1 = null, identity) : clipRectangle(x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1]), reset()) : x0 == null ? null : [[x0, y0], [x1, y1]];
+      };
+
+      projection.scale = function(_) {
+        return arguments.length ? (k = +_, recenter()) : k;
+      };
+
+      projection.translate = function(_) {
+        return arguments.length ? (x = +_[0], y = +_[1], recenter()) : [x, y];
+      };
+
+      projection.center = function(_) {
+        return arguments.length ? (lambda = _[0] % 360 * radians, phi = _[1] % 360 * radians, recenter()) : [lambda * degrees, phi * degrees];
+      };
+
+      projection.rotate = function(_) {
+        return arguments.length ? (deltaLambda = _[0] % 360 * radians, deltaPhi = _[1] % 360 * radians, deltaGamma = _.length > 2 ? _[2] % 360 * radians : 0, recenter()) : [deltaLambda * degrees, deltaPhi * degrees, deltaGamma * degrees];
+      };
+
+      projection.angle = function(_) {
+        return arguments.length ? (alpha = _ % 360 * radians, recenter()) : alpha * degrees;
+      };
+
+      projection.reflectX = function(_) {
+        return arguments.length ? (sx = _ ? -1 : 1, recenter()) : sx < 0;
+      };
+
+      projection.reflectY = function(_) {
+        return arguments.length ? (sy = _ ? -1 : 1, recenter()) : sy < 0;
+      };
+
+      projection.precision = function(_) {
+        return arguments.length ? (projectResample = resample(projectTransform, delta2 = _ * _), reset()) : sqrt(delta2);
+      };
+
+      projection.fitExtent = function(extent, object) {
+        return fitExtent(projection, extent, object);
+      };
+
+      projection.fitSize = function(size, object) {
+        return fitSize(projection, size, object);
+      };
+
+      projection.fitWidth = function(width, object) {
+        return fitWidth(projection, width, object);
+      };
+
+      projection.fitHeight = function(height, object) {
+        return fitHeight(projection, height, object);
+      };
+
+      function recenter() {
+        var center = scaleTranslateRotate(k, 0, 0, sx, sy, alpha).apply(null, project(lambda, phi)),
+            transform = (alpha ? scaleTranslateRotate : scaleTranslate)(k, x - center[0], y - center[1], sx, sy, alpha);
+        rotate = rotateRadians(deltaLambda, deltaPhi, deltaGamma);
+        projectTransform = compose(project, transform);
+        projectRotateTransform = compose(rotate, projectTransform);
+        projectResample = resample(projectTransform, delta2);
+        return reset();
+      }
+
+      function reset() {
+        cache = cacheStream = null;
+        return projection;
+      }
+
+      return function() {
+        project = projectAt.apply(this, arguments);
+        projection.invert = project.invert && invert;
+        return recenter();
+      };
+    }
+
+    function conicProjection(projectAt) {
+      var phi0 = 0,
+          phi1 = pi / 3,
+          m = projectionMutator(projectAt),
+          p = m(phi0, phi1);
+
+      p.parallels = function(_) {
+        return arguments.length ? m(phi0 = _[0] * radians, phi1 = _[1] * radians) : [phi0 * degrees, phi1 * degrees];
+      };
+
+      return p;
+    }
+
+    function cylindricalEqualAreaRaw(phi0) {
+      var cosPhi0 = cos(phi0);
+
+      function forward(lambda, phi) {
+        return [lambda * cosPhi0, sin(phi) / cosPhi0];
+      }
+
+      forward.invert = function(x, y) {
+        return [x / cosPhi0, asin(y * cosPhi0)];
+      };
+
+      return forward;
+    }
+
+    function conicEqualAreaRaw(y0, y1) {
+      var sy0 = sin(y0), n = (sy0 + sin(y1)) / 2;
+
+      // Are the parallels symmetrical around the Equator?
+      if (abs(n) < epsilon) return cylindricalEqualAreaRaw(y0);
+
+      var c = 1 + sy0 * (2 * n - sy0), r0 = sqrt(c) / n;
+
+      function project(x, y) {
+        var r = sqrt(c - 2 * n * sin(y)) / n;
+        return [r * sin(x *= n), r0 - r * cos(x)];
+      }
+
+      project.invert = function(x, y) {
+        var r0y = r0 - y,
+            l = atan2(x, abs(r0y)) * sign(r0y);
+        if (r0y * n < 0)
+          l -= pi * sign(x) * sign(r0y);
+        return [l / n, asin((c - (x * x + r0y * r0y) * n * n) / (2 * n))];
+      };
+
+      return project;
+    }
+
+    function conicEqualArea() {
+      return conicProjection(conicEqualAreaRaw)
+          .scale(155.424)
+          .center([0, 33.6442]);
+    }
+
+    function geoAlbers() {
+      return conicEqualArea()
+          .parallels([29.5, 45.5])
+          .scale(1070)
+          .translate([480, 250])
+          .rotate([96, 0])
+          .center([-0.6, 38.7]);
+    }
+
+    function colors(specifier) {
+      var n = specifier.length / 6 | 0, colors = new Array(n), i = 0;
+      while (i < n) colors[i] = "#" + specifier.slice(i * 6, ++i * 6);
+      return colors;
+    }
+
+    function ramp(scheme) {
+      return rgbBasis(scheme[scheme.length - 1]);
+    }
+
+    var scheme$1 = new Array(3).concat(
+      "fc8d59ffffbf91bfdb",
+      "d7191cfdae61abd9e92c7bb6",
+      "d7191cfdae61ffffbfabd9e92c7bb6",
+      "d73027fc8d59fee090e0f3f891bfdb4575b4",
+      "d73027fc8d59fee090ffffbfe0f3f891bfdb4575b4",
+      "d73027f46d43fdae61fee090e0f3f8abd9e974add14575b4",
+      "d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4",
+      "a50026d73027f46d43fdae61fee090e0f3f8abd9e974add14575b4313695",
+      "a50026d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4313695"
+    ).map(colors);
+
+    var interpolateRdYlBu = ramp(scheme$1);
+
+    var scheme = new Array(3).concat(
+      "deebf79ecae13182bd",
+      "eff3ffbdd7e76baed62171b5",
+      "eff3ffbdd7e76baed63182bd08519c",
+      "eff3ffc6dbef9ecae16baed63182bd08519c",
+      "eff3ffc6dbef9ecae16baed64292c62171b5084594",
+      "f7fbffdeebf7c6dbef9ecae16baed64292c62171b5084594",
+      "f7fbffdeebf7c6dbef9ecae16baed64292c62171b508519c08306b"
+    ).map(colors);
+
+    var interpolateBlues = ramp(scheme);
+
+    /* src\RowChart.svelte generated by Svelte v3.44.0 */
+    const file$d = "src\\RowChart.svelte";
+
+    function get_each_context$5(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[17] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[20] = list[i];
+    	return child_ctx;
+    }
+
+    // (63:6) {#each mapYearDataArray as bar}
+    function create_each_block_1$2(ctx) {
+    	let g;
+    	let rect;
+    	let title;
+    	let t0_value = /*bar*/ ctx[20][1].name + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*bar*/ ctx[20][1].value + "";
+    	let t2;
+    	let rect_width_value;
+    	let rect_x_value;
+    	let rect_height_value;
+    	let rect_fill_value;
+    	let rect_stroke_value;
+    	let text_1;
+    	let t3_value = /*bar*/ ctx[20][1].name + "";
+    	let t3;
+    	let text_1_transform_value;
+    	let g_transform_value;
+    	let mounted;
+    	let dispose;
+
+    	function mouseenter_handler() {
+    		return /*mouseenter_handler*/ ctx[15](/*bar*/ ctx[20]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			rect = svg_element("rect");
+    			title = svg_element("title");
+    			t0 = text(t0_value);
+    			t1 = text(": ");
+    			t2 = text(t2_value);
+    			text_1 = svg_element("text");
+    			t3 = text(t3_value);
+    			add_location(title, file$d, 76, 12, 2198);
+    			attr_dev(rect, "width", rect_width_value = Math.abs(/*x*/ ctx[9](/*bar*/ ctx[20][1].value) - /*x*/ ctx[9](0)) || 1);
+    			attr_dev(rect, "x", rect_x_value = /*x*/ ctx[9](Math.min(/*bar*/ ctx[20][1].value, 0)));
+    			attr_dev(rect, "height", rect_height_value = /*y*/ ctx[8].bandwidth());
+
+    			attr_dev(rect, "fill", rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[20][0]
+    			? /*hoveredColor*/ ctx[2]
+    			: /*bar*/ ctx[20][1].fill);
+
+    			attr_dev(rect, "stroke-width", "1");
+
+    			attr_dev(rect, "stroke", rect_stroke_value = color(/*hovered*/ ctx[1] == /*bar*/ ctx[20][0]
+    			? /*hoveredColor*/ ctx[2]
+    			: /*bar*/ ctx[20][1].fill).darker(2));
+
+    			add_location(rect, file$d, 64, 10, 1700);
+    			attr_dev(text_1, "class", "yAxis svelte-1jz9hor");
+    			attr_dev(text_1, "transform", text_1_transform_value = "translate(" + /*margin*/ ctx[6].left + ")");
+    			attr_dev(text_1, "dy", "1em");
+    			attr_dev(text_1, "dx", "-3");
+    			add_location(text_1, file$d, 78, 10, 2273);
+    			attr_dev(g, "transform", g_transform_value = "translate(0 " + /*y*/ ctx[8](/*bar*/ ctx[20][0]) + ")");
+    			add_location(g, file$d, 63, 8, 1648);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, rect);
+    			append_dev(rect, title);
+    			append_dev(title, t0);
+    			append_dev(title, t1);
+    			append_dev(title, t2);
+    			append_dev(g, text_1);
+    			append_dev(text_1, t3);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(rect, "mouseenter", mouseenter_handler, false, false, false),
+    					listen_dev(rect, "mouseleave", /*handleLocationLeave*/ ctx[11], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty & /*mapYearDataArray*/ 1 && t0_value !== (t0_value = /*bar*/ ctx[20][1].name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*mapYearDataArray*/ 1 && t2_value !== (t2_value = /*bar*/ ctx[20][1].value + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty & /*x, mapYearDataArray*/ 513 && rect_width_value !== (rect_width_value = Math.abs(/*x*/ ctx[9](/*bar*/ ctx[20][1].value) - /*x*/ ctx[9](0)) || 1)) {
+    				attr_dev(rect, "width", rect_width_value);
+    			}
+
+    			if (dirty & /*x, mapYearDataArray*/ 513 && rect_x_value !== (rect_x_value = /*x*/ ctx[9](Math.min(/*bar*/ ctx[20][1].value, 0)))) {
+    				attr_dev(rect, "x", rect_x_value);
+    			}
+
+    			if (dirty & /*y*/ 256 && rect_height_value !== (rect_height_value = /*y*/ ctx[8].bandwidth())) {
+    				attr_dev(rect, "height", rect_height_value);
+    			}
+
+    			if (dirty & /*hovered, mapYearDataArray, hoveredColor*/ 7 && rect_fill_value !== (rect_fill_value = /*hovered*/ ctx[1] == /*bar*/ ctx[20][0]
+    			? /*hoveredColor*/ ctx[2]
+    			: /*bar*/ ctx[20][1].fill)) {
+    				attr_dev(rect, "fill", rect_fill_value);
+    			}
+
+    			if (dirty & /*hovered, mapYearDataArray, hoveredColor*/ 7 && rect_stroke_value !== (rect_stroke_value = color(/*hovered*/ ctx[1] == /*bar*/ ctx[20][0]
+    			? /*hoveredColor*/ ctx[2]
+    			: /*bar*/ ctx[20][1].fill).darker(2))) {
+    				attr_dev(rect, "stroke", rect_stroke_value);
+    			}
+
+    			if (dirty & /*mapYearDataArray*/ 1 && t3_value !== (t3_value = /*bar*/ ctx[20][1].name + "")) set_data_dev(t3, t3_value);
+
+    			if (dirty & /*margin*/ 64 && text_1_transform_value !== (text_1_transform_value = "translate(" + /*margin*/ ctx[6].left + ")")) {
+    				attr_dev(text_1, "transform", text_1_transform_value);
+    			}
+
+    			if (dirty & /*y, mapYearDataArray*/ 257 && g_transform_value !== (g_transform_value = "translate(0 " + /*y*/ ctx[8](/*bar*/ ctx[20][0]) + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$2.name,
+    		type: "each",
+    		source: "(63:6) {#each mapYearDataArray as bar}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (90:8) {#each x.ticks(5) as tick}
+    function create_each_block$5(ctx) {
+    	let g;
+    	let line;
+    	let line_stroke_value;
+    	let text_1;
+    	let t_value = /*tickFormat*/ ctx[5](/*tick*/ ctx[17]) + "";
+    	let t;
+    	let g_transform_value;
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+    			line = svg_element("line");
+    			text_1 = svg_element("text");
+    			t = text(t_value);
+    			attr_dev(line, "y1", "0");
+    			attr_dev(line, "y2", /*height*/ ctx[7]);
+    			attr_dev(line, "stroke", line_stroke_value = /*tick*/ ctx[17] === 0 ? "" : "#fff");
+    			add_location(line, file$d, 91, 12, 2635);
+    			attr_dev(text_1, "class", "anchor-middle svelte-1jz9hor");
+    			attr_dev(text_1, "dy", "-5");
+    			add_location(text_1, file$d, 92, 12, 2710);
+    			attr_dev(g, "transform", g_transform_value = "translate(" + /*x*/ ctx[9](/*tick*/ ctx[17]) + " 0)");
+    			add_location(g, file$d, 90, 10, 2583);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+    			append_dev(g, line);
+    			append_dev(g, text_1);
+    			append_dev(text_1, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*height*/ 128) {
+    				attr_dev(line, "y2", /*height*/ ctx[7]);
+    			}
+
+    			if (dirty & /*x*/ 512 && line_stroke_value !== (line_stroke_value = /*tick*/ ctx[17] === 0 ? "" : "#fff")) {
+    				attr_dev(line, "stroke", line_stroke_value);
+    			}
+
+    			if (dirty & /*tickFormat, x*/ 544 && t_value !== (t_value = /*tickFormat*/ ctx[5](/*tick*/ ctx[17]) + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*x*/ 512 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[9](/*tick*/ ctx[17]) + " 0)")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$5.name,
+    		type: "each",
+    		source: "(90:8) {#each x.ticks(5) as tick}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$d(ctx) {
+    	let svg;
+    	let g2;
+    	let text_1;
+
+    	let t_value = (/*calculation*/ ctx[4] === "percentage"
+    	? "Percentage Shortage/Surplus"
+    	: /*rateOrTotal*/ ctx[3]) + "";
+
+    	let t;
+    	let text_1_transform_value;
+    	let g1;
+    	let g0;
+    	let g0_transform_value;
+    	let svg_viewBox_value;
+    	let each_value_1 = /*mapYearDataArray*/ ctx[0];
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1$2(get_each_context_1$2(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*x*/ ctx[9].ticks(5);
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$5(get_each_context$5(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			svg = svg_element("svg");
+    			g2 = svg_element("g");
+    			text_1 = svg_element("text");
+    			t = text(t_value);
+    			g1 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			g0 = svg_element("g");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(text_1, "class", "anchor-middle svelte-1jz9hor");
+    			attr_dev(text_1, "transform", text_1_transform_value = "translate(" + (/*margin*/ ctx[6].left + (width$1 - /*margin*/ ctx[6].left - /*margin*/ ctx[6].right) / 2) + "\r\n      10)");
+    			add_location(text_1, file$d, 50, 4, 1326);
+    			attr_dev(g0, "transform", g0_transform_value = "translate(0 " + /*margin*/ ctx[6].top + ")");
+    			add_location(g0, file$d, 88, 6, 2494);
+    			add_location(g1, file$d, 61, 4, 1596);
+    			add_location(g2, file$d, 49, 2, 1317);
+    			attr_dev(svg, "id", "row-chart-svg");
+    			attr_dev(svg, "viewBox", svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[7]);
+    			attr_dev(svg, "class", "svelte-1jz9hor");
+    			add_location(svg, file$d, 48, 0, 1258);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, g2);
+    			append_dev(g2, text_1);
+    			append_dev(text_1, t);
+    			append_dev(g2, g1);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(g1, null);
+    			}
+
+    			append_dev(g1, g0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g0, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*calculation, rateOrTotal*/ 24 && t_value !== (t_value = (/*calculation*/ ctx[4] === "percentage"
+    			? "Percentage Shortage/Surplus"
+    			: /*rateOrTotal*/ ctx[3]) + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*margin*/ 64 && text_1_transform_value !== (text_1_transform_value = "translate(" + (/*margin*/ ctx[6].left + (width$1 - /*margin*/ ctx[6].left - /*margin*/ ctx[6].right) / 2) + "\r\n      10)")) {
+    				attr_dev(text_1, "transform", text_1_transform_value);
+    			}
+
+    			if (dirty & /*y, mapYearDataArray, margin, Math, x, hovered, hoveredColor, color, handleLocationHover, handleLocationLeave*/ 3911) {
+    				each_value_1 = /*mapYearDataArray*/ ctx[0];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$2(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1$2(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(g1, g0);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*x, tickFormat, height*/ 672) {
+    				each_value = /*x*/ ctx[9].ticks(5);
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$5(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$5(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(g0, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*margin*/ 64 && g0_transform_value !== (g0_transform_value = "translate(0 " + /*margin*/ ctx[6].top + ")")) {
+    				attr_dev(g0, "transform", g0_transform_value);
+    			}
+
+    			if (dirty & /*height*/ 128 && svg_viewBox_value !== (svg_viewBox_value = "0 0 " + width$1 + " " + /*height*/ ctx[7])) {
+    				attr_dev(svg, "viewBox", svg_viewBox_value);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(svg);
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$d.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const width$1 = 320;
+
+    function instance$d($$self, $$props, $$invalidate) {
+    	let margin;
+    	let height;
+    	let xDomain;
+    	let x;
+    	let y;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('RowChart', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { mapYearDataArray } = $$props;
+    	let { valueExtentAllTime } = $$props;
+    	let { locationType } = $$props;
+    	let { hovered } = $$props;
+    	let { hoveredColor } = $$props;
+    	let { rateOrTotal } = $$props;
+    	let { calculation } = $$props;
+    	let { tickFormat = t => t.toLocaleString() } = $$props;
+
+    	function handleLocationHover(id) {
+    		dispatch("locationHover", id);
+    	}
+
+    	function handleLocationLeave(id) {
+    		dispatch("locationLeave");
+    	}
+
+    	const writable_props = [
+    		'mapYearDataArray',
+    		'valueExtentAllTime',
+    		'locationType',
+    		'hovered',
+    		'hoveredColor',
+    		'rateOrTotal',
+    		'calculation',
+    		'tickFormat'
+    	];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<RowChart> was created with unknown prop '${key}'`);
+    	});
+
+    	const mouseenter_handler = bar => handleLocationHover(bar[0]);
+
+    	$$self.$$set = $$props => {
+    		if ('mapYearDataArray' in $$props) $$invalidate(0, mapYearDataArray = $$props.mapYearDataArray);
+    		if ('valueExtentAllTime' in $$props) $$invalidate(12, valueExtentAllTime = $$props.valueExtentAllTime);
+    		if ('locationType' in $$props) $$invalidate(13, locationType = $$props.locationType);
+    		if ('hovered' in $$props) $$invalidate(1, hovered = $$props.hovered);
+    		if ('hoveredColor' in $$props) $$invalidate(2, hoveredColor = $$props.hoveredColor);
+    		if ('rateOrTotal' in $$props) $$invalidate(3, rateOrTotal = $$props.rateOrTotal);
+    		if ('calculation' in $$props) $$invalidate(4, calculation = $$props.calculation);
+    		if ('tickFormat' in $$props) $$invalidate(5, tickFormat = $$props.tickFormat);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		scaleLinear: linear,
+    		scaleBand: band,
+    		color,
+    		format,
+    		createEventDispatcher,
+    		dispatch,
+    		mapYearDataArray,
+    		valueExtentAllTime,
+    		locationType,
+    		hovered,
+    		hoveredColor,
+    		rateOrTotal,
+    		calculation,
+    		width: width$1,
+    		tickFormat,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		margin,
+    		height,
+    		y,
+    		xDomain,
+    		x
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('mapYearDataArray' in $$props) $$invalidate(0, mapYearDataArray = $$props.mapYearDataArray);
+    		if ('valueExtentAllTime' in $$props) $$invalidate(12, valueExtentAllTime = $$props.valueExtentAllTime);
+    		if ('locationType' in $$props) $$invalidate(13, locationType = $$props.locationType);
+    		if ('hovered' in $$props) $$invalidate(1, hovered = $$props.hovered);
+    		if ('hoveredColor' in $$props) $$invalidate(2, hoveredColor = $$props.hoveredColor);
+    		if ('rateOrTotal' in $$props) $$invalidate(3, rateOrTotal = $$props.rateOrTotal);
+    		if ('calculation' in $$props) $$invalidate(4, calculation = $$props.calculation);
+    		if ('tickFormat' in $$props) $$invalidate(5, tickFormat = $$props.tickFormat);
+    		if ('margin' in $$props) $$invalidate(6, margin = $$props.margin);
+    		if ('height' in $$props) $$invalidate(7, height = $$props.height);
+    		if ('y' in $$props) $$invalidate(8, y = $$props.y);
+    		if ('xDomain' in $$props) $$invalidate(14, xDomain = $$props.xDomain);
+    		if ('x' in $$props) $$invalidate(9, x = $$props.x);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*locationType*/ 8192) {
+    			$$invalidate(6, margin = {
+    				top: 30,
+    				right: 10,
+    				bottom: 10,
+    				left: locationType == "Medicaid Region" ? 155 : 110
+    			});
+    		}
+
+    		if ($$self.$$.dirty & /*mapYearDataArray, margin*/ 65) {
+    			$$invalidate(7, height = mapYearDataArray.length * 20 + margin.top + margin.bottom);
+    		}
+
+    		if ($$self.$$.dirty & /*valueExtentAllTime*/ 4096) {
+    			$$invalidate(14, xDomain = valueExtentAllTime.map((d, i) => i == 0 && d > 0 ? 0 : d)); //Always make baseline at least 0
+    		}
+
+    		if ($$self.$$.dirty & /*xDomain, margin*/ 16448) {
+    			$$invalidate(9, x = linear().domain(xDomain).range([margin.left, width$1 - margin.right]));
+    		}
+
+    		if ($$self.$$.dirty & /*mapYearDataArray, margin, height*/ 193) {
+    			$$invalidate(8, y = band().domain(mapYearDataArray.map(d => d[0])).range([margin.top, height - margin.bottom]).paddingInner(0.1));
+    		}
+    	};
+
+    	return [
+    		mapYearDataArray,
+    		hovered,
+    		hoveredColor,
+    		rateOrTotal,
+    		calculation,
+    		tickFormat,
+    		margin,
+    		height,
+    		y,
+    		x,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		valueExtentAllTime,
+    		locationType,
+    		xDomain,
+    		mouseenter_handler
+    	];
+    }
+
+    class RowChart extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$d, create_fragment$d, safe_not_equal, {
+    			mapYearDataArray: 0,
+    			valueExtentAllTime: 12,
+    			locationType: 13,
+    			hovered: 1,
+    			hoveredColor: 2,
+    			rateOrTotal: 3,
+    			calculation: 4,
+    			tickFormat: 5
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "RowChart",
+    			options,
+    			id: create_fragment$d.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*mapYearDataArray*/ ctx[0] === undefined && !('mapYearDataArray' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'mapYearDataArray'");
+    		}
+
+    		if (/*valueExtentAllTime*/ ctx[12] === undefined && !('valueExtentAllTime' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'valueExtentAllTime'");
+    		}
+
+    		if (/*locationType*/ ctx[13] === undefined && !('locationType' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'locationType'");
+    		}
+
+    		if (/*hovered*/ ctx[1] === undefined && !('hovered' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'hovered'");
+    		}
+
+    		if (/*hoveredColor*/ ctx[2] === undefined && !('hoveredColor' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'hoveredColor'");
+    		}
+
+    		if (/*rateOrTotal*/ ctx[3] === undefined && !('rateOrTotal' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'rateOrTotal'");
+    		}
+
+    		if (/*calculation*/ ctx[4] === undefined && !('calculation' in props)) {
+    			console.warn("<RowChart> was created without expected prop 'calculation'");
+    		}
+    	}
+
+    	get mapYearDataArray() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set mapYearDataArray(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get valueExtentAllTime() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set valueExtentAllTime(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get locationType() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set locationType(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hovered() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hovered(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hoveredColor() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hoveredColor(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get rateOrTotal() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set rateOrTotal(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get calculation() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set calculation(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get tickFormat() {
+    		throw new Error("<RowChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set tickFormat(value) {
+    		throw new Error("<RowChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\MapTable.svelte generated by Svelte v3.44.0 */
+    const file$c = "src\\MapTable.svelte";
+
+    function get_each_context$4(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[27] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[30] = list[i];
+    	child_ctx[32] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_2$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[33] = list[i];
+    	child_ctx[32] = i;
+    	return child_ctx;
+    }
+
+    function get_each_context_3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[35] = list[i];
+    	return child_ctx;
+    }
+
+    // (241:0) {:else}
+    function create_else_block$4(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Choose a combination of selections and click \"Show\" to see a table of the\r\n    model's projections.";
+    			attr_dev(div, "class", "notification");
+    			add_location(div, file$c, 241, 2, 7040);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$4.name,
+    		type: "else",
+    		source: "(241:0) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (137:0) {#if data.values}
+    function create_if_block$6(ctx) {
+    	let div1;
+    	let t0;
+    	let div0;
+    	let table;
+    	let thead;
+    	let tr0;
+    	let th0;
+    	let t1;
+    	let tr1;
+    	let th1;
+    	let t2_value = /*params*/ ctx[4]["locationType"] + "";
+    	let t2;
+    	let t3;
+    	let t4;
+    	let tbody;
+    	let t5;
+    	let if_block0 = /*showTitle*/ ctx[1] && create_if_block_2$4(ctx);
+    	let each_value_3 = /*grouped*/ ctx[3][0][1];
+    	validate_each_argument(each_value_3);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_3.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_3(get_each_context_3(ctx, each_value_3, i));
+    	}
+
+    	let each_value_1 = /*currentRows*/ ctx[6];
+    	validate_each_argument(each_value_1);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
+    	}
+
+    	let if_block1 = /*numOfPages*/ ctx[7] > 1 && create_if_block_1$4(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			if (if_block0) if_block0.c();
+    			t0 = space();
+    			div0 = element("div");
+    			table = element("table");
+    			thead = element("thead");
+    			tr0 = element("tr");
+    			th0 = element("th");
+    			t1 = space();
+    			tr1 = element("tr");
+    			th1 = element("th");
+    			t2 = text(t2_value);
+    			t3 = space();
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t4 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t5 = space();
+    			if (if_block1) if_block1.c();
+    			attr_dev(th0, "class", "frozen projection-header svelte-xizxt8");
+    			set_style(th0, "width", /*frozenWidth*/ ctx[10]);
+    			add_location(th0, file$c, 164, 12, 4413);
+    			add_location(tr0, file$c, 163, 10, 4395);
+    			attr_dev(th1, "class", "frozen svelte-xizxt8");
+    			set_style(th1, "left", /*leftCoord*/ ctx[5] + "px");
+    			set_style(th1, "padding-bottom", "5px");
+    			set_style(th1, "width", /*frozenWidth*/ ctx[10]);
+    			add_location(th1, file$c, 175, 12, 4802);
+    			add_location(tr1, file$c, 174, 10, 4784);
+    			add_location(thead, file$c, 162, 8, 4376);
+    			add_location(tbody, file$c, 188, 8, 5194);
+    			attr_dev(table, "class", "table is-narrow");
+    			add_location(table, file$c, 161, 6, 4335);
+    			attr_dev(div0, "class", "table-container svelte-xizxt8");
+    			attr_dev(div0, "id", "wrapper");
+    			set_style(div0, "margin-left", /*frozenWidth*/ ctx[10]);
+    			add_location(div0, file$c, 156, 4, 4223);
+    			attr_dev(div1, "id", "top-level-table-div");
+    			add_location(div1, file$c, 137, 2, 3692);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			if (if_block0) if_block0.m(div1, null);
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
+    			append_dev(div0, table);
+    			append_dev(table, thead);
+    			append_dev(thead, tr0);
+    			append_dev(tr0, th0);
+    			append_dev(thead, t1);
+    			append_dev(thead, tr1);
+    			append_dev(tr1, th1);
+    			append_dev(th1, t2);
+    			append_dev(tr1, t3);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(tr1, null);
+    			}
+
+    			append_dev(table, t4);
+    			append_dev(table, tbody);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+
+    			append_dev(div1, t5);
+    			if (if_block1) if_block1.m(div1, null);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*showTitle*/ ctx[1]) {
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
+    				} else {
+    					if_block0 = create_if_block_2$4(ctx);
+    					if_block0.c();
+    					if_block0.m(div1, t0);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if (dirty[0] & /*frozenWidth*/ 1024) {
+    				set_style(th0, "width", /*frozenWidth*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*params*/ 16 && t2_value !== (t2_value = /*params*/ ctx[4]["locationType"] + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty[0] & /*leftCoord*/ 32) {
+    				set_style(th1, "left", /*leftCoord*/ ctx[5] + "px");
+    			}
+
+    			if (dirty[0] & /*frozenWidth*/ 1024) {
+    				set_style(th1, "width", /*frozenWidth*/ ctx[10]);
+    			}
+
+    			if (dirty[0] & /*grouped*/ 8) {
+    				each_value_3 = /*grouped*/ ctx[3][0][1];
+    				validate_each_argument(each_value_3);
+    				let i;
+
+    				for (i = 0; i < each_value_3.length; i += 1) {
+    					const child_ctx = get_each_context_3(ctx, each_value_3, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_3(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(tr1, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_3.length;
+    			}
+
+    			if (dirty[0] & /*currentRows, calculateBackgroundColor, handleLocationHover, handleLocationLeave, currentNumberFormat, frozenWidth, leftCoord*/ 14176) {
+    				each_value_1 = /*currentRows*/ ctx[6];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_1$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_1.length;
+    			}
+
+    			if (dirty[0] & /*frozenWidth*/ 1024) {
+    				set_style(div0, "margin-left", /*frozenWidth*/ ctx[10]);
+    			}
+
+    			if (/*numOfPages*/ ctx[7] > 1) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_1$4(ctx);
+    					if_block1.c();
+    					if_block1.m(div1, null);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			if (if_block0) if_block0.d();
+    			destroy_each(each_blocks_1, detaching);
+    			destroy_each(each_blocks, detaching);
+    			if (if_block1) if_block1.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$6.name,
+    		type: "if",
+    		source: "(137:0) {#if data.values}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (139:4) {#if showTitle}
+    function create_if_block_2$4(ctx) {
+    	let h1;
+    	let t0_value = /*params*/ ctx[4]["type"] + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*params*/ ctx[4]["locationType"].trim() + "";
+    	let t2;
+    	let t3;
+    	let t4;
+    	let h2;
+
+    	let t5_value = permute(/*params*/ ctx[4], [
+    		.../*data*/ ctx[0].params.filter(func$1).map(func_1$1),
+    		"setting",
+    		"education",
+    		"fteOrHeadcount",
+    		"rateOrTotal",
+    		"calculation"
+    	]).join(", ") + "";
+
+    	let t5;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			t0 = text(t0_value);
+    			t1 = text("s by ");
+    			t2 = text(t2_value);
+    			t3 = text(", North Carolina");
+    			t4 = space();
+    			h2 = element("h2");
+    			t5 = text(t5_value);
+    			attr_dev(h1, "class", "title is-4");
+    			add_location(h1, file$c, 139, 6, 3751);
+    			attr_dev(h2, "class", "subtitle is-6");
+    			add_location(h2, file$c, 142, 6, 3873);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			append_dev(h1, t0);
+    			append_dev(h1, t1);
+    			append_dev(h1, t2);
+    			append_dev(h1, t3);
+    			insert_dev(target, t4, anchor);
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t5);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*params*/ 16 && t0_value !== (t0_value = /*params*/ ctx[4]["type"] + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*params*/ 16 && t2_value !== (t2_value = /*params*/ ctx[4]["locationType"].trim() + "")) set_data_dev(t2, t2_value);
+
+    			if (dirty[0] & /*params, data*/ 17 && t5_value !== (t5_value = permute(/*params*/ ctx[4], [
+    				.../*data*/ ctx[0].params.filter(func$1).map(func_1$1),
+    				"setting",
+    				"education",
+    				"fteOrHeadcount",
+    				"rateOrTotal",
+    				"calculation"
+    			]).join(", ") + "")) set_data_dev(t5, t5_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(h2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$4.name,
+    		type: "if",
+    		source: "(139:4) {#if showTitle}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (182:12) {#each grouped[0][1] as year}
+    function create_each_block_3(ctx) {
+    	let th;
+    	let t0_value = /*year*/ ctx[35].year + "";
+    	let t0;
+    	let t1;
+    	let th_id_value;
+
+    	const block = {
+    		c: function create() {
+    			th = element("th");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			attr_dev(th, "id", th_id_value = "header-" + /*year*/ ctx[35].year);
+    			attr_dev(th, "class", "svelte-xizxt8");
+    			add_location(th, file$c, 182, 14, 5050);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, th, anchor);
+    			append_dev(th, t0);
+    			append_dev(th, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*grouped*/ 8 && t0_value !== (t0_value = /*year*/ ctx[35].year + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty[0] & /*grouped*/ 8 && th_id_value !== (th_id_value = "header-" + /*year*/ ctx[35].year)) {
+    				attr_dev(th, "id", th_id_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(th);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_3.name,
+    		type: "each",
+    		source: "(182:12) {#each grouped[0][1] as year}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (202:14) {#each row[1] as cell, index}
+    function create_each_block_2$1(ctx) {
+    	let td;
+    	let t_value = /*currentNumberFormat*/ ctx[9](/*cell*/ ctx[33].value) + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	function mouseenter_handler() {
+    		return /*mouseenter_handler*/ ctx[22](/*cell*/ ctx[33]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			td = element("td");
+    			t = text(t_value);
+    			attr_dev(td, "class", "number-cell svelte-xizxt8");
+    			set_style(td, "background-color", /*calculateBackgroundColor*/ ctx[8](/*index*/ ctx[32], /*cell*/ ctx[33]));
+    			set_style(td, "color", fontColor(/*calculateBackgroundColor*/ ctx[8](/*index*/ ctx[32], /*cell*/ ctx[33])));
+    			add_location(td, file$c, 202, 16, 5792);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, td, anchor);
+    			append_dev(td, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(td, "mouseenter", mouseenter_handler, false, false, false),
+    					listen_dev(td, "mouseleave", /*handleLocationLeave*/ ctx[13], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty[0] & /*currentNumberFormat, currentRows*/ 576 && t_value !== (t_value = /*currentNumberFormat*/ ctx[9](/*cell*/ ctx[33].value) + "")) set_data_dev(t, t_value);
+
+    			if (dirty[0] & /*calculateBackgroundColor, currentRows*/ 320) {
+    				set_style(td, "background-color", /*calculateBackgroundColor*/ ctx[8](/*index*/ ctx[32], /*cell*/ ctx[33]));
+    			}
+
+    			if (dirty[0] & /*calculateBackgroundColor, currentRows*/ 320) {
+    				set_style(td, "color", fontColor(/*calculateBackgroundColor*/ ctx[8](/*index*/ ctx[32], /*cell*/ ctx[33])));
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(td);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2$1.name,
+    		type: "each",
+    		source: "(202:14) {#each row[1] as cell, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (190:10) {#each currentRows as row, index}
+    function create_each_block_1$1(ctx) {
+    	let tr;
+    	let td;
+    	let t0_value = /*row*/ ctx[30][0] + "";
+    	let t0;
+    	let td_style_value;
+    	let t1;
+    	let t2;
+    	let each_value_2 = /*row*/ ctx[30][1];
+    	validate_each_argument(each_value_2);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks[i] = create_each_block_2$1(get_each_context_2$1(ctx, each_value_2, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			td = element("td");
+    			t0 = text(t0_value);
+    			t1 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t2 = space();
+    			attr_dev(td, "class", "frozen svelte-xizxt8");
+    			attr_dev(td, "style", td_style_value = "width:" + /*frozenWidth*/ ctx[10] + ";left:" + /*leftCoord*/ ctx[5] + "px;" + (/*index*/ ctx[32] == 0 ? `padding-bottom:5px;` : ''));
+    			add_location(td, file$c, 193, 14, 5486);
+    			add_location(tr, file$c, 190, 12, 5260);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td);
+    			append_dev(td, t0);
+    			append_dev(tr, t1);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tr, null);
+    			}
+
+    			append_dev(tr, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*currentRows*/ 64 && t0_value !== (t0_value = /*row*/ ctx[30][0] + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty[0] & /*frozenWidth, leftCoord*/ 1056 && td_style_value !== (td_style_value = "width:" + /*frozenWidth*/ ctx[10] + ";left:" + /*leftCoord*/ ctx[5] + "px;" + (/*index*/ ctx[32] == 0 ? `padding-bottom:5px;` : ''))) {
+    				attr_dev(td, "style", td_style_value);
+    			}
+
+    			if (dirty[0] & /*calculateBackgroundColor, currentRows, handleLocationHover, handleLocationLeave, currentNumberFormat*/ 13120) {
+    				each_value_2 = /*row*/ ctx[30][1];
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2$1(ctx, each_value_2, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_2$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(tr, t2);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_2.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1$1.name,
+    		type: "each",
+    		source: "(190:10) {#each currentRows as row, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (221:4) {#if numOfPages > 1}
+    function create_if_block_1$4(ctx) {
+    	let nav;
+    	let ul;
+    	let each_value = Array.from({ length: /*numOfPages*/ ctx[7] }, func_2);
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			nav = element("nav");
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(ul, "class", "pagination-list");
+    			add_location(ul, file$c, 222, 8, 6502);
+    			attr_dev(nav, "class", "pagination");
+    			attr_dev(nav, "role", "navigation");
+    			attr_dev(nav, "aria-label", "pagination");
+    			add_location(nav, file$c, 221, 6, 6426);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, nav, anchor);
+    			append_dev(nav, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*currentPage, numOfPages, jumpToPage*/ 2180) {
+    				each_value = Array.from({ length: /*numOfPages*/ ctx[7] }, func_2);
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$4(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$4(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(nav);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$4.name,
+    		type: "if",
+    		source: "(221:4) {#if numOfPages > 1}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (224:10) {#each Array.from({ length: numOfPages }, (_, i) => i + 1) as pageNum}
+    function create_each_block$4(ctx) {
+    	let li;
+    	let button;
+    	let t0_value = /*pageNum*/ ctx[27] + "";
+    	let t0;
+    	let button_class_value;
+    	let button_aria_label_value;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			button = element("button");
+    			t0 = text(t0_value);
+    			t1 = space();
+
+    			attr_dev(button, "class", button_class_value = "pagination-link " + (/*currentPage*/ ctx[2] + 1 == /*pageNum*/ ctx[27]
+    			? 'is-current'
+    			: ''));
+
+    			attr_dev(button, "aria-label", button_aria_label_value = "Goto page " + /*pageNum*/ ctx[27]);
+    			add_location(button, file$c, 225, 14, 6646);
+    			add_location(li, file$c, 224, 12, 6626);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, button);
+    			append_dev(button, t0);
+    			append_dev(li, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*jumpToPage*/ ctx[11], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*numOfPages*/ 128 && t0_value !== (t0_value = /*pageNum*/ ctx[27] + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty[0] & /*currentPage, numOfPages*/ 132 && button_class_value !== (button_class_value = "pagination-link " + (/*currentPage*/ ctx[2] + 1 == /*pageNum*/ ctx[27]
+    			? 'is-current'
+    			: ''))) {
+    				attr_dev(button, "class", button_class_value);
+    			}
+
+    			if (dirty[0] & /*numOfPages*/ 128 && button_aria_label_value !== (button_aria_label_value = "Goto page " + /*pageNum*/ ctx[27])) {
+    				attr_dev(button, "aria-label", button_aria_label_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$4.name,
+    		type: "each",
+    		source: "(224:10) {#each Array.from({ length: numOfPages }, (_, i) => i + 1) as pageNum}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$c(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[0].values) return create_if_block$6;
+    		return create_else_block$4;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$c.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const numberPerPage = 10;
+    const func$1 = d => d[0].includes("Scenario");
+    const func_1$1 = d => d[0];
+    const func_2 = (_, i) => i + 1;
+
+    function instance$c($$self, $$props, $$invalidate) {
+    	let frozenWidth;
+    	let params;
+    	let paramsMap;
+    	let currentNumberFormat;
+    	let groupedMap;
+    	let grouped;
+    	let calculateBackgroundColor;
+    	let numOfPages;
+    	let paged;
+    	let currentRows;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('MapTable', slots, []);
+    	const dispatch = createEventDispatcher();
+    	const locationNamesMap = new Map(options.get("location").options.map(d => [d.value, d.label]));
+    	let { data } = $$props;
+    	let { showTitle = true } = $$props;
+    	let { currentYear } = $$props;
+    	let { baseYearOrder } = $$props;
+    	let { hovered } = $$props;
+    	let { hoveredColor } = $$props;
+    	let { colorScale = d => "#fff" } = $$props;
+    	let { valueFormat = d => d.toLocaleFormat() } = $$props;
+    	let leftCoord = 0;
+    	let currentPage = 0;
+
+    	function jumpToPage(e) {
+    		$$invalidate(2, currentPage = +e.target.innerText - 1);
+    	}
+
+    	function calculatePosition() {
+    		const { left: containerLeft } = document.getElementById("main-container").getBoundingClientRect();
+    		const { left: tableLeft } = document.getElementById("top-level-table-div").getBoundingClientRect();
+    		$$invalidate(5, leftCoord = tableLeft - containerLeft);
+    	}
+
+    	function handleLocationHover(id) {
+    		dispatch("locationHover", id);
+    	}
+
+    	function handleLocationLeave(id) {
+    		dispatch("locationLeave");
+    	}
+
+    	onMount(() => {
+    		calculatePosition();
+    		window.onresize = throttle(calculatePosition, 100);
+
+    		//Initial scroll into view for default year
+    		const currentEl = document.getElementById(`header-${currentYear}`);
+
+    		if (currentEl) currentEl.scrollIntoView({ block: "nearest" });
+    	});
+
+    	onDestroy(() => {
+    		window.onresize = null;
+    	});
+
+    	const writable_props = [
+    		'data',
+    		'showTitle',
+    		'currentYear',
+    		'baseYearOrder',
+    		'hovered',
+    		'hoveredColor',
+    		'colorScale',
+    		'valueFormat'
+    	];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<MapTable> was created with unknown prop '${key}'`);
+    	});
+
+    	const mouseenter_handler = cell => handleLocationHover(cell.location);
+
+    	$$self.$$set = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('showTitle' in $$props) $$invalidate(1, showTitle = $$props.showTitle);
+    		if ('currentYear' in $$props) $$invalidate(14, currentYear = $$props.currentYear);
+    		if ('baseYearOrder' in $$props) $$invalidate(15, baseYearOrder = $$props.baseYearOrder);
+    		if ('hovered' in $$props) $$invalidate(16, hovered = $$props.hovered);
+    		if ('hoveredColor' in $$props) $$invalidate(17, hoveredColor = $$props.hoveredColor);
+    		if ('colorScale' in $$props) $$invalidate(18, colorScale = $$props.colorScale);
+    		if ('valueFormat' in $$props) $$invalidate(19, valueFormat = $$props.valueFormat);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		group,
+    		groups,
+    		extent,
+    		ascending: ascending$1,
+    		least,
+    		max,
+    		min,
+    		permute,
+    		mean,
+    		options,
+    		fontColor,
+    		throttle,
+    		numberFormat,
+    		onMount,
+    		onDestroy,
+    		createEventDispatcher,
+    		dispatch,
+    		locationNamesMap,
+    		numberPerPage,
+    		data,
+    		showTitle,
+    		currentYear,
+    		baseYearOrder,
+    		hovered,
+    		hoveredColor,
+    		colorScale,
+    		valueFormat,
+    		leftCoord,
+    		currentPage,
+    		jumpToPage,
+    		calculatePosition,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		paged,
+    		currentRows,
+    		grouped,
+    		numOfPages,
+    		calculateBackgroundColor,
+    		groupedMap,
+    		currentNumberFormat,
+    		paramsMap,
+    		params,
+    		frozenWidth
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('showTitle' in $$props) $$invalidate(1, showTitle = $$props.showTitle);
+    		if ('currentYear' in $$props) $$invalidate(14, currentYear = $$props.currentYear);
+    		if ('baseYearOrder' in $$props) $$invalidate(15, baseYearOrder = $$props.baseYearOrder);
+    		if ('hovered' in $$props) $$invalidate(16, hovered = $$props.hovered);
+    		if ('hoveredColor' in $$props) $$invalidate(17, hoveredColor = $$props.hoveredColor);
+    		if ('colorScale' in $$props) $$invalidate(18, colorScale = $$props.colorScale);
+    		if ('valueFormat' in $$props) $$invalidate(19, valueFormat = $$props.valueFormat);
+    		if ('leftCoord' in $$props) $$invalidate(5, leftCoord = $$props.leftCoord);
+    		if ('currentPage' in $$props) $$invalidate(2, currentPage = $$props.currentPage);
+    		if ('paged' in $$props) $$invalidate(20, paged = $$props.paged);
+    		if ('currentRows' in $$props) $$invalidate(6, currentRows = $$props.currentRows);
+    		if ('grouped' in $$props) $$invalidate(3, grouped = $$props.grouped);
+    		if ('numOfPages' in $$props) $$invalidate(7, numOfPages = $$props.numOfPages);
+    		if ('calculateBackgroundColor' in $$props) $$invalidate(8, calculateBackgroundColor = $$props.calculateBackgroundColor);
+    		if ('groupedMap' in $$props) $$invalidate(21, groupedMap = $$props.groupedMap);
+    		if ('currentNumberFormat' in $$props) $$invalidate(9, currentNumberFormat = $$props.currentNumberFormat);
+    		if ('paramsMap' in $$props) paramsMap = $$props.paramsMap;
+    		if ('params' in $$props) $$invalidate(4, params = $$props.params);
+    		if ('frozenWidth' in $$props) $$invalidate(10, frozenWidth = $$props.frozenWidth);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Why do Chrome and Edge appear to add a space after the locationType?
+    			$$invalidate(4, params = data.params
+    			? data.params.reduce(
+    					(acc, curr) => {
+    						acc[curr[0]] = options.get(curr[0]).options.find(d => d.value == curr[1]).label;
+    						return acc;
+    					},
+    					{}
+    				)
+    			: {});
+    		}
+
+    		if ($$self.$$.dirty[0] & /*params*/ 16) {
+    			$$invalidate(10, frozenWidth = params["locationType"] == "Medicaid Region"
+    			? "13.5em"
+    			: "8em");
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Reset counter when data changes
+    			if (data) {
+    				$$invalidate(2, currentPage = 0);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			paramsMap = data.params
+    			? new Map(data.params.map(d => [d.name, d]))
+    			: undefined;
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data, valueFormat*/ 524289) {
+    			//This needs to get cleaned up.
+    			$$invalidate(9, currentNumberFormat = function (d) {
+    				if (data.params.find(d => d[0] == "calculation")[1] === "percentage") {
+    					return valueFormat(d);
+    				} else {
+    					return numberFormat(+data.params.find(d => d[0] == "rateOrTotal")[1])(d);
+    				}
+    			});
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Create Map for ordering based on baseYearOrder
+    			$$invalidate(21, groupedMap = group(data.values, d => d.location));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*baseYearOrder, groupedMap*/ 2129920) {
+    			$$invalidate(3, grouped = baseYearOrder.map(d => groupedMap.get(d)).map(function (d) {
+    				return [
+    					locationNamesMap.get(d[0].location),
+    					d.sort((a, b) => ascending$1(a.year, b.year))
+    				];
+    			}));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*currentYear, hovered, hoveredColor, colorScale*/ 475136) {
+    			$$invalidate(8, calculateBackgroundColor = (index, cell) => {
+    				return cell.year != currentYear
+    				? "#ffffff"
+    				: hovered == cell.location
+    					? hoveredColor
+    					: colorScale(cell.value);
+    			});
+    		}
+
+    		if ($$self.$$.dirty[0] & /*grouped*/ 8) {
+    			$$invalidate(7, numOfPages = Math.ceil(grouped.length / numberPerPage));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*grouped*/ 8) {
+    			$$invalidate(20, paged = group(grouped, (d, i) => Math.floor(i / numberPerPage)));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*paged, currentPage*/ 1048580) {
+    			$$invalidate(6, currentRows = paged.get(currentPage));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*currentYear*/ 16384) {
+    			if (currentYear) {
+    				const currentEl = document.getElementById(`header-${currentYear}`);
+    				if (currentEl) currentEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    			}
+    		}
+    	};
+
+    	return [
+    		data,
+    		showTitle,
+    		currentPage,
+    		grouped,
+    		params,
+    		leftCoord,
+    		currentRows,
+    		numOfPages,
+    		calculateBackgroundColor,
+    		currentNumberFormat,
+    		frozenWidth,
+    		jumpToPage,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		currentYear,
+    		baseYearOrder,
+    		hovered,
+    		hoveredColor,
+    		colorScale,
+    		valueFormat,
+    		paged,
+    		groupedMap,
+    		mouseenter_handler
+    	];
+    }
+
+    class MapTable extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(
+    			this,
+    			options,
+    			instance$c,
+    			create_fragment$c,
+    			safe_not_equal,
+    			{
+    				data: 0,
+    				showTitle: 1,
+    				currentYear: 14,
+    				baseYearOrder: 15,
+    				hovered: 16,
+    				hoveredColor: 17,
+    				colorScale: 18,
+    				valueFormat: 19
+    			},
+    			null,
+    			[-1, -1]
+    		);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "MapTable",
+    			options,
+    			id: create_fragment$c.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*data*/ ctx[0] === undefined && !('data' in props)) {
+    			console.warn("<MapTable> was created without expected prop 'data'");
+    		}
+
+    		if (/*currentYear*/ ctx[14] === undefined && !('currentYear' in props)) {
+    			console.warn("<MapTable> was created without expected prop 'currentYear'");
+    		}
+
+    		if (/*baseYearOrder*/ ctx[15] === undefined && !('baseYearOrder' in props)) {
+    			console.warn("<MapTable> was created without expected prop 'baseYearOrder'");
+    		}
+
+    		if (/*hovered*/ ctx[16] === undefined && !('hovered' in props)) {
+    			console.warn("<MapTable> was created without expected prop 'hovered'");
+    		}
+
+    		if (/*hoveredColor*/ ctx[17] === undefined && !('hoveredColor' in props)) {
+    			console.warn("<MapTable> was created without expected prop 'hoveredColor'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get showTitle() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set showTitle(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get currentYear() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set currentYear(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get baseYearOrder() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set baseYearOrder(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hovered() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hovered(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hoveredColor() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hoveredColor(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get colorScale() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set colorScale(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get valueFormat() {
+    		throw new Error("<MapTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set valueFormat(value) {
+    		throw new Error("<MapTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\SimpleMap.svelte generated by Svelte v3.44.0 */
+    const file$b = "src\\SimpleMap.svelte";
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[34] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[37] = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[34] = list[i];
+    	return child_ctx;
+    }
+
+    // (269:2) {:else}
+    function create_else_block$3(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "Choose a combination of selections and click \"Show\" to see a map of the\r\n      model's projections.";
+    			attr_dev(div, "class", "notification");
+    			add_location(div, file$b, 269, 4, 8466);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$3.name,
+    		type: "else",
+    		source: "(269:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (148:2) {#if data.values}
+    function create_if_block$5(ctx) {
+    	let h1;
+    	let t0_value = /*params*/ ctx[16]["type"] + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*params*/ ctx[16]["locationType"] + "";
+    	let t2;
+    	let t3;
+    	let t4;
+
+    	let t5_value = (/*currentYear*/ ctx[3] >= /*projectionStartYear*/ ctx[2]
+    	? " (Projected)"
+    	: "") + "";
+
+    	let t5;
+    	let t6;
+    	let h2;
+
+    	let t7_value = permute(/*params*/ ctx[16], [
+    		"calculation",
+    		"setting",
+    		"education",
+    		"fteOrHeadcount",
+    		"rateOrTotal",
+    		.../*data*/ ctx[0].params.filter(func).map(func_1)
+    	]).join(", ") + "";
+
+    	let t7;
+    	let t8;
+    	let div2;
+    	let div0;
+    	let rowchart;
+    	let t9;
+    	let div1;
+    	let svg;
+    	let g;
+    	let t10;
+    	let div4;
+    	let div3;
+    	let t11;
+    	let span;
+    	let t12;
+
+    	let t13_value = (/*currentYear*/ ctx[3] >= /*projectionStartYear*/ ctx[2]
+    	? " (Projected)"
+    	: "") + "";
+
+    	let t13;
+    	let t14;
+    	let input;
+    	let input_min_value;
+    	let input_max_value;
+    	let t15;
+    	let maptable;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	rowchart = new RowChart({
+    			props: {
+    				mapYearDataArray: /*mapYearDataArray*/ ctx[7],
+    				valueExtentAllTime: /*valueExtentAllTime*/ ctx[5],
+    				locationType: /*params*/ ctx[16]["locationType"],
+    				rateOrTotal: /*params*/ ctx[16]["rateOrTotal"],
+    				hovered: /*hovered*/ ctx[9],
+    				hoveredColor,
+    				tickFormat: /*valueFormat*/ ctx[13],
+    				calculation: /*calculation*/ ctx[4]
+    			},
+    			$$inline: true
+    		});
+
+    	rowchart.$on("locationHover", /*locationHover_handler*/ ctx[28]);
+    	rowchart.$on("locationLeave", /*handleLocationLeave*/ ctx[19]);
+    	let if_block = /*geoJSON*/ ctx[1] && /*path*/ ctx[10] && create_if_block_1$3(ctx);
+
+    	maptable = new MapTable({
+    			props: {
+    				data: /*data*/ ctx[0],
+    				showTitle: false,
+    				colorScale: /*color*/ ctx[6],
+    				currentYear: /*currentYear*/ ctx[3],
+    				baseYearOrder: /*baseYearOrder*/ ctx[8],
+    				hovered: /*hovered*/ ctx[9],
+    				hoveredColor,
+    				valueFormat: /*valueFormat*/ ctx[13]
+    			},
+    			$$inline: true
+    		});
+
+    	maptable.$on("locationHover", /*locationHover_handler_1*/ ctx[31]);
+    	maptable.$on("locationLeave", /*handleLocationLeave*/ ctx[19]);
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			t0 = text(t0_value);
+    			t1 = text("s by ");
+    			t2 = text(t2_value);
+    			t3 = text(", North Carolina, ");
+    			t4 = text(/*currentYear*/ ctx[3]);
+    			t5 = text(t5_value);
+    			t6 = space();
+    			h2 = element("h2");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			div2 = element("div");
+    			div0 = element("div");
+    			create_component(rowchart.$$.fragment);
+    			t9 = space();
+    			div1 = element("div");
+    			svg = svg_element("svg");
+    			g = svg_element("g");
+    			if (if_block) if_block.c();
+    			t10 = space();
+    			div4 = element("div");
+    			div3 = element("div");
+    			t11 = text("Year of Selected Projection to Map:\r\n        ");
+    			span = element("span");
+    			t12 = text(/*currentYear*/ ctx[3]);
+    			t13 = text(t13_value);
+    			t14 = space();
+    			input = element("input");
+    			t15 = space();
+    			create_component(maptable.$$.fragment);
+    			attr_dev(h1, "class", "title is-4");
+    			add_location(h1, file$b, 148, 4, 4300);
+    			attr_dev(h2, "class", "subtitle is-6");
+    			add_location(h2, file$b, 154, 4, 4507);
+    			attr_dev(div0, "class", "column is-three-fifths");
+    			set_style(div0, "padding", "0px 0px 0px 5px");
+    			add_location(div0, file$b, 168, 6, 4853);
+    			add_location(g, file$b, 184, 10, 5498);
+    			attr_dev(svg, "viewBox", "0 0 " + width + " " + height);
+    			attr_dev(svg, "id", "map-svg");
+    			add_location(svg, file$b, 183, 8, 5437);
+    			attr_dev(div1, "class", "column is-two-fifths");
+    			set_style(div1, "padding", "0px 5px 0px 0px");
+    			add_location(div1, file$b, 182, 6, 5359);
+    			attr_dev(div2, "class", "columns");
+    			add_location(div2, file$b, 167, 4, 4824);
+    			attr_dev(span, "class", "range-output");
+    			add_location(span, file$b, 240, 8, 7743);
+    			attr_dev(div3, "class", "range-title");
+    			add_location(div3, file$b, 238, 6, 7663);
+    			attr_dev(input, "class", "slider");
+    			attr_dev(input, "name", "input");
+    			attr_dev(input, "type", "range");
+    			attr_dev(input, "min", input_min_value = /*yearExtent*/ ctx[15][0]);
+    			attr_dev(input, "max", input_max_value = /*yearExtent*/ ctx[15][1]);
+    			attr_dev(input, "step", "1");
+    			add_location(input, file$b, 246, 6, 7918);
+    			attr_dev(div4, "class", "range");
+    			add_location(div4, file$b, 237, 4, 7636);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			append_dev(h1, t0);
+    			append_dev(h1, t1);
+    			append_dev(h1, t2);
+    			append_dev(h1, t3);
+    			append_dev(h1, t4);
+    			append_dev(h1, t5);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t7);
+    			insert_dev(target, t8, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			mount_component(rowchart, div0, null);
+    			append_dev(div2, t9);
+    			append_dev(div2, div1);
+    			append_dev(div1, svg);
+    			append_dev(svg, g);
+    			if (if_block) if_block.m(g, null);
+    			insert_dev(target, t10, anchor);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div3);
+    			append_dev(div3, t11);
+    			append_dev(div3, span);
+    			append_dev(span, t12);
+    			append_dev(span, t13);
+    			append_dev(div4, t14);
+    			append_dev(div4, input);
+    			set_input_value(input, /*currentYear*/ ctx[3]);
+    			append_dev(div4, t15);
+    			mount_component(maptable, div4, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "change", /*input_change_input_handler*/ ctx[30]),
+    					listen_dev(input, "input", /*input_change_input_handler*/ ctx[30])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if ((!current || dirty[0] & /*params*/ 65536) && t0_value !== (t0_value = /*params*/ ctx[16]["type"] + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*params*/ 65536) && t2_value !== (t2_value = /*params*/ ctx[16]["locationType"] + "")) set_data_dev(t2, t2_value);
+    			if (!current || dirty[0] & /*currentYear*/ 8) set_data_dev(t4, /*currentYear*/ ctx[3]);
+
+    			if ((!current || dirty[0] & /*currentYear, projectionStartYear*/ 12) && t5_value !== (t5_value = (/*currentYear*/ ctx[3] >= /*projectionStartYear*/ ctx[2]
+    			? " (Projected)"
+    			: "") + "")) set_data_dev(t5, t5_value);
+
+    			if ((!current || dirty[0] & /*params, data*/ 65537) && t7_value !== (t7_value = permute(/*params*/ ctx[16], [
+    				"calculation",
+    				"setting",
+    				"education",
+    				"fteOrHeadcount",
+    				"rateOrTotal",
+    				.../*data*/ ctx[0].params.filter(func).map(func_1)
+    			]).join(", ") + "")) set_data_dev(t7, t7_value);
+
+    			const rowchart_changes = {};
+    			if (dirty[0] & /*mapYearDataArray*/ 128) rowchart_changes.mapYearDataArray = /*mapYearDataArray*/ ctx[7];
+    			if (dirty[0] & /*valueExtentAllTime*/ 32) rowchart_changes.valueExtentAllTime = /*valueExtentAllTime*/ ctx[5];
+    			if (dirty[0] & /*params*/ 65536) rowchart_changes.locationType = /*params*/ ctx[16]["locationType"];
+    			if (dirty[0] & /*params*/ 65536) rowchart_changes.rateOrTotal = /*params*/ ctx[16]["rateOrTotal"];
+    			if (dirty[0] & /*hovered*/ 512) rowchart_changes.hovered = /*hovered*/ ctx[9];
+    			if (dirty[0] & /*valueFormat*/ 8192) rowchart_changes.tickFormat = /*valueFormat*/ ctx[13];
+    			if (dirty[0] & /*calculation*/ 16) rowchart_changes.calculation = /*calculation*/ ctx[4];
+    			rowchart.$set(rowchart_changes);
+
+    			if (/*geoJSON*/ ctx[1] && /*path*/ ctx[10]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1$3(ctx);
+    					if_block.c();
+    					if_block.m(g, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (!current || dirty[0] & /*currentYear*/ 8) set_data_dev(t12, /*currentYear*/ ctx[3]);
+
+    			if ((!current || dirty[0] & /*currentYear, projectionStartYear*/ 12) && t13_value !== (t13_value = (/*currentYear*/ ctx[3] >= /*projectionStartYear*/ ctx[2]
+    			? " (Projected)"
+    			: "") + "")) set_data_dev(t13, t13_value);
+
+    			if (!current || dirty[0] & /*yearExtent*/ 32768 && input_min_value !== (input_min_value = /*yearExtent*/ ctx[15][0])) {
+    				attr_dev(input, "min", input_min_value);
+    			}
+
+    			if (!current || dirty[0] & /*yearExtent*/ 32768 && input_max_value !== (input_max_value = /*yearExtent*/ ctx[15][1])) {
+    				attr_dev(input, "max", input_max_value);
+    			}
+
+    			if (dirty[0] & /*currentYear*/ 8) {
+    				set_input_value(input, /*currentYear*/ ctx[3]);
+    			}
+
+    			const maptable_changes = {};
+    			if (dirty[0] & /*data*/ 1) maptable_changes.data = /*data*/ ctx[0];
+    			if (dirty[0] & /*color*/ 64) maptable_changes.colorScale = /*color*/ ctx[6];
+    			if (dirty[0] & /*currentYear*/ 8) maptable_changes.currentYear = /*currentYear*/ ctx[3];
+    			if (dirty[0] & /*baseYearOrder*/ 256) maptable_changes.baseYearOrder = /*baseYearOrder*/ ctx[8];
+    			if (dirty[0] & /*hovered*/ 512) maptable_changes.hovered = /*hovered*/ ctx[9];
+    			if (dirty[0] & /*valueFormat*/ 8192) maptable_changes.valueFormat = /*valueFormat*/ ctx[13];
+    			maptable.$set(maptable_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(rowchart.$$.fragment, local);
+    			transition_in(maptable.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(rowchart.$$.fragment, local);
+    			transition_out(maptable.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t8);
+    			if (detaching) detach_dev(div2);
+    			destroy_component(rowchart);
+    			if (if_block) if_block.d();
+    			if (detaching) detach_dev(t10);
+    			if (detaching) detach_dev(div4);
+    			destroy_component(maptable);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$5.name,
+    		type: "if",
+    		source: "(148:2) {#if data.values}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (186:12) {#if geoJSON && path}
+    function create_if_block_1$3(ctx) {
+    	let g;
+    	let each_value_1 = /*geoJSON*/ ctx[1];
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*layerMap*/ ctx[12].get(/*locationTypeTranslate*/ ctx[11]).geo.features;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			g = svg_element("g");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(g, "class", "parent-overlay");
+    			add_location(g, file$b, 221, 14, 7168);
+    		},
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, g, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g, null);
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*geoJSON, hovered, mapYearData, getCountyStroke, path, handleLocationHover, handleLocationLeave, valueFormat*/ 943618) {
+    				each_value_1 = /*geoJSON*/ ctx[1];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(g.parentNode, g);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty[0] & /*path, layerMap, locationTypeTranslate*/ 7168) {
+    				each_value = /*layerMap*/ ctx[12].get(/*locationTypeTranslate*/ ctx[11]).geo.features;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(g, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks_1, detaching);
+    			if (detaching) detach_dev(g);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$3.name,
+    		type: "if",
+    		source: "(186:12) {#if geoJSON && path}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (210:22) {#if mapYearData.has(+feature.properties.id)}
+    function create_if_block_2$3(ctx) {
+    	let title;
+    	let t0_value = /*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).name + "";
+    	let t0;
+    	let t1;
+    	let t2_value = /*valueFormat*/ ctx[13](/*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).value) + "";
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			title = svg_element("title");
+    			t0 = text(t0_value);
+    			t1 = text(": ");
+    			t2 = text(t2_value);
+    			add_location(title, file$b, 210, 24, 6718);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, title, anchor);
+    			append_dev(title, t0);
+    			append_dev(title, t1);
+    			append_dev(title, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*mapYearData, geoJSON*/ 16386 && t0_value !== (t0_value = /*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).name + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*valueFormat, mapYearData, geoJSON*/ 24578 && t2_value !== (t2_value = /*valueFormat*/ ctx[13](/*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).value) + "")) set_data_dev(t2, t2_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(title);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$3.name,
+    		type: "if",
+    		source: "(210:22) {#if mapYearData.has(+feature.properties.id)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (189:18) {#each layer.geo.features as feature}
+    function create_each_block_2(ctx) {
+    	let path_1;
+    	let show_if = /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id);
+    	let path_1_fill_value;
+    	let path_1_stroke_value;
+    	let path_1_d_value;
+    	let mounted;
+    	let dispose;
+    	let if_block = show_if && create_if_block_2$3(ctx);
+
+    	function mouseenter_handler() {
+    		return /*mouseenter_handler*/ ctx[29](/*feature*/ ctx[34]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			path_1 = svg_element("path");
+    			if (if_block) if_block.c();
+    			attr_dev(path_1, "class", "feature");
+
+    			attr_dev(path_1, "fill", path_1_fill_value = /*hovered*/ ctx[9] == +/*feature*/ ctx[34].properties.id
+    			? hoveredColor
+    			: /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id)
+    				? /*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).fill
+    				: "none");
+
+    			attr_dev(path_1, "stroke", path_1_stroke_value = /*layer*/ ctx[37].name === "county"
+    			? /*getCountyStroke*/ ctx[17](/*feature*/ ctx[34], /*hovered*/ ctx[9], /*mapYearData*/ ctx[14])
+    			: "none");
+
+    			set_style(path_1, "pointer-events", /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id)
+    			? 'all'
+    			: 'none');
+
+    			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[10](/*feature*/ ctx[34]));
+    			add_location(path_1, file$b, 189, 20, 5695);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, path_1, anchor);
+    			if (if_block) if_block.m(path_1, null);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(path_1, "mouseenter", mouseenter_handler, false, false, false),
+    					listen_dev(path_1, "mouseleave", /*handleLocationLeave*/ ctx[19], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty[0] & /*mapYearData, geoJSON*/ 16386) show_if = /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id);
+
+    			if (show_if) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_2$3(ctx);
+    					if_block.c();
+    					if_block.m(path_1, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty[0] & /*hovered, geoJSON, mapYearData*/ 16898 && path_1_fill_value !== (path_1_fill_value = /*hovered*/ ctx[9] == +/*feature*/ ctx[34].properties.id
+    			? hoveredColor
+    			: /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id)
+    				? /*mapYearData*/ ctx[14].get(+/*feature*/ ctx[34].properties.id).fill
+    				: "none")) {
+    				attr_dev(path_1, "fill", path_1_fill_value);
+    			}
+
+    			if (dirty[0] & /*geoJSON, hovered, mapYearData*/ 16898 && path_1_stroke_value !== (path_1_stroke_value = /*layer*/ ctx[37].name === "county"
+    			? /*getCountyStroke*/ ctx[17](/*feature*/ ctx[34], /*hovered*/ ctx[9], /*mapYearData*/ ctx[14])
+    			: "none")) {
+    				attr_dev(path_1, "stroke", path_1_stroke_value);
+    			}
+
+    			if (dirty[0] & /*mapYearData, geoJSON*/ 16386) {
+    				set_style(path_1, "pointer-events", /*mapYearData*/ ctx[14].has(+/*feature*/ ctx[34].properties.id)
+    				? 'all'
+    				: 'none');
+    			}
+
+    			if (dirty[0] & /*path, geoJSON*/ 1026 && path_1_d_value !== (path_1_d_value = /*path*/ ctx[10](/*feature*/ ctx[34]))) {
+    				attr_dev(path_1, "d", path_1_d_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(path_1);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(189:18) {#each layer.geo.features as feature}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (187:14) {#each geoJSON as layer}
+    function create_each_block_1(ctx) {
+    	let g;
+    	let g_class_value;
+    	let each_value_2 = /*layer*/ ctx[37].geo.features;
+    	validate_each_argument(each_value_2);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			g = svg_element("g");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(g, "class", g_class_value = /*layer*/ ctx[37].name);
+    			add_location(g, file$b, 187, 16, 5594);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, g, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(g, null);
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*hovered, geoJSON, mapYearData, getCountyStroke, path, handleLocationHover, handleLocationLeave, valueFormat*/ 943618) {
+    				each_value_2 = /*layer*/ ctx[37].geo.features;
+    				validate_each_argument(each_value_2);
+    				let i;
+
+    				for (i = 0; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block_2(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(g, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value_2.length;
+    			}
+
+    			if (dirty[0] & /*geoJSON*/ 2 && g_class_value !== (g_class_value = /*layer*/ ctx[37].name)) {
+    				attr_dev(g, "class", g_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(g);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(187:14) {#each geoJSON as layer}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (223:16) {#each layerMap.get(locationTypeTranslate).geo.features as feature}
+    function create_each_block$3(ctx) {
+    	let path_1;
+    	let path_1_d_value;
+
+    	const block = {
+    		c: function create() {
+    			path_1 = svg_element("path");
+    			attr_dev(path_1, "class", "feature");
+    			attr_dev(path_1, "fill", "none");
+    			attr_dev(path_1, "stroke-width", "2");
+    			attr_dev(path_1, "stroke", "#333");
+    			attr_dev(path_1, "d", path_1_d_value = /*path*/ ctx[10](/*feature*/ ctx[34]));
+    			add_location(path_1, file$b, 223, 18, 7299);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, path_1, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*path, layerMap, locationTypeTranslate*/ 7168 && path_1_d_value !== (path_1_d_value = /*path*/ ctx[10](/*feature*/ ctx[34]))) {
+    				attr_dev(path_1, "d", path_1_d_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(path_1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(223:16) {#each layerMap.get(locationTypeTranslate).geo.features as feature}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$b(ctx) {
+    	let div;
+    	let current_block_type_index;
+    	let if_block;
+    	let current;
+    	const if_block_creators = [create_if_block$5, create_else_block$3];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[0].values) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if_block.c();
+    			attr_dev(div, "id", "simple-map-container");
+    			add_location(div, file$b, 146, 0, 4242);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if_blocks[current_block_type_index].m(div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(div, null);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if_blocks[current_block_type_index].d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$b.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const baseYear = 2019;
+    const hoveredColor = "#898989";
+    const width = 320;
+    const height = 160;
+    const func = d => d[0].includes("Scenario");
+    const func_1 = d => d[0];
+
+    function instance$b($$self, $$props, $$invalidate) {
+    	let params;
+    	let yearExtent;
+    	let locationsSet;
+    	let baseYearOrder;
+    	let currentYearData;
+    	let mapYearDataArray;
+    	let mapYearData;
+    	let valueExtentAllTime;
+    	let sequentialScale;
+    	let divergingScaleAbsoluteMax;
+    	let divergingScale;
+    	let color$1;
+    	let valueFormat;
+    	let calculation;
+    	let rateOrTotal;
+    	let locationCode;
+    	let layerMap;
+    	let locationTypeTranslate;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('SimpleMap', slots, []);
+    	let { data } = $$props;
+    	let { geoJSON } = $$props;
+    	let { projectionStartYear } = $$props;
+    	let currentYear = 2033;
+    	let hovered = undefined;
+    	const locationNamesMap = new Map(options.get("location").options.map(d => [d.value, d.label]));
+    	const locationTypeTranslateMap = new Map([[8, "medicaid"], [5, "ahec"], [7, "metro"]]);
+    	let path;
+    	let projection;
+
+    	function getCountyStroke(feature, hovered, mapYearData) {
+    		const parentLocationValue = feature.properties[locationTypeTranslate + "_code"];
+
+    		const parentFill = hovered == +parentLocationValue
+    		? hoveredColor
+    		: mapYearData.has(+parentLocationValue)
+    			? mapYearData.get(+parentLocationValue).fill
+    			: "none";
+
+    		return strokeColorContrast(parentFill);
+    	}
+
+    	function handleLocationHover(id) {
+    		$$invalidate(9, hovered = id);
+    	}
+
+    	function handleLocationLeave() {
+    		$$invalidate(9, hovered = undefined);
+    	}
+
+    	const writable_props = ['data', 'geoJSON', 'projectionStartYear'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<SimpleMap> was created with unknown prop '${key}'`);
+    	});
+
+    	const locationHover_handler = e => handleLocationHover(e.detail);
+    	const mouseenter_handler = feature => handleLocationHover(+feature.properties.id);
+
+    	function input_change_input_handler() {
+    		currentYear = to_number(this.value);
+    		$$invalidate(3, currentYear);
+    	}
+
+    	const locationHover_handler_1 = e => handleLocationHover(e.detail);
+
+    	$$self.$$set = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('geoJSON' in $$props) $$invalidate(1, geoJSON = $$props.geoJSON);
+    		if ('projectionStartYear' in $$props) $$invalidate(2, projectionStartYear = $$props.projectionStartYear);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		ascending: ascending$1,
+    		permute,
+    		geoPath,
+    		geoAlbers,
+    		d3color: color,
+    		scaleOrdinal: ordinal,
+    		scaleSequential: sequential,
+    		scaleDiverging: diverging,
+    		interpolateRdYlBu,
+    		interpolateBlues,
+    		extent,
+    		RowChart,
+    		MapTable,
+    		options,
+    		fontColor,
+    		strokeColorContrast,
+    		data,
+    		geoJSON,
+    		projectionStartYear,
+    		currentYear,
+    		baseYear,
+    		hovered,
+    		hoveredColor,
+    		locationNamesMap,
+    		locationTypeTranslateMap,
+    		width,
+    		height,
+    		path,
+    		projection,
+    		getCountyStroke,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		locationTypeTranslate,
+    		locationCode,
+    		layerMap,
+    		rateOrTotal,
+    		calculation,
+    		valueFormat,
+    		sequentialScale,
+    		divergingScale,
+    		valueExtentAllTime,
+    		color: color$1,
+    		divergingScaleAbsoluteMax,
+    		mapYearDataArray,
+    		mapYearData,
+    		currentYearData,
+    		baseYearOrder,
+    		locationsSet,
+    		yearExtent,
+    		params
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('geoJSON' in $$props) $$invalidate(1, geoJSON = $$props.geoJSON);
+    		if ('projectionStartYear' in $$props) $$invalidate(2, projectionStartYear = $$props.projectionStartYear);
+    		if ('currentYear' in $$props) $$invalidate(3, currentYear = $$props.currentYear);
+    		if ('hovered' in $$props) $$invalidate(9, hovered = $$props.hovered);
+    		if ('path' in $$props) $$invalidate(10, path = $$props.path);
+    		if ('projection' in $$props) $$invalidate(20, projection = $$props.projection);
+    		if ('locationTypeTranslate' in $$props) $$invalidate(11, locationTypeTranslate = $$props.locationTypeTranslate);
+    		if ('locationCode' in $$props) $$invalidate(21, locationCode = $$props.locationCode);
+    		if ('layerMap' in $$props) $$invalidate(12, layerMap = $$props.layerMap);
+    		if ('rateOrTotal' in $$props) $$invalidate(22, rateOrTotal = $$props.rateOrTotal);
+    		if ('calculation' in $$props) $$invalidate(4, calculation = $$props.calculation);
+    		if ('valueFormat' in $$props) $$invalidate(13, valueFormat = $$props.valueFormat);
+    		if ('sequentialScale' in $$props) $$invalidate(23, sequentialScale = $$props.sequentialScale);
+    		if ('divergingScale' in $$props) $$invalidate(24, divergingScale = $$props.divergingScale);
+    		if ('valueExtentAllTime' in $$props) $$invalidate(5, valueExtentAllTime = $$props.valueExtentAllTime);
+    		if ('color' in $$props) $$invalidate(6, color$1 = $$props.color);
+    		if ('divergingScaleAbsoluteMax' in $$props) $$invalidate(25, divergingScaleAbsoluteMax = $$props.divergingScaleAbsoluteMax);
+    		if ('mapYearDataArray' in $$props) $$invalidate(7, mapYearDataArray = $$props.mapYearDataArray);
+    		if ('mapYearData' in $$props) $$invalidate(14, mapYearData = $$props.mapYearData);
+    		if ('currentYearData' in $$props) $$invalidate(26, currentYearData = $$props.currentYearData);
+    		if ('baseYearOrder' in $$props) $$invalidate(8, baseYearOrder = $$props.baseYearOrder);
+    		if ('locationsSet' in $$props) $$invalidate(27, locationsSet = $$props.locationsSet);
+    		if ('yearExtent' in $$props) $$invalidate(15, yearExtent = $$props.yearExtent);
+    		if ('params' in $$props) $$invalidate(16, params = $$props.params);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(16, params = data.params
+    			? data.params.reduce(
+    					(acc, curr) => {
+    						acc[curr[0]] = options.get(curr[0]).options.find(d => d.value == curr[1]).label;
+    						return acc;
+    					},
+    					{}
+    				)
+    			: {});
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(15, yearExtent = extent(data.values || [{ year: 2019 }, { year: 2032 }], d => d.year));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(27, locationsSet = new Set(data.values.map(d => d.location)));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*locationsSet*/ 134217728) {
+    			$$invalidate(8, baseYearOrder = options.get("location").options.filter(d => locationsSet.has(d.value)).map(d => d.value));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(4, calculation = data.params.find(d => d[0] === "calculation")[1]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(5, valueExtentAllTime = extent(data.values || [], d => d.value));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*valueExtentAllTime*/ 32) {
+    			$$invalidate(25, divergingScaleAbsoluteMax = Math.max(...valueExtentAllTime.map(d => Math.abs(d))));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*divergingScaleAbsoluteMax*/ 33554432) {
+    			$$invalidate(24, divergingScale = diverging(interpolateRdYlBu).domain([-divergingScaleAbsoluteMax, 0, divergingScaleAbsoluteMax]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*valueExtentAllTime*/ 32) {
+    			// const metroNonmetroColorScale = scaleOrdinal()
+    			//   .domain(["700", "701"])
+    			//   .range(["#1f78b4", "#33a02c"]);
+    			$$invalidate(23, sequentialScale = sequential(interpolateBlues).domain(valueExtentAllTime));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*calculation, valueExtentAllTime, divergingScale, sequentialScale*/ 25165872) {
+    			$$invalidate(6, color$1 = (calculation === "difference" || calculation === "percentage") & valueExtentAllTime[0] < 0
+    			? divergingScale
+    			: sequentialScale);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data, currentYear, color*/ 73) {
+    			$$invalidate(26, currentYearData = new Map(data.values.filter(d => d.year == currentYear).map(d => [
+    					d.location,
+    					{
+    						fill: color$1(d.value),
+    						fontFill: fontColor(color$1(d.value)),
+    						value: d.value,
+    						name: locationNamesMap.get(d.location)
+    					}
+    				])));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*baseYearOrder, currentYearData*/ 67109120) {
+    			$$invalidate(7, mapYearDataArray = baseYearOrder.map(d => [d, currentYearData.get(d)]));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*mapYearDataArray*/ 128) {
+    			$$invalidate(14, mapYearData = new Map(mapYearDataArray));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			$$invalidate(22, rateOrTotal = data.params.find(d => d[0] === "rateOrTotal")[1]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*calculation, rateOrTotal*/ 4194320) {
+    			$$invalidate(13, valueFormat = val => calculation === "percentage"
+    			? val.toLocaleString(undefined, {
+    					style: "percent",
+    					signDisplay: "exceptZero"
+    				})
+    			: rateOrTotal === 1
+    				? val.toLocaleString(undefined, { notation: "compact" })
+    				: val.toLocaleString());
+    		}
+
+    		if ($$self.$$.dirty[0] & /*data*/ 1) {
+    			//Need these to be able to lookup parent geography for each county.
+    			$$invalidate(21, locationCode = data.params.find(d => d[0] === "locationType")[1]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*geoJSON*/ 2) {
+    			$$invalidate(12, layerMap = new Map(geoJSON.map(d => [d.name, d])));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*locationCode*/ 2097152) {
+    			$$invalidate(11, locationTypeTranslate = locationTypeTranslateMap.get(locationCode));
+    		}
+
+    		if ($$self.$$.dirty[0] & /*geoJSON, projection*/ 1048578) {
+    			if (geoJSON) {
+    				$$invalidate(20, projection = geoAlbers().rotate([0, 62, 0]).fitSize([width, height], geoJSON[0].geo));
+    				$$invalidate(10, path = geoPath(projection));
+    			}
+    		}
+    	};
+
+    	return [
+    		data,
+    		geoJSON,
+    		projectionStartYear,
+    		currentYear,
+    		calculation,
+    		valueExtentAllTime,
+    		color$1,
+    		mapYearDataArray,
+    		baseYearOrder,
+    		hovered,
+    		path,
+    		locationTypeTranslate,
+    		layerMap,
+    		valueFormat,
+    		mapYearData,
+    		yearExtent,
+    		params,
+    		getCountyStroke,
+    		handleLocationHover,
+    		handleLocationLeave,
+    		projection,
+    		locationCode,
+    		rateOrTotal,
+    		sequentialScale,
+    		divergingScale,
+    		divergingScaleAbsoluteMax,
+    		currentYearData,
+    		locationsSet,
+    		locationHover_handler,
+    		mouseenter_handler,
+    		input_change_input_handler,
+    		locationHover_handler_1
+    	];
+    }
+
+    class SimpleMap extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(
+    			this,
+    			options,
+    			instance$b,
+    			create_fragment$b,
+    			safe_not_equal,
+    			{
+    				data: 0,
+    				geoJSON: 1,
+    				projectionStartYear: 2
+    			},
+    			null,
+    			[-1, -1]
+    		);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "SimpleMap",
+    			options,
+    			id: create_fragment$b.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*data*/ ctx[0] === undefined && !('data' in props)) {
+    			console.warn("<SimpleMap> was created without expected prop 'data'");
+    		}
+
+    		if (/*geoJSON*/ ctx[1] === undefined && !('geoJSON' in props)) {
+    			console.warn("<SimpleMap> was created without expected prop 'geoJSON'");
+    		}
+
+    		if (/*projectionStartYear*/ ctx[2] === undefined && !('projectionStartYear' in props)) {
+    			console.warn("<SimpleMap> was created without expected prop 'projectionStartYear'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<SimpleMap>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<SimpleMap>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get geoJSON() {
+    		throw new Error("<SimpleMap>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set geoJSON(value) {
+    		throw new Error("<SimpleMap>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get projectionStartYear() {
+    		throw new Error("<SimpleMap>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set projectionStartYear(value) {
+    		throw new Error("<SimpleMap>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\SimpleSelect.svelte generated by Svelte v3.44.0 */
+
+    const file$a = "src\\SimpleSelect.svelte";
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[10] = list[i];
+    	return child_ctx;
+    }
+
+    // (12:0) {#if display}
+    function create_if_block$4(ctx) {
+    	let div2;
+    	let label_1;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let div1;
+    	let div0;
+    	let select;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[8].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[7], null);
+    	let each_value = /*options*/ ctx[3];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			label_1 = element("label");
+    			t0 = text(/*label*/ ctx[2]);
+    			t1 = space();
+    			if (default_slot) default_slot.c();
+    			t2 = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(label_1, "for", /*id*/ ctx[6]);
+    			attr_dev(label_1, "class", "label");
+    			set_style(label_1, "display", "inline-flex");
+    			add_location(label_1, file$a, 13, 4, 262);
+    			attr_dev(select, "id", /*id*/ ctx[6]);
+    			attr_dev(select, "name", /*name*/ ctx[1]);
+    			select.disabled = /*disabled*/ ctx[5];
+    			add_location(select, file$a, 17, 8, 416);
+    			attr_dev(div0, "class", "select ");
+    			add_location(div0, file$a, 16, 6, 385);
+    			attr_dev(div1, "class", "control");
+    			add_location(div1, file$a, 15, 4, 356);
+    			attr_dev(div2, "class", "field");
+    			add_location(div2, file$a, 12, 2, 237);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, label_1);
+    			append_dev(label_1, t0);
+    			append_dev(div2, t1);
+
+    			if (default_slot) {
+    				default_slot.m(div2, null);
+    			}
+
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, select);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(select, "change", /*change_handler*/ ctx[9], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!current || dirty & /*label*/ 4) set_data_dev(t0, /*label*/ ctx[2]);
+
+    			if (!current || dirty & /*id*/ 64) {
+    				attr_dev(label_1, "for", /*id*/ ctx[6]);
+    			}
+
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 128)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[7],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[7])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[7], dirty, null),
+    						null
+    					);
+    				}
+    			}
+
+    			if (dirty & /*options, value*/ 24) {
+    				each_value = /*options*/ ctx[3];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$2(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (!current || dirty & /*id*/ 64) {
+    				attr_dev(select, "id", /*id*/ ctx[6]);
+    			}
+
+    			if (!current || dirty & /*name*/ 2) {
+    				attr_dev(select, "name", /*name*/ ctx[1]);
+    			}
+
+    			if (!current || dirty & /*disabled*/ 32) {
+    				prop_dev(select, "disabled", /*disabled*/ ctx[5]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			if (default_slot) default_slot.d(detaching);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$4.name,
+    		type: "if",
+    		source: "(12:0) {#if display}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (19:10) {#each options as option}
+    function create_each_block$2(ctx) {
+    	let option;
+    	let t0_value = /*option*/ ctx[10].label + "";
+    	let t0;
+    	let t1;
+    	let option_value_value;
+    	let option_selected_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			option.__value = option_value_value = /*option*/ ctx[10].value;
+    			option.value = option.__value;
+    			option.selected = option_selected_value = /*option*/ ctx[10].value == /*value*/ ctx[4];
+    			add_location(option, file$a, 19, 12, 508);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t0);
+    			append_dev(option, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*options*/ 8 && t0_value !== (t0_value = /*option*/ ctx[10].label + "")) set_data_dev(t0, t0_value);
+
+    			if (dirty & /*options*/ 8 && option_value_value !== (option_value_value = /*option*/ ctx[10].value)) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+
+    			if (dirty & /*options, value*/ 24 && option_selected_value !== (option_selected_value = /*option*/ ctx[10].value == /*value*/ ctx[4])) {
+    				prop_dev(option, "selected", option_selected_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(19:10) {#each options as option}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$a(ctx) {
+    	let if_block_anchor;
+    	let current;
+    	let if_block = /*display*/ ctx[0] && create_if_block$4(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*display*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*display*/ 1) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$4(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let id;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('SimpleSelect', slots, ['default']);
+    	let { display = true } = $$props;
+    	let { name } = $$props;
+    	let { label } = $$props;
+    	let { options } = $$props;
+    	let { value = "" } = $$props;
+    	let { disabled = false } = $$props;
+    	const writable_props = ['display', 'name', 'label', 'options', 'value', 'disabled'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<SimpleSelect> was created with unknown prop '${key}'`);
+    	});
+
+    	function change_handler(event) {
+    		bubble.call(this, $$self, event);
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ('display' in $$props) $$invalidate(0, display = $$props.display);
+    		if ('name' in $$props) $$invalidate(1, name = $$props.name);
+    		if ('label' in $$props) $$invalidate(2, label = $$props.label);
+    		if ('options' in $$props) $$invalidate(3, options = $$props.options);
+    		if ('value' in $$props) $$invalidate(4, value = $$props.value);
+    		if ('disabled' in $$props) $$invalidate(5, disabled = $$props.disabled);
+    		if ('$$scope' in $$props) $$invalidate(7, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		display,
+    		name,
+    		label,
+    		options,
+    		value,
+    		disabled,
+    		id
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('display' in $$props) $$invalidate(0, display = $$props.display);
+    		if ('name' in $$props) $$invalidate(1, name = $$props.name);
+    		if ('label' in $$props) $$invalidate(2, label = $$props.label);
+    		if ('options' in $$props) $$invalidate(3, options = $$props.options);
+    		if ('value' in $$props) $$invalidate(4, value = $$props.value);
+    		if ('disabled' in $$props) $$invalidate(5, disabled = $$props.disabled);
+    		if ('id' in $$props) $$invalidate(6, id = $$props.id);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*name*/ 2) {
+    			$$invalidate(6, id = name.toLowerCase() + "-select");
+    		}
+    	};
+
+    	return [
+    		display,
+    		name,
+    		label,
+    		options,
+    		value,
+    		disabled,
+    		id,
+    		$$scope,
+    		slots,
+    		change_handler
+    	];
+    }
+
+    class SimpleSelect extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {
+    			display: 0,
+    			name: 1,
+    			label: 2,
+    			options: 3,
+    			value: 4,
+    			disabled: 5
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "SimpleSelect",
+    			options,
+    			id: create_fragment$a.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*name*/ ctx[1] === undefined && !('name' in props)) {
+    			console.warn("<SimpleSelect> was created without expected prop 'name'");
+    		}
+
+    		if (/*label*/ ctx[2] === undefined && !('label' in props)) {
+    			console.warn("<SimpleSelect> was created without expected prop 'label'");
+    		}
+
+    		if (/*options*/ ctx[3] === undefined && !('options' in props)) {
+    			console.warn("<SimpleSelect> was created without expected prop 'options'");
+    		}
+    	}
+
+    	get display() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set display(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get name() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set name(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get label() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set label(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get options() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set options(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get disabled() {
+    		throw new Error("<SimpleSelect>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set disabled(value) {
+    		throw new Error("<SimpleSelect>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\InfoBox.svelte generated by Svelte v3.44.0 */
+    const file$9 = "src\\InfoBox.svelte";
+
+    // (54:2) {#if active}
+    function create_if_block$3(ctx) {
+    	let article;
+    	let div0;
+    	let p;
+    	let t0;
+    	let t1;
+    	let button;
+    	let t2;
+    	let div1;
+    	let t3;
+    	let article_transition;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			article = element("article");
+    			div0 = element("div");
+    			p = element("p");
+    			t0 = text(/*title*/ ctx[0]);
+    			t1 = space();
+    			button = element("button");
+    			t2 = space();
+    			div1 = element("div");
+    			t3 = text(/*info*/ ctx[1]);
+    			add_location(p, file$9, 62, 8, 1803);
+    			attr_dev(button, "class", "delete");
+    			attr_dev(button, "aria-label", "close");
+    			add_location(button, file$9, 63, 8, 1827);
+    			attr_dev(div0, "class", "message-header close-on-window-click");
+    			add_location(div0, file$9, 61, 6, 1743);
+    			attr_dev(div1, "class", "message-body close-on-window-click");
+    			add_location(div1, file$9, 72, 6, 2114);
+    			attr_dev(article, "id", /*id*/ ctx[4]);
+    			attr_dev(article, "class", "message is-small is-primary close-on-window-click svelte-l93yrg");
+    			attr_dev(article, "tabindex", "0");
+    			add_location(article, file$9, 54, 4, 1565);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, article, anchor);
+    			append_dev(article, div0);
+    			append_dev(div0, p);
+    			append_dev(p, t0);
+    			append_dev(div0, t1);
+    			append_dev(div0, button);
+    			append_dev(article, t2);
+    			append_dev(article, div1);
+    			append_dev(div1, t3);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", stop_propagation(prevent_default(/*click_handler*/ ctx[9])), false, true, true),
+    					listen_dev(button, "keydown", stop_propagation(/*keydown_handler*/ ctx[10]), false, false, true),
+    					listen_dev(article, "keydown", /*onKeyDownClose*/ ctx[6], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!current || dirty & /*title*/ 1) set_data_dev(t0, /*title*/ ctx[0]);
+    			if (!current || dirty & /*info*/ 2) set_data_dev(t3, /*info*/ ctx[1]);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			add_render_callback(() => {
+    				if (!article_transition) article_transition = create_bidirectional_transition(article, fade, {}, true);
+    				article_transition.run(1);
+    			});
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			if (!article_transition) article_transition = create_bidirectional_transition(article, fade, {}, false);
+    			article_transition.run(0);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(article);
+    			if (detaching && article_transition) article_transition.end();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(54:2) {#if active}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let div;
+    	let svg;
+    	let title_1;
+    	let t0;
+    	let use;
+    	let t1;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*active*/ ctx[3] && create_if_block$3(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			svg = svg_element("svg");
+    			title_1 = svg_element("title");
+    			t0 = text("Select to get more information about this option.");
+    			use = svg_element("use");
+    			t1 = space();
+    			if (if_block) if_block.c();
+    			add_location(title_1, file$9, 50, 4, 1397);
+    			xlink_attr(use, "xlink:href", "#fa-info-circle");
+    			attr_dev(use, "class", "svelte-l93yrg");
+    			toggle_class(use, "has-fill-white", /*invert*/ ctx[2]);
+    			add_location(use, file$9, 51, 4, 1467);
+    			attr_dev(svg, "tabindex", "0");
+    			attr_dev(svg, "class", "icon-svg has-fill-primary svelte-l93yrg");
+    			attr_dev(svg, "role", "button");
+    			add_location(svg, file$9, 43, 2, 1214);
+    			attr_dev(div, "class", "info-icon-wrapper  svelte-l93yrg");
+    			add_location(div, file$9, 42, 0, 1178);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, svg);
+    			append_dev(svg, title_1);
+    			append_dev(title_1, t0);
+    			append_dev(svg, use);
+    			append_dev(div, t1);
+    			if (if_block) if_block.m(div, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(window, "click", stop_propagation(/*windowClicked*/ ctx[5]), false, false, true),
+    					listen_dev(svg, "click", stop_propagation(/*handleIconClick*/ ctx[8]), false, false, true),
+    					listen_dev(svg, "keydown", stop_propagation(/*onKeyDown*/ ctx[7]), false, false, true)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*invert*/ 4) {
+    				toggle_class(use, "has-fill-white", /*invert*/ ctx[2]);
+    			}
+
+    			if (/*active*/ ctx[3]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+
+    					if (dirty & /*active*/ 8) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$3(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('InfoBox', slots, []);
+    	let { title = "Title" } = $$props;
+    	let { info = "Information" } = $$props;
+    	let { invert = false } = $$props;
+    	let active = false;
+
+    	//santize titles for use as html ids:
+    	//https://stackoverflow.com/questions/9635625/javascript-regex-to-remove-illegal-characters-from-dom-id/9635698
+    	const id = `${title.toLowerCase().replace(/^[^a-z]+|[^\w:.-]+/gi, "-")}-info-box`;
+
+    	function windowClicked(e) {
+    		const classList = Array.from(e.target.classList);
+
+    		if (!classList.includes("close-on-window-click") & active) {
+    			$$invalidate(3, active = false);
+    		}
+    	}
+
+    	function onKeyDownClose(e) {
+    		if (e.key === "Escape") $$invalidate(3, active = false);
+    	}
+
+    	async function onKeyDown(e) {
+    		if (e.key === "Enter") {
+    			$$invalidate(3, active = true);
+    			await tick();
+    			document.getElementById(id).focus();
+    		}
+
+    		if (e.key === "Escape") $$invalidate(3, active = false);
+    	}
+
+    	async function handleIconClick() {
+    		$$invalidate(3, active = true);
+    		await tick();
+    		document.getElementById(id).focus(); //Does not seem to do anything?
+    	}
+
+    	const writable_props = ['title', 'info', 'invert'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<InfoBox> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => $$invalidate(3, active = false);
+
+    	const keydown_handler = e => {
+    		if (e.key === "Enter") $$invalidate(3, active = false);
+    	};
+
+    	$$self.$$set = $$props => {
+    		if ('title' in $$props) $$invalidate(0, title = $$props.title);
+    		if ('info' in $$props) $$invalidate(1, info = $$props.info);
+    		if ('invert' in $$props) $$invalidate(2, invert = $$props.invert);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		tick,
+    		fade,
+    		title,
+    		info,
+    		invert,
+    		active,
+    		id,
+    		windowClicked,
+    		onKeyDownClose,
+    		onKeyDown,
+    		handleIconClick
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('title' in $$props) $$invalidate(0, title = $$props.title);
+    		if ('info' in $$props) $$invalidate(1, info = $$props.info);
+    		if ('invert' in $$props) $$invalidate(2, invert = $$props.invert);
+    		if ('active' in $$props) $$invalidate(3, active = $$props.active);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		title,
+    		info,
+    		invert,
+    		active,
+    		id,
+    		windowClicked,
+    		onKeyDownClose,
+    		onKeyDown,
+    		handleIconClick,
+    		click_handler,
+    		keydown_handler
+    	];
+    }
+
+    class InfoBox extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { title: 0, info: 1, invert: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "InfoBox",
+    			options,
+    			id: create_fragment$9.name
+    		});
+    	}
+
+    	get title() {
+    		throw new Error("<InfoBox>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set title(value) {
+    		throw new Error("<InfoBox>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get info() {
+    		throw new Error("<InfoBox>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set info(value) {
+    		throw new Error("<InfoBox>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get invert() {
+    		throw new Error("<InfoBox>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set invert(value) {
+    		throw new Error("<InfoBox>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    var formInfo = new Map([
+        ["type", "Select either Licensed Practical Nurses (LPNs) or Registered Nurses (RNs)."],
+        ["education", "This refers to the basic education for licensure. For registered nurses, you can select either those nurses who entered with an associate degree/diploma or with a BS or MS. For licensed practical nurses, this option is unavailable. You cannot select both an education subgroup and a setting subgroup for the same projection (e.g., BS & MS for Education and Hospital for Setting)."],
+        ["rateOrTotal", "Select whether you want to see the nurse workforce as a total number or as a rate per 10,000 population. The latter is more useful for comparing different geographic areas."],
+        ["fteOrHeadcount", "The model can display the projections for nurses as either full time equivalents (FTEs) or as headcounts. FTEs account for nurses who may be working less than full-time. 1 FTE = 40 hours/week, and no nurse has greater than 1 FTE."],
+        ["locationType", "Select a geographic category or type. This selection changes the available options for location."],
+        ["location", "Select a geography or location. These options change based on the selection of Location Type."],
+        ["setting", "See the nurse workforce by practice setting, e.g., hospital or ambulatory care. You cannot select both an education subgroup and a setting subgroup for the same projection (e.g., BS & MS for Education and Hospital for Setting)."],
+        ["scenario", "Select a scenario to see how it changes the projections."],
+        ["calculation", `Select 'Supply' or 'Demand' to see those projections alone. Selecting 'Supply / Demand' will show both projections as a ratio. Selecting 'Supply - Demand' will show both the absolute difference between the two projections.`],
+        ["difference", "The absolute difference between the supply and demand forecasts, calculated as supply minus demand for a give year. This calculation provides an estimate of the absolute number of nurses in surplus or shortage. It is important to note the overall numbers of nurses for a given projection when interpreting these values, e.g., a shortage of 1,000 nurses is much more concerning if you are looking at an underlying supply of 10,000 vs 100,000."],
+        ["ratio", "The ratio between the supply and demand forecasts. When this is less than 1, it means demand is greater than supply. The calculation is useful for understanding the relative surplus or shortage for a projection."],
+        ["supply", "The supply model projects the future headcount and FTE of RNs and LPNs from 2018-2030. The basic principle of supply modeling is to take the current workforce, subtract leavers and add joiners for each year to generate a forecast for the next year."],
+        ["demand", "Demand was modeled at the county-level for each setting. Different approaches for calculating forecast demand were used as a result of the variation in data measuring existing demand. The demand forecast for public and community health, nursing education, and correctional facilities was solely dependent on population change (which means a 10% growth in population would generate a 10% growth in demand). For the remaining settings, separate regression models were developed to predict demand based on model predictors (e.g. gender, age, race) specific to that setting."],
+        ["percentage", "The percentage shortage or surplus of supply relative to the demand forecasts. When this percentage is negative, it means demand is greater than supply. The calculation is useful for understanding the relative surplus or shortage for a projection."],
+
+    ]);
+
+    /* src\ModelForm.svelte generated by Svelte v3.44.0 */
+    const file$8 = "src\\ModelForm.svelte";
+
+    // (141:6) {:else}
+    function create_else_block_1$1(ctx) {
+    	let label0;
+    	let input0;
+    	let t0;
+    	let t1;
+    	let label1;
+    	let input1;
+    	let t2;
+    	let t3;
+    	let label2;
+    	let input2;
+    	let t4;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			label0 = element("label");
+    			input0 = element("input");
+    			t0 = text("\r\n          All Education");
+    			t1 = space();
+    			label1 = element("label");
+    			input1 = element("input");
+    			t2 = text("\r\n          BS & MS");
+    			t3 = space();
+    			label2 = element("label");
+    			input2 = element("input");
+    			t4 = text("\r\n          ADN & Diploma");
+    			attr_dev(input0, "type", "radio");
+    			attr_dev(input0, "name", "education");
+    			input0.__value = "0";
+    			input0.value = input0.__value;
+    			input0.checked = true;
+    			/*$$binding_groups*/ ctx[15][1].push(input0);
+    			add_location(input0, file$8, 142, 10, 4251);
+    			attr_dev(label0, "class", "radio");
+    			add_location(label0, file$8, 141, 8, 4218);
+    			attr_dev(input1, "type", "radio");
+    			attr_dev(input1, "name", "education");
+    			input1.__value = "4";
+    			input1.value = input1.__value;
+    			/*$$binding_groups*/ ctx[15][1].push(input1);
+    			add_location(input1, file$8, 152, 10, 4497);
+    			attr_dev(label1, "class", "radio");
+    			add_location(label1, file$8, 151, 8, 4464);
+    			attr_dev(input2, "type", "radio");
+    			attr_dev(input2, "name", "education");
+    			input2.__value = "5";
+    			input2.value = input2.__value;
+    			/*$$binding_groups*/ ctx[15][1].push(input2);
+    			add_location(input2, file$8, 161, 10, 4716);
+    			attr_dev(label2, "class", "radio");
+    			add_location(label2, file$8, 160, 8, 4683);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, label0, anchor);
+    			append_dev(label0, input0);
+    			input0.checked = input0.__value === /*educationType*/ ctx[5];
+    			append_dev(label0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, label1, anchor);
+    			append_dev(label1, input1);
+    			input1.checked = input1.__value === /*educationType*/ ctx[5];
+    			append_dev(label1, t2);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, label2, anchor);
+    			append_dev(label2, input2);
+    			input2.checked = input2.__value === /*educationType*/ ctx[5];
+    			append_dev(label2, t4);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input0, "change", /*input0_change_handler_1*/ ctx[17]),
+    					listen_dev(input1, "change", /*input1_change_handler_1*/ ctx[18]),
+    					listen_dev(input2, "change", /*input2_change_handler*/ ctx[19])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*educationType*/ 32) {
+    				input0.checked = input0.__value === /*educationType*/ ctx[5];
+    			}
+
+    			if (dirty & /*educationType*/ 32) {
+    				input1.checked = input1.__value === /*educationType*/ ctx[5];
+    			}
+
+    			if (dirty & /*educationType*/ 32) {
+    				input2.checked = input2.__value === /*educationType*/ ctx[5];
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(label0);
+    			/*$$binding_groups*/ ctx[15][1].splice(/*$$binding_groups*/ ctx[15][1].indexOf(input0), 1);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(label1);
+    			/*$$binding_groups*/ ctx[15][1].splice(/*$$binding_groups*/ ctx[15][1].indexOf(input1), 1);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(label2);
+    			/*$$binding_groups*/ ctx[15][1].splice(/*$$binding_groups*/ ctx[15][1].indexOf(input2), 1);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1$1.name,
+    		type: "else",
+    		source: "(141:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (136:6) {#if nurseType == "1" || settingType != "0" || calculation != "supply" || chartType == "table"}
+    function create_if_block_4$1(ctx) {
+    	let label;
+    	let input;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			label = element("label");
+    			input = element("input");
+    			t = text("\r\n          All Education");
+    			attr_dev(input, "type", "radio");
+    			attr_dev(input, "name", "education");
+    			input.value = "0";
+    			input.checked = true;
+    			input.disabled = true;
+    			add_location(input, file$8, 137, 10, 4084);
+    			attr_dev(label, "class", "radio");
+    			attr_dev(label, "disabled", "");
+    			add_location(label, file$8, 136, 8, 4042);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, label, anchor);
+    			append_dev(label, input);
+    			append_dev(label, t);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(label);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4$1.name,
+    		type: "if",
+    		source: "(136:6) {#if nurseType == \\\"1\\\" || settingType != \\\"0\\\" || calculation != \\\"supply\\\" || chartType == \\\"table\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (185:6) {:else}
+    function create_else_block$2(ctx) {
+    	let label0;
+    	let input0;
+    	let input0_checked_value;
+    	let t0;
+    	let t1;
+    	let label1;
+    	let input1;
+    	let input1_checked_value;
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			label0 = element("label");
+    			input0 = element("input");
+    			t0 = text("\r\n          Total");
+    			t1 = space();
+    			label1 = element("label");
+    			input1 = element("input");
+    			t2 = text("\r\n          Rate per 10k population");
+    			attr_dev(input0, "type", "radio");
+    			attr_dev(input0, "name", "rateOrTotal");
+    			input0.value = "1";
+    			input0.checked = input0_checked_value = /*chartType*/ ctx[1] == "line";
+    			add_location(input0, file$8, 186, 10, 5364);
+    			attr_dev(label0, "class", "radio");
+    			add_location(label0, file$8, 185, 8, 5331);
+    			attr_dev(input1, "type", "radio");
+    			attr_dev(input1, "name", "rateOrTotal");
+    			input1.value = "0";
+    			input1.checked = input1_checked_value = /*chartType*/ ctx[1] === "map";
+    			add_location(input1, file$8, 195, 10, 5586);
+    			attr_dev(label1, "class", "radio");
+    			add_location(label1, file$8, 194, 8, 5553);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, label0, anchor);
+    			append_dev(label0, input0);
+    			append_dev(label0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, label1, anchor);
+    			append_dev(label1, input1);
+    			append_dev(label1, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*chartType*/ 2 && input0_checked_value !== (input0_checked_value = /*chartType*/ ctx[1] == "line")) {
+    				prop_dev(input0, "checked", input0_checked_value);
+    			}
+
+    			if (dirty & /*chartType*/ 2 && input1_checked_value !== (input1_checked_value = /*chartType*/ ctx[1] === "map")) {
+    				prop_dev(input1, "checked", input1_checked_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(label0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(label1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$2.name,
+    		type: "else",
+    		source: "(185:6) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (180:6) {#if calculation === "percentage"}
+    function create_if_block_3$2(ctx) {
+    	let label;
+    	let input;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			label = element("label");
+    			input = element("input");
+    			t = text("\r\n          Total");
+    			attr_dev(input, "type", "radio");
+    			attr_dev(input, "name", "rateOrTotal");
+    			input.value = "1";
+    			input.checked = true;
+    			input.disabled = true;
+    			add_location(input, file$8, 181, 10, 5203);
+    			attr_dev(label, "class", "radio");
+    			attr_dev(label, "disabled", "");
+    			add_location(label, file$8, 180, 8, 5161);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, label, anchor);
+    			append_dev(label, input);
+    			append_dev(label, t);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(label);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$2.name,
+    		type: "if",
+    		source: "(180:6) {#if calculation === \\\"percentage\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (234:2) <SimpleSelect      on:change={handleLocationTypeChange}      value={currentLocationType}      {...locationTypeOptions}    >
+    function create_default_slot_3(ctx) {
+    	let infobox;
+    	let current;
+
+    	infobox = new InfoBox({
+    			props: {
+    				title: "Location Type",
+    				info: formInfo.get("locationType")
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(infobox.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(infobox, target, anchor);
+    			current = true;
+    		},
+    		p: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(infobox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3.name,
+    		type: "slot",
+    		source: "(234:2) <SimpleSelect      on:change={handleLocationTypeChange}      value={currentLocationType}      {...locationTypeOptions}    >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (241:2) <SimpleSelect      display={chartType == "line" || chartType == "table"}      {...currentLocationOptions}    >
+    function create_default_slot_2(ctx) {
+    	let infobox;
+    	let current;
+
+    	infobox = new InfoBox({
+    			props: {
+    				title: "Location",
+    				info: formInfo.get("location")
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(infobox.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(infobox, target, anchor);
+    			current = true;
+    		},
+    		p: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(infobox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2.name,
+    		type: "slot",
+    		source: "(241:2) <SimpleSelect      display={chartType == \\\"line\\\" || chartType == \\\"table\\\"}      {...currentLocationOptions}    >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (247:2) {#if chartType != "table"}
+    function create_if_block_2$2(ctx) {
+    	let simpleselect;
+    	let current;
+
+    	simpleselect = new SimpleSelect({
+    			props: {
+    				options: options.get("setting").options.filter(/*func*/ ctx[20]).filter(/*func_1*/ ctx[21]),
+    				name: options.get("setting").name,
+    				label: options.get("setting").label,
+    				disabled: /*educationType*/ ctx[5] != "0",
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	simpleselect.$on("change", /*handleSettingChange*/ ctx[13]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(simpleselect.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(simpleselect, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const simpleselect_changes = {};
+    			if (dirty & /*nurseType, chartType*/ 18) simpleselect_changes.options = options.get("setting").options.filter(/*func*/ ctx[20]).filter(/*func_1*/ ctx[21]);
+    			if (dirty & /*educationType*/ 32) simpleselect_changes.disabled = /*educationType*/ ctx[5] != "0";
+
+    			if (dirty & /*$$scope*/ 134217728) {
+    				simpleselect_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect.$set(simpleselect_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(simpleselect.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(simpleselect.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(simpleselect, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$2.name,
+    		type: "if",
+    		source: "(247:2) {#if chartType != \\\"table\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (250:4) <SimpleSelect        options={options          .get("setting")          .options.filter(            (d) =>              nurseType == 2 || (nurseType == 1) & (d.value != 6) & (d.value != 5)          )          .filter((d) => !((chartType === "map") & (d.value < 0)))}        name={options.get("setting").name}        label={options.get("setting").label}        disabled={educationType != "0"}        on:change={handleSettingChange}      >
+    function create_default_slot_1(ctx) {
+    	let infobox;
+    	let current;
+
+    	infobox = new InfoBox({
+    			props: {
+    				title: "Setting",
+    				info: formInfo.get("setting")
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(infobox.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(infobox, target, anchor);
+    			current = true;
+    		},
+    		p: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(infobox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(250:4) <SimpleSelect        options={options          .get(\\\"setting\\\")          .options.filter(            (d) =>              nurseType == 2 || (nurseType == 1) & (d.value != 6) & (d.value != 5)          )          .filter((d) => !((chartType === \\\"map\\\") & (d.value < 0)))}        name={options.get(\\\"setting\\\").name}        label={options.get(\\\"setting\\\").label}        disabled={educationType != \\\"0\\\"}        on:change={handleSettingChange}      >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (267:2) {#if calculation == "supply" || calculation == "difference" || calculation == "percentage"}
+    function create_if_block_1$2(ctx) {
+    	let simpleselect;
+    	let current;
+    	const simpleselect_spread_levels = [options.get("supplyScenario")];
+
+    	let simpleselect_props = {
+    		$$slots: { default: [create_default_slot] },
+    		$$scope: { ctx }
+    	};
+
+    	for (let i = 0; i < simpleselect_spread_levels.length; i += 1) {
+    		simpleselect_props = assign(simpleselect_props, simpleselect_spread_levels[i]);
+    	}
+
+    	simpleselect = new SimpleSelect({
+    			props: simpleselect_props,
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(simpleselect.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(simpleselect, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const simpleselect_changes = (dirty & /*options*/ 0)
+    			? get_spread_update(simpleselect_spread_levels, [get_spread_object(options.get("supplyScenario"))])
+    			: {};
+
+    			if (dirty & /*$$scope*/ 134217728) {
+    				simpleselect_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect.$set(simpleselect_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(simpleselect.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(simpleselect.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(simpleselect, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$2.name,
+    		type: "if",
+    		source: "(267:2) {#if calculation == \\\"supply\\\" || calculation == \\\"difference\\\" || calculation == \\\"percentage\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (268:4) <SimpleSelect {...options.get("supplyScenario")}>
+    function create_default_slot(ctx) {
+    	let infobox;
+    	let current;
+
+    	infobox = new InfoBox({
+    			props: {
+    				title: "Supply Scenario",
+    				info: formInfo.get("scenario")
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(infobox.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(infobox, target, anchor);
+    			current = true;
+    		},
+    		p: noop$1,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(infobox, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(268:4) <SimpleSelect {...options.get(\\\"supplyScenario\\\")}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (284:4) {#if isLoading}
+    function create_if_block$2(ctx) {
+    	let progress;
+
+    	const block = {
+    		c: function create() {
+    			progress = element("progress");
+    			attr_dev(progress, "class", "progress is-small is-primary");
+    			attr_dev(progress, "max", "100");
+    			add_location(progress, file$8, 284, 6, 8386);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, progress, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(progress);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(284:4) {#if isLoading}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$8(ctx) {
+    	let form;
+    	let div1;
+    	let div0;
+    	let label0;
+    	let input0;
+    	let t0;
+    	let t1;
+    	let label1;
+    	let input1;
+    	let t2;
+    	let t3;
+    	let infobox0;
+    	let t4;
+    	let div3;
+    	let div2;
+    	let t5;
+    	let infobox1;
+    	let t6;
+    	let div5;
+    	let div4;
+    	let t7;
+    	let infobox2;
+    	let t8;
+    	let div7;
+    	let div6;
+    	let label2;
+    	let input2;
+    	let t9;
+    	let t10;
+    	let label3;
+    	let input3;
+    	let t11;
+    	let t12;
+    	let infobox3;
+    	let t13;
+    	let simpleselect0;
+    	let t14;
+    	let simpleselect1;
+    	let t15;
+    	let t16;
+    	let t17;
+    	let div10;
+    	let div8;
+    	let button0;
+    	let t19;
+    	let div9;
+    	let button1;
+    	let t21;
+    	let t22;
+    	let p;
+    	let t23;
+    	let br0;
+    	let br1;
+    	let t24;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	infobox0 = new InfoBox({
+    			props: {
+    				title: "Type of Nurse",
+    				info: formInfo.get("type")
+    			},
+    			$$inline: true
+    		});
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*nurseType*/ ctx[4] == "1" || /*settingType*/ ctx[6] != "0" || /*calculation*/ ctx[0] != "supply" || /*chartType*/ ctx[1] == "table") return create_if_block_4$1;
+    		return create_else_block_1$1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block0 = current_block_type(ctx);
+
+    	infobox1 = new InfoBox({
+    			props: {
+    				title: "Basic Education Degree for Licensure",
+    				info: formInfo.get("education")
+    			},
+    			$$inline: true
+    		});
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*calculation*/ ctx[0] === "percentage") return create_if_block_3$2;
+    		return create_else_block$2;
+    	}
+
+    	let current_block_type_1 = select_block_type_1(ctx);
+    	let if_block1 = current_block_type_1(ctx);
+
+    	infobox2 = new InfoBox({
+    			props: {
+    				title: "Rate per 10,000 Population or Total",
+    				info: formInfo.get("rateOrTotal")
+    			},
+    			$$inline: true
+    		});
+
+    	infobox3 = new InfoBox({
+    			props: {
+    				title: "Full Time Equivalents (FTE) or Headcount",
+    				info: formInfo.get("fteOrHeadcount")
+    			},
+    			$$inline: true
+    		});
+
+    	const simpleselect0_spread_levels = [{ value: /*currentLocationType*/ ctx[3] }, /*locationTypeOptions*/ ctx[9]];
+
+    	let simpleselect0_props = {
+    		$$slots: { default: [create_default_slot_3] },
+    		$$scope: { ctx }
+    	};
+
+    	for (let i = 0; i < simpleselect0_spread_levels.length; i += 1) {
+    		simpleselect0_props = assign(simpleselect0_props, simpleselect0_spread_levels[i]);
+    	}
+
+    	simpleselect0 = new SimpleSelect({
+    			props: simpleselect0_props,
+    			$$inline: true
+    		});
+
+    	simpleselect0.$on("change", /*handleLocationTypeChange*/ ctx[12]);
+
+    	const simpleselect1_spread_levels = [
+    		{
+    			display: /*chartType*/ ctx[1] == "line" || /*chartType*/ ctx[1] == "table"
+    		},
+    		/*currentLocationOptions*/ ctx[8]
+    	];
+
+    	let simpleselect1_props = {
+    		$$slots: { default: [create_default_slot_2] },
+    		$$scope: { ctx }
+    	};
+
+    	for (let i = 0; i < simpleselect1_spread_levels.length; i += 1) {
+    		simpleselect1_props = assign(simpleselect1_props, simpleselect1_spread_levels[i]);
+    	}
+
+    	simpleselect1 = new SimpleSelect({
+    			props: simpleselect1_props,
+    			$$inline: true
+    		});
+
+    	let if_block2 = /*chartType*/ ctx[1] != "table" && create_if_block_2$2(ctx);
+    	let if_block3 = (/*calculation*/ ctx[0] == "supply" || /*calculation*/ ctx[0] == "difference" || /*calculation*/ ctx[0] == "percentage") && create_if_block_1$2(ctx);
+    	let if_block4 = /*isLoading*/ ctx[2] && create_if_block$2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			form = element("form");
+    			div1 = element("div");
+    			div0 = element("div");
+    			label0 = element("label");
+    			input0 = element("input");
+    			t0 = text("\r\n        RN");
+    			t1 = space();
+    			label1 = element("label");
+    			input1 = element("input");
+    			t2 = text("\r\n        LPN");
+    			t3 = space();
+    			create_component(infobox0.$$.fragment);
+    			t4 = space();
+    			div3 = element("div");
+    			div2 = element("div");
+    			if_block0.c();
+    			t5 = space();
+    			create_component(infobox1.$$.fragment);
+    			t6 = space();
+    			div5 = element("div");
+    			div4 = element("div");
+    			if_block1.c();
+    			t7 = space();
+    			create_component(infobox2.$$.fragment);
+    			t8 = space();
+    			div7 = element("div");
+    			div6 = element("div");
+    			label2 = element("label");
+    			input2 = element("input");
+    			t9 = text("\r\n        Headcount");
+    			t10 = space();
+    			label3 = element("label");
+    			input3 = element("input");
+    			t11 = text("\r\n        FTE");
+    			t12 = space();
+    			create_component(infobox3.$$.fragment);
+    			t13 = space();
+    			create_component(simpleselect0.$$.fragment);
+    			t14 = space();
+    			create_component(simpleselect1.$$.fragment);
+    			t15 = space();
+    			if (if_block2) if_block2.c();
+    			t16 = space();
+    			if (if_block3) if_block3.c();
+    			t17 = space();
+    			div10 = element("div");
+    			div8 = element("div");
+    			button0 = element("button");
+    			button0.textContent = "Show";
+    			t19 = space();
+    			div9 = element("div");
+    			button1 = element("button");
+    			button1.textContent = "Clear";
+    			t21 = space();
+    			if (if_block4) if_block4.c();
+    			t22 = space();
+    			p = element("p");
+    			t23 = text("You can add multiple projections for comparison!");
+    			br0 = element("br");
+    			br1 = element("br");
+    			t24 = text("\r\n    To cite, please include the following:\r\nThe Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model/");
+    			attr_dev(input0, "type", "radio");
+    			attr_dev(input0, "name", "type");
+    			input0.__value = "2";
+    			input0.value = input0.__value;
+    			input0.checked = true;
+    			/*$$binding_groups*/ ctx[15][0].push(input0);
+    			add_location(input0, file$8, 114, 8, 3328);
+    			attr_dev(label0, "class", "radio");
+    			add_location(label0, file$8, 113, 6, 3297);
+    			attr_dev(input1, "type", "radio");
+    			attr_dev(input1, "name", "type");
+    			input1.__value = "1";
+    			input1.value = input1.__value;
+    			/*$$binding_groups*/ ctx[15][0].push(input1);
+    			add_location(input1, file$8, 124, 8, 3534);
+    			attr_dev(label1, "class", "radio");
+    			add_location(label1, file$8, 123, 6, 3503);
+    			attr_dev(div0, "class", "control");
+    			add_location(div0, file$8, 112, 4, 3268);
+    			attr_dev(div1, "class", "field");
+    			add_location(div1, file$8, 111, 2, 3243);
+    			attr_dev(div2, "class", "control");
+    			add_location(div2, file$8, 132, 4, 3754);
+    			attr_dev(div3, "class", "field");
+    			add_location(div3, file$8, 131, 2, 3729);
+    			attr_dev(div4, "class", "control");
+    			add_location(div4, file$8, 178, 4, 5088);
+    			attr_dev(div5, "class", "field");
+    			add_location(div5, file$8, 177, 2, 5063);
+    			attr_dev(input2, "type", "radio");
+    			attr_dev(input2, "name", "fteOrHeadcount");
+    			input2.value = "0";
+    			input2.checked = true;
+    			add_location(input2, file$8, 214, 8, 6034);
+    			attr_dev(label2, "class", "radio");
+    			add_location(label2, file$8, 213, 6, 6003);
+    			attr_dev(input3, "type", "radio");
+    			attr_dev(input3, "name", "fteOrHeadcount");
+    			input3.value = "1";
+    			add_location(input3, file$8, 218, 8, 6170);
+    			attr_dev(label3, "class", "radio");
+    			add_location(label3, file$8, 217, 6, 6139);
+    			attr_dev(div6, "class", "control");
+    			add_location(div6, file$8, 212, 4, 5974);
+    			attr_dev(div7, "class", "field");
+    			add_location(div7, file$8, 211, 2, 5949);
+    			attr_dev(button0, "class", "button");
+    			attr_dev(button0, "type", "submit");
+    			toggle_class(button0, "is-yellowish", /*formHasChanged*/ ctx[7]);
+    			add_location(button0, file$8, 274, 6, 8098);
+    			attr_dev(div8, "class", "control");
+    			add_location(div8, file$8, 273, 4, 8069);
+    			attr_dev(button1, "class", "button");
+    			attr_dev(button1, "type", "button");
+    			add_location(button1, file$8, 279, 6, 8249);
+    			attr_dev(div9, "class", "control");
+    			add_location(div9, file$8, 278, 4, 8220);
+    			attr_dev(div10, "class", "field is-grouped");
+    			add_location(div10, file$8, 272, 2, 8033);
+    			add_location(br0, file$8, 288, 52, 8551);
+    			add_location(br1, file$8, 288, 56, 8555);
+    			attr_dev(p, "class", "help is-primary");
+    			add_location(p, file$8, 287, 2, 8470);
+    			add_location(form, file$8, 107, 0, 3135);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, form, anchor);
+    			append_dev(form, div1);
+    			append_dev(div1, div0);
+    			append_dev(div0, label0);
+    			append_dev(label0, input0);
+    			input0.checked = input0.__value === /*nurseType*/ ctx[4];
+    			append_dev(label0, t0);
+    			append_dev(div0, t1);
+    			append_dev(div0, label1);
+    			append_dev(label1, input1);
+    			input1.checked = input1.__value === /*nurseType*/ ctx[4];
+    			append_dev(label1, t2);
+    			append_dev(div0, t3);
+    			mount_component(infobox0, div0, null);
+    			append_dev(form, t4);
+    			append_dev(form, div3);
+    			append_dev(div3, div2);
+    			if_block0.m(div2, null);
+    			append_dev(div2, t5);
+    			mount_component(infobox1, div2, null);
+    			append_dev(form, t6);
+    			append_dev(form, div5);
+    			append_dev(div5, div4);
+    			if_block1.m(div4, null);
+    			append_dev(div4, t7);
+    			mount_component(infobox2, div4, null);
+    			append_dev(form, t8);
+    			append_dev(form, div7);
+    			append_dev(div7, div6);
+    			append_dev(div6, label2);
+    			append_dev(label2, input2);
+    			append_dev(label2, t9);
+    			append_dev(div6, t10);
+    			append_dev(div6, label3);
+    			append_dev(label3, input3);
+    			append_dev(label3, t11);
+    			append_dev(div6, t12);
+    			mount_component(infobox3, div6, null);
+    			append_dev(form, t13);
+    			mount_component(simpleselect0, form, null);
+    			append_dev(form, t14);
+    			mount_component(simpleselect1, form, null);
+    			append_dev(form, t15);
+    			if (if_block2) if_block2.m(form, null);
+    			append_dev(form, t16);
+    			if (if_block3) if_block3.m(form, null);
+    			append_dev(form, t17);
+    			append_dev(form, div10);
+    			append_dev(div10, div8);
+    			append_dev(div8, button0);
+    			append_dev(div10, t19);
+    			append_dev(div10, div9);
+    			append_dev(div9, button1);
+    			append_dev(div10, t21);
+    			if (if_block4) if_block4.m(div10, null);
+    			append_dev(form, t22);
+    			append_dev(form, p);
+    			append_dev(p, t23);
+    			append_dev(p, br0);
+    			append_dev(p, br1);
+    			append_dev(p, t24);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input0, "change", /*input0_change_handler*/ ctx[14]),
+    					listen_dev(input1, "change", /*input1_change_handler*/ ctx[16]),
+    					listen_dev(button1, "click", /*handleClearData*/ ctx[11], false, false, false),
+    					listen_dev(form, "submit", prevent_default(/*handleShowProjection*/ ctx[10]), false, true, false),
+    					listen_dev(form, "change", /*change_handler*/ ctx[22], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*nurseType*/ 16) {
+    				input0.checked = input0.__value === /*nurseType*/ ctx[4];
+    			}
+
+    			if (dirty & /*nurseType*/ 16) {
+    				input1.checked = input1.__value === /*nurseType*/ ctx[4];
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
+    				if_block0.p(ctx, dirty);
+    			} else {
+    				if_block0.d(1);
+    				if_block0 = current_block_type(ctx);
+
+    				if (if_block0) {
+    					if_block0.c();
+    					if_block0.m(div2, t5);
+    				}
+    			}
+
+    			if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx)) && if_block1) {
+    				if_block1.p(ctx, dirty);
+    			} else {
+    				if_block1.d(1);
+    				if_block1 = current_block_type_1(ctx);
+
+    				if (if_block1) {
+    					if_block1.c();
+    					if_block1.m(div4, t7);
+    				}
+    			}
+
+    			const simpleselect0_changes = (dirty & /*currentLocationType, locationTypeOptions*/ 520)
+    			? get_spread_update(simpleselect0_spread_levels, [
+    					dirty & /*currentLocationType*/ 8 && { value: /*currentLocationType*/ ctx[3] },
+    					dirty & /*locationTypeOptions*/ 512 && get_spread_object(/*locationTypeOptions*/ ctx[9])
+    				])
+    			: {};
+
+    			if (dirty & /*$$scope*/ 134217728) {
+    				simpleselect0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect0.$set(simpleselect0_changes);
+
+    			const simpleselect1_changes = (dirty & /*chartType, currentLocationOptions*/ 258)
+    			? get_spread_update(simpleselect1_spread_levels, [
+    					dirty & /*chartType*/ 2 && {
+    						display: /*chartType*/ ctx[1] == "line" || /*chartType*/ ctx[1] == "table"
+    					},
+    					dirty & /*currentLocationOptions*/ 256 && get_spread_object(/*currentLocationOptions*/ ctx[8])
+    				])
+    			: {};
+
+    			if (dirty & /*$$scope*/ 134217728) {
+    				simpleselect1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			simpleselect1.$set(simpleselect1_changes);
+
+    			if (/*chartType*/ ctx[1] != "table") {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+
+    					if (dirty & /*chartType*/ 2) {
+    						transition_in(if_block2, 1);
+    					}
+    				} else {
+    					if_block2 = create_if_block_2$2(ctx);
+    					if_block2.c();
+    					transition_in(if_block2, 1);
+    					if_block2.m(form, t16);
+    				}
+    			} else if (if_block2) {
+    				group_outros();
+
+    				transition_out(if_block2, 1, 1, () => {
+    					if_block2 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*calculation*/ ctx[0] == "supply" || /*calculation*/ ctx[0] == "difference" || /*calculation*/ ctx[0] == "percentage") {
+    				if (if_block3) {
+    					if_block3.p(ctx, dirty);
+
+    					if (dirty & /*calculation*/ 1) {
+    						transition_in(if_block3, 1);
+    					}
+    				} else {
+    					if_block3 = create_if_block_1$2(ctx);
+    					if_block3.c();
+    					transition_in(if_block3, 1);
+    					if_block3.m(form, t17);
+    				}
+    			} else if (if_block3) {
+    				group_outros();
+
+    				transition_out(if_block3, 1, 1, () => {
+    					if_block3 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (dirty & /*formHasChanged*/ 128) {
+    				toggle_class(button0, "is-yellowish", /*formHasChanged*/ ctx[7]);
+    			}
+
+    			if (/*isLoading*/ ctx[2]) {
+    				if (if_block4) ; else {
+    					if_block4 = create_if_block$2(ctx);
+    					if_block4.c();
+    					if_block4.m(div10, null);
+    				}
+    			} else if (if_block4) {
+    				if_block4.d(1);
+    				if_block4 = null;
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox0.$$.fragment, local);
+    			transition_in(infobox1.$$.fragment, local);
+    			transition_in(infobox2.$$.fragment, local);
+    			transition_in(infobox3.$$.fragment, local);
+    			transition_in(simpleselect0.$$.fragment, local);
+    			transition_in(simpleselect1.$$.fragment, local);
+    			transition_in(if_block2);
+    			transition_in(if_block3);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox0.$$.fragment, local);
+    			transition_out(infobox1.$$.fragment, local);
+    			transition_out(infobox2.$$.fragment, local);
+    			transition_out(infobox3.$$.fragment, local);
+    			transition_out(simpleselect0.$$.fragment, local);
+    			transition_out(simpleselect1.$$.fragment, local);
+    			transition_out(if_block2);
+    			transition_out(if_block3);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(form);
+    			/*$$binding_groups*/ ctx[15][0].splice(/*$$binding_groups*/ ctx[15][0].indexOf(input0), 1);
+    			/*$$binding_groups*/ ctx[15][0].splice(/*$$binding_groups*/ ctx[15][0].indexOf(input1), 1);
+    			destroy_component(infobox0);
+    			if_block0.d();
+    			destroy_component(infobox1);
+    			if_block1.d();
+    			destroy_component(infobox2);
+    			destroy_component(infobox3);
+    			destroy_component(simpleselect0);
+    			destroy_component(simpleselect1);
+    			if (if_block2) if_block2.d();
+    			if (if_block3) if_block3.d();
+    			if (if_block4) if_block4.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let locationTypeOptions;
+    	let currentLocationOptions;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('ModelForm', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { chartType } = $$props;
+    	let { calculation } = $$props;
+    	let { isLoading } = $$props;
+
+    	//Set default form values
+    	let nurseType = "2";
+
+    	let currentLocationType = 0;
+    	let educationType = "0";
+    	let settingType = "0";
+
+    	//Track if form is changed
+    	let formHasChanged = true;
+
+    	//Create map with location type as the key and an
+    	//array of locations (actually location objects) as the value
+    	//e.g., ahec -> [Wake AHEC, Area L, ...].
+    	const locationOptions = new Map(Array.from(group(
+    			options.get("location").options.map(d => ({
+    				//Get first digit of location to use as location type key, e.g., 800 -> 8
+    				key: +d.value.toString().slice(0, 1),
+    				value: d.value,
+    				label: d.label
+    			})),
+    			d => d.key
+    		)).map(d => [
+    			d[0],
+    			{
+    				name: options.get("location").name,
+    				label: options.get("location").label,
+    				options: d[1].map(e => ({ label: e.label, value: e.value }))
+    			}
+    		]));
+
+    	function handleShowProjection(event) {
+    		let params = [];
+
+    		//Loop through form elements and get values for data query
+    		//Only get values from elements that have a name and are either select elements
+    		//or checked (as for radio elements).
+    		for (let el of event.target) {
+    			if (el.name && (el.type == "select-one" || el.checked == true)) {
+    				params.push({
+    					name: el.name,
+    					value: el.value,
+    					display: el.type == "select-one"
+    					? el.selectedOptions[0].innerText
+    					: el.parentElement.innerText.trim()
+    				});
+    			}
+    		}
+
+    		//Reset formHasChanged
+    		$$invalidate(7, formHasChanged = false);
+
+    		dispatch("showProjection", params);
+    	}
+
+    	function handleClearData() {
+    		dispatch("clearProjections");
+    	}
+
+    	function handleLocationTypeChange(e) {
+    		$$invalidate(3, currentLocationType = +e.target.value);
+    	}
+
+    	function handleSettingChange(e) {
+    		$$invalidate(6, settingType = e.target.value);
+    	}
+
+    	function handleCalculationChange(e) {
+    		$$invalidate(0, calculation = e.target.value);
+    	}
+
+    	function handleLaunchTutorial() {
+    		dispatch("launchTutorial");
+    	}
+
+    	const writable_props = ['chartType', 'calculation', 'isLoading'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<ModelForm> was created with unknown prop '${key}'`);
+    	});
+
+    	const $$binding_groups = [[], []];
+
+    	function input0_change_handler() {
+    		nurseType = this.__value;
+    		$$invalidate(4, nurseType);
+    	}
+
+    	function input1_change_handler() {
+    		nurseType = this.__value;
+    		$$invalidate(4, nurseType);
+    	}
+
+    	function input0_change_handler_1() {
+    		educationType = this.__value;
+    		$$invalidate(5, educationType);
+    	}
+
+    	function input1_change_handler_1() {
+    		educationType = this.__value;
+    		$$invalidate(5, educationType);
+    	}
+
+    	function input2_change_handler() {
+    		educationType = this.__value;
+    		$$invalidate(5, educationType);
+    	}
+
+    	const func = d => nurseType == 2 || nurseType == 1 & d.value != 6 & d.value != 5;
+    	const func_1 = d => !(chartType === "map" & d.value < 0);
+    	const change_handler = () => $$invalidate(7, formHasChanged = true);
+
+    	$$self.$$set = $$props => {
+    		if ('chartType' in $$props) $$invalidate(1, chartType = $$props.chartType);
+    		if ('calculation' in $$props) $$invalidate(0, calculation = $$props.calculation);
+    		if ('isLoading' in $$props) $$invalidate(2, isLoading = $$props.isLoading);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		SimpleSelect,
+    		InfoBox,
+    		options,
+    		formInfo,
+    		group,
+    		createEventDispatcher,
+    		dispatch,
+    		chartType,
+    		calculation,
+    		isLoading,
+    		nurseType,
+    		currentLocationType,
+    		educationType,
+    		settingType,
+    		formHasChanged,
+    		locationOptions,
+    		handleShowProjection,
+    		handleClearData,
+    		handleLocationTypeChange,
+    		handleSettingChange,
+    		handleCalculationChange,
+    		handleLaunchTutorial,
+    		currentLocationOptions,
+    		locationTypeOptions
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('chartType' in $$props) $$invalidate(1, chartType = $$props.chartType);
+    		if ('calculation' in $$props) $$invalidate(0, calculation = $$props.calculation);
+    		if ('isLoading' in $$props) $$invalidate(2, isLoading = $$props.isLoading);
+    		if ('nurseType' in $$props) $$invalidate(4, nurseType = $$props.nurseType);
+    		if ('currentLocationType' in $$props) $$invalidate(3, currentLocationType = $$props.currentLocationType);
+    		if ('educationType' in $$props) $$invalidate(5, educationType = $$props.educationType);
+    		if ('settingType' in $$props) $$invalidate(6, settingType = $$props.settingType);
+    		if ('formHasChanged' in $$props) $$invalidate(7, formHasChanged = $$props.formHasChanged);
+    		if ('currentLocationOptions' in $$props) $$invalidate(8, currentLocationOptions = $$props.currentLocationOptions);
+    		if ('locationTypeOptions' in $$props) $$invalidate(9, locationTypeOptions = $$props.locationTypeOptions);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*chartType*/ 2) {
+    			//Filter out 'state' as an option when chart type is map
+    			//since state map is not informative (i.e., all one color)
+    			$$invalidate(9, locationTypeOptions = {
+    				name: "locationType",
+    				label: "Location Type",
+    				options: options.get("locationType").options.filter(e => !(chartType == "map" && +e.value == 0))
+    			});
+    		}
+
+    		if ($$self.$$.dirty & /*currentLocationType*/ 8) {
+    			//Get current locations based on the location type selection
+    			$$invalidate(8, currentLocationOptions = locationOptions.get(currentLocationType));
+    		}
+    	};
+
+    	return [
+    		calculation,
+    		chartType,
+    		isLoading,
+    		currentLocationType,
+    		nurseType,
+    		educationType,
+    		settingType,
+    		formHasChanged,
+    		currentLocationOptions,
+    		locationTypeOptions,
+    		handleShowProjection,
+    		handleClearData,
+    		handleLocationTypeChange,
+    		handleSettingChange,
+    		input0_change_handler,
+    		$$binding_groups,
+    		input1_change_handler,
+    		input0_change_handler_1,
+    		input1_change_handler_1,
+    		input2_change_handler,
+    		func,
+    		func_1,
+    		change_handler
+    	];
+    }
+
+    class ModelForm extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+    			chartType: 1,
+    			calculation: 0,
+    			isLoading: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "ModelForm",
+    			options,
+    			id: create_fragment$8.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*chartType*/ ctx[1] === undefined && !('chartType' in props)) {
+    			console.warn("<ModelForm> was created without expected prop 'chartType'");
+    		}
+
+    		if (/*calculation*/ ctx[0] === undefined && !('calculation' in props)) {
+    			console.warn("<ModelForm> was created without expected prop 'calculation'");
+    		}
+
+    		if (/*isLoading*/ ctx[2] === undefined && !('isLoading' in props)) {
+    			console.warn("<ModelForm> was created without expected prop 'isLoading'");
+    		}
+    	}
+
+    	get chartType() {
+    		throw new Error("<ModelForm>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartType(value) {
+    		throw new Error("<ModelForm>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get calculation() {
+    		throw new Error("<ModelForm>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set calculation(value) {
+    		throw new Error("<ModelForm>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get isLoading() {
+    		throw new Error("<ModelForm>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set isLoading(value) {
+    		throw new Error("<ModelForm>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    var EOL = {},
+        EOF = {},
+        QUOTE = 34,
+        NEWLINE = 10,
+        RETURN = 13;
+
+    function objectConverter(columns) {
+      return new Function("d", "return {" + columns.map(function(name, i) {
+        return JSON.stringify(name) + ": d[" + i + "] || \"\"";
+      }).join(",") + "}");
+    }
+
+    function customConverter(columns, f) {
+      var object = objectConverter(columns);
+      return function(row, i) {
+        return f(object(row), i, columns);
+      };
+    }
+
+    // Compute unique columns in order of discovery.
+    function inferColumns(rows) {
+      var columnSet = Object.create(null),
+          columns = [];
+
+      rows.forEach(function(row) {
+        for (var column in row) {
+          if (!(column in columnSet)) {
+            columns.push(columnSet[column] = column);
+          }
+        }
+      });
+
+      return columns;
+    }
+
+    function pad(value, width) {
+      var s = value + "", length = s.length;
+      return length < width ? new Array(width - length + 1).join(0) + s : s;
+    }
+
+    function formatYear(year) {
+      return year < 0 ? "-" + pad(-year, 6)
+        : year > 9999 ? "+" + pad(year, 6)
+        : pad(year, 4);
+    }
+
+    function formatDate(date) {
+      var hours = date.getUTCHours(),
+          minutes = date.getUTCMinutes(),
+          seconds = date.getUTCSeconds(),
+          milliseconds = date.getUTCMilliseconds();
+      return isNaN(date) ? "Invalid Date"
+          : formatYear(date.getUTCFullYear()) + "-" + pad(date.getUTCMonth() + 1, 2) + "-" + pad(date.getUTCDate(), 2)
+          + (milliseconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "." + pad(milliseconds, 3) + "Z"
+          : seconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "Z"
+          : minutes || hours ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + "Z"
+          : "");
+    }
+
+    function dsv(delimiter) {
+      var reFormat = new RegExp("[\"" + delimiter + "\n\r]"),
+          DELIMITER = delimiter.charCodeAt(0);
+
+      function parse(text, f) {
+        var convert, columns, rows = parseRows(text, function(row, i) {
+          if (convert) return convert(row, i - 1);
+          columns = row, convert = f ? customConverter(row, f) : objectConverter(row);
+        });
+        rows.columns = columns || [];
+        return rows;
+      }
+
+      function parseRows(text, f) {
+        var rows = [], // output rows
+            N = text.length,
+            I = 0, // current character index
+            n = 0, // current line number
+            t, // current token
+            eof = N <= 0, // current token followed by EOF?
+            eol = false; // current token followed by EOL?
+
+        // Strip the trailing newline.
+        if (text.charCodeAt(N - 1) === NEWLINE) --N;
+        if (text.charCodeAt(N - 1) === RETURN) --N;
+
+        function token() {
+          if (eof) return EOF;
+          if (eol) return eol = false, EOL;
+
+          // Unescape quotes.
+          var i, j = I, c;
+          if (text.charCodeAt(j) === QUOTE) {
+            while (I++ < N && text.charCodeAt(I) !== QUOTE || text.charCodeAt(++I) === QUOTE);
+            if ((i = I) >= N) eof = true;
+            else if ((c = text.charCodeAt(I++)) === NEWLINE) eol = true;
+            else if (c === RETURN) { eol = true; if (text.charCodeAt(I) === NEWLINE) ++I; }
+            return text.slice(j + 1, i - 1).replace(/""/g, "\"");
+          }
+
+          // Find next delimiter or newline.
+          while (I < N) {
+            if ((c = text.charCodeAt(i = I++)) === NEWLINE) eol = true;
+            else if (c === RETURN) { eol = true; if (text.charCodeAt(I) === NEWLINE) ++I; }
+            else if (c !== DELIMITER) continue;
+            return text.slice(j, i);
+          }
+
+          // Return last token before EOF.
+          return eof = true, text.slice(j, N);
+        }
+
+        while ((t = token()) !== EOF) {
+          var row = [];
+          while (t !== EOL && t !== EOF) row.push(t), t = token();
+          if (f && (row = f(row, n++)) == null) continue;
+          rows.push(row);
+        }
+
+        return rows;
+      }
+
+      function preformatBody(rows, columns) {
+        return rows.map(function(row) {
+          return columns.map(function(column) {
+            return formatValue(row[column]);
+          }).join(delimiter);
+        });
+      }
+
+      function format(rows, columns) {
+        if (columns == null) columns = inferColumns(rows);
+        return [columns.map(formatValue).join(delimiter)].concat(preformatBody(rows, columns)).join("\n");
+      }
+
+      function formatBody(rows, columns) {
+        if (columns == null) columns = inferColumns(rows);
+        return preformatBody(rows, columns).join("\n");
+      }
+
+      function formatRows(rows) {
+        return rows.map(formatRow).join("\n");
+      }
+
+      function formatRow(row) {
+        return row.map(formatValue).join(delimiter);
+      }
+
+      function formatValue(value) {
+        return value == null ? ""
+            : value instanceof Date ? formatDate(value)
+            : reFormat.test(value += "") ? "\"" + value.replace(/"/g, "\"\"") + "\""
+            : value;
+      }
+
+      return {
+        parse: parse,
+        parseRows: parseRows,
+        format: format,
+        formatBody: formatBody,
+        formatRows: formatRows,
+        formatRow: formatRow,
+        formatValue: formatValue
+      };
+    }
+
+    var csv = dsv(",");
+    var csvFormatRows = csv.formatRows;
+
+    /* src\DownloadData.svelte generated by Svelte v3.44.0 */
+    const file$7 = "src\\DownloadData.svelte";
+
+    function create_fragment$7(ctx) {
+    	let button;
+    	let svg;
+    	let use;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			svg = svg_element("svg");
+    			use = svg_element("use");
+    			xlink_attr(use, "xlink:href", "#fa-file-csv");
+    			add_location(use, file$7, 120, 4, 3793);
+    			attr_dev(svg, "class", "button-icon-svg has-fill-primary");
+    			add_location(svg, file$7, 119, 2, 3741);
+    			attr_dev(button, "title", "Download Data");
+    			attr_dev(button, "class", "button");
+    			attr_dev(button, "aria-label", "Download Data as a CSV file");
+    			add_location(button, file$7, 113, 0, 3607);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, svg);
+    			append_dev(svg, use);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleDownloadData*/ ctx[0], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('DownloadData', slots, []);
+    	let { data } = $$props;
+    	let { chartType } = $$props;
+    	let { projectionStartYear } = $$props;
+    	const optionNameToValueLabel = new Map(Array.from(options).map(d => [d[0], new Map(d[1].options.map(e => [e.value, e.label]))]));
+    	const projectionWarning = `NOTE: Values after ${projectionStartYear - 1} are projected based on model parameters. Values from ${projectionStartYear - 1} and earlier are based on licensure data.\nTo cite please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. NC Nursecast: A Supply and Demand Model for Nurses in North Carolina. November 1 2021. https://ncnursecast.unc.edu/model/\n`;
+
+    	function makeYearByGroup(callingChart) {
+    		const groupingVariable = callingChart == "map" ? "location" : "setting";
+    		const valuesToLabels = new Map(options.get(groupingVariable).options.map(d => [d.value, d.label]));
+
+    		const grouped = groups(data.flatMap(e => e.values), d => d[groupingVariable]).map(function (d) {
+    			return [valuesToLabels.get(d[0]), ...d[1].map(d => d.value)];
+    		}).filter(d => d[0] != undefined);
+
+    		const yearExtent = extent(data[0].values, d => d.year);
+    		const yearRange = range(yearExtent[0], yearExtent[1] + 1);
+    		const header = data[0].params.map(e => `${options.get(e[0]).label}: ${optionNameToValueLabel.get(e[0]).get(e[1])}`).join("  |  ") + "\n";
+    		const firstColumnTitle = options.get(groupingVariable).label;
+    		return projectionWarning + header + csvFormatRows([[firstColumnTitle, ...yearRange]].concat(grouped));
+    	}
+
+    	function makeYearByProjection() {
+    		const maxYearExtent = extent(data.flatMap(d => extent(d.values, e => e.year)));
+
+    		const columns = [
+    			...data[0].params.map(d => options.get(d[0]).label),
+    			...range(maxYearExtent[0], maxYearExtent[1] + 1)
+    		];
+
+    		const rows = data.map(function (d) {
+    			const values = d.values.map(e => [e.year, e.value]);
+    			const params = d.params.map(e => [options.get(e[0]).label, optionNameToValueLabel.get(e[0]).get(e[1])]);
+    			return new Map([...params, ...values]);
+    		}).map(function (d) {
+    			return columns.map(e => d.get(e) || "");
+    		});
+
+    		return projectionWarning + csvFormatRows([columns, ...rows]);
+    	}
+
+    	function handleDownloadData() {
+    		let download = [];
+
+    		if (chartType == "map" || chartType == "table") {
+    			download = makeYearByGroup(chartType);
+    		} else {
+    			download = makeYearByProjection();
+    		}
+
+    		if (navigator.msSaveBlob) {
+    			// IE 10+
+    			navigator.msSaveBlob(new Blob([download], { type: "text/csv;charset=utf-8;" }), "nurseprojection.csv");
+    		} else {
+    			var uri = "data:attachment/csv;charset=utf-8," + encodeURI(download);
+    			var downloadLink = document.createElement("a");
+    			downloadLink.href = uri;
+    			downloadLink.download = "nurseprojection.csv";
+    			document.body.appendChild(downloadLink);
+    			downloadLink.click();
+    			document.body.removeChild(downloadLink);
+    		}
+    	}
+
+    	const writable_props = ['data', 'chartType', 'projectionStartYear'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<DownloadData> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('data' in $$props) $$invalidate(1, data = $$props.data);
+    		if ('chartType' in $$props) $$invalidate(2, chartType = $$props.chartType);
+    		if ('projectionStartYear' in $$props) $$invalidate(3, projectionStartYear = $$props.projectionStartYear);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		groups,
+    		ascending: ascending$1,
+    		extent,
+    		range,
+    		csvFormatRows,
+    		options,
+    		data,
+    		chartType,
+    		projectionStartYear,
+    		optionNameToValueLabel,
+    		projectionWarning,
+    		makeYearByGroup,
+    		makeYearByProjection,
+    		handleDownloadData
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(1, data = $$props.data);
+    		if ('chartType' in $$props) $$invalidate(2, chartType = $$props.chartType);
+    		if ('projectionStartYear' in $$props) $$invalidate(3, projectionStartYear = $$props.projectionStartYear);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [handleDownloadData, data, chartType, projectionStartYear];
+    }
+
+    class DownloadData extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
+    			data: 1,
+    			chartType: 2,
+    			projectionStartYear: 3
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "DownloadData",
+    			options,
+    			id: create_fragment$7.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*data*/ ctx[1] === undefined && !('data' in props)) {
+    			console.warn("<DownloadData> was created without expected prop 'data'");
+    		}
+
+    		if (/*chartType*/ ctx[2] === undefined && !('chartType' in props)) {
+    			console.warn("<DownloadData> was created without expected prop 'chartType'");
+    		}
+
+    		if (/*projectionStartYear*/ ctx[3] === undefined && !('projectionStartYear' in props)) {
+    			console.warn("<DownloadData> was created without expected prop 'projectionStartYear'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<DownloadData>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<DownloadData>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get chartType() {
+    		throw new Error("<DownloadData>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartType(value) {
+    		throw new Error("<DownloadData>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get projectionStartYear() {
+    		throw new Error("<DownloadData>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set projectionStartYear(value) {
+    		throw new Error("<DownloadData>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    function createCommonjsModule(fn, basedir, module) {
+    	return module = {
+    	  path: basedir,
+    	  exports: {},
+    	  require: function (path, base) {
+          return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+        }
+    	}, fn(module, module.exports), module.exports;
+    }
+
+    function commonjsRequire () {
+    	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+    }
+
+    var saveSvgAsPng = createCommonjsModule(function (module, exports) {
+
+    (function () {
+      var out$ = exports || typeof undefined != 'undefined'  || this || window;
+      out$.default = out$;
+
+      var xmlNs = 'http://www.w3.org/2000/xmlns/';
+      var xhtmlNs = 'http://www.w3.org/1999/xhtml';
+      var svgNs = 'http://www.w3.org/2000/svg';
+      var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [<!ENTITY nbsp "&#160;">]>';
+      var urlRegex = /url\(["']?(.+?)["']?\)/;
+      var fontFormats = {
+        woff2: 'font/woff2',
+        woff: 'font/woff',
+        otf: 'application/x-font-opentype',
+        ttf: 'application/x-font-ttf',
+        eot: 'application/vnd.ms-fontobject',
+        sfnt: 'application/font-sfnt',
+        svg: 'image/svg+xml'
+      };
+
+      var isElement = function isElement(obj) {
+        return obj instanceof HTMLElement || obj instanceof SVGElement;
+      };
+      var requireDomNode = function requireDomNode(el) {
+        if (!isElement(el)) throw new Error('an HTMLElement or SVGElement is required; got ' + el);
+      };
+      var requireDomNodePromise = function requireDomNodePromise(el) {
+        return new Promise(function (resolve, reject) {
+          if (isElement(el)) resolve(el);else reject(new Error('an HTMLElement or SVGElement is required; got ' + el));
+        });
+      };
+      var isExternal = function isExternal(url) {
+        return url && url.lastIndexOf('http', 0) === 0 && url.lastIndexOf(window.location.host) === -1;
+      };
+
+      var getFontMimeTypeFromUrl = function getFontMimeTypeFromUrl(fontUrl) {
+        var formats = Object.keys(fontFormats).filter(function (extension) {
+          return fontUrl.indexOf('.' + extension) > 0;
+        }).map(function (extension) {
+          return fontFormats[extension];
+        });
+        if (formats) return formats[0];
+        console.error('Unknown font format for ' + fontUrl + '. Fonts may not be working correctly.');
+        return 'application/octet-stream';
+      };
+
+      var arrayBufferToBase64 = function arrayBufferToBase64(buffer) {
+        var binary = '';
+        var bytes = new Uint8Array(buffer);
+        for (var i = 0; i < bytes.byteLength; i++) {
+          binary += String.fromCharCode(bytes[i]);
+        }return window.btoa(binary);
+      };
+
+      var getDimension = function getDimension(el, clone, dim) {
+        var v = el.viewBox && el.viewBox.baseVal && el.viewBox.baseVal[dim] || clone.getAttribute(dim) !== null && !clone.getAttribute(dim).match(/%$/) && parseInt(clone.getAttribute(dim)) || el.getBoundingClientRect()[dim] || parseInt(clone.style[dim]) || parseInt(window.getComputedStyle(el).getPropertyValue(dim));
+        return typeof v === 'undefined' || v === null || isNaN(parseFloat(v)) ? 0 : v;
+      };
+
+      var getDimensions = function getDimensions(el, clone, width, height) {
+        if (el.tagName === 'svg') return {
+          width: width || getDimension(el, clone, 'width'),
+          height: height || getDimension(el, clone, 'height')
+        };else if (el.getBBox) {
+          var _el$getBBox = el.getBBox(),
+              x = _el$getBBox.x,
+              y = _el$getBBox.y,
+              _width = _el$getBBox.width,
+              _height = _el$getBBox.height;
+
+          return {
+            width: x + _width,
+            height: y + _height
+          };
+        }
+      };
+
+      var reEncode = function reEncode(data) {
+        return decodeURIComponent(encodeURIComponent(data).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+          var c = String.fromCharCode('0x' + p1);
+          return c === '%' ? '%25' : c;
+        }));
+      };
+
+      var uriToBlob = function uriToBlob(uri) {
+        var byteString = window.atob(uri.split(',')[1]);
+        var mimeString = uri.split(',')[0].split(':')[1].split(';')[0];
+        var buffer = new ArrayBuffer(byteString.length);
+        var intArray = new Uint8Array(buffer);
+        for (var i = 0; i < byteString.length; i++) {
+          intArray[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([buffer], { type: mimeString });
+      };
+
+      var query = function query(el, selector) {
+        if (!selector) return;
+        try {
+          return el.querySelector(selector) || el.parentNode && el.parentNode.querySelector(selector);
+        } catch (err) {
+          console.warn('Invalid CSS selector "' + selector + '"', err);
+        }
+      };
+
+      var detectCssFont = function detectCssFont(rule, href) {
+        // Match CSS font-face rules to external links.
+        // @font-face {
+        //   src: local('Abel'), url(https://fonts.gstatic.com/s/abel/v6/UzN-iejR1VoXU2Oc-7LsbvesZW2xOQ-xsNqO47m55DA.woff2);
+        // }
+        var match = rule.cssText.match(urlRegex);
+        var url = match && match[1] || '';
+        if (!url || url.match(/^data:/) || url === 'about:blank') return;
+        var fullUrl = url.startsWith('../') ? href + '/../' + url : url.startsWith('./') ? href + '/.' + url : url;
+        return {
+          text: rule.cssText,
+          format: getFontMimeTypeFromUrl(fullUrl),
+          url: fullUrl
+        };
+      };
+
+      var inlineImages = function inlineImages(el) {
+        return Promise.all(Array.from(el.querySelectorAll('image')).map(function (image) {
+          var href = image.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || image.getAttribute('href');
+          if (!href) return Promise.resolve(null);
+          if (isExternal(href)) {
+            href += (href.indexOf('?') === -1 ? '?' : '&') + 't=' + new Date().valueOf();
+          }
+          return new Promise(function (resolve, reject) {
+            var canvas = document.createElement('canvas');
+            var img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = href;
+            img.onerror = function () {
+              return reject(new Error('Could not load ' + href));
+            };
+            img.onload = function () {
+              canvas.width = img.width;
+              canvas.height = img.height;
+              canvas.getContext('2d').drawImage(img, 0, 0);
+              image.setAttributeNS('http://www.w3.org/1999/xlink', 'href', canvas.toDataURL('image/png'));
+              resolve(true);
+            };
+          });
+        }));
+      };
+
+      var cachedFonts = {};
+      var inlineFonts = function inlineFonts(fonts) {
+        return Promise.all(fonts.map(function (font) {
+          return new Promise(function (resolve, reject) {
+            if (cachedFonts[font.url]) return resolve(cachedFonts[font.url]);
+
+            var req = new XMLHttpRequest();
+            req.addEventListener('load', function () {
+              // TODO: it may also be worth it to wait until fonts are fully loaded before
+              // attempting to rasterize them. (e.g. use https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet)
+              var fontInBase64 = arrayBufferToBase64(req.response);
+              var fontUri = font.text.replace(urlRegex, 'url("data:' + font.format + ';base64,' + fontInBase64 + '")') + '\n';
+              cachedFonts[font.url] = fontUri;
+              resolve(fontUri);
+            });
+            req.addEventListener('error', function (e) {
+              console.warn('Failed to load font from: ' + font.url, e);
+              cachedFonts[font.url] = null;
+              resolve(null);
+            });
+            req.addEventListener('abort', function (e) {
+              console.warn('Aborted loading font from: ' + font.url, e);
+              resolve(null);
+            });
+            req.open('GET', font.url);
+            req.responseType = 'arraybuffer';
+            req.send();
+          });
+        })).then(function (fontCss) {
+          return fontCss.filter(function (x) {
+            return x;
+          }).join('');
+        });
+      };
+
+      var cachedRules = null;
+      var styleSheetRules = function styleSheetRules() {
+        if (cachedRules) return cachedRules;
+        return cachedRules = Array.from(document.styleSheets).map(function (sheet) {
+          try {
+            return { rules: sheet.cssRules, href: sheet.href };
+          } catch (e) {
+            console.warn('Stylesheet could not be loaded: ' + sheet.href, e);
+            return {};
+          }
+        });
+      };
+
+      var inlineCss = function inlineCss(el, options) {
+        var _ref = options || {},
+            selectorRemap = _ref.selectorRemap,
+            modifyStyle = _ref.modifyStyle,
+            modifyCss = _ref.modifyCss,
+            fonts = _ref.fonts,
+            excludeUnusedCss = _ref.excludeUnusedCss;
+
+        var generateCss = modifyCss || function (selector, properties) {
+          var sel = selectorRemap ? selectorRemap(selector) : selector;
+          var props = modifyStyle ? modifyStyle(properties) : properties;
+          return sel + '{' + props + '}\n';
+        };
+        var css = [];
+        var detectFonts = typeof fonts === 'undefined';
+        var fontList = fonts || [];
+        styleSheetRules().forEach(function (_ref2) {
+          var rules = _ref2.rules,
+              href = _ref2.href;
+
+          if (!rules) return;
+          Array.from(rules).forEach(function (rule) {
+            if (typeof rule.style != 'undefined') {
+              if (query(el, rule.selectorText)) css.push(generateCss(rule.selectorText, rule.style.cssText));else if (detectFonts && rule.cssText.match(/^@font-face/)) {
+                var font = detectCssFont(rule, href);
+                if (font) fontList.push(font);
+              } else if (!excludeUnusedCss) {
+                css.push(rule.cssText);
+              }
+            }
+          });
+        });
+
+        return inlineFonts(fontList).then(function (fontCss) {
+          return css.join('\n') + fontCss;
+        });
+      };
+
+      var downloadOptions = function downloadOptions() {
+        if (!navigator.msSaveOrOpenBlob && !('download' in document.createElement('a'))) {
+          return { popup: window.open() };
+        }
+      };
+
+      out$.prepareSvg = function (el, options, done) {
+        requireDomNode(el);
+
+        var _ref3 = options || {},
+            _ref3$left = _ref3.left,
+            left = _ref3$left === undefined ? 0 : _ref3$left,
+            _ref3$top = _ref3.top,
+            top = _ref3$top === undefined ? 0 : _ref3$top,
+            w = _ref3.width,
+            h = _ref3.height,
+            _ref3$scale = _ref3.scale,
+            scale = _ref3$scale === undefined ? 1 : _ref3$scale,
+            _ref3$responsive = _ref3.responsive,
+            responsive = _ref3$responsive === undefined ? false : _ref3$responsive,
+            _ref3$excludeCss = _ref3.excludeCss,
+            excludeCss = _ref3$excludeCss === undefined ? false : _ref3$excludeCss;
+
+        return inlineImages(el).then(function () {
+          var clone = el.cloneNode(true);
+          clone.style.backgroundColor = (options || {}).backgroundColor || el.style.backgroundColor;
+
+          var _getDimensions = getDimensions(el, clone, w, h),
+              width = _getDimensions.width,
+              height = _getDimensions.height;
+
+          if (el.tagName !== 'svg') {
+            if (el.getBBox) {
+              if (clone.getAttribute('transform') != null) {
+                clone.setAttribute('transform', clone.getAttribute('transform').replace(/translate\(.*?\)/, ''));
+              }
+              var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+              svg.appendChild(clone);
+              clone = svg;
+            } else {
+              console.error('Attempted to render non-SVG element', el);
+              return;
+            }
+          }
+
+          clone.setAttribute('version', '1.1');
+          clone.setAttribute('viewBox', [left, top, width, height].join(' '));
+          if (!clone.getAttribute('xmlns')) clone.setAttributeNS(xmlNs, 'xmlns', svgNs);
+          if (!clone.getAttribute('xmlns:xlink')) clone.setAttributeNS(xmlNs, 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
+
+          if (responsive) {
+            clone.removeAttribute('width');
+            clone.removeAttribute('height');
+            clone.setAttribute('preserveAspectRatio', 'xMinYMin meet');
+          } else {
+            clone.setAttribute('width', width * scale);
+            clone.setAttribute('height', height * scale);
+          }
+
+          Array.from(clone.querySelectorAll('foreignObject > *')).forEach(function (foreignObject) {
+            foreignObject.setAttributeNS(xmlNs, 'xmlns', foreignObject.tagName === 'svg' ? svgNs : xhtmlNs);
+          });
+
+          if (excludeCss) {
+            var outer = document.createElement('div');
+            outer.appendChild(clone);
+            var src = outer.innerHTML;
+            if (typeof done === 'function') done(src, width, height);else return { src: src, width: width, height: height };
+          } else {
+            return inlineCss(el, options).then(function (css) {
+              var style = document.createElement('style');
+              style.setAttribute('type', 'text/css');
+              style.innerHTML = '<![CDATA[\n' + css + '\n]]>';
+
+              var defs = document.createElement('defs');
+              defs.appendChild(style);
+              clone.insertBefore(defs, clone.firstChild);
+
+              var outer = document.createElement('div');
+              outer.appendChild(clone);
+              var src = outer.innerHTML.replace(/NS\d+:href/gi, 'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');
+
+              if (typeof done === 'function') done(src, width, height);else return { src: src, width: width, height: height };
+            });
+          }
+        });
+      };
+
+      out$.svgAsDataUri = function (el, options, done) {
+        requireDomNode(el);
+        return out$.prepareSvg(el, options).then(function (_ref4) {
+          var src = _ref4.src,
+              width = _ref4.width,
+              height = _ref4.height;
+
+          var svgXml = 'data:image/svg+xml;base64,' + window.btoa(reEncode(doctype + src));
+          if (typeof done === 'function') {
+            done(svgXml, width, height);
+          }
+          return svgXml;
+        });
+      };
+
+      out$.svgAsPngUri = function (el, options, done) {
+        requireDomNode(el);
+
+        var _ref5 = options || {},
+            _ref5$encoderType = _ref5.encoderType,
+            encoderType = _ref5$encoderType === undefined ? 'image/png' : _ref5$encoderType,
+            _ref5$encoderOptions = _ref5.encoderOptions,
+            encoderOptions = _ref5$encoderOptions === undefined ? 0.8 : _ref5$encoderOptions,
+            canvg = _ref5.canvg;
+
+        var convertToPng = function convertToPng(_ref6) {
+          var src = _ref6.src,
+              width = _ref6.width,
+              height = _ref6.height;
+
+          var canvas = document.createElement('canvas');
+          var context = canvas.getContext('2d');
+          var pixelRatio = window.devicePixelRatio || 1;
+
+          canvas.width = width * pixelRatio;
+          canvas.height = height * pixelRatio;
+          canvas.style.width = canvas.width + 'px';
+          canvas.style.height = canvas.height + 'px';
+          context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+          if (canvg) canvg(canvas, src);else context.drawImage(src, 0, 0);
+
+          var png = void 0;
+          try {
+            png = canvas.toDataURL(encoderType, encoderOptions);
+          } catch (e) {
+            if (typeof SecurityError !== 'undefined' && e instanceof SecurityError || e.name === 'SecurityError') {
+              console.error('Rendered SVG images cannot be downloaded in this browser.');
+              return;
+            } else throw e;
+          }
+          if (typeof done === 'function') done(png, canvas.width, canvas.height);
+          return Promise.resolve(png);
+        };
+
+        if (canvg) return out$.prepareSvg(el, options).then(convertToPng);else return out$.svgAsDataUri(el, options).then(function (uri) {
+          return new Promise(function (resolve, reject) {
+            var image = new Image();
+            image.onload = function () {
+              return resolve(convertToPng({
+                src: image,
+                width: image.width,
+                height: image.height
+              }));
+            };
+            image.onerror = function () {
+              reject('There was an error loading the data URI as an image on the following SVG\n' + window.atob(uri.slice(26)) + 'Open the following link to see browser\'s diagnosis\n' + uri);
+            };
+            image.src = uri;
+          });
+        });
+      };
+
+      out$.download = function (name, uri, options) {
+        if (navigator.msSaveOrOpenBlob) navigator.msSaveOrOpenBlob(uriToBlob(uri), name);else {
+          var saveLink = document.createElement('a');
+          if ('download' in saveLink) {
+            saveLink.download = name;
+            saveLink.style.display = 'none';
+            document.body.appendChild(saveLink);
+            try {
+              var blob = uriToBlob(uri);
+              var url = URL.createObjectURL(blob);
+              saveLink.href = url;
+              saveLink.onclick = function () {
+                return requestAnimationFrame(function () {
+                  return URL.revokeObjectURL(url);
+                });
+              };
+            } catch (e) {
+              console.error(e);
+              console.warn('Error while getting object URL. Falling back to string URL.');
+              saveLink.href = uri;
+            }
+            saveLink.click();
+            document.body.removeChild(saveLink);
+          } else if (options && options.popup) {
+            options.popup.document.title = name;
+            options.popup.location.replace(uri);
+          }
+        }
+      };
+
+      out$.saveSvg = function (el, name, options) {
+        var downloadOpts = downloadOptions(); // don't inline, can't be async
+        return requireDomNodePromise(el).then(function (el) {
+          return out$.svgAsDataUri(el, options || {});
+        }).then(function (uri) {
+          return out$.download(name, uri, downloadOpts);
+        });
+      };
+
+      out$.saveSvgAsPng = function (el, name, options) {
+        var downloadOpts = downloadOptions(); // don't inline, can't be async
+        return requireDomNodePromise(el).then(function (el) {
+          return out$.svgAsPngUri(el, options || {});
+        }).then(function (uri) {
+          return out$.download(name, uri, downloadOpts);
+        });
+      };
+    })();
+    });
+
+    /* src\DownloadImage.svelte generated by Svelte v3.44.0 */
+    const file$6 = "src\\DownloadImage.svelte";
+
+    function create_fragment$6(ctx) {
+    	let button;
+    	let svg;
+    	let use;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			svg = svg_element("svg");
+    			use = svg_element("use");
+    			xlink_attr(use, "xlink:href", "#fa-image");
+    			add_location(use, file$6, 324, 4, 10387);
+    			attr_dev(svg, "class", "button-icon-svg has-fill-primary");
+    			add_location(svg, file$6, 323, 2, 10335);
+    			attr_dev(button, "title", "Save Image");
+    			attr_dev(button, "class", "button");
+    			attr_dev(button, "aria-label", "Download Image of Current Chart");
+    			add_location(button, file$6, 317, 0, 10203);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, svg);
+    			append_dev(svg, use);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleSaveImage*/ ctx[0], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const citation = "To cite, please include the following: The Program on Health Workforce Research and Policy at the Cecil G Sheps Center. “NC Nursecast: A Supply and Demand Model for Nurses in North Carolina.” November 1, 2021. https://ncnursecast.unc.edu/model";
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('DownloadImage', slots, []);
+    	let { chartType } = $$props;
+
+    	function generateLineChartImage() {
+    		//Get and prepare non-svg elements for conversion into svg elements
+    		const div = document.getElementById("line-chart-div");
+
+    		const title = div.querySelector(".title").innerText;
+    		const subtitle = div.querySelector(".subtitle").innerText;
+    		const lineChartHeight = 580; // So we know where to put the legend
+    		const tablePadding = 40; //Define some space between chart and table and footer.
+    		const width = 960;
+
+    		///////////////////////////////////////////////////////
+    		////////////Legend Table///////////////////////////////
+    		//////////////////////////////////////////////////////
+    		//Extract information from legend table
+    		const legendTable = document.getElementById("line-chart-table");
+
+    		const tableFontFill = "#6C7480";
+
+    		const tableHeader = {
+    			cells: Array.from(legendTable.querySelector("thead").querySelectorAll("th"), function (d) {
+    				const svgText = createSVGtext({
+    					text: d.innerText,
+    					fill: tableFontFill,
+    					maxCharsPerLine: 14
+    				});
+
+    				return { text: d.innerText, isBold: true, svgText };
+    			}).slice(1), //Lop off first empty element
+    			type: "header",
+    			color: "none"
+    		};
+
+    		const tableBody = Array.from(legendTable.querySelector("tbody").querySelectorAll("tr"), function (d) {
+    			const columns = Array.from(d.children, function (e, i) {
+    				if (i == 0) {
+    					return e.style.backgroundColor; //First cell in each row indicates color of associated line
+    				}
+
+    				const svgText = createSVGtext({
+    					text: e.innerText,
+    					fill: tableFontFill,
+    					maxCharsPerLine: 14
+    				});
+
+    				return {
+    					text: e.innerText,
+    					isBold: e.classList.value.indexOf("has-text-weight-bold") >= 0,
+    					svgText
+    				};
+    			});
+
+    			return {
+    				cells: columns.slice(1), // Lop off color cell
+    				color: columns[0], //Store color
+    				type: "body"
+    			};
+    		});
+
+    		const tableRows = [tableHeader, ...tableBody];
+
+    		//Construct table in SVG
+    		const tableGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+    		tableGroup.setAttributeNS(null, "transform", `translate(20, ${lineChartHeight + tablePadding})`);
+    		tableGroup.setAttributeNS(null, "fill", tableFontFill);
+    		const lineHeight = 17;
+    		const rowHeight = max(tableBody, d => max(d.cells, e => e.svgText.childElementCount)) * lineHeight;
+    		const headerHeight = max(tableHeader.cells, e => e.svgText.childElementCount) * lineHeight;
+    		const rectWidth = 15;
+    		const colWidth = (width - 40) / tableRows[0].cells.length - rectWidth;
+
+    		tableRows.forEach(function (d, i) {
+    			const row = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    			row.setAttributeNS(null, "transform", `translate(0, ${i == 0 ? 0 : headerHeight + rowHeight * (i - 1)})`);
+    			const colorRectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    			colorRectangle.setAttributeNS(null, "width", rectWidth);
+    			colorRectangle.setAttributeNS(null, "height", rowHeight);
+    			colorRectangle.setAttributeNS(null, "fill", d.color);
+    			colorRectangle.setAttributeNS(null, "transform", `translate(${-rectWidth - 3}, -12)`);
+    			row.append(colorRectangle);
+
+    			d.cells.forEach(function (e, j) {
+    				// const cellText = document.createElementNS(
+    				//   "http://www.w3.org/2000/svg",
+    				//   "text"
+    				// );
+    				e.svgText.setAttributeNS(null, "font-size", "12px");
+
+    				e.svgText.setAttributeNS(null, "transform", `translate(${j * colWidth},0)`);
+
+    				if (e.isBold) {
+    					e.svgText.setAttributeNS(null, "font-weight", 600);
+    				}
+
+    				// cellText.innerHTML = e.text;
+    				row.appendChild(e.svgText);
+    			});
+
+    			//Create lines that divide rows
+    			const ledger = document.createElementNS("http://www.w3.org/2000/svg", "line");
+
+    			ledger.setAttributeNS(null, "x2", colWidth * d.cells.length);
+    			ledger.setAttributeNS(null, "transform", `translate(0, ${i == 0 ? headerHeight - 12 : rowHeight - 12})`);
+
+    			// ledger.setAttributeNS(null, "y1", 5);
+    			// ledger.setAttributeNS(null, "y2", 5);
+    			ledger.setAttributeNS(null, "stroke", tableFontFill);
+
+    			if (i == 0) {
+    				ledger.setAttributeNS(null, "stroke-width", 2);
+    			}
+
+    			row.appendChild(ledger);
+    			tableGroup.appendChild(row);
+    		});
+
+    		/////////////////////////////////////
+    		//////////////Assemble SVG//////////
+    		////////////////////////////////////
+    		//Get SVG, format, and add elements
+    		const height = lineChartHeight + tableRows.length * rowHeight + 2 * tablePadding; //Table padding for top and bottom of table
+
+    		const svg = document.getElementById("line-chart-svg").cloneNode(true);
+    		svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    		svg.style.fontFamily = "Helvetica, Arial, sans-serif";
+    		svg.querySelector(".chart-container").setAttribute("transform", "translate(20, 100)");
+
+    		//Title
+    		const titleText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+    		titleText.setAttributeNS(null, "font-size", "30px");
+    		titleText.setAttributeNS(null, "transform", `translate(40,50)`);
+    		titleText.innerHTML = title;
+
+    		// Subtitle
+    		const subtitleText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+    		subtitleText.setAttributeNS(null, "font-size", "20px");
+    		subtitleText.setAttributeNS(null, "transform", `translate(40,80)`);
+    		subtitleText.innerHTML = subtitle;
+
+    		//Source
+    		// const sourceText = document.createElementNS(
+    		//   "http://www.w3.org/2000/svg",
+    		//   "text"
+    		// );
+    		// sourceText.setAttributeNS(null, "font-size", "12px");
+    		// sourceText.setAttributeNS(
+    		//   null,
+    		//   "transform",
+    		//   `translate(40,${height - 20})`
+    		// );
+    		const citationText = createSVGtext({
+    			text: citation,
+    			x: 20,
+    			y: height - 20,
+    			fontSize: 12,
+    			maxCharsPerLine: 150
+    		});
+
+    		// sourceText.innerHTML = "See more at " + window.location.href;
+    		//Append elements
+    		svg.appendChild(titleText);
+
+    		svg.appendChild(subtitleText);
+    		svg.appendChild(tableGroup);
+
+    		// svg.appendChild(sourceText);
+    		svg.appendChild(citationText);
+
+    		saveSvgAsPng.saveSvgAsPng(svg, "nurse_line_chart.png", { backgroundColor: "#fff", scale: 2 });
+    	}
+
+    	function generateMapImage() {
+    		//Get and prepare non-svg elements for conversion into svg elements
+    		const div = document.getElementById("simple-map-container");
+
+    		const title = div.querySelector(".title").innerText;
+    		const subtitle = div.querySelector(".subtitle").innerText;
+
+    		//Clone svgs and combine
+    		//Get map
+    		const svg = document.getElementById("map-svg").cloneNode(true);
+
+    		//Get row chart elements
+    		const chartGroup = document.getElementById("row-chart-svg").firstChild.cloneNode(true);
+
+    		//Get number of row chart rect elements to calculate height
+    		const rowChartElementCount = chartGroup.querySelectorAll("rect").length;
+
+    		const width = 1100;
+    		const height = Math.max(450, 200 + rowChartElementCount * 50);
+    		svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    		svg.style.fontFamily = "Helvetica, Arial, sans-serif";
+    		svg.firstChild.setAttributeNS(null, "transform", `translate(630,200) scale(1.4)`);
+    		chartGroup.setAttributeNS(null, "transform", `translate(0, 140) scale(2)`);
+    		chartGroup.setAttributeNS(null, "font-size", "10px");
+    		svg.appendChild(chartGroup);
+
+    		//Title
+    		const titleText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+    		titleText.setAttributeNS(null, "font-size", "42px");
+    		titleText.setAttributeNS(null, "transform", `translate(20,60)`);
+    		titleText.innerHTML = title;
+
+    		//Subtitle
+    		const subtitleText = createSVGtext({
+    			text: subtitle,
+    			x: 20,
+    			y: 90,
+    			fontSize: 20,
+    			maxCharsPerLine: 100
+    		});
+
+    		//Source
+    		// const sourceText = document.createElementNS(
+    		//   "http://www.w3.org/2000/svg",
+    		//   "text"
+    		// );
+    		// sourceText.setAttributeNS(null, "font-size", "12px");
+    		// sourceText.setAttributeNS(
+    		//   null,
+    		//   "transform",
+    		//   `translate(40,${height - 20})`
+    		// );
+    		// sourceText.innerHTML = "See more at " + window.location.href;
+    		const citationText = createSVGtext({
+    			text: citation,
+    			x: 20,
+    			y: height - 20,
+    			fontSize: 12,
+    			maxCharsPerLine: 150
+    		});
+
+    		//Append elements
+    		svg.appendChild(titleText);
+
+    		svg.appendChild(subtitleText);
+    		svg.appendChild(citationText);
+
+    		// svg.appendChild(sourceText);
+    		saveSvgAsPng.saveSvgAsPng(svg, "nurse_projection_map.png", { backgroundColor: "#fff" });
+    	}
+
+    	function handleSaveImage() {
+    		if (chartType == "line") {
+    			generateLineChartImage();
+    		} else if (chartType == "map") {
+    			generateMapImage();
+    		}
+    	}
+
+    	const writable_props = ['chartType'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<DownloadImage> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('chartType' in $$props) $$invalidate(1, chartType = $$props.chartType);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		max,
+    		saveSvgAsPng,
+    		createSVGtext,
+    		chartType,
+    		citation,
+    		generateLineChartImage,
+    		generateMapImage,
+    		handleSaveImage
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('chartType' in $$props) $$invalidate(1, chartType = $$props.chartType);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [handleSaveImage, chartType];
+    }
+
+    class DownloadImage extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, { chartType: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "DownloadImage",
+    			options,
+    			id: create_fragment$6.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*chartType*/ ctx[1] === undefined && !('chartType' in props)) {
+    			console.warn("<DownloadImage> was created without expected prop 'chartType'");
+    		}
+    	}
+
+    	get chartType() {
+    		throw new Error("<DownloadImage>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartType(value) {
+    		throw new Error("<DownloadImage>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\IntroBlock.svelte generated by Svelte v3.44.0 */
+    const file$5 = "src\\IntroBlock.svelte";
+
+    // (99:2) {:else}
+    function create_else_block$1(ctx) {
+    	let h2;
+    	let t0;
+    	let button;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			h2 = element("h2");
+    			t0 = text("Select a chart type and projection options, or launch our tutorial to\r\n      learn more!\r\n      ");
+    			button = element("button");
+    			button.textContent = "Launch User Guide";
+    			attr_dev(button, "class", "button is-primary is-outlined is-center is-rounded");
+    			attr_dev(button, "id", "btn");
+    			add_location(button, file$5, 102, 6, 3912);
+    			attr_dev(h2, "class", "subtitle is-size-5 has-text-grey-dark");
+    			add_location(h2, file$5, 99, 4, 3758);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h2, anchor);
+    			append_dev(h2, t0);
+    			append_dev(h2, button);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleLaunchTutorial*/ ctx[2], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h2);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$1.name,
+    		type: "else",
+    		source: "(99:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (80:33) 
+    function create_if_block_6(ctx) {
+    	let h2;
+    	let t1;
+    	let p;
+    	let span0;
+    	let t3;
+    	let span1;
+    	let t5;
+    	let span2;
+    	let t7;
+    	let t8;
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			h2 = element("h2");
+    			h2.textContent = "You can create a table.";
+    			t1 = space();
+    			p = element("p");
+    			span0 = element("span");
+    			span0.textContent = "You can also view projections in a table.";
+    			t3 = text("\r\n      The colors represent the change relative to the baseline (the first year, in\r\n      this case, 2008).\r\n      ");
+    			span1 = element("span");
+    			span1.textContent = "Red";
+    			t5 = text("\r\n      indicates a decrease from the baseline.\r\n      ");
+    			span2 = element("span");
+    			span2.textContent = "Blue";
+    			t7 = text("\r\n      indicates an increase from the baseline. The table can be downloaded as a CSV\r\n      file.");
+    			t8 = space();
+    			img = element("img");
+    			add_location(h2, file$5, 80, 4, 3112);
+    			attr_dev(span0, "class", "has-text-weight-semibold");
+    			add_location(span0, file$5, 82, 6, 3161);
+    			set_style(span1, "color", "red");
+    			add_location(span1, file$5, 87, 6, 3383);
+    			set_style(span2, "color", "blue");
+    			add_location(span2, file$5, 89, 6, 3473);
+    			add_location(p, file$5, 81, 4, 3150);
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the table.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/06_table.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 93, 4, 3624);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h2, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, span0);
+    			append_dev(p, t3);
+    			append_dev(p, span1);
+    			append_dev(p, t5);
+    			append_dev(p, span2);
+    			append_dev(p, t7);
+    			insert_dev(target, t8, anchor);
+    			insert_dev(target, img, anchor);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(p);
+    			if (detaching) detach_dev(t8);
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_6.name,
+    		type: "if",
+    		source: "(80:33) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (63:31) 
+    function create_if_block_5(ctx) {
+    	let h2;
+    	let t1;
+    	let p;
+    	let span;
+    	let t3;
+    	let t4;
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			h2 = element("h2");
+    			h2.textContent = "You can create a map.";
+    			t1 = space();
+    			p = element("p");
+    			span = element("span");
+    			span.textContent = "You can also view projections as a map.";
+    			t3 = text("\r\n      Use the slider below the map to change the year of data. The row chart displays\r\n      the projected values for the selected year. The colors in the map also indicate\r\n      the projected value. You can see the projected values in the table at the bottom.\r\n      Hovering over any chart/map/table element highlights the same geography in\r\n      the other elements.");
+    			t4 = space();
+    			img = element("img");
+    			add_location(h2, file$5, 63, 4, 2410);
+    			attr_dev(span, "class", "has-text-weight-semibold");
+    			add_location(span, file$5, 65, 6, 2457);
+    			add_location(p, file$5, 64, 4, 2446);
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the map.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/map_instructions.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 74, 4, 2948);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h2, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, span);
+    			append_dev(p, t3);
+    			insert_dev(target, t4, anchor);
+    			insert_dev(target, img, anchor);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(p);
+    			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5.name,
+    		type: "if",
+    		source: "(63:31) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (15:2) {#if chartType == "line"}
+    function create_if_block$1(ctx) {
+    	let h2;
+    	let t1;
+    	let p0;
+    	let span0;
+    	let t3;
+    	let span1;
+    	let t5;
+    	let span2;
+    	let t7;
+    	let t8;
+    	let t9;
+    	let hr;
+    	let t10;
+    	let p1;
+    	let span3;
+    	let t12;
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*calculation*/ ctx[1] === "difference") return create_if_block_1$1;
+    		if (/*calculation*/ ctx[1] === "percentage") return create_if_block_2$1;
+    		if (/*calculation*/ ctx[1] === "supply") return create_if_block_3$1;
+    		if (/*calculation*/ ctx[1] === "demand") return create_if_block_4;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block = current_block_type && current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			h2 = element("h2");
+    			h2.textContent = "You can create a line chart.";
+    			t1 = space();
+    			p0 = element("p");
+    			span0 = element("span");
+    			span0.textContent = "If you are using the line chart option,";
+    			t3 = text("\r\n      you can display multiple lines at once to compare. Just change your options\r\n      and select\r\n      ");
+    			span1 = element("span");
+    			span1.textContent = "Show";
+    			t5 = text("\r\n      again. To remove a line, hit the\r\n      ");
+    			span2 = element("span");
+    			span2.textContent = "X";
+    			t7 = text("\r\n      button in the top left of its corresponding box. Once you have displayed the\r\n      projections* in which you are interested, you can download the image (as a\r\n      .png) or the data (as a .csv file).");
+    			t8 = space();
+    			if (if_block) if_block.c();
+    			t9 = space();
+    			hr = element("hr");
+    			t10 = space();
+    			p1 = element("p");
+    			span3 = element("span");
+    			span3.textContent = "Please note:";
+    			t12 = text("\r\n      the model won’t allow you to display the projections for specific education\r\n      categories combined with specific settings at the same time. For instance,\r\n      the projection for RN, with BS for education, and hospital for setting is not\r\n      available. This is because the numbers are small.");
+    			add_location(h2, file$5, 15, 4, 329);
+    			attr_dev(span0, "class", "has-text-weight-semibold");
+    			add_location(span0, file$5, 17, 6, 383);
+    			attr_dev(span1, "class", "has-text-weight-semibold");
+    			add_location(span1, file$5, 22, 6, 595);
+    			attr_dev(span2, "class", "has-text-weight-semibold");
+    			add_location(span2, file$5, 24, 6, 693);
+    			add_location(p0, file$5, 16, 4, 372);
+    			add_location(hr, file$5, 54, 4, 1973);
+    			attr_dev(span3, "class", "has-text-weight-semibold");
+    			add_location(span3, file$5, 56, 6, 1996);
+    			add_location(p1, file$5, 55, 4, 1985);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h2, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, p0, anchor);
+    			append_dev(p0, span0);
+    			append_dev(p0, t3);
+    			append_dev(p0, span1);
+    			append_dev(p0, t5);
+    			append_dev(p0, span2);
+    			append_dev(p0, t7);
+    			insert_dev(target, t8, anchor);
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, t9, anchor);
+    			insert_dev(target, hr, anchor);
+    			insert_dev(target, t10, anchor);
+    			insert_dev(target, p1, anchor);
+    			append_dev(p1, span3);
+    			append_dev(p1, t12);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type !== (current_block_type = select_block_type_1(ctx))) {
+    				if (if_block) if_block.d(1);
+    				if_block = current_block_type && current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(t9.parentNode, t9);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(p0);
+    			if (detaching) detach_dev(t8);
+
+    			if (if_block) {
+    				if_block.d(detaching);
+    			}
+
+    			if (detaching) detach_dev(t9);
+    			if (detaching) detach_dev(hr);
+    			if (detaching) detach_dev(t10);
+    			if (detaching) detach_dev(p1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(15:2) {#if chartType == \\\"line\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (48:39) 
+    function create_if_block_4(ctx) {
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the line chart the shows the demand projections.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/demand_instruction.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 48, 6, 1783);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4.name,
+    		type: "if",
+    		source: "(48:39) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (42:39) 
+    function create_if_block_3$1(ctx) {
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the line chart the shows supply projections and uncertainty for those projections.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/supply_instruction.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 42, 6, 1527);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3$1.name,
+    		type: "if",
+    		source: "(42:39) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (36:43) 
+    function create_if_block_2$1(ctx) {
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the line chart the shows the percentage difference in supply and demand.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/percentage_supply_demand_instruction.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 36, 6, 1263);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$1.name,
+    		type: "if",
+    		source: "(36:43) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (30:4) {#if calculation === "difference"}
+    function create_if_block_1$1(ctx) {
+    	let img;
+    	let img_src_value;
+
+    	const block = {
+    		c: function create() {
+    			img = element("img");
+    			attr_dev(img, "class", "image svelte-1fy8ljy");
+    			attr_dev(img, "alt", "How to use the line chart the shows the numerical difference in supply and demand.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/supply-demand-instruction.png")) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$5, 30, 6, 1007);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, img, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(img);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(30:4) {#if calculation === \\\"difference\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$5(ctx) {
+    	let div;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*chartType*/ ctx[0] == "line") return create_if_block$1;
+    		if (/*chartType*/ ctx[0] == "map") return create_if_block_5;
+    		if (/*chartType*/ ctx[0] == "table") return create_if_block_6;
+    		return create_else_block$1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if_block.c();
+    			attr_dev(div, "class", "content has-background-light svelte-1fy8ljy");
+    			add_location(div, file$5, 13, 0, 252);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if_block.m(div, null);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if_block.d();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('IntroBlock', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { chartType } = $$props;
+    	let { calculation } = $$props;
+
+    	function handleLaunchTutorial() {
+    		dispatch("launchTutorial");
+    	}
+
+    	const writable_props = ['chartType', 'calculation'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<IntroBlock> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('chartType' in $$props) $$invalidate(0, chartType = $$props.chartType);
+    		if ('calculation' in $$props) $$invalidate(1, calculation = $$props.calculation);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		chartType,
+    		calculation,
+    		handleLaunchTutorial
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('chartType' in $$props) $$invalidate(0, chartType = $$props.chartType);
+    		if ('calculation' in $$props) $$invalidate(1, calculation = $$props.calculation);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [chartType, calculation, handleLaunchTutorial];
+    }
+
+    class IntroBlock extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { chartType: 0, calculation: 1 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "IntroBlock",
+    			options,
+    			id: create_fragment$5.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*chartType*/ ctx[0] === undefined && !('chartType' in props)) {
+    			console.warn("<IntroBlock> was created without expected prop 'chartType'");
+    		}
+
+    		if (/*calculation*/ ctx[1] === undefined && !('calculation' in props)) {
+    			console.warn("<IntroBlock> was created without expected prop 'calculation'");
+    		}
+    	}
+
+    	get chartType() {
+    		throw new Error("<IntroBlock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartType(value) {
+    		throw new Error("<IntroBlock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get calculation() {
+    		throw new Error("<IntroBlock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set calculation(value) {
+    		throw new Error("<IntroBlock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\ButtonRadio.svelte generated by Svelte v3.44.0 */
+    const file$4 = "src\\ButtonRadio.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i].value;
+    	child_ctx[7] = list[i].label;
+    	child_ctx[9] = i;
+    	return child_ctx;
+    }
+
+    // (36:4) {#each options as { value, label }
+    function create_each_block$1(ctx) {
+    	let button;
+    	let t_value = /*label*/ ctx[7] + "";
+    	let t;
+    	let button_id_value;
+    	let button_aria_checked_value;
+    	let button_tabindex_value;
+    	let button_class_value;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t = text(t_value);
+    			attr_dev(button, "id", button_id_value = /*value*/ ctx[6]);
+    			attr_dev(button, "role", "radio");
+    			attr_dev(button, "data-index", /*index*/ ctx[9]);
+    			attr_dev(button, "aria-checked", button_aria_checked_value = /*chartType*/ ctx[2] == /*value*/ ctx[6]);
+    			attr_dev(button, "tabindex", button_tabindex_value = /*chartType*/ ctx[2] === /*value*/ ctx[6] ? 0 : -1);
+
+    			attr_dev(button, "class", button_class_value = /*chartType*/ ctx[2] === /*value*/ ctx[6]
+    			? "button is-selected is-primary"
+    			: "button");
+
+    			add_location(button, file$4, 36, 8, 1283);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button, "click", /*tabClicked*/ ctx[3], false, false, false),
+    					listen_dev(button, "keydown", /*tabKeydown*/ ctx[4], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*options*/ 2 && t_value !== (t_value = /*label*/ ctx[7] + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*options*/ 2 && button_id_value !== (button_id_value = /*value*/ ctx[6])) {
+    				attr_dev(button, "id", button_id_value);
+    			}
+
+    			if (dirty & /*chartType, options*/ 6 && button_aria_checked_value !== (button_aria_checked_value = /*chartType*/ ctx[2] == /*value*/ ctx[6])) {
+    				attr_dev(button, "aria-checked", button_aria_checked_value);
+    			}
+
+    			if (dirty & /*chartType, options*/ 6 && button_tabindex_value !== (button_tabindex_value = /*chartType*/ ctx[2] === /*value*/ ctx[6] ? 0 : -1)) {
+    				attr_dev(button, "tabindex", button_tabindex_value);
+    			}
+
+    			if (dirty & /*chartType, options*/ 6 && button_class_value !== (button_class_value = /*chartType*/ ctx[2] === /*value*/ ctx[6]
+    			? "button is-selected is-primary"
+    			: "button")) {
+    				attr_dev(button, "class", button_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(36:4) {#each options as { value, label }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$4(ctx) {
+    	let div;
+    	let each_value = /*options*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "buttons has-addons");
+    			attr_dev(div, "role", "radiogroup");
+    			attr_dev(div, "aria-label", /*groupLabel*/ ctx[0]);
+    			add_location(div, file$4, 34, 0, 1151);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*options, chartType, tabClicked, tabKeydown*/ 30) {
+    				each_value = /*options*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*groupLabel*/ 1) {
+    				attr_dev(div, "aria-label", /*groupLabel*/ ctx[0]);
+    			}
+    		},
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('ButtonRadio', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { groupLabel = "Button Radio Group" } = $$props;
+    	let { options = undefined } = $$props;
+    	let { chartType = undefined } = $$props;
+
+    	function tabClicked(e) {
+    		if (chartType != e.target.id) {
+    			dispatch("changeChartType", e.target.id);
+    		}
+    	}
+
+    	function tabKeydown(e) {
+    		if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    			const currentIndex = +e.target.getAttribute("data-index");
+    			const moveIndex = e.key === "ArrowLeft" ? -1 : 1;
+    			let newIndex = currentIndex + moveIndex;
+
+    			if (newIndex >= options.length) {
+    				//If newIndex is too far right, circle to front
+    				newIndex = 0;
+    			} else if (newIndex < 0) {
+    				//If newIndex is too far left, circle to end
+    				newIndex = options.length - 1;
+    			}
+
+    			document.getElementById(options[newIndex].value).focus();
+    			dispatch("changeChartType", options[newIndex].value);
+    		}
+    	}
+
+    	const writable_props = ['groupLabel', 'options', 'chartType'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<ButtonRadio> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('groupLabel' in $$props) $$invalidate(0, groupLabel = $$props.groupLabel);
+    		if ('options' in $$props) $$invalidate(1, options = $$props.options);
+    		if ('chartType' in $$props) $$invalidate(2, chartType = $$props.chartType);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		groupLabel,
+    		options,
+    		chartType,
+    		tabClicked,
+    		tabKeydown
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('groupLabel' in $$props) $$invalidate(0, groupLabel = $$props.groupLabel);
+    		if ('options' in $$props) $$invalidate(1, options = $$props.options);
+    		if ('chartType' in $$props) $$invalidate(2, chartType = $$props.chartType);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [groupLabel, options, chartType, tabClicked, tabKeydown];
+    }
+
+    class ButtonRadio extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { groupLabel: 0, options: 1, chartType: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "ButtonRadio",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+
+    	get groupLabel() {
+    		throw new Error("<ButtonRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set groupLabel(value) {
+    		throw new Error("<ButtonRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get options() {
+    		throw new Error("<ButtonRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set options(value) {
+    		throw new Error("<ButtonRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get chartType() {
+    		throw new Error("<ButtonRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set chartType(value) {
+    		throw new Error("<ButtonRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\TutorialImage.svelte generated by Svelte v3.44.0 */
+
+    const file$3 = "src\\TutorialImage.svelte";
+
+    function create_fragment$3(ctx) {
+    	let div;
+    	let t0;
+    	let img;
+    	let img_src_value;
+    	let t1;
+    	let hr;
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[2].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (default_slot) default_slot.c();
+    			t0 = space();
+    			img = element("img");
+    			t1 = space();
+    			hr = element("hr");
+    			attr_dev(img, "class", "image");
+    			attr_dev(img, "alt", "Chart tutorial.");
+    			if (!src_url_equal(img.src, img_src_value = "public/images/tutorial/" + /*imageFileName*/ ctx[0])) attr_dev(img, "src", img_src_value);
+    			add_location(img, file$3, 6, 2, 96);
+    			add_location(hr, file$3, 11, 2, 206);
+    			attr_dev(div, "class", "column is-full");
+    			add_location(div, file$3, 4, 0, 52);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			append_dev(div, t0);
+    			append_dev(div, img);
+    			append_dev(div, t1);
+    			append_dev(div, hr);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 2)) {
+    					update_slot_base(
+    						default_slot,
+    						default_slot_template,
+    						ctx,
+    						/*$$scope*/ ctx[1],
+    						!current
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[1])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[1], dirty, null),
+    						null
+    					);
+    				}
+    			}
+
+    			if (!current || dirty & /*imageFileName*/ 1 && !src_url_equal(img.src, img_src_value = "public/images/tutorial/" + /*imageFileName*/ ctx[0])) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('TutorialImage', slots, ['default']);
+    	let { imageFileName } = $$props;
+    	const writable_props = ['imageFileName'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<TutorialImage> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ('imageFileName' in $$props) $$invalidate(0, imageFileName = $$props.imageFileName);
+    		if ('$$scope' in $$props) $$invalidate(1, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({ imageFileName });
+
+    	$$self.$inject_state = $$props => {
+    		if ('imageFileName' in $$props) $$invalidate(0, imageFileName = $$props.imageFileName);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [imageFileName, $$scope, slots];
+    }
+
+    class TutorialImage extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { imageFileName: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "TutorialImage",
+    			options,
+    			id: create_fragment$3.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*imageFileName*/ ctx[0] === undefined && !('imageFileName' in props)) {
+    			console.warn("<TutorialImage> was created without expected prop 'imageFileName'");
+    		}
+    	}
+
+    	get imageFileName() {
+    		throw new Error("<TutorialImage>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set imageFileName(value) {
+    		throw new Error("<TutorialImage>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\Tutorial.svelte generated by Svelte v3.44.0 */
+    const file$2 = "src\\Tutorial.svelte";
+
+    function create_fragment$2(ctx) {
+    	let div;
+    	let article;
+    	let h2;
+    	let t1;
+    	let ol;
+    	let li0;
+    	let p0;
+    	let t3;
+    	let img0;
+    	let img0_src_value;
+    	let t4;
+    	let li1;
+    	let p1;
+    	let t6;
+    	let img1;
+    	let img1_src_value;
+    	let t7;
+    	let li2;
+    	let p2;
+    	let t8;
+    	let svg;
+    	let title;
+    	let t9;
+    	let use;
+    	let t10;
+    	let span;
+    	let t12;
+    	let t13;
+    	let img2;
+    	let img2_src_value;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			article = element("article");
+    			h2 = element("h2");
+    			h2.textContent = "How to Use the NC Nursecast Visualization";
+    			t1 = space();
+    			ol = element("ol");
+    			li0 = element("li");
+    			p0 = element("p");
+    			p0.textContent = "By clicking on these boxes in the visualization, you can\r\n                    compare supply and demand directly and see shortages or\r\n                    surpluses as a percentage or numerical difference. Or you\r\n                    can view supply or demand separately.";
+    			t3 = space();
+    			img0 = element("img");
+    			t4 = space();
+    			li1 = element("li");
+    			p1 = element("p");
+    			p1.textContent = "You can view the projections as either a line chart,\r\n                    comparing multiple projections over time across settings,\r\n                    geographies, and other parameters. Or you can view the\r\n                    projections in a map, comparing across a set of geographies\r\n                    (like AHEC regions.)";
+    			t6 = space();
+    			img1 = element("img");
+    			t7 = space();
+    			li2 = element("li");
+    			p2 = element("p");
+    			t8 = text("Use the radio buttons or dropdowns to select parameters for\r\n                    the projection you want to view. Select a ");
+    			svg = svg_element("svg");
+    			title = svg_element("title");
+    			t9 = text("Example of information icon button.");
+    			use = svg_element("use");
+    			t10 = text("\r\n                    to learn more about each option. Select\r\n                    ");
+    			span = element("span");
+    			span.textContent = "Show";
+    			t12 = text(" to display\r\n                    the line chart or map for your selections. Note that some combinations\r\n                    of selections are not possible.");
+    			t13 = space();
+    			img2 = element("img");
+    			attr_dev(h2, "id", "how-to-use");
+    			attr_dev(h2, "class", "title");
+    			add_location(h2, file$2, 12, 8, 279);
+    			add_location(p0, file$2, 17, 16, 454);
+    			attr_dev(img0, "class", "image");
+    			attr_dev(img0, "alt", "Select one of the boxes to compare supply and demand or show them separately.");
+    			if (!src_url_equal(img0.src, img0_src_value = "public/images/tutorial/tutorial_00.png")) attr_dev(img0, "src", img0_src_value);
+    			add_location(img0, file$2, 23, 16, 790);
+    			attr_dev(li0, "class", "notification");
+    			add_location(li0, file$2, 16, 12, 411);
+    			add_location(p1, file$2, 30, 16, 1096);
+    			attr_dev(img1, "class", "image");
+    			attr_dev(img1, "alt", "Select line for line chart or map for a map of North Carolina broken into a selected geography type.");
+    			if (!src_url_equal(img1.src, img1_src_value = "public/images/tutorial/tutorial_01.png")) attr_dev(img1, "src", img1_src_value);
+    			add_location(img1, file$2, 37, 16, 1491);
+    			attr_dev(li1, "class", "notification");
+    			add_location(li1, file$2, 29, 12, 1053);
+    			add_location(title, file$2, 52, 24, 2189);
+    			xlink_attr(use, "xlink:href", "#fa-info-circle");
+    			add_location(use, file$2, 53, 24, 2265);
+    			attr_dev(svg, "class", "icon-svg has-fill-primary");
+    			attr_dev(svg, "width", "20");
+    			attr_dev(svg, "height", "20");
+    			attr_dev(svg, "role", "img");
+    			add_location(svg, file$2, 46, 62, 1968);
+    			attr_dev(span, "class", "has-text-weight-semibold");
+    			add_location(span, file$2, 56, 20, 2412);
+    			add_location(p2, file$2, 44, 16, 1820);
+    			attr_dev(img2, "class", "image");
+    			attr_dev(img2, "alt", "Example options form for choosing specific projections.");
+    			if (!src_url_equal(img2.src, img2_src_value = "public/images/tutorial/tutorial_02.png")) attr_dev(img2, "src", img2_src_value);
+    			add_location(img2, file$2, 60, 16, 2658);
+    			attr_dev(li2, "class", "notification");
+    			add_location(li2, file$2, 43, 12, 1777);
+    			add_location(ol, file$2, 15, 8, 393);
+    			attr_dev(article, "class", "content column is-two-thirds-tablet is-two-thirds-desktop is-two-thirds-widescreen is-half-fullhd");
+    			add_location(article, file$2, 5, 4, 119);
+    			attr_dev(div, "class", "columns is-centered");
+    			add_location(div, file$2, 4, 0, 80);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, article);
+    			append_dev(article, h2);
+    			append_dev(article, t1);
+    			append_dev(article, ol);
+    			append_dev(ol, li0);
+    			append_dev(li0, p0);
+    			append_dev(li0, t3);
+    			append_dev(li0, img0);
+    			append_dev(ol, t4);
+    			append_dev(ol, li1);
+    			append_dev(li1, p1);
+    			append_dev(li1, t6);
+    			append_dev(li1, img1);
+    			append_dev(ol, t7);
+    			append_dev(ol, li2);
+    			append_dev(li2, p2);
+    			append_dev(p2, t8);
+    			append_dev(p2, svg);
+    			append_dev(svg, title);
+    			append_dev(title, t9);
+    			append_dev(svg, use);
+    			append_dev(p2, t10);
+    			append_dev(p2, span);
+    			append_dev(p2, t12);
+    			append_dev(li2, t13);
+    			append_dev(li2, img2);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('Tutorial', slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Tutorial> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({ TutorialImage });
+    	return [];
+    }
+
+    class Tutorial extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Tutorial",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+    }
+
+    /* src\CardRadio.svelte generated by Svelte v3.44.0 */
+    const file$1 = "src\\CardRadio.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i].name;
+    	child_ctx[7] = list[i].title;
+    	child_ctx[8] = list[i].subtitle;
+    	child_ctx[9] = list[i].info;
+    	child_ctx[11] = i;
+    	return child_ctx;
+    }
+
+    // (36:4) {#each options as { name, title, subtitle, info }
+    function create_each_block(ctx) {
+    	let div2;
+    	let div0;
+    	let p0;
+    	let t0_value = /*title*/ ctx[7] + "";
+    	let t0;
+    	let p0_id_value;
+    	let t1;
+    	let p1;
+    	let t2_value = /*subtitle*/ ctx[8] + "";
+    	let t2;
+    	let p1_id_value;
+    	let t3;
+    	let div1;
+    	let infobox;
+    	let t4;
+    	let div2_id_value;
+    	let div2_aria_checked_value;
+    	let div2_tabindex_value;
+    	let div2_aria_labelledby_value;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	infobox = new InfoBox({
+    			props: {
+    				title: /*title*/ ctx[7],
+    				info: /*info*/ ctx[9],
+    				invert: /*name*/ ctx[6] === /*calculation*/ ctx[0]
+    			},
+    			$$inline: true
+    		});
+
+    	function click_handler() {
+    		return /*click_handler*/ ctx[5](/*name*/ ctx[6]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			p0 = element("p");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			p1 = element("p");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			div1 = element("div");
+    			create_component(infobox.$$.fragment);
+    			t4 = space();
+    			attr_dev(p0, "class", "is-size-3");
+    			attr_dev(p0, "id", p0_id_value = /*name*/ ctx[6] + "-card-radio-title");
+    			add_location(p0, file$1, 50, 16, 1831);
+    			attr_dev(p1, "class", "is-size-4");
+    			attr_dev(p1, "id", p1_id_value = /*name*/ ctx[6] + "-card-radio-subtitle");
+    			add_location(p1, file$1, 51, 16, 1913);
+    			attr_dev(div0, "class", "card-content");
+    			add_location(div0, file$1, 49, 12, 1787);
+    			attr_dev(div1, "class", "is-pulled-right");
+    			add_location(div1, file$1, 55, 12, 2057);
+    			attr_dev(div2, "class", "card column svelte-5etsnl");
+    			attr_dev(div2, "id", div2_id_value = /*name*/ ctx[6]);
+    			attr_dev(div2, "role", "radio");
+    			attr_dev(div2, "data-index", /*index*/ ctx[11]);
+    			attr_dev(div2, "aria-checked", div2_aria_checked_value = /*name*/ ctx[6] === /*calculation*/ ctx[0]);
+    			attr_dev(div2, "tabindex", div2_tabindex_value = /*name*/ ctx[6] === /*calculation*/ ctx[0] ? 0 : -1);
+    			attr_dev(div2, "aria-labelledby", div2_aria_labelledby_value = `${/*name*/ ctx[6]}-card-radio-title ${/*name*/ ctx[6]}-card-radio-subtitle`);
+    			toggle_class(div2, "has-background-primary", /*name*/ ctx[6] === /*calculation*/ ctx[0]);
+    			toggle_class(div2, "has-text-white", /*name*/ ctx[6] === /*calculation*/ ctx[0]);
+    			add_location(div2, file$1, 36, 8, 1229);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div0, p0);
+    			append_dev(p0, t0);
+    			append_dev(div0, t1);
+    			append_dev(div0, p1);
+    			append_dev(p1, t2);
+    			append_dev(div2, t3);
+    			append_dev(div2, div1);
+    			mount_component(infobox, div1, null);
+    			append_dev(div2, t4);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div2, "click", click_handler, false, false, false),
+    					listen_dev(div2, "keydown", /*tabKeydown*/ ctx[4], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if ((!current || dirty & /*options*/ 2) && t0_value !== (t0_value = /*title*/ ctx[7] + "")) set_data_dev(t0, t0_value);
+
+    			if (!current || dirty & /*options*/ 2 && p0_id_value !== (p0_id_value = /*name*/ ctx[6] + "-card-radio-title")) {
+    				attr_dev(p0, "id", p0_id_value);
+    			}
+
+    			if ((!current || dirty & /*options*/ 2) && t2_value !== (t2_value = /*subtitle*/ ctx[8] + "")) set_data_dev(t2, t2_value);
+
+    			if (!current || dirty & /*options*/ 2 && p1_id_value !== (p1_id_value = /*name*/ ctx[6] + "-card-radio-subtitle")) {
+    				attr_dev(p1, "id", p1_id_value);
+    			}
+
+    			const infobox_changes = {};
+    			if (dirty & /*options*/ 2) infobox_changes.title = /*title*/ ctx[7];
+    			if (dirty & /*options*/ 2) infobox_changes.info = /*info*/ ctx[9];
+    			if (dirty & /*options, calculation*/ 3) infobox_changes.invert = /*name*/ ctx[6] === /*calculation*/ ctx[0];
+    			infobox.$set(infobox_changes);
+
+    			if (!current || dirty & /*options*/ 2 && div2_id_value !== (div2_id_value = /*name*/ ctx[6])) {
+    				attr_dev(div2, "id", div2_id_value);
+    			}
+
+    			if (!current || dirty & /*options, calculation*/ 3 && div2_aria_checked_value !== (div2_aria_checked_value = /*name*/ ctx[6] === /*calculation*/ ctx[0])) {
+    				attr_dev(div2, "aria-checked", div2_aria_checked_value);
+    			}
+
+    			if (!current || dirty & /*options, calculation*/ 3 && div2_tabindex_value !== (div2_tabindex_value = /*name*/ ctx[6] === /*calculation*/ ctx[0] ? 0 : -1)) {
+    				attr_dev(div2, "tabindex", div2_tabindex_value);
+    			}
+
+    			if (!current || dirty & /*options*/ 2 && div2_aria_labelledby_value !== (div2_aria_labelledby_value = `${/*name*/ ctx[6]}-card-radio-title ${/*name*/ ctx[6]}-card-radio-subtitle`)) {
+    				attr_dev(div2, "aria-labelledby", div2_aria_labelledby_value);
+    			}
+
+    			if (dirty & /*options, calculation*/ 3) {
+    				toggle_class(div2, "has-background-primary", /*name*/ ctx[6] === /*calculation*/ ctx[0]);
+    			}
+
+    			if (dirty & /*options, calculation*/ 3) {
+    				toggle_class(div2, "has-text-white", /*name*/ ctx[6] === /*calculation*/ ctx[0]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(infobox.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(infobox.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			destroy_component(infobox);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(36:4) {#each options as { name, title, subtitle, info }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let div;
+    	let current;
+    	let each_value = /*options*/ ctx[1];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "columns");
+    			attr_dev(div, "role", "radiogroup");
+    			attr_dev(div, "aria-label", /*groupLabel*/ ctx[2]);
+    			set_style(div, "margin-bottom", "2rem");
+    			add_location(div, file$1, 29, 0, 1042);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*options, calculation, dispatch, tabKeydown*/ 27) {
+    				each_value = /*options*/ ctx[1];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+
+    			if (!current || dirty & /*groupLabel*/ 4) {
+    				attr_dev(div, "aria-label", /*groupLabel*/ ctx[2]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('CardRadio', slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { calculation = undefined } = $$props;
+    	let { options = undefined } = $$props;
+    	let { groupLabel = undefined } = $$props;
+
+    	function tabKeydown(e) {
+    		if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    			const currentIndex = +e.target.getAttribute("data-index");
+    			const moveIndex = e.key === "ArrowLeft" ? -1 : 1;
+    			let newIndex = currentIndex + moveIndex;
+
+    			if (newIndex >= options.length) {
+    				//If newIndex is too far right, circle to front
+    				newIndex = 0;
+    			} else if (newIndex < 0) {
+    				//If newIndex is too far left, circle to end
+    				newIndex = options.length - 1;
+    			}
+
+    			document.getElementById(options[newIndex].name).focus();
+    			dispatch("calculationClicked", options[newIndex].name);
+    		}
+    	}
+
+    	const writable_props = ['calculation', 'options', 'groupLabel'];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<CardRadio> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = name => dispatch("calculationClicked", name);
+
+    	$$self.$$set = $$props => {
+    		if ('calculation' in $$props) $$invalidate(0, calculation = $$props.calculation);
+    		if ('options' in $$props) $$invalidate(1, options = $$props.options);
+    		if ('groupLabel' in $$props) $$invalidate(2, groupLabel = $$props.groupLabel);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		InfoBox,
+    		dispatch,
+    		calculation,
+    		options,
+    		groupLabel,
+    		tabKeydown
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('calculation' in $$props) $$invalidate(0, calculation = $$props.calculation);
+    		if ('options' in $$props) $$invalidate(1, options = $$props.options);
+    		if ('groupLabel' in $$props) $$invalidate(2, groupLabel = $$props.groupLabel);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [calculation, options, groupLabel, dispatch, tabKeydown, click_handler];
+    }
+
+    class CardRadio extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+    			calculation: 0,
+    			options: 1,
+    			groupLabel: 2
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "CardRadio",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+
+    	get calculation() {
+    		throw new Error("<CardRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set calculation(value) {
+    		throw new Error("<CardRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get options() {
+    		throw new Error("<CardRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set options(value) {
+    		throw new Error("<CardRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get groupLabel() {
+    		throw new Error("<CardRadio>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set groupLabel(value) {
+    		throw new Error("<CardRadio>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const subtitles = new Map([
+        ["difference", "Will there be a shortage or surplus?"],
+        ["percentage", "What is the relative shortage or surplus?"],
+        ["supply", "How many nurses are projected in the future?"],
+        ["demand", "What will be the demand for services?"]
+    ]);
+
+    var cardInfo = options.get("calculation").options.map(function ({ value, label }) {
+        const name = value;
+        const title = label;
+        const info = formInfo.get(value);
+        const subtitle = subtitles.get(value);
+
+        return { name, title, subtitle, info }
+
+    });
+
+    /* src\App.svelte generated by Svelte v3.44.0 */
+
+    const { console: console_1 } = globals;
+    const file = "src\\App.svelte";
+
+    // (168:8) {:else}
+    function create_else_block_2(ctx) {
+    	let introblock;
+    	let current;
+
+    	introblock = new IntroBlock({
+    			props: {
+    				chartType: /*chartType*/ ctx[2],
+    				calculation: /*calculation*/ ctx[3]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(introblock.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(introblock, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const introblock_changes = {};
+    			if (dirty & /*chartType*/ 4) introblock_changes.chartType = /*chartType*/ ctx[2];
+    			if (dirty & /*calculation*/ 8) introblock_changes.calculation = /*calculation*/ ctx[3];
+    			introblock.$set(introblock_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(introblock.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(introblock.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(introblock, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_2.name,
+    		type: "else",
+    		source: "(168:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (131:8) {#if data.get(calculation).get(chartType).length > 0}
+    function create_if_block(ctx) {
+    	let div2;
+    	let div0;
+    	let t0;
+    	let div1;
+    	let downloadimage;
+    	let t1;
+    	let downloaddata;
+    	let t2;
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+
+    	downloadimage = new DownloadImage({
+    			props: { chartType: /*chartType*/ ctx[2] },
+    			$$inline: true
+    		});
+
+    	downloaddata = new DownloadData({
+    			props: {
+    				data: /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]),
+    				chartType: /*chartType*/ ctx[2],
+    				projectionStartYear: /*projectionStartYear*/ ctx[5]
+    			},
+    			$$inline: true
+    		});
+
+    	const if_block_creators = [create_if_block_1, create_if_block_3, create_else_block_1];
+    	const if_blocks = [];
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*chartType*/ ctx[2] == "line") return 0;
+    		if (/*chartType*/ ctx[2] == "map") return 1;
+    		return 2;
+    	}
+
+    	current_block_type_index = select_block_type_1(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			div1 = element("div");
+    			create_component(downloadimage.$$.fragment);
+    			t1 = space();
+    			create_component(downloaddata.$$.fragment);
+    			t2 = space();
+    			if_block.c();
+    			if_block_anchor = empty();
+    			attr_dev(div0, "class", "column is-hidden-mobile is-paddingless");
+    			add_location(div0, file, 132, 12, 3766);
+    			attr_dev(div1, "class", "column is-narrow is-paddingless");
+    			add_location(div1, file, 133, 12, 3834);
+    			attr_dev(div2, "class", "columns is-marginless");
+    			add_location(div2, file, 131, 10, 3717);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t0);
+    			append_dev(div2, div1);
+    			mount_component(downloadimage, div1, null);
+    			append_dev(div1, t1);
+    			mount_component(downloaddata, div1, null);
+    			insert_dev(target, t2, anchor);
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const downloadimage_changes = {};
+    			if (dirty & /*chartType*/ 4) downloadimage_changes.chartType = /*chartType*/ ctx[2];
+    			downloadimage.$set(downloadimage_changes);
+    			const downloaddata_changes = {};
+    			if (dirty & /*data, calculation, chartType*/ 13) downloaddata_changes.data = /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]);
+    			if (dirty & /*chartType*/ 4) downloaddata_changes.chartType = /*chartType*/ ctx[2];
+    			downloaddata.$set(downloaddata_changes);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_1(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(downloadimage.$$.fragment, local);
+    			transition_in(downloaddata.$$.fragment, local);
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(downloadimage.$$.fragment, local);
+    			transition_out(downloaddata.$$.fragment, local);
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			destroy_component(downloadimage);
+    			destroy_component(downloaddata);
+    			if (detaching) detach_dev(t2);
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(131:8) {#if data.get(calculation).get(chartType).length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (165:10) {:else}
+    function create_else_block_1(ctx) {
+    	let div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			div.textContent = "An error has occurred.";
+    			attr_dev(div, "class", "notification");
+    			add_location(div, file, 165, 12, 4956);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: noop$1,
+    		i: noop$1,
+    		o: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(165:10) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (159:39) 
+    function create_if_block_3(ctx) {
+    	let simplemap;
+    	let current;
+
+    	simplemap = new SimpleMap({
+    			props: {
+    				data: /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2])[0],
+    				geoJSON: /*geoJSON*/ ctx[1],
+    				projectionStartYear: /*projectionStartYear*/ ctx[5]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(simplemap.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(simplemap, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const simplemap_changes = {};
+    			if (dirty & /*data, calculation, chartType*/ 13) simplemap_changes.data = /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2])[0];
+    			if (dirty & /*geoJSON*/ 2) simplemap_changes.geoJSON = /*geoJSON*/ ctx[1];
+    			simplemap.$set(simplemap_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(simplemap.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(simplemap.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(simplemap, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3.name,
+    		type: "if",
+    		source: "(159:39) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (144:10) {#if chartType == "line"}
+    function create_if_block_1(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_2, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type_2(ctx, dirty) {
+    		if (/*calculation*/ ctx[3] == "difference") return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type_2(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type_2(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(144:10) {#if chartType == \\\"line\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (151:12) {:else}
+    function create_else_block(ctx) {
+    	let linechart;
+    	let current;
+
+    	linechart = new LineChart({
+    			props: {
+    				data: /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]),
+    				projectionStartYear: /*projectionStartYear*/ ctx[5],
+    				calculation: /*calculation*/ ctx[3]
+    			},
+    			$$inline: true
+    		});
+
+    	linechart.$on("deleteProjection", /*handleDeleteProjection*/ ctx[7]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(linechart.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(linechart, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const linechart_changes = {};
+    			if (dirty & /*data, calculation, chartType*/ 13) linechart_changes.data = /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]);
+    			if (dirty & /*calculation*/ 8) linechart_changes.calculation = /*calculation*/ ctx[3];
+    			linechart.$set(linechart_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(linechart.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(linechart.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(linechart, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(151:12) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (145:12) {#if calculation == "difference"}
+    function create_if_block_2(ctx) {
+    	let linechartdifference2;
+    	let current;
+
+    	linechartdifference2 = new LineChartDifference2({
+    			props: {
+    				data: /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]),
+    				projectionStartYear: /*projectionStartYear*/ ctx[5]
+    			},
+    			$$inline: true
+    		});
+
+    	linechartdifference2.$on("deleteProjection", /*handleDeleteProjection*/ ctx[7]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(linechartdifference2.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(linechartdifference2, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const linechartdifference2_changes = {};
+    			if (dirty & /*data, calculation, chartType*/ 13) linechartdifference2_changes.data = /*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]);
+    			linechartdifference2.$set(linechartdifference2_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(linechartdifference2.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(linechartdifference2.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(linechartdifference2, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(145:12) {#if calculation == \\\"difference\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let section0;
+    	let div3;
+    	let cardradio;
+    	let t0;
+    	let div2;
+    	let div0;
+    	let buttonradio;
+    	let t1;
+    	let hr0;
+    	let t2;
+    	let modelform;
+    	let t3;
+    	let div1;
+    	let show_if;
+    	let current_block_type_index;
+    	let if_block;
+    	let t4;
+    	let hr1;
+    	let t5;
+    	let section1;
+    	let tutorial;
+    	let current;
+
+    	cardradio = new CardRadio({
+    			props: {
+    				calculation: /*calculation*/ ctx[3],
+    				groupLabel: "Radio for Selecting a Calculation Type",
+    				options: cardInfo
+    			},
+    			$$inline: true
+    		});
+
+    	cardradio.$on("calculationClicked", /*handleCalculationClick*/ ctx[9]);
+
+    	buttonradio = new ButtonRadio({
+    			props: {
+    				groupLabel: "Line chart or Map",
+    				chartType: /*chartType*/ ctx[2],
+    				options: [{ value: "line", label: "Line Chart" }, { value: "map", label: "Map" }]
+    			},
+    			$$inline: true
+    		});
+
+    	buttonradio.$on("changeChartType", /*changeChartType*/ ctx[10]);
+
+    	modelform = new ModelForm({
+    			props: {
+    				isLoading: /*isLoading*/ ctx[4],
+    				calculation: /*calculation*/ ctx[3],
+    				chartType: /*chartType*/ ctx[2]
+    			},
+    			$$inline: true
+    		});
+
+    	modelform.$on("showProjection", /*handleShowProjection*/ ctx[6]);
+    	modelform.$on("clearProjections", /*handleClearData*/ ctx[8]);
+    	const if_block_creators = [create_if_block, create_else_block_2];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (show_if == null || dirty & /*data, calculation, chartType*/ 13) show_if = !!(/*data*/ ctx[0].get(/*calculation*/ ctx[3]).get(/*chartType*/ ctx[2]).length > 0);
+    		if (show_if) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx, -1);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	tutorial = new Tutorial({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			section0 = element("section");
+    			div3 = element("div");
+    			create_component(cardradio.$$.fragment);
+    			t0 = space();
+    			div2 = element("div");
+    			div0 = element("div");
+    			create_component(buttonradio.$$.fragment);
+    			t1 = space();
+    			hr0 = element("hr");
+    			t2 = space();
+    			create_component(modelform.$$.fragment);
+    			t3 = space();
+    			div1 = element("div");
+    			if_block.c();
+    			t4 = space();
+    			hr1 = element("hr");
+    			t5 = space();
+    			section1 = element("section");
+    			create_component(tutorial.$$.fragment);
+    			add_location(hr0, file, 120, 8, 3381);
+    			attr_dev(div0, "class", "column is-4");
+    			add_location(div0, file, 110, 6, 3063);
+    			attr_dev(div1, "class", "column is-8 box");
+    			add_location(div1, file, 129, 6, 3613);
+    			attr_dev(div2, "class", "columns");
+    			add_location(div2, file, 109, 4, 3034);
+    			attr_dev(div3, "class", "container");
+    			attr_dev(div3, "id", "main-container");
+    			add_location(div3, file, 101, 2, 2799);
+    			attr_dev(section0, "class", "section");
+    			add_location(section0, file, 100, 0, 2770);
+    			add_location(hr1, file, 174, 0, 5161);
+    			attr_dev(section1, "class", "section");
+    			add_location(section1, file, 175, 0, 5169);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, section0, anchor);
+    			append_dev(section0, div3);
+    			mount_component(cardradio, div3, null);
+    			append_dev(div3, t0);
+    			append_dev(div3, div2);
+    			append_dev(div2, div0);
+    			mount_component(buttonradio, div0, null);
+    			append_dev(div0, t1);
+    			append_dev(div0, hr0);
+    			append_dev(div0, t2);
+    			mount_component(modelform, div0, null);
+    			append_dev(div2, t3);
+    			append_dev(div2, div1);
+    			if_blocks[current_block_type_index].m(div1, null);
+    			insert_dev(target, t4, anchor);
+    			insert_dev(target, hr1, anchor);
+    			insert_dev(target, t5, anchor);
+    			insert_dev(target, section1, anchor);
+    			mount_component(tutorial, section1, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const cardradio_changes = {};
+    			if (dirty & /*calculation*/ 8) cardradio_changes.calculation = /*calculation*/ ctx[3];
+    			cardradio.$set(cardradio_changes);
+    			const buttonradio_changes = {};
+    			if (dirty & /*chartType*/ 4) buttonradio_changes.chartType = /*chartType*/ ctx[2];
+    			buttonradio.$set(buttonradio_changes);
+    			const modelform_changes = {};
+    			if (dirty & /*isLoading*/ 16) modelform_changes.isLoading = /*isLoading*/ ctx[4];
+    			if (dirty & /*calculation*/ 8) modelform_changes.calculation = /*calculation*/ ctx[3];
+    			if (dirty & /*chartType*/ 4) modelform_changes.chartType = /*chartType*/ ctx[2];
+    			modelform.$set(modelform_changes);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx, dirty);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(div1, null);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cardradio.$$.fragment, local);
+    			transition_in(buttonradio.$$.fragment, local);
+    			transition_in(modelform.$$.fragment, local);
+    			transition_in(if_block);
+    			transition_in(tutorial.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(cardradio.$$.fragment, local);
+    			transition_out(buttonradio.$$.fragment, local);
+    			transition_out(modelform.$$.fragment, local);
+    			transition_out(if_block);
+    			transition_out(tutorial.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(section0);
+    			destroy_component(cardradio);
+    			destroy_component(buttonradio);
+    			destroy_component(modelform);
+    			if_blocks[current_block_type_index].d();
+    			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(hr1);
+    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(section1);
+    			destroy_component(tutorial);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const ROOT = "root"; //Allows for rollup to switch data root.
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+    	let data = new Map(["supply", "demand", "percentage", "difference"].map(d => [d, new Map(["line", "map"].map(e => [e, []]))]));
+    	let geoJSON;
+    	let chartType = "line";
+    	let projectionStartYear = 2019;
+    	let calculation = "difference";
+
+    	//Whether or not data is loading
+    	let isLoading = false;
+
+    	onMount(() => {
+    		dataFetch(`/model/public/maps/ncLayers.json`).then(json => {
+    			$$invalidate(1, geoJSON = json);
+    		}).catch(error => {
+    			console.error(error);
+    		});
+    	});
+
+    	async function getData(type, calc, allParams) {
+    		dataFetch(makeQueryURL(allParams)).then(function (newData) {
+    			if (type == "line") {
+    				const currentData = data.get(calc).get(type);
+    				data.get(calc).set(type, [...currentData, ...newData]);
+    			} else {
+    				data.get(calc).set(type, newData);
+    			}
+
+    			//Trigger change
+    			$$invalidate(0, data);
+    		}).catch(error => {
+    			console.error(error);
+    		}).finally(() => {
+    			// setTimeout(() => (isLoading = false), 3000);
+    			$$invalidate(4, isLoading = false);
+    		});
+    	}
+
+    	function handleShowProjection({ detail }) {
+    		$$invalidate(4, isLoading = true);
+    		getData(chartType, calculation, [{ name: "calculation", value: calculation }, ...detail]);
+    	} // console.log(detail);
+
+    	function handleDeleteProjection(e) {
+    		const currentProjections = data.get(calculation).get(chartType);
+    		data.get(calculation).set(chartType, currentProjections.filter(d => d.id != +e.detail));
+    		$$invalidate(0, data);
+    	}
+
+    	function handleClearData() {
+    		data.get(calculation).set(chartType, []);
+    		$$invalidate(0, data);
+    	}
+
+    	function handleCalculationClick({ detail }) {
+    		$$invalidate(3, calculation = detail);
+    	}
+
+    	function changeChartType({ detail }) {
+    		$$invalidate(2, chartType = detail);
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		LineChart,
+    		LineChartDifference2,
+    		SimpleMap,
+    		ModelForm,
+    		DownloadData,
+    		DownloadImage,
+    		IntroBlock,
+    		ButtonRadio,
+    		Tutorial,
+    		formInfo,
+    		onMount,
+    		dataFetch,
+    		makeQueryURL,
+    		CardRadio,
+    		cardInfo,
+    		ROOT,
+    		data,
+    		geoJSON,
+    		chartType,
+    		projectionStartYear,
+    		calculation,
+    		isLoading,
+    		getData,
+    		handleShowProjection,
+    		handleDeleteProjection,
+    		handleClearData,
+    		handleCalculationClick,
+    		changeChartType
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate(0, data = $$props.data);
+    		if ('geoJSON' in $$props) $$invalidate(1, geoJSON = $$props.geoJSON);
+    		if ('chartType' in $$props) $$invalidate(2, chartType = $$props.chartType);
+    		if ('projectionStartYear' in $$props) $$invalidate(5, projectionStartYear = $$props.projectionStartYear);
+    		if ('calculation' in $$props) $$invalidate(3, calculation = $$props.calculation);
+    		if ('isLoading' in $$props) $$invalidate(4, isLoading = $$props.isLoading);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*data*/ 1) {
+    			console.log(data);
+    		}
+    	};
+
+    	return [
+    		data,
+    		geoJSON,
+    		chartType,
+    		calculation,
+    		isLoading,
+    		projectionStartYear,
+    		handleShowProjection,
+    		handleDeleteProjection,
+    		handleClearData,
+    		handleCalculationClick,
+    		changeChartType
+    	];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+    }
+
+    const app = new App({
+    	target: document.getElementById("app"),
+    	props: {
+
+    	}
+    });
+
+    return app;
+
+})();
 //# sourceMappingURL=bundle.js.map
